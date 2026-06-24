@@ -1,0 +1,10 @@
+[ledger]
+code = "pl"
+name = "planledger"
+
+[project]
+name = "pyepubcheck"
+uuid = "2f1fefd4-940d-4b57-8de7-72e81a615ccb"
+
+[storage]
+planledger_dir = "../ledger/plan/pyepubcheck/"

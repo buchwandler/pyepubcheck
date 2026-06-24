@@ -1,40 +1,7 @@
 {
-  "schema_version": 1,
-  "items": [
-    {
-      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
-      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
-      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
-      "reason": "bootstrap result-model smoke test; internal behavior only",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
-      "reason": "bootstrap result-model smoke test; internal behavior only",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
-      "reason": "bootstrap configuration smoke test; internal behavior only",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
-      "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet",
-      "owner": "pyepubcheck"
-    },
-    {
-      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
-      "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet",
-      "owner": "pyepubcheck"
-    }
-  ]
+  "test_bootstrap_models": "unit test for internal models",
+  "test_support_harness": "unit test for test harness",
+  "test_harness": "acceptance harness smoke test",
+  "test_cli_bootstrap": "CLI bootstrap test",
+  "test_cli_reporting": "CLI reporting test"
 }
