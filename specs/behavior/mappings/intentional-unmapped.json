@@ -1,4 +1,30 @@
 {
   "schema_version": 1,
-  "items": []
+  "items": [
+    {
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
+      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet",
+      "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
+      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet",
+      "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+      "reason": "bootstrap result-model smoke test; internal behavior only",
+      "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+      "reason": "bootstrap result-model smoke test; internal behavior only",
+      "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+      "reason": "bootstrap configuration smoke test; internal behavior only",
+      "owner": "pyepubcheck"
+    }
+  ]
 }

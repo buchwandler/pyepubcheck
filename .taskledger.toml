@@ -7,9 +7,9 @@ project_uuid = "aaaa359c-310c-4a38-9c9c-67cde9e63960"
 project_name = "pyepubcheck"
 
 # Taskledger branch-scoped state. This block is intentionally safe to commit.
-ledger_ref = 'main'
-ledger_parent_ref = ''
-ledger_next_task_number = 1
+ledger_ref = "main"
+ledger_parent_ref = ""
+ledger_next_task_number = 2
 ledger_branch_guard = "off"
 
 # Cross-ledger identity. Local record IDs stay unchanged; global refs are derived.

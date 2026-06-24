@@ -16,10 +16,10 @@ required = false
 
 [gherkin]
 default_keyword = "Scenario"
-require_req_tag = true
-require_ac_tag = true
+require_req_tag = false
+require_ac_tag = false
 allow_markdown_gherkin = false
-official_parser = false
+official_parser = true
 
 [pytest]
 mapping_comment_prefix = "specmason"
