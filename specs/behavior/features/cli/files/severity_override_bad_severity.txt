@@ -1,0 +1,2 @@
+ID	Severity
+CSS-012	BogusSeverity
