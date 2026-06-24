@@ -50,6 +50,8 @@ MESSAGES: dict[str, MessageDef] = {
 
     # NCX messages
     "NCX-001": MessageDef(Severity.ERROR, "NCX parsing error"),
+    "NCX-002": MessageDef(Severity.ERROR, "duplicate NCX ID"),
+    "NCX-003": MessageDef(Severity.ERROR, "NCX resource not found in spine"),
     "NCX-004": MessageDef(Severity.USAGE, "usage information"),
     "NCX-006": MessageDef(Severity.ERROR, "NCX structure error"),
 

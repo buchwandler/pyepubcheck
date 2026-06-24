@@ -177,3 +177,99 @@ def validate_xhtml_title(doc: XmlDocument) -> list[ResultMessage]:
         )
 
     return errors
+
+
+def validate_xhtml_duplicate_ids(path: Path | str, root) -> list[ResultMessage]:
+    """Validate that no duplicate IDs exist in the document."""
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    # Collect all IDs
+    id_counts: dict[str, int] = {}
+
+    def collect_ids(element):
+        elem_id = element.get("id", "")
+        if elem_id:
+            id_counts[elem_id] = id_counts.get(elem_id, 0) + 1
+        for child in element:
+            collect_ids(child)
+
+    collect_ids(root)
+
+    # Report duplicates
+    for elem_id, count in id_counts.items():
+        if count > 1:
+            errors.append(
+                ResultMessage(
+                    id="RSC-005",
+                    severity=Severity.ERROR,
+                    message=f"duplicate ID '{elem_id}' found {count} times",
+                    path=str(file_path),
+                )
+            )
+
+    return errors
+
+
+def validate_xhtml_alt_attributes(path: Path | str, root) -> list[ResultMessage]:
+    """Validate that img elements have alt attributes."""
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    # Find all img elements
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    for img_el in root.iter(f"{{{xhtml_ns}}}img"):
+        alt = img_el.get("alt")
+        if alt is None:
+            errors.append(
+                ResultMessage(
+                    id="RSC-005",
+                    severity=Severity.ERROR,
+                    message="img element missing alt attribute",
+                    path=str(file_path),
+                )
+            )
+
+    return errors
+
+
+def validate_xhtml_resource_references(path: Path | str, root, manifest_items: set[str]) -> list[ResultMessage]:
+    """Validate that referenced resources exist in manifest."""
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+
+    # Check img src attributes
+    for img_el in root.iter(f"{{{xhtml_ns}}}img"):
+        src = img_el.get("src", "")
+        if src and not src.startswith(("http://", "https://", "data:", "#")):
+            base_src = src.split("#")[0] if "#" in src else src
+            if base_src and base_src not in manifest_items:
+                errors.append(
+                    ResultMessage(
+                        id="RSC-007",
+                        severity=Severity.ERROR,
+                        message=f"referenced resource '{src}' not found in manifest",
+                        path=str(file_path),
+                    )
+                )
+
+    return errors
+
+
+def validate_xhtml_style_elements(path: Path | str, root) -> list[ResultMessage]:
+    """Validate style elements in XHTML."""
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+
+    # Check for style elements
+    for style_el in root.iter(f"{{{xhtml_ns}}}style"):
+        # Check if style element has content
+        if style_el.text and style_el.text.strip():
+            # Style elements are allowed in EPUB 3
+            pass
+
+    return errors

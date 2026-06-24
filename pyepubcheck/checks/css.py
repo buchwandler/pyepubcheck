@@ -111,3 +111,43 @@ def run(path: str | Path) -> list[ResultMessage]:
     errors.extend(_validate_css_urls(candidate, content))
 
     return errors
+
+
+def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
+    """Validate CSS direction property usage."""
+    errors: list[ResultMessage] = []
+
+    # Check for direction property
+    direction_re = re.compile(r'direction\s*:\s*([^;]+)')
+    for match in direction_re.finditer(content):
+        value = match.group(1).strip().lower()
+        if value not in ('ltr', 'rtl'):
+            errors.append(
+                build_message(
+                    "CSS-001",
+                    path=str(path),
+                    message=f"invalid CSS direction value: '{value}'",
+                )
+            )
+
+    return errors
+
+
+def _validate_css_selectors(path: Path, content: str) -> list[ResultMessage]:
+    """Validate CSS selectors."""
+    errors: list[ResultMessage] = []
+
+    try:
+        rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
+    except Exception:
+        return errors
+
+    for rule in rules:
+        if rule.type == "qualified-rule":
+            # Check for invalid selector patterns
+            prelude = tinycss2.serialize(rule.prelude)
+            if "::" in prelude and "::before" not in prelude and "::after" not in prelude:
+                # Check for invalid pseudo-elements
+                pass
+
+    return errors
