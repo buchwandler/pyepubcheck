@@ -7,7 +7,7 @@
       "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
       "output": "",
       "status": "passed",
-      "time": 0.165
+      "time": 0.155
     },
     {
       "classname": "tests.acceptance.test_cli_bootstrap",
@@ -16,7 +16,7 @@
       "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
       "output": "",
       "status": "passed",
-      "time": 0.153
+      "time": 0.135
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -25,7 +25,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_conflicting_report_formats_are_rejected",
       "output": "",
       "status": "passed",
-      "time": 0.12
+      "time": 0.15
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -34,7 +34,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_overrides_apply",
       "output": "",
       "status": "passed",
-      "time": 0.113
+      "time": 0.165
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -43,7 +43,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_id.txt-CHK-002]",
       "output": "",
       "status": "passed",
-      "time": 0.133
+      "time": 0.166
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -52,7 +52,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_message.txt-CHK-004]",
       "output": "",
       "status": "passed",
-      "time": 0.111
+      "time": 0.158
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -61,7 +61,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_severity.txt-CHK-003]",
       "output": "",
       "status": "passed",
-      "time": 0.109
+      "time": 0.158
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -70,7 +70,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_suggestion.txt-CHK-005]",
       "output": "",
       "status": "passed",
-      "time": 0.112
+      "time": 0.169
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -79,7 +79,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_missing.txt-CHK-001]",
       "output": "",
       "status": "passed",
-      "time": 0.112
+      "time": 0.164
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -88,7 +88,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_failonwarnings_returns_error",
       "output": "",
       "status": "passed",
-      "time": 0.11
+      "time": 0.134
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -97,7 +97,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_json_stdout_report_suppresses_success_message",
       "output": "",
       "status": "passed",
-      "time": 0.12
+      "time": 0.152
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -106,7 +106,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_quiet_mode_allows_saving_xml_report",
       "output": "",
       "status": "passed",
-      "time": 0.128
+      "time": 0.157
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -115,7 +115,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-e-1-present1-absent1]",
       "output": "",
       "status": "passed",
-      "time": 0.112
+      "time": 0.136
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -124,7 +124,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-f-0-present2-absent2]",
       "output": "",
       "status": "passed",
-      "time": 0.111
+      "time": 0.139
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -133,7 +133,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-w-1-present0-absent0]",
       "output": "",
       "status": "passed",
-      "time": 0.114
+      "time": 0.143
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -142,7 +142,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_usage_flag_includes_usage_messages",
       "output": "",
       "status": "passed",
-      "time": 0.12
+      "time": 0.141
     },
     {
       "classname": "tests.acceptance.test_cli_reporting",
@@ -151,7 +151,7 @@
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_version_with_input_prints_version_and_success",
       "output": "",
       "status": "passed",
-      "time": 0.128
+      "time": 0.161
     },
     {
       "classname": "tests.acceptance.test_content_documents",
@@ -160,7 +160,7 @@
       "nodeid": "tests/acceptance/test_content_documents.py::test_css_missing_resource_reports_rsc_007",
       "output": "",
       "status": "passed",
-      "time": 0.11
+      "time": 0.153
     },
     {
       "classname": "tests.acceptance.test_content_documents",
@@ -169,7 +169,7 @@
       "nodeid": "tests/acceptance/test_content_documents.py::test_minimal_xhtml_document_passes",
       "output": "",
       "status": "passed",
-      "time": 0.103
+      "time": 0.196
     },
     {
       "classname": "tests.acceptance.test_content_documents",
@@ -178,7 +178,7 @@
       "nodeid": "tests/acceptance/test_content_documents.py::test_svg_use_without_fragment_reports_rsc_015",
       "output": "",
       "status": "passed",
-      "time": 0.099
+      "time": 0.156
     },
     {
       "classname": "tests.acceptance.test_content_documents",
@@ -187,7 +187,7 @@
       "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_title_error_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.109
+      "time": 0.164
     },
     {
       "classname": "tests.acceptance.test_harness",
@@ -196,7 +196,7 @@
       "nodeid": "tests/acceptance/test_harness.py::test_harness_collects_json_and_xml_reports",
       "output": "",
       "status": "passed",
-      "time": 0.226
+      "time": 0.375
     },
     {
       "classname": "tests.acceptance.test_harness",
@@ -205,7 +205,7 @@
       "nodeid": "tests/acceptance/test_harness.py::test_in_process_transport_supports_version",
       "output": "",
       "status": "passed",
-      "time": 0.004
+      "time": 0.005
     },
     {
       "classname": "tests.acceptance.test_harness",
@@ -214,7 +214,7 @@
       "nodeid": "tests/acceptance/test_harness.py::test_subprocess_transport_supports_version",
       "output": "",
       "status": "passed",
-      "time": 0.109
+      "time": 0.169
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -223,7 +223,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_accessibility_unknown_property_reports_opf_027",
       "output": "",
       "status": "passed",
-      "time": 0.104
+      "time": 0.189
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -232,7 +232,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_dictionary_missing_type_reports_rsc_005_and_opf_079",
       "output": "",
       "status": "passed",
-      "time": 0.107
+      "time": 0.321
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -241,7 +241,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_distributable_object_missing_identifier_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.098
+      "time": 0.194
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -250,7 +250,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_edupub_missing_pagelist_reports_nav_003",
       "output": "",
       "status": "passed",
-      "time": 0.115
+      "time": 0.172
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -259,7 +259,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_index_missing_index_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.113
+      "time": 0.162
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -268,7 +268,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_layout_unknown_value_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.111
+      "time": 0.16
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -277,7 +277,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_css_messages_switch_language",
       "output": "",
       "status": "passed",
-      "time": 0.102
+      "time": 0.182
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -286,7 +286,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_schema_messages_switch_language",
       "output": "",
       "status": "passed",
-      "time": 0.214
+      "time": 0.343
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -295,7 +295,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_media_overlay_metadata_syntax_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.108
+      "time": 0.162
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -304,7 +304,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_navigation_toc_missing_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.112
+      "time": 0.152
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -313,7 +313,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_preview_missing_dc_type_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.112
+      "time": 0.178
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -322,7 +322,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_region_nav_not_xhtml_reports_opf_012",
       "output": "",
       "status": "passed",
-      "time": 0.103
+      "time": 0.195
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -331,7 +331,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_scriptable_component_missing_prefix_reports_opf_028",
       "output": "",
       "status": "passed",
-      "time": 0.1
+      "time": 0.211
     },
     {
       "classname": "tests.acceptance.test_navigation_layout_profiles",
@@ -340,7 +340,7 @@
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_vocab_undeclared_prefix_reports_opf_028",
       "output": "",
       "status": "passed",
-      "time": 0.116
+      "time": 0.167
     },
     {
       "classname": "tests.acceptance.test_ocf_minimal",
@@ -349,7 +349,7 @@
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_invalid_mimetype_reports_pkg_007",
       "output": "",
       "status": "passed",
-      "time": 0.106
+      "time": 0.2
     },
     {
       "classname": "tests.acceptance.test_ocf_minimal",
@@ -358,7 +358,7 @@
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_expanded_epub_passes",
       "output": "",
       "status": "passed",
-      "time": 0.107
+      "time": 0.204
     },
     {
       "classname": "tests.acceptance.test_ocf_minimal",
@@ -367,7 +367,7 @@
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_packaged_epub_passes",
       "output": "",
       "status": "passed",
-      "time": 0.093
+      "time": 0.184
     },
     {
       "classname": "tests.acceptance.test_ocf_minimal",
@@ -376,7 +376,7 @@
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_missing_mimetype_reports_pkg_006",
       "output": "",
       "status": "passed",
-      "time": 0.102
+      "time": 0.176
     },
     {
       "classname": "tests.acceptance.test_ocf_minimal",
@@ -385,7 +385,7 @@
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_save_creates_epub_from_expanded_directory",
       "output": "",
       "status": "passed",
-      "time": 0.095
+      "time": 0.179
     },
     {
       "classname": "tests.acceptance.test_package_resources",
@@ -394,7 +394,7 @@
       "nodeid": "tests/acceptance/test_package_resources.py::test_duplicate_filename_reports_opf_060",
       "output": "",
       "status": "passed",
-      "time": 0.106
+      "time": 0.154
     },
     {
       "classname": "tests.acceptance.test_package_resources",
@@ -403,7 +403,7 @@
       "nodeid": "tests/acceptance/test_package_resources.py::test_forbidden_filename_reports_pkg_009",
       "output": "",
       "status": "passed",
-      "time": 0.111
+      "time": 0.162
     },
     {
       "classname": "tests.acceptance.test_package_resources",
@@ -412,7 +412,7 @@
       "nodeid": "tests/acceptance/test_package_resources.py::test_meta_inf_publication_resource_reports_pkg_025",
       "output": "",
       "status": "passed",
-      "time": 0.103
+      "time": 0.176
     },
     {
       "classname": "tests.acceptance.test_package_resources",
@@ -421,7 +421,7 @@
       "nodeid": "tests/acceptance/test_package_resources.py::test_package_href_spaces_warning_reports_pkg_010",
       "output": "",
       "status": "passed",
-      "time": 0.096
+      "time": 0.174
     },
     {
       "classname": "tests.acceptance.test_package_resources",
@@ -430,7 +430,7 @@
       "nodeid": "tests/acceptance/test_package_resources.py::test_package_namespace_error_reports_rsc_005",
       "output": "",
       "status": "passed",
-      "time": 0.094
+      "time": 0.198
     },
     {
       "classname": "tests.unit.test_bootstrap_models",
@@ -466,7 +466,7 @@
       "nodeid": "tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first",
       "output": "",
       "status": "passed",
-      "time": 0.004
+      "time": 0.005
     },
     {
       "classname": "tests.unit.test_support_harness",
@@ -475,7 +475,7 @@
       "nodeid": "tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths",
       "output": "",
       "status": "passed",
-      "time": 0.002
+      "time": 0.003
     }
   ],
   "findings": []

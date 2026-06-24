@@ -8,6 +8,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
+# specmason: @scenario-EPUBCHECK-5FBA1639
 def test_python_module_version() -> None:
     result = subprocess.run(
         [sys.executable, "-m", "pyepubcheck", "--version"],
@@ -20,6 +21,7 @@ def test_python_module_version() -> None:
     assert result.stdout.strip() == "EPUBCheck v0.1.0"
 
 
+# specmason: @scenario-EPUBCHECK-070C55A5
 def test_python_module_help() -> None:
     result = subprocess.run(
         [sys.executable, "-m", "pyepubcheck", "-h"],

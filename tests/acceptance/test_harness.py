@@ -5,21 +5,21 @@ from pathlib import Path
 from tests.support import build_epub_from_directory
 
 
-# specmason: unmapped=acceptance harness transport smoke test; product behavior mapping not assigned yet
+# specmason: unmapped=test infrastructure - transport smoke test
 def test_in_process_transport_supports_version(run_pyepubcheck) -> None:
     result = run_pyepubcheck("--version", transport="in_process")
     assert result.returncode == 0
     assert result.stdout.strip() == "EPUBCheck v0.1.0"
 
 
-# specmason: unmapped=acceptance harness transport smoke test; product behavior mapping not assigned yet
+# specmason: unmapped=test infrastructure - transport smoke test
 def test_subprocess_transport_supports_version(run_pyepubcheck) -> None:
     result = run_pyepubcheck("--version", transport="subprocess")
     assert result.returncode == 0
     assert result.stdout.strip() == "EPUBCheck v0.1.0"
 
 
-# specmason: unmapped=acceptance harness report-parsing smoke test; product behavior mapping not assigned yet
+# specmason: unmapped=test infrastructure - report parsing smoke test
 def test_harness_collects_json_and_xml_reports(run_pyepubcheck, tmp_path: Path) -> None:
     source = tmp_path / "sample"
     (source / "META-INF").mkdir(parents=True)

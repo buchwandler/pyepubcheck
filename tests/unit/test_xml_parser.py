@@ -15,6 +15,7 @@ from pyepubcheck.xml_parser import (
 )
 
 
+# specmason: @scenario-EPUBCHECK-2EF4BE8A
 class TestDetectDocType:
     """Test document type detection."""
 
@@ -59,6 +60,7 @@ class TestDetectDocType:
         assert detect_doc_type(root) == "unknown"
 
 
+# specmason: @scenario-EPUBCHECK-A4385CDA
 class TestLoadXmlString:
     """Test loading XML from string."""
 
@@ -85,6 +87,7 @@ class TestLoadXmlString:
         assert doc.doc_type == "opf"
 
 
+# specmason: @scenario-EPUBCHECK-DB777964
 class TestXmlDocument:
     """Test XmlDocument methods."""
 

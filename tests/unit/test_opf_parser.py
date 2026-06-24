@@ -18,6 +18,7 @@ from pyepubcheck.opf_parser import (
 )
 
 
+# specmason: @scenario-EPUBCHECK-BD7F26EB
 class TestParsePrefixAttribute:
     """Test prefix attribute parsing."""
 
@@ -40,6 +41,7 @@ class TestParsePrefixAttribute:
         assert len(result) == 0
 
 
+# specmason: @scenario-EPUBCHECK-13027092
 class TestParseOpf:
     """Test OPF document parsing."""
 

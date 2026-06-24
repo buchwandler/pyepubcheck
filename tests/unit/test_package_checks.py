@@ -18,6 +18,7 @@ from pyepubcheck.checks.package import (
 from pyepubcheck.opf_parser import parse_opf
 
 
+# specmason: @scenario-EPUBCHECK-CFF9E70D
 class TestValidateRenditionLayout:
     """Test rendition layout validation."""
 
@@ -39,6 +40,7 @@ class TestValidateRenditionLayout:
         assert len(errors) == 0
 
 
+# specmason: @scenario-EPUBCHECK-BD7F26EB
 class TestValidatePrefixAttribute:
     """Test prefix attribute validation."""
 
@@ -62,6 +64,7 @@ class TestValidatePrefixAttribute:
         assert len(errors) == 0
 
 
+# specmason: @scenario-EPUBCHECK-F00AF292
 class TestValidateHrefSpaces:
     """Test href space validation."""
 

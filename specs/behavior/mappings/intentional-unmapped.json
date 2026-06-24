@@ -1,7 +1,6 @@
 {
-  "test_bootstrap_models": "unit test for internal models",
-  "test_support_harness": "unit test for test harness",
-  "test_harness": "acceptance harness smoke test",
-  "test_cli_bootstrap": "CLI bootstrap test",
-  "test_cli_reporting": "CLI reporting test"
+  "test_bootstrap_models": "unit test for internal models - validates pyepubcheck internal data structures",
+  "test_support_harness": "unit test for test harness - validates test infrastructure utilities",
+  "test_harness": "acceptance harness smoke test - validates test transport and report parsing",
+  "test_gherkin_mapper": "unit test for specmason integration - validates gherkin mapping functionality"
 }

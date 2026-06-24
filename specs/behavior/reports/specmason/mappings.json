@@ -1,115 +1,922 @@
 {
-  "central_waivers": {
-    "tests/acceptance/test_cli_bootstrap.py::test_python_module_help": {
-      "expires": "",
-      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
-      "owner": "pyepubcheck",
-      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
-    },
-    "tests/acceptance/test_cli_bootstrap.py::test_python_module_version": {
-      "expires": "",
-      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
-      "owner": "pyepubcheck",
-      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
-    },
-    "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors": {
-      "expires": "",
-      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
-      "owner": "pyepubcheck",
-      "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet"
-    },
-    "tests/acceptance/test_cli_reporting.py::test_severity_filters": {
-      "expires": "",
-      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
-      "owner": "pyepubcheck",
-      "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet"
-    },
-    "tests/unit/test_bootstrap_models.py::test_validation_config_defaults": {
-      "expires": "",
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
-      "owner": "pyepubcheck",
-      "reason": "bootstrap configuration smoke test; internal behavior only"
-    },
-    "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors": {
-      "expires": "",
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
-      "owner": "pyepubcheck",
-      "reason": "bootstrap result-model smoke test; internal behavior only"
-    },
-    "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings": {
-      "expires": "",
-      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
-      "owner": "pyepubcheck",
-      "reason": "bootstrap result-model smoke test; internal behavior only"
-    }
-  },
+  "central_waivers": {},
   "findings": [],
   "tests": [
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
-        "owner": "pyepubcheck",
-        "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
-      },
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 137,
+      "mappings": [],
+      "name": "test_check_epub_with_no_extension",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_no_extension",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 453,
+      "mappings": [],
+      "name": "test_check_epub_with_no_extension_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_no_extension_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 128,
+      "mappings": [],
+      "name": "test_check_epub_with_non_epub_extension",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_non_epub_extension",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 443,
+      "mappings": [],
+      "name": "test_check_epub_with_non_epub_extension_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_non_epub_extension_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 119,
+      "mappings": [],
+      "name": "test_check_epub_with_poorly_cased_extension",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_poorly_cased_extension",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 433,
+      "mappings": [],
+      "name": "test_check_epub_with_poorly_cased_extension_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_poorly_cased_extension_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 100,
+      "mappings": [],
+      "name": "test_check_epub_with_warnings",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_warnings",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 412,
+      "mappings": [],
+      "name": "test_check_epub_with_warnings_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_epub_with_warnings_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 154,
+      "mappings": [],
+      "name": "test_check_single_invalid_navigation_document",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_single_invalid_navigation_document",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 472,
+      "mappings": [],
+      "name": "test_check_single_invalid_navigation_document_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_single_invalid_navigation_document_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 146,
+      "mappings": [],
+      "name": "test_check_single_valid_navigation_document",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_single_valid_navigation_document",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 463,
+      "mappings": [],
+      "name": "test_check_single_valid_navigation_document_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_single_valid_navigation_document_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 162,
+      "mappings": [],
+      "name": "test_check_unreadable_file",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_unreadable_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 481,
+      "mappings": [],
+      "name": "test_check_unreadable_file_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_unreadable_file_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 402,
+      "mappings": [],
+      "name": "test_check_valid_epub",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_valid_epub",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 91,
+      "mappings": [],
+      "name": "test_check_valid_packaged_epub",
+      "nodeid": "tests/acceptance/test_cli.py::test_check_valid_packaged_epub",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 293,
+      "mappings": [],
+      "name": "test_conflicting_report_formats",
+      "nodeid": "tests/acceptance/test_cli.py::test_conflicting_report_formats",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 625,
+      "mappings": [],
+      "name": "test_conflicting_report_formats_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_conflicting_report_formats_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 342,
+      "mappings": [],
+      "name": "test_custom_message_overrides",
+      "nodeid": "tests/acceptance/test_cli.py::test_custom_message_overrides",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 680,
+      "mappings": [],
+      "name": "test_custom_message_overrides_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_custom_message_overrides_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 352,
+      "mappings": [],
+      "name": "test_custom_message_overrides_with_severity",
+      "nodeid": "tests/acceptance/test_cli.py::test_custom_message_overrides_with_severity",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 691,
+      "mappings": [],
+      "name": "test_custom_message_overrides_with_severity_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_custom_message_overrides_with_severity_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 233,
+      "mappings": [],
+      "name": "test_error_messages_silenced_with_f_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_error_messages_silenced_with_f_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 559,
+      "mappings": [],
+      "name": "test_error_messages_silenced_with_f_flag_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_error_messages_silenced_with_f_flag_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 242,
+      "mappings": [],
+      "name": "test_failonwarnings",
+      "nodeid": "tests/acceptance/test_cli.py::test_failonwarnings",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 569,
+      "mappings": [],
+      "name": "test_failonwarnings_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_failonwarnings_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 42,
+      "mappings": [],
+      "name": "test_help_double_dash_help_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_help_double_dash_help_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 18,
+      "mappings": [],
+      "name": "test_help_h_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_help_h_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 34,
+      "mappings": [],
+      "name": "test_help_help_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_help_help_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 26,
+      "mappings": [],
+      "name": "test_help_question_mark_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_help_question_mark_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 318,
+      "mappings": [],
+      "name": "test_invalid_locale_fallback",
+      "nodeid": "tests/acceptance/test_cli.py::test_invalid_locale_fallback",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 653,
+      "mappings": [],
+      "name": "test_invalid_locale_fallback_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_invalid_locale_fallback_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 284,
+      "mappings": [],
+      "name": "test_json_report_stdout",
+      "nodeid": "tests/acceptance/test_cli.py::test_json_report_stdout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 615,
+      "mappings": [],
+      "name": "test_json_report_stdout_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_json_report_stdout_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 302,
+      "mappings": [],
+      "name": "test_locale_option",
+      "nodeid": "tests/acceptance/test_cli.py::test_locale_option",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 635,
+      "mappings": [],
+      "name": "test_locale_option_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_locale_option_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 326,
+      "mappings": [],
+      "name": "test_missing_locale_argument",
+      "nodeid": "tests/acceptance/test_cli.py::test_missing_locale_argument",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 662,
+      "mappings": [],
+      "name": "test_missing_locale_argument_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_missing_locale_argument_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 334,
+      "mappings": [],
+      "name": "test_missing_locale_argument_last_option",
+      "nodeid": "tests/acceptance/test_cli.py::test_missing_locale_argument_last_option",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 671,
+      "mappings": [],
+      "name": "test_missing_locale_argument_last_option_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_missing_locale_argument_last_option_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 75,
+      "mappings": [],
+      "name": "test_no_command_argument",
+      "nodeid": "tests/acceptance/test_cli.py::test_no_command_argument",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 381,
+      "mappings": [],
+      "name": "test_override_parameters_mismatch",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_parameters_mismatch",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 723,
+      "mappings": [],
+      "name": "test_override_parameters_mismatch_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_parameters_mismatch_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 391,
+      "mappings": [],
+      "name": "test_override_suggestion_parameters_mismatch",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_suggestion_parameters_mismatch",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 734,
+      "mappings": [],
+      "name": "test_override_suggestion_parameters_mismatch_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_suggestion_parameters_mismatch_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 361,
+      "mappings": [],
+      "name": "test_override_unknown_message_id",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_unknown_message_id",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 701,
+      "mappings": [],
+      "name": "test_override_unknown_message_id_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_unknown_message_id_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 371,
+      "mappings": [],
+      "name": "test_override_unknown_severity",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_unknown_severity",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 712,
+      "mappings": [],
+      "name": "test_override_unknown_severity_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_override_unknown_severity_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 179,
+      "mappings": [],
+      "name": "test_quiet_mode",
+      "nodeid": "tests/acceptance/test_cli.py::test_quiet_mode",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 499,
+      "mappings": [],
+      "name": "test_quiet_mode_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_quiet_mode_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 188,
+      "mappings": [],
+      "name": "test_quiet_mode_with_save",
+      "nodeid": "tests/acceptance/test_cli.py::test_quiet_mode_with_save",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 509,
+      "mappings": [],
+      "name": "test_quiet_mode_with_save_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_quiet_mode_with_save_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 276,
+      "mappings": [],
+      "name": "test_save_json_report",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_json_report",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 606,
+      "mappings": [],
+      "name": "test_save_json_report_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_json_report_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 170,
+      "mappings": [],
+      "name": "test_save_resulting_epub",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_resulting_epub",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 490,
+      "mappings": [],
+      "name": "test_save_resulting_epub_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_resulting_epub_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 260,
+      "mappings": [],
+      "name": "test_save_xml_report_with_o_option",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xml_report_with_o_option",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 588,
+      "mappings": [],
+      "name": "test_save_xml_report_with_o_option_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xml_report_with_o_option_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 251,
+      "mappings": [],
+      "name": "test_save_xml_report_with_out_option",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xml_report_with_out_option",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 579,
+      "mappings": [],
+      "name": "test_save_xml_report_with_out_option_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xml_report_with_out_option_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 268,
+      "mappings": [],
+      "name": "test_save_xmp_report",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xmp_report",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 597,
+      "mappings": [],
+      "name": "test_save_xmp_report_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_save_xmp_report_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 84,
+      "mappings": [],
+      "name": "test_unknown_option",
+      "nodeid": "tests/acceptance/test_cli.py::test_unknown_option",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 310,
+      "mappings": [],
+      "name": "test_unsupported_locale_fallback",
+      "nodeid": "tests/acceptance/test_cli.py::test_unsupported_locale_fallback",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 644,
+      "mappings": [],
+      "name": "test_unsupported_locale_fallback_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_unsupported_locale_fallback_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 197,
+      "mappings": [],
+      "name": "test_usage_messages_not_reported_by_default",
+      "nodeid": "tests/acceptance/test_cli.py::test_usage_messages_not_reported_by_default",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 519,
+      "mappings": [],
+      "name": "test_usage_messages_not_reported_by_default_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_usage_messages_not_reported_by_default_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 206,
+      "mappings": [],
+      "name": "test_usage_messages_with_u_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_usage_messages_with_u_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 529,
+      "mappings": [],
+      "name": "test_usage_messages_with_u_flag_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_usage_messages_with_u_flag_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 58,
+      "mappings": [],
+      "name": "test_version_double_dash_version_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_version_double_dash_version_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 109,
+      "mappings": [],
+      "name": "test_version_info_comes_first",
+      "nodeid": "tests/acceptance/test_cli.py::test_version_info_comes_first",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 422,
+      "mappings": [],
+      "name": "test_version_info_comes_first_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_version_info_comes_first_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 50,
+      "mappings": [],
+      "name": "test_version_version_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_version_version_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 66,
+      "mappings": [],
+      "name": "test_version_with_file",
+      "nodeid": "tests/acceptance/test_cli.py::test_version_with_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 224,
+      "mappings": [],
+      "name": "test_warning_messages_silenced_with_e_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_warning_messages_silenced_with_e_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 549,
+      "mappings": [],
+      "name": "test_warning_messages_silenced_with_e_flag_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_warning_messages_silenced_with_e_flag_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 215,
+      "mappings": [],
+      "name": "test_warning_messages_with_w_flag",
+      "nodeid": "tests/acceptance/test_cli.py::test_warning_messages_with_w_flag",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli.py",
+      "inline_waiver": null,
+      "lineno": 539,
+      "mappings": [],
+      "name": "test_warning_messages_with_w_flag_2",
+      "nodeid": "tests/acceptance/test_cli.py::test_warning_messages_with_w_flag_2",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_bootstrap.py",
       "inline_waiver": null,
-      "lineno": 23,
+      "lineno": 25,
       "mappings": [],
       "name": "test_python_module_help",
       "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
-        "owner": "pyepubcheck",
-        "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
-      },
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_bootstrap.py",
       "inline_waiver": null,
-      "lineno": 11,
+      "lineno": 12,
       "mappings": [],
       "name": "test_python_module_version",
       "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 31,
       "mappings": [],
       "name": "test_conflicting_report_formats_are_rejected",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_conflicting_report_formats_are_rejected",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 94,
       "mappings": [],
       "name": "test_custom_message_overrides_apply",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_overrides_apply",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
-        "owner": "pyepubcheck",
-        "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet"
-      },
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
       "inline_waiver": null,
@@ -117,54 +924,43 @@
       "mappings": [],
       "name": "test_custom_message_validation_errors",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 48,
       "mappings": [],
       "name": "test_failonwarnings_returns_error",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_failonwarnings_returns_error",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 84,
       "mappings": [],
       "name": "test_json_stdout_report_suppresses_success_message",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_json_stdout_report_suppresses_success_message",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 22,
       "mappings": [],
       "name": "test_quiet_mode_allows_saving_xml_report",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_quiet_mode_allows_saving_xml_report",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
-        "owner": "pyepubcheck",
-        "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet"
-      },
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
       "inline_waiver": null,
@@ -172,92 +968,1554 @@
       "mappings": [],
       "name": "test_severity_filters",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 56,
       "mappings": [],
       "name": "test_usage_flag_includes_usage_messages",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_usage_flag_includes_usage_messages",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_cli_reporting.py",
-      "inline_waiver": {
-        "reason": "CLI acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 13,
       "mappings": [],
       "name": "test_version_with_input_prints_version_and_success",
       "nodeid": "tests/acceptance/test_cli_reporting.py::test_version_with_input_prints_version_and_success",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_content_documents.py",
-      "inline_waiver": {
-        "reason": "content-document acceptance slice pending imported requirement mapping"
-      },
-      "lineno": 32,
+      "inline_waiver": null,
+      "lineno": 205,
+      "mappings": [],
+      "name": "test_css_direction_property",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_direction_property",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 196,
+      "mappings": [],
+      "name": "test_css_minimal_stylesheet",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_minimal_stylesheet",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 34,
       "mappings": [],
       "name": "test_css_missing_resource_reports_rsc_007",
       "nodeid": "tests/acceptance/test_content_documents.py::test_css_missing_resource_reports_rsc_007",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_content_documents.py",
-      "inline_waiver": {
-        "reason": "content-document acceptance slice pending imported requirement mapping"
-      },
-      "lineno": 9,
+      "inline_waiver": null,
+      "lineno": 223,
+      "mappings": [],
+      "name": "test_css_syntax_errors",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_syntax_errors",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 214,
+      "mappings": [],
+      "name": "test_css_valid_selectors",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_valid_selectors",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 11,
       "mappings": [],
       "name": "test_minimal_xhtml_document_passes",
       "nodeid": "tests/acceptance/test_content_documents.py::test_minimal_xhtml_document_passes",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_content_documents.py",
-      "inline_waiver": {
-        "reason": "content-document acceptance slice pending imported requirement mapping"
-      },
-      "lineno": 24,
+      "inline_waiver": null,
+      "lineno": 241,
+      "mappings": [],
+      "name": "test_svg_any_extension",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_any_extension",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 259,
+      "mappings": [],
+      "name": "test_svg_duplicate_id",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_duplicate_id",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 232,
+      "mappings": [],
+      "name": "test_svg_in_spine",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_in_spine",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 250,
+      "mappings": [],
+      "name": "test_svg_links_allowed",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_links_allowed",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 26,
       "mappings": [],
       "name": "test_svg_use_without_fragment_reports_rsc_015",
       "nodeid": "tests/acceptance/test_content_documents.py::test_svg_use_without_fragment_reports_rsc_015",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_content_documents.py",
-      "inline_waiver": {
-        "reason": "content-document acceptance slice pending imported requirement mapping"
-      },
-      "lineno": 16,
+      "inline_waiver": null,
+      "lineno": 170,
+      "mappings": [],
+      "name": "test_xhtml_custom_namespace_attributes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_custom_namespace_attributes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 46,
+      "mappings": [],
+      "name": "test_xhtml_duplicate_id_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_duplicate_id_reports_rsc_005",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 153,
+      "mappings": [],
+      "name": "test_xhtml_epub_type_attribute",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_epub_type_attribute",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 82,
+      "mappings": [],
+      "name": "test_xhtml_escaped_hyperlinks",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_escaped_hyperlinks",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 91,
+      "mappings": [],
+      "name": "test_xhtml_hyperlink_to_missing_resource",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_hyperlink_to_missing_resource",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 64,
+      "mappings": [],
+      "name": "test_xhtml_img_empty_src_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_img_empty_src_reports_rsc_005",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 55,
+      "mappings": [],
+      "name": "test_xhtml_img_no_alt_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_img_no_alt_reports_rsc_005",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 187,
+      "mappings": [],
+      "name": "test_xhtml_its_attributes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_its_attributes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 136,
+      "mappings": [],
+      "name": "test_xhtml_mathml_formula",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_mathml_formula",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 144,
+      "mappings": [],
+      "name": "test_xhtml_mathml_prefixed",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_mathml_prefixed",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 161,
+      "mappings": [],
+      "name": "test_xhtml_rdfa_attributes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_rdfa_attributes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 73,
+      "mappings": [],
+      "name": "test_xhtml_reference_to_undeclared_resource",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_reference_to_undeclared_resource",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 178,
+      "mappings": [],
+      "name": "test_xhtml_ssml_attributes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_ssml_attributes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 109,
+      "mappings": [],
+      "name": "test_xhtml_style_attribute",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_style_attribute",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 100,
+      "mappings": [],
+      "name": "test_xhtml_style_element",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_style_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 118,
+      "mappings": [],
+      "name": "test_xhtml_svg_image_reference",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_svg_image_reference",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 127,
+      "mappings": [],
+      "name": "test_xhtml_svg_inclusion",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_svg_inclusion",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": null,
+      "lineno": 18,
       "mappings": [],
       "name": "test_xhtml_title_error_reports_rsc_005",
       "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_title_error_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 146,
+      "mappings": [],
+      "name": "test_fallback_non_resolving",
+      "nodeid": "tests/acceptance/test_epub2.py::test_fallback_non_resolving",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 137,
+      "mappings": [],
+      "name": "test_hyperlinked_document_not_in_spine",
+      "nodeid": "tests/acceptance/test_epub2.py::test_hyperlinked_document_not_in_spine",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 48,
+      "mappings": [],
+      "name": "test_item_href_with_spaces_reports_pkg_010",
+      "nodeid": "tests/acceptance/test_epub2.py::test_item_href_with_spaces_reports_pkg_010",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 155,
+      "mappings": [],
+      "name": "test_manifest_item_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_manifest_item_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 164,
+      "mappings": [],
+      "name": "test_manifest_item_resource_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_manifest_item_resource_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 173,
+      "mappings": [],
+      "name": "test_manifest_item_xhtml_mediatype_html",
+      "nodeid": "tests/acceptance/test_epub2.py::test_manifest_item_xhtml_mediatype_html",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 233,
+      "mappings": [],
+      "name": "test_manifest_os_files_ignored",
+      "nodeid": "tests/acceptance/test_epub2.py::test_manifest_os_files_ignored",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 119,
+      "mappings": [],
+      "name": "test_meta_inf_container_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_meta_inf_container_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 110,
+      "mappings": [],
+      "name": "test_meta_inf_unknown_files_ignored",
+      "nodeid": "tests/acceptance/test_epub2.py::test_meta_inf_unknown_files_ignored",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 285,
+      "mappings": [],
+      "name": "test_metadata_creator_role_clr_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_metadata_creator_role_clr_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 24,
+      "mappings": [],
+      "name": "test_minimal_epub2_passes",
+      "nodeid": "tests/acceptance/test_epub2.py::test_minimal_epub2_passes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 32,
+      "mappings": [],
+      "name": "test_missing_mimetype_reports_pkg_006",
+      "nodeid": "tests/acceptance/test_epub2.py::test_missing_mimetype_reports_pkg_006",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 92,
+      "mappings": [],
+      "name": "test_ncx_id_duplicate_error",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_id_duplicate_error",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 277,
+      "mappings": [],
+      "name": "test_ncx_id_syntax_invalid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_id_syntax_invalid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 268,
+      "mappings": [],
+      "name": "test_ncx_label_empty_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_label_empty_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 260,
+      "mappings": [],
+      "name": "test_ncx_link_to_non_ops",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_link_to_non_ops",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 101,
+      "mappings": [],
+      "name": "test_ncx_missing_resource_error",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_missing_resource_error",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 251,
+      "mappings": [],
+      "name": "test_ncx_uid_mismatch",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_uid_mismatch",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 83,
+      "mappings": [],
+      "name": "test_ncx_uid_spaces_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ncx_uid_spaces_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 301,
+      "mappings": [],
+      "name": "test_ocf_filename_with_space_warning",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_filename_with_space_warning",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 309,
+      "mappings": [],
+      "name": "test_ocf_metainf_container_alternative_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_metainf_container_alternative_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 318,
+      "mappings": [],
+      "name": "test_ocf_metainf_container_mediatype_invalid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_metainf_container_mediatype_invalid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 327,
+      "mappings": [],
+      "name": "test_ocf_metainf_container_multiple_opf",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_metainf_container_multiple_opf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 336,
+      "mappings": [],
+      "name": "test_ocf_metainf_container_rootfile_full_path_empty",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_metainf_container_rootfile_full_path_empty",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 345,
+      "mappings": [],
+      "name": "test_ocf_metainf_container_rootfile_full_path_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_metainf_container_rootfile_full_path_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 354,
+      "mappings": [],
+      "name": "test_ocf_mimetype_with_spaces",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_mimetype_with_spaces",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 363,
+      "mappings": [],
+      "name": "test_ocf_opf_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ocf_opf_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 372,
+      "mappings": [],
+      "name": "test_opf_guide_reference_to_image",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_guide_reference_to_image",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 381,
+      "mappings": [],
+      "name": "test_opf_guide_reference_undeclared",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_guide_reference_undeclared",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 390,
+      "mappings": [],
+      "name": "test_opf_legacy_oebps12",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_legacy_oebps12",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 399,
+      "mappings": [],
+      "name": "test_opf_legacy_oebps12_mediatype_css",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_legacy_oebps12_mediatype_css",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 408,
+      "mappings": [],
+      "name": "test_opf_legacy_oebps12_mediatype_html",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_legacy_oebps12_mediatype_html",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 417,
+      "mappings": [],
+      "name": "test_opf_pagemap_error",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_pagemap_error",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 426,
+      "mappings": [],
+      "name": "test_opf_pagemap_ref_not_found",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_pagemap_ref_not_found",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 435,
+      "mappings": [],
+      "name": "test_opf_version_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_opf_version_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 443,
+      "mappings": [],
+      "name": "test_ops_dtbook_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_dtbook_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 602,
+      "mappings": [],
+      "name": "test_ops_svg_font_face_src",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_svg_font_face_src",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 217,
+      "mappings": [],
+      "name": "test_ops_svg_namespaced_extensions",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_svg_namespaced_extensions",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 545,
+      "mappings": [],
+      "name": "test_ops_xhtml_class_empty",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_class_empty",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 209,
+      "mappings": [],
+      "name": "test_ops_xhtml_custom_namespace",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_custom_namespace",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 486,
+      "mappings": [],
+      "name": "test_ops_xhtml_doctype_html5",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_doctype_html5",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 594,
+      "mappings": [],
+      "name": "test_ops_xhtml_doctype_public_id",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_doctype_public_id",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 477,
+      "mappings": [],
+      "name": "test_ops_xhtml_doctype_unresolved_entity",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_doctype_unresolved_entity",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 569,
+      "mappings": [],
+      "name": "test_ops_xhtml_edit_attributes",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_edit_attributes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 577,
+      "mappings": [],
+      "name": "test_ops_xhtml_edit_block_content",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_edit_block_content",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 561,
+      "mappings": [],
+      "name": "test_ops_xhtml_entities_character_references",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_entities_character_references",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 512,
+      "mappings": [],
+      "name": "test_ops_xhtml_entities_unknown",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_entities_unknown",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 521,
+      "mappings": [],
+      "name": "test_ops_xhtml_html5_elements",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_html5_elements",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 495,
+      "mappings": [],
+      "name": "test_ops_xhtml_hyperlinks_nested",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_hyperlinks_nested",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 504,
+      "mappings": [],
+      "name": "test_ops_xhtml_id_duplicate",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_id_duplicate",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 553,
+      "mappings": [],
+      "name": "test_ops_xhtml_lang_attr",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_lang_attr",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 452,
+      "mappings": [],
+      "name": "test_ops_xhtml_link_to_missing_stylesheet",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_link_to_missing_stylesheet",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 585,
+      "mappings": [],
+      "name": "test_ops_xhtml_map_usemap_fragment",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_map_usemap_fragment",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 225,
+      "mappings": [],
+      "name": "test_ops_xhtml_minimal",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_minimal",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 200,
+      "mappings": [],
+      "name": "test_ops_xhtml_missing_namespace",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_missing_namespace",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 460,
+      "mappings": [],
+      "name": "test_ops_xhtml_script_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_script_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 537,
+      "mappings": [],
+      "name": "test_ops_xhtml_svg_foreignObject_switch",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_svg_foreignObject_switch",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 529,
+      "mappings": [],
+      "name": "test_ops_xhtml_svg_foreignObject_with_html",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_svg_foreignObject_with_html",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 468,
+      "mappings": [],
+      "name": "test_ops_xhtml_unusual_extension",
+      "nodeid": "tests/acceptance/test_epub2.py::test_ops_xhtml_unusual_extension",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 293,
+      "mappings": [],
+      "name": "test_package_id_spaces_valid",
+      "nodeid": "tests/acceptance/test_epub2.py::test_package_id_spaces_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 242,
+      "mappings": [],
+      "name": "test_remote_object_undeclared",
+      "nodeid": "tests/acceptance/test_epub2.py::test_remote_object_undeclared",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 128,
+      "mappings": [],
+      "name": "test_resource_not_in_manifest_usage",
+      "nodeid": "tests/acceptance/test_epub2.py::test_resource_not_in_manifest_usage",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 182,
+      "mappings": [],
+      "name": "test_spine_itemref_repeated",
+      "nodeid": "tests/acceptance/test_epub2.py::test_spine_itemref_repeated",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 191,
+      "mappings": [],
+      "name": "test_spine_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_spine_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 66,
+      "mappings": [],
+      "name": "test_spine_toc_attribute_missing",
+      "nodeid": "tests/acceptance/test_epub2.py::test_spine_toc_attribute_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 75,
+      "mappings": [],
+      "name": "test_spine_toc_must_point_to_ncx",
+      "nodeid": "tests/acceptance/test_epub2.py::test_spine_toc_must_point_to_ncx",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 57,
+      "mappings": [],
+      "name": "test_unique_identifier_not_found_reports_opf_030",
+      "nodeid": "tests/acceptance/test_epub2.py::test_unique_identifier_not_found_reports_opf_030",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub2.py",
+      "inline_waiver": null,
+      "lineno": 40,
+      "mappings": [],
+      "name": "test_wrong_default_namespace_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_epub2.py::test_wrong_default_namespace_reports_rsc_005",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 349,
+      "mappings": [],
+      "name": "test_accessibility_certifier_credential",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_accessibility_certifier_credential",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 358,
+      "mappings": [],
+      "name": "test_accessibility_exemption_property",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_accessibility_exemption_property",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 332,
+      "mappings": [],
+      "name": "test_accessibility_prefix_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_accessibility_prefix_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 340,
+      "mappings": [],
+      "name": "test_accessibility_unknown_property",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_accessibility_unknown_property",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 28,
+      "mappings": [],
+      "name": "test_dictionary_dc_type_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_dc_type_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 97,
+      "mappings": [],
+      "name": "test_dictionary_glossary_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_glossary_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 88,
+      "mappings": [],
+      "name": "test_dictionary_multiple_publication",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_multiple_publication",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 45,
+      "mappings": [],
+      "name": "test_dictionary_search_key_map_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_search_key_map_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 80,
+      "mappings": [],
+      "name": "test_dictionary_single_publication",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_single_publication",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 36,
+      "mappings": [],
+      "name": "test_dictionary_single_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_single_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 72,
+      "mappings": [],
+      "name": "test_dictionary_source_language_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_source_language_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 54,
+      "mappings": [],
+      "name": "test_dictionary_type_monolingual_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_type_monolingual_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 63,
+      "mappings": [],
+      "name": "test_dictionary_type_unknown_value",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_dictionary_type_unknown_value",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 379,
+      "mappings": [],
+      "name": "test_distributable_object_identifier_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_distributable_object_identifier_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 371,
+      "mappings": [],
+      "name": "test_distributable_object_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_distributable_object_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 128,
+      "mappings": [],
+      "name": "test_edupub_accessibility_features_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_accessibility_features_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 137,
+      "mappings": [],
+      "name": "test_edupub_basic_publication",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_basic_publication",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 171,
+      "mappings": [],
+      "name": "test_edupub_body_as_section",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_body_as_section",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 180,
+      "mappings": [],
+      "name": "test_edupub_body_section_without_heading",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_body_section_without_heading",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 162,
+      "mappings": [],
+      "name": "test_edupub_content_document_minimal",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_content_document_minimal",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 119,
+      "mappings": [],
+      "name": "test_edupub_dc_type_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_dc_type_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 189,
+      "mappings": [],
+      "name": "test_edupub_heading_aria_role",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_heading_aria_role",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 110,
+      "mappings": [],
+      "name": "test_edupub_minimal_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_minimal_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 145,
+      "mappings": [],
+      "name": "test_edupub_page_list_missing",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_page_list_missing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 153,
+      "mappings": [],
+      "name": "test_edupub_page_list_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_edupub_page_list_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 211,
+      "mappings": [],
+      "name": "test_indexes_collection_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_collection_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 255,
+      "mappings": [],
+      "name": "test_indexes_collection_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_collection_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 263,
+      "mappings": [],
+      "name": "test_indexes_collection_without_index",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_collection_without_index",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 202,
+      "mappings": [],
+      "name": "test_indexes_minimal_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_minimal_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 220,
+      "mappings": [],
+      "name": "test_indexes_publication_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_publication_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 229,
+      "mappings": [],
+      "name": "test_indexes_publication_without_index",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_publication_without_index",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 238,
+      "mappings": [],
+      "name": "test_indexes_single_file_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_single_file_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 246,
+      "mappings": [],
+      "name": "test_indexes_single_file_without_index",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_indexes_single_file_without_index",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 319,
+      "mappings": [],
+      "name": "test_previews_collection_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_collection_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 284,
+      "mappings": [],
+      "name": "test_previews_dc_type_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_dc_type_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 310,
+      "mappings": [],
+      "name": "test_previews_embedded_manifest_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_embedded_manifest_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 302,
+      "mappings": [],
+      "name": "test_previews_embedded_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_embedded_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 276,
+      "mappings": [],
+      "name": "test_previews_publication_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_publication_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 293,
+      "mappings": [],
+      "name": "test_previews_source_publication_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_previews_source_publication_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 400,
+      "mappings": [],
+      "name": "test_scriptable_component_prefix_required",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_scriptable_component_prefix_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_epub_profiles.py",
+      "inline_waiver": null,
+      "lineno": 392,
+      "mappings": [],
+      "name": "test_scriptable_component_valid",
+      "nodeid": "tests/acceptance/test_epub_profiles.py::test_scriptable_component_valid",
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_harness.py",
       "inline_waiver": {
-        "reason": "acceptance harness report-parsing smoke test; product behavior mapping not assigned yet"
+        "reason": "test infrastructure - report parsing smoke test"
       },
       "lineno": 23,
       "mappings": [],
@@ -270,7 +2528,7 @@
       "class_name": "",
       "file": "tests/acceptance/test_harness.py",
       "inline_waiver": {
-        "reason": "acceptance harness transport smoke test; product behavior mapping not assigned yet"
+        "reason": "test infrastructure - transport smoke test"
       },
       "lineno": 9,
       "mappings": [],
@@ -283,7 +2541,7 @@
       "class_name": "",
       "file": "tests/acceptance/test_harness.py",
       "inline_waiver": {
-        "reason": "acceptance harness transport smoke test; product behavior mapping not assigned yet"
+        "reason": "test infrastructure - transport smoke test"
       },
       "lineno": 16,
       "mappings": [],
@@ -294,243 +2552,427 @@
     {
       "central_waiver": null,
       "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 90,
+      "mappings": [],
+      "name": "test_case_conversion_locale_dependent",
+      "nodeid": "tests/acceptance/test_localization.py::test_case_conversion_locale_dependent",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 47,
+      "mappings": [],
+      "name": "test_css_messages_localized",
+      "nodeid": "tests/acceptance/test_localization.py::test_css_messages_localized",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 16,
+      "mappings": [],
+      "name": "test_default_locale_is_english",
+      "nodeid": "tests/acceptance/test_localization.py::test_default_locale_is_english",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 25,
+      "mappings": [],
+      "name": "test_locale_can_be_configured",
+      "nodeid": "tests/acceptance/test_localization.py::test_locale_can_be_configured",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 34,
+      "mappings": [],
+      "name": "test_locale_overrides_default",
+      "nodeid": "tests/acceptance/test_localization.py::test_locale_overrides_default",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 73,
+      "mappings": [],
+      "name": "test_locale_reset_after_scenario",
+      "nodeid": "tests/acceptance/test_localization.py::test_locale_reset_after_scenario",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_localization.py",
+      "inline_waiver": null,
+      "lineno": 60,
+      "mappings": [],
+      "name": "test_schema_messages_localized",
+      "nodeid": "tests/acceptance/test_localization.py::test_schema_messages_localized",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 19,
+      "mappings": [],
+      "name": "test_multiple_renditions_basic",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_basic",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 100,
+      "mappings": [],
+      "name": "test_multiple_renditions_comics_semantics",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_comics_semantics",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 28,
+      "mappings": [],
+      "name": "test_multiple_renditions_container_required",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_container_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 109,
+      "mappings": [],
+      "name": "test_multiple_renditions_metadata",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_metadata",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 46,
+      "mappings": [],
+      "name": "test_multiple_renditions_nav_element",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_nav_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 91,
+      "mappings": [],
+      "name": "test_multiple_renditions_region_nav_content_model",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_region_nav_content_model",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 73,
+      "mappings": [],
+      "name": "test_multiple_renditions_region_nav_element",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_region_nav_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 82,
+      "mappings": [],
+      "name": "test_multiple_renditions_region_nav_fixed_layout",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_region_nav_fixed_layout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 64,
+      "mappings": [],
+      "name": "test_multiple_renditions_region_navigation",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_region_navigation",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 118,
+      "mappings": [],
+      "name": "test_multiple_renditions_rendition_mapping",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_rendition_mapping",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 55,
+      "mappings": [],
+      "name": "test_multiple_renditions_single_data_nav",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_single_data_nav",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 37,
+      "mappings": [],
+      "name": "test_multiple_renditions_spine_required",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_spine_required",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_multiple_renditions.py",
+      "inline_waiver": null,
+      "lineno": 127,
+      "mappings": [],
+      "name": "test_multiple_renditions_version",
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_version",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 87,
       "mappings": [],
       "name": "test_accessibility_unknown_property_reports_opf_027",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_accessibility_unknown_property_reports_opf_027",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 58,
       "mappings": [],
       "name": "test_dictionary_missing_type_reports_rsc_005_and_opf_079",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_dictionary_missing_type_reports_rsc_005_and_opf_079",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 80,
       "mappings": [],
       "name": "test_distributable_object_missing_identifier_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_distributable_object_missing_identifier_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 37,
       "mappings": [],
       "name": "test_edupub_missing_pagelist_reports_nav_003",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_edupub_missing_pagelist_reports_nav_003",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 44,
       "mappings": [],
       "name": "test_index_missing_index_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_index_missing_index_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 16,
       "mappings": [],
       "name": "test_layout_unknown_value_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_layout_unknown_value_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "localization acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 105,
       "mappings": [],
       "name": "test_localized_css_messages_switch_language",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_css_messages_switch_language",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "localization acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 94,
       "mappings": [],
       "name": "test_localized_schema_messages_switch_language",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_schema_messages_switch_language",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 23,
       "mappings": [],
       "name": "test_media_overlay_metadata_syntax_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_media_overlay_metadata_syntax_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 9,
       "mappings": [],
       "name": "test_navigation_toc_missing_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_navigation_toc_missing_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 51,
       "mappings": [],
       "name": "test_preview_missing_dc_type_reports_rsc_005",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_preview_missing_dc_type_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 66,
       "mappings": [],
       "name": "test_region_nav_not_xhtml_reports_opf_012",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_region_nav_not_xhtml_reports_opf_012",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "profile acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 73,
       "mappings": [],
       "name": "test_scriptable_component_missing_prefix_reports_opf_028",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_scriptable_component_missing_prefix_reports_opf_028",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_navigation_layout_profiles.py",
-      "inline_waiver": {
-        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 30,
       "mappings": [],
       "name": "test_vocab_undeclared_prefix_reports_opf_028",
       "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_vocab_undeclared_prefix_reports_opf_028",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_ocf_minimal.py",
-      "inline_waiver": {
-        "reason": "OCF acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 48,
       "mappings": [],
       "name": "test_invalid_mimetype_reports_pkg_007",
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_invalid_mimetype_reports_pkg_007",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_ocf_minimal.py",
-      "inline_waiver": {
-        "reason": "OCF acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 16,
       "mappings": [],
       "name": "test_minimal_expanded_epub_passes",
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_expanded_epub_passes",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_ocf_minimal.py",
-      "inline_waiver": {
-        "reason": "OCF acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 23,
       "mappings": [],
       "name": "test_minimal_packaged_epub_passes",
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_packaged_epub_passes",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_ocf_minimal.py",
-      "inline_waiver": {
-        "reason": "OCF acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 40,
       "mappings": [],
       "name": "test_missing_mimetype_reports_pkg_006",
       "nodeid": "tests/acceptance/test_ocf_minimal.py::test_missing_mimetype_reports_pkg_006",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_ocf_minimal.py",
       "inline_waiver": {
-        "reason": "OCF acceptance slice pending imported requirement mapping"
+        "reason": "test infrastructure for save/convert functionality"
       },
       "lineno": 30,
       "mappings": [],
@@ -542,74 +2984,169 @@
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_package_resources.py",
-      "inline_waiver": {
-        "reason": "package/resource acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 41,
       "mappings": [],
       "name": "test_duplicate_filename_reports_opf_060",
       "nodeid": "tests/acceptance/test_package_resources.py::test_duplicate_filename_reports_opf_060",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_package_resources.py",
-      "inline_waiver": {
-        "reason": "package/resource acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 33,
       "mappings": [],
       "name": "test_forbidden_filename_reports_pkg_009",
       "nodeid": "tests/acceptance/test_package_resources.py::test_forbidden_filename_reports_pkg_009",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_package_resources.py",
-      "inline_waiver": {
-        "reason": "package/resource acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 25,
       "mappings": [],
       "name": "test_meta_inf_publication_resource_reports_pkg_025",
       "nodeid": "tests/acceptance/test_package_resources.py::test_meta_inf_publication_resource_reports_pkg_025",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_package_resources.py",
-      "inline_waiver": {
-        "reason": "package/resource acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 17,
       "mappings": [],
       "name": "test_package_href_spaces_warning_reports_pkg_010",
       "nodeid": "tests/acceptance/test_package_resources.py::test_package_href_spaces_warning_reports_pkg_010",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
       "class_name": "",
       "file": "tests/acceptance/test_package_resources.py",
-      "inline_waiver": {
-        "reason": "package/resource acceptance slice pending imported requirement mapping"
-      },
+      "inline_waiver": null,
       "lineno": 9,
       "mappings": [],
       "name": "test_package_namespace_error_reports_rsc_005",
       "nodeid": "tests/acceptance/test_package_resources.py::test_package_namespace_error_reports_rsc_005",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
-        "owner": "pyepubcheck",
-        "reason": "bootstrap configuration smoke test; internal behavior only"
-      },
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 19,
+      "mappings": [],
+      "name": "test_region_nav_basic_valid",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_basic_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 99,
+      "mappings": [],
+      "name": "test_region_nav_comics_semantics",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_comics_semantics",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 36,
+      "mappings": [],
+      "name": "test_region_nav_in_spine",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_in_spine",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 90,
+      "mappings": [],
+      "name": "test_region_nav_invalid_content_model",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_invalid_content_model",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 54,
+      "mappings": [],
+      "name": "test_region_nav_multiple_files",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_multiple_files",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 81,
+      "mappings": [],
+      "name": "test_region_nav_not_fixed_layout",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_not_fixed_layout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 72,
+      "mappings": [],
+      "name": "test_region_nav_not_on_nav_element",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_not_on_nav_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 27,
+      "mappings": [],
+      "name": "test_region_nav_not_xhtml",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_not_xhtml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 45,
+      "mappings": [],
+      "name": "test_region_nav_unidentified_element",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_unidentified_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_region_nav.py",
+      "inline_waiver": null,
+      "lineno": 63,
+      "mappings": [],
+      "name": "test_region_nav_valid",
+      "nodeid": "tests/acceptance/test_region_nav.py::test_region_nav_valid",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/unit/test_bootstrap_models.py",
       "inline_waiver": null,
@@ -617,15 +3154,10 @@
       "mappings": [],
       "name": "test_validation_config_defaults",
       "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
-        "owner": "pyepubcheck",
-        "reason": "bootstrap result-model smoke test; internal behavior only"
-      },
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/unit/test_bootstrap_models.py",
       "inline_waiver": null,
@@ -633,15 +3165,10 @@
       "mappings": [],
       "name": "test_validation_report_exit_code_tracks_errors",
       "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
-      "status": "waived"
+      "status": "unmapped"
     },
     {
-      "central_waiver": {
-        "expires": "",
-        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
-        "owner": "pyepubcheck",
-        "reason": "bootstrap result-model smoke test; internal behavior only"
-      },
+      "central_waiver": null,
       "class_name": "",
       "file": "tests/unit/test_bootstrap_models.py",
       "inline_waiver": null,
@@ -649,7 +3176,986 @@
       "mappings": [],
       "name": "test_validation_report_fail_on_warnings",
       "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
-      "status": "waived"
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractMessageIds",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 30,
+      "mappings": [],
+      "name": "test_multiple_message_ids",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_multiple_message_ids",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractMessageIds",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 34,
+      "mappings": [],
+      "name": "test_no_message_ids",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_no_message_ids",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractMessageIds",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 26,
+      "mappings": [],
+      "name": "test_single_message_id",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_single_message_id",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractTestMappings",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 110,
+      "mappings": [],
+      "name": "test_mapped_test",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_mapped_test",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractTestMappings",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 135,
+      "mappings": [],
+      "name": "test_no_mapping",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_no_mapping",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestExtractTestMappings",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 123,
+      "mappings": [],
+      "name": "test_unmapped_test",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_unmapped_test",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestGenerateMappingReport",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 149,
+      "mappings": [],
+      "name": "test_basic_report",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestGenerateMappingReport::test_basic_report",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadIntentionalUnmapped",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 191,
+      "mappings": [],
+      "name": "test_missing_file",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestLoadIntentionalUnmapped::test_missing_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadIntentionalUnmapped",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 185,
+      "mappings": [],
+      "name": "test_valid_file",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestLoadIntentionalUnmapped::test_valid_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseFeatureFile",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 58,
+      "mappings": [],
+      "name": "test_message_ids_in_steps",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_message_ids_in_steps",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseFeatureFile",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 42,
+      "mappings": [],
+      "name": "test_minimal_feature",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_minimal_feature",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseFeatureFile",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 72,
+      "mappings": [],
+      "name": "test_multiple_scenarios",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_multiple_scenarios",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseFeatureFile",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 89,
+      "mappings": [],
+      "name": "test_tags",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_tags",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestSaveMappingReport",
+      "file": "tests/unit/test_gherkin_mapper.py",
+      "inline_waiver": null,
+      "lineno": 200,
+      "mappings": [],
+      "name": "test_save_report",
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestSaveMappingReport::test_save_report",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestCheckDuplicateFilenames",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 78,
+      "mappings": [],
+      "name": "test_common_case_fold_duplicate",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckDuplicateFilenames::test_common_case_fold_duplicate",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestCheckDuplicateFilenames",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 74,
+      "mappings": [],
+      "name": "test_no_duplicates",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckDuplicateFilenames::test_no_duplicates",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestCheckMetaInfResources",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 88,
+      "mappings": [],
+      "name": "test_allowed_meta_inf",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckMetaInfResources::test_allowed_meta_inf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestCheckMetaInfResources",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 95,
+      "mappings": [],
+      "name": "test_forbidden_meta_inf",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckMetaInfResources::test_forbidden_meta_inf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 181,
+      "mappings": [],
+      "name": "test_directory",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_directory",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 188,
+      "mappings": [],
+      "name": "test_epub_file",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_epub_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 195,
+      "mappings": [],
+      "name": "test_other_file",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_other_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 169,
+      "mappings": [],
+      "name": "test_empty_archive",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_empty_archive",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 161,
+      "mappings": [],
+      "name": "test_forbidden_filename",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_forbidden_filename",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 154,
+      "mappings": [],
+      "name": "test_invalid_mimetype_value",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_invalid_mimetype_value",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 146,
+      "mappings": [],
+      "name": "test_mimetype_not_first",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_mimetype_not_first",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 138,
+      "mappings": [],
+      "name": "test_missing_mimetype",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_missing_mimetype",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateArchive",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 130,
+      "mappings": [],
+      "name": "test_valid_archive",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_valid_archive",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateDirectory",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 118,
+      "mappings": [],
+      "name": "test_invalid_mimetype",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_invalid_mimetype",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateDirectory",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 111,
+      "mappings": [],
+      "name": "test_missing_mimetype",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_missing_mimetype",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateDirectory",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 104,
+      "mappings": [],
+      "name": "test_valid_directory",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_valid_directory",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateFilename",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 64,
+      "mappings": [],
+      "name": "test_forbidden_control_char",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_control_char",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateFilename",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 54,
+      "mappings": [],
+      "name": "test_forbidden_plus",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_plus",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateFilename",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 59,
+      "mappings": [],
+      "name": "test_forbidden_quote",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_quote",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateFilename",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 50,
+      "mappings": [],
+      "name": "test_valid_filename",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_valid_filename",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMimetypeContent",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 30,
+      "mappings": [],
+      "name": "test_incorrect_value",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_incorrect_value",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMimetypeContent",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 35,
+      "mappings": [],
+      "name": "test_leading_whitespace",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_leading_whitespace",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMimetypeContent",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 40,
+      "mappings": [],
+      "name": "test_trailing_newline_tolerated",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_trailing_newline_tolerated",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMimetypeContent",
+      "file": "tests/unit/test_ocf_checks.py",
+      "inline_waiver": null,
+      "lineno": 26,
+      "mappings": [],
+      "name": "test_valid_mimetype",
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_valid_mimetype",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 186,
+      "mappings": [],
+      "name": "test_invalid_xml",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_invalid_xml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 193,
+      "mappings": [],
+      "name": "test_manifest_by_id",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_manifest_by_id",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 78,
+      "mappings": [],
+      "name": "test_manifest_parsing",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_manifest_parsing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 48,
+      "mappings": [],
+      "name": "test_minimal_opf",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_minimal_opf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 135,
+      "mappings": [],
+      "name": "test_prefix_parsing",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_prefix_parsing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 158,
+      "mappings": [],
+      "name": "test_rendition_metadata",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_rendition_metadata",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParseOpf",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 106,
+      "mappings": [],
+      "name": "test_spine_parsing",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_spine_parsing",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParsePrefixAttribute",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 39,
+      "mappings": [],
+      "name": "test_empty_string",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_empty_string",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParsePrefixAttribute",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 31,
+      "mappings": [],
+      "name": "test_multiple_prefixes",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_multiple_prefixes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestParsePrefixAttribute",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 25,
+      "mappings": [],
+      "name": "test_single_prefix",
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_single_prefix",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfPrefixes",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 334,
+      "mappings": [],
+      "name": "test_undeclared_prefix",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfPrefixes::test_undeclared_prefix",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfPrefixes",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 311,
+      "mappings": [],
+      "name": "test_valid_prefixes",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfPrefixes::test_valid_prefixes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfRequiredMetadata",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 244,
+      "mappings": [],
+      "name": "test_missing_identifier",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_identifier",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfRequiredMetadata",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 286,
+      "mappings": [],
+      "name": "test_missing_language",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_language",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfRequiredMetadata",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 265,
+      "mappings": [],
+      "name": "test_missing_title",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_title",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateOpfRequiredMetadata",
+      "file": "tests/unit/test_opf_parser.py",
+      "inline_waiver": null,
+      "lineno": 222,
+      "mappings": [],
+      "name": "test_valid_metadata",
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_valid_metadata",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 251,
+      "mappings": [],
+      "name": "test_invalid_rendition_layout",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_invalid_rendition_layout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 190,
+      "mappings": [],
+      "name": "test_missing_identifier",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_missing_identifier",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 210,
+      "mappings": [],
+      "name": "test_missing_title",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_missing_title",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 273,
+      "mappings": [],
+      "name": "test_non_opf_file",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_non_opf_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 230,
+      "mappings": [],
+      "name": "test_undeclared_prefix",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_undeclared_prefix",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 169,
+      "mappings": [],
+      "name": "test_valid_opf",
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_valid_opf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateDataNav",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 142,
+      "mappings": [],
+      "name": "test_invalid_nav_media_type",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateDataNav::test_invalid_nav_media_type",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateDataNav",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 120,
+      "mappings": [],
+      "name": "test_valid_nav",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateDataNav::test_valid_nav",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateHrefSpaces",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 71,
+      "mappings": [],
+      "name": "test_no_spaces",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateHrefSpaces::test_no_spaces",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateHrefSpaces",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 93,
+      "mappings": [],
+      "name": "test_with_spaces",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateHrefSpaces::test_with_spaces",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidatePrefixAttribute",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 62,
+      "mappings": [],
+      "name": "test_empty_prefix",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_empty_prefix",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidatePrefixAttribute",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 58,
+      "mappings": [],
+      "name": "test_invalid_syntax_missing_uri",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_invalid_syntax_missing_uri",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidatePrefixAttribute",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 51,
+      "mappings": [],
+      "name": "test_valid_multiple_prefixes",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_valid_multiple_prefixes",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidatePrefixAttribute",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 47,
+      "mappings": [],
+      "name": "test_valid_prefix",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_valid_prefix",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateRenditionLayout",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 38,
+      "mappings": [],
+      "name": "test_empty_layout",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_empty_layout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateRenditionLayout",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 33,
+      "mappings": [],
+      "name": "test_invalid_layout",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_invalid_layout",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateRenditionLayout",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 29,
+      "mappings": [],
+      "name": "test_valid_layout_pre_paginated",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_valid_layout_pre_paginated",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateRenditionLayout",
+      "file": "tests/unit/test_package_checks.py",
+      "inline_waiver": null,
+      "lineno": 25,
+      "mappings": [],
+      "name": "test_valid_layout_reflowable",
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_valid_layout_reflowable",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsDataUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 44,
+      "mappings": [],
+      "name": "test_data_url",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_data_url",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsDataUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 47,
+      "mappings": [],
+      "name": "test_http_url",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_http_url",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsDataUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 50,
+      "mappings": [],
+      "name": "test_relative_path",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_relative_path",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsRemoteUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 33,
+      "mappings": [],
+      "name": "test_absolute_path",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_absolute_path",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsRemoteUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 36,
+      "mappings": [],
+      "name": "test_data_url",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_data_url",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsRemoteUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 24,
+      "mappings": [],
+      "name": "test_http_url",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_http_url",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsRemoteUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 27,
+      "mappings": [],
+      "name": "test_https_url",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_https_url",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestIsRemoteUrl",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 30,
+      "mappings": [],
+      "name": "test_relative_path",
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_relative_path",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 209,
+      "mappings": [],
+      "name": "test_non_opf_file",
+      "nodeid": "tests/unit/test_resource_checks.py::TestRun::test_non_opf_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestRun",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 188,
+      "mappings": [],
+      "name": "test_valid_opf",
+      "nodeid": "tests/unit/test_resource_checks.py::TestRun::test_valid_opf",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateHrefFormat",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 62,
+      "mappings": [],
+      "name": "test_href_with_spaces",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateHrefFormat::test_href_with_spaces",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateHrefFormat",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 58,
+      "mappings": [],
+      "name": "test_valid_href",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateHrefFormat::test_valid_href",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMetaInfResources",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 160,
+      "mappings": [],
+      "name": "test_meta_inf_resource_error",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateMetaInfResources::test_meta_inf_resource_error",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateMetaInfResources",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 138,
+      "mappings": [],
+      "name": "test_no_meta_inf_resources",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateMetaInfResources::test_no_meta_inf_resources",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateResourceReferences",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 114,
+      "mappings": [],
+      "name": "test_data_url_allowed",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_data_url_allowed",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateResourceReferences",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 94,
+      "mappings": [],
+      "name": "test_remote_url_allowed",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_remote_url_allowed",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateResourceReferences",
+      "file": "tests/unit/test_resource_checks.py",
+      "inline_waiver": null,
+      "lineno": 72,
+      "mappings": [],
+      "name": "test_valid_references",
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_valid_references",
+      "status": "unmapped"
     },
     {
       "central_waiver": null,
@@ -676,6 +4182,292 @@
       "name": "test_fixture_locator_resolves_feature_relative_paths",
       "nodeid": "tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths",
       "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 47,
+      "mappings": [],
+      "name": "test_ncx",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_ncx",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 22,
+      "mappings": [],
+      "name": "test_opf_package",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_opf_package",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 52,
+      "mappings": [],
+      "name": "test_smil",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_smil",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 37,
+      "mappings": [],
+      "name": "test_svg",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_svg",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 42,
+      "mappings": [],
+      "name": "test_svg_no_ns",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_svg_no_ns",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 57,
+      "mappings": [],
+      "name": "test_unknown",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_unknown",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 27,
+      "mappings": [],
+      "name": "test_xhtml_html",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_xhtml_html",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestDetectDocType",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 32,
+      "mappings": [],
+      "name": "test_xhtml_html_no_ns",
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_xhtml_html_no_ns",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXml",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 166,
+      "mappings": [],
+      "name": "test_invalid_file",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_invalid_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXml",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 173,
+      "mappings": [],
+      "name": "test_missing_file",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_missing_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXml",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 179,
+      "mappings": [],
+      "name": "test_opf_detection",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_opf_detection",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXml",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 159,
+      "mappings": [],
+      "name": "test_valid_file",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_valid_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXml",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 185,
+      "mappings": [],
+      "name": "test_xhtml_detection",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_xhtml_detection",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXmlString",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 79,
+      "mappings": [],
+      "name": "test_empty_content",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_empty_content",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXmlString",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 73,
+      "mappings": [],
+      "name": "test_invalid_xml",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_invalid_xml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXmlString",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 84,
+      "mappings": [],
+      "name": "test_namespace_detection",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_namespace_detection",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestLoadXmlString",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 67,
+      "mappings": [],
+      "name": "test_valid_xml",
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_valid_xml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateXmlWellFormedness",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 142,
+      "mappings": [],
+      "name": "test_invalid_xml",
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_invalid_xml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateXmlWellFormedness",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 149,
+      "mappings": [],
+      "name": "test_missing_file",
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_missing_file",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestValidateXmlWellFormedness",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 136,
+      "mappings": [],
+      "name": "test_valid_xml",
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_valid_xml",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 94,
+      "mappings": [],
+      "name": "test_find_element",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_find_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 101,
+      "mappings": [],
+      "name": "test_find_missing_element",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_find_missing_element",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 107,
+      "mappings": [],
+      "name": "test_findall_elements",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_findall_elements",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 118,
+      "mappings": [],
+      "name": "test_get_attr",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_get_attr",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 125,
+      "mappings": [],
+      "name": "test_get_attr_default",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_get_attr_default",
+      "status": "unmapped"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "TestXmlDocument",
+      "file": "tests/unit/test_xml_parser.py",
+      "inline_waiver": null,
+      "lineno": 113,
+      "mappings": [],
+      "name": "test_nsmap",
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_nsmap",
+      "status": "unmapped"
     }
   ]
 }

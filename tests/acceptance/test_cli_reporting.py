@@ -9,7 +9,7 @@ def _cli_fixture(fixtures, name: str) -> Path:
     return fixtures.fixture_path("/cli/files", name)
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-17C84E51
 def test_version_with_input_prints_version_and_success(run_pyepubcheck, fixtures) -> None:
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck("--version", valid, transport="subprocess")
@@ -18,7 +18,7 @@ def test_version_with_input_prints_version_and_success(run_pyepubcheck, fixtures
     assert "No errors or warnings detected." in result.stdout
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-1BE1F6F7
 def test_quiet_mode_allows_saving_xml_report(run_pyepubcheck, fixtures) -> None:
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck(valid, "--quiet", "-o", "report.xml", transport="subprocess")
@@ -27,7 +27,7 @@ def test_quiet_mode_allows_saving_xml_report(run_pyepubcheck, fixtures) -> None:
     assert result.xml_report is not None
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-B406E70A
 def test_conflicting_report_formats_are_rejected(run_pyepubcheck, fixtures, tmp_path: Path) -> None:
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck(
@@ -44,7 +44,7 @@ def test_conflicting_report_formats_are_rejected(run_pyepubcheck, fixtures, tmp_
     assert not (tmp_path / "report.json").exists()
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-B3C07913
 def test_failonwarnings_returns_error(run_pyepubcheck, fixtures) -> None:
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
     result = run_pyepubcheck("--failonwarnings", "-m", "exp", warning_dir, transport="subprocess")
@@ -52,7 +52,7 @@ def test_failonwarnings_returns_error(run_pyepubcheck, fixtures) -> None:
     assert "WARNING(PKG-010)" in result.stderr
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-69B78FC4
 def test_usage_flag_includes_usage_messages(run_pyepubcheck, fixtures) -> None:
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     result = run_pyepubcheck("-u", "-m", "exp", severity_dir, transport="subprocess")
@@ -68,7 +68,7 @@ def test_usage_flag_includes_usage_messages(run_pyepubcheck, fixtures) -> None:
         ("-f", 0, (), ("WARNING(", "ERROR(", "USAGE(")),
     ],
 )
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-3664BAA6
 def test_severity_filters(run_pyepubcheck, fixtures, flag: str, expected_returncode: int, present: tuple[str, ...], absent: tuple[str, ...]) -> None:
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     result = run_pyepubcheck(flag, "-m", "exp", severity_dir, transport="subprocess")
@@ -80,7 +80,7 @@ def test_severity_filters(run_pyepubcheck, fixtures, flag: str, expected_returnc
         assert text not in result.stderr
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-8F47AA55
 def test_json_stdout_report_suppresses_success_message(run_pyepubcheck, fixtures) -> None:
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck(valid, "-j", "-", transport="subprocess")
@@ -90,7 +90,7 @@ def test_json_stdout_report_suppresses_success_message(run_pyepubcheck, fixtures
     assert "No errors or warnings detected." not in result.stdout
 
 
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-785ABF9C
 def test_custom_message_overrides_apply(run_pyepubcheck, fixtures) -> None:
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override.txt")
@@ -112,7 +112,7 @@ def test_custom_message_overrides_apply(run_pyepubcheck, fixtures) -> None:
         ("severity_override_bad_suggestion.txt", "CHK-005"),
     ],
 )
-# specmason: unmapped=CLI acceptance slice pending imported requirement mapping
+# specmason: @scenario-EPUBCHECK-708BF7A2
 def test_custom_message_validation_errors(run_pyepubcheck, fixtures, filename: str, expected_code: str) -> None:
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     override_path = _cli_fixture(fixtures, filename)

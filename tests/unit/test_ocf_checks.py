@@ -19,6 +19,7 @@ from pyepubcheck.checks.ocf import (
 )
 
 
+# specmason: @scenario-EPUBCHECK-58A778D2 @scenario-EPUBCHECK-FEEC9E60 @scenario-EPUBCHECK-54827044
 class TestValidateMimetypeContent:
     """Test mimetype content validation."""
 
@@ -42,6 +43,7 @@ class TestValidateMimetypeContent:
         assert len(errors) == 0
 
 
+# specmason: @scenario-EPUBCHECK-8E45120D
 class TestValidateFilename:
     """Test filename validation."""
 
@@ -65,6 +67,7 @@ class TestValidateFilename:
         assert errors[0].id == "PKG-009"
 
 
+# specmason: @scenario-EPUBCHECK-B8B8217F
 class TestCheckDuplicateFilenames:
     """Test duplicate filename detection."""
 
@@ -78,6 +81,7 @@ class TestCheckDuplicateFilenames:
         assert errors[0].id == "OPF-060"
 
 
+# specmason: @scenario-EPUBCHECK-574EAE97
 class TestCheckMetaInfResources:
     """Test META-INF resource checks."""
 

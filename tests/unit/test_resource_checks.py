@@ -17,6 +17,7 @@ from pyepubcheck.checks.resources import (
 from pyepubcheck.opf_parser import parse_opf
 
 
+# specmason: @scenario-EPUBCHECK-DF799FFF
 class TestIsRemoteUrl:
     """Test remote URL detection."""
 
@@ -36,6 +37,7 @@ class TestIsRemoteUrl:
         assert _is_remote_url("data:image/png;base64,abc") is False
 
 
+# specmason: @scenario-EPUBCHECK-74ABCE1D
 class TestIsDataUrl:
     """Test data URL detection."""
 
@@ -49,6 +51,7 @@ class TestIsDataUrl:
         assert _is_data_url("file.xhtml") is False
 
 
+# specmason: @scenario-EPUBCHECK-F00AF292
 class TestValidateHrefFormat:
     """Test href format validation."""
 
@@ -62,6 +65,7 @@ class TestValidateHrefFormat:
         assert errors[0].id == "RSC-007"
 
 
+# specmason: @scenario-EPUBCHECK-780E00E5
 class TestValidateResourceReferences:
     """Test resource reference validation."""
 
