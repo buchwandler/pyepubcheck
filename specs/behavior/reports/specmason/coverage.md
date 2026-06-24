@@ -1,6 +1,6 @@
 # SpecMason Coverage Report
 
-Mode: `standalone`
+Mode: `integrated`
 
 ## Forward (requirements/specs -> tests)
 
@@ -12,7 +12,53 @@ Mode: `standalone`
 
 | Test | Status | Mappings |
 | --- | --- | --- |
-| _none_ | | |
+| `tests/acceptance/test_cli_bootstrap.py::test_python_module_help` | waived | - |
+| `tests/acceptance/test_cli_bootstrap.py::test_python_module_version` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_conflicting_report_formats_are_rejected` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_custom_message_overrides_apply` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_failonwarnings_returns_error` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_json_stdout_report_suppresses_success_message` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_quiet_mode_allows_saving_xml_report` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_severity_filters` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_usage_flag_includes_usage_messages` | waived | - |
+| `tests/acceptance/test_cli_reporting.py::test_version_with_input_prints_version_and_success` | waived | - |
+| `tests/acceptance/test_content_documents.py::test_css_missing_resource_reports_rsc_007` | waived | - |
+| `tests/acceptance/test_content_documents.py::test_minimal_xhtml_document_passes` | waived | - |
+| `tests/acceptance/test_content_documents.py::test_svg_use_without_fragment_reports_rsc_015` | waived | - |
+| `tests/acceptance/test_content_documents.py::test_xhtml_title_error_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_harness.py::test_harness_collects_json_and_xml_reports` | waived | - |
+| `tests/acceptance/test_harness.py::test_in_process_transport_supports_version` | waived | - |
+| `tests/acceptance/test_harness.py::test_subprocess_transport_supports_version` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_accessibility_unknown_property_reports_opf_027` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_dictionary_missing_type_reports_rsc_005_and_opf_079` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_distributable_object_missing_identifier_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_edupub_missing_pagelist_reports_nav_003` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_index_missing_index_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_layout_unknown_value_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_localized_css_messages_switch_language` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_localized_schema_messages_switch_language` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_media_overlay_metadata_syntax_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_navigation_toc_missing_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_preview_missing_dc_type_reports_rsc_005` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_region_nav_not_xhtml_reports_opf_012` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_scriptable_component_missing_prefix_reports_opf_028` | waived | - |
+| `tests/acceptance/test_navigation_layout_profiles.py::test_vocab_undeclared_prefix_reports_opf_028` | waived | - |
+| `tests/acceptance/test_ocf_minimal.py::test_invalid_mimetype_reports_pkg_007` | waived | - |
+| `tests/acceptance/test_ocf_minimal.py::test_minimal_expanded_epub_passes` | waived | - |
+| `tests/acceptance/test_ocf_minimal.py::test_minimal_packaged_epub_passes` | waived | - |
+| `tests/acceptance/test_ocf_minimal.py::test_missing_mimetype_reports_pkg_006` | waived | - |
+| `tests/acceptance/test_ocf_minimal.py::test_save_creates_epub_from_expanded_directory` | waived | - |
+| `tests/acceptance/test_package_resources.py::test_duplicate_filename_reports_opf_060` | waived | - |
+| `tests/acceptance/test_package_resources.py::test_forbidden_filename_reports_pkg_009` | waived | - |
+| `tests/acceptance/test_package_resources.py::test_meta_inf_publication_resource_reports_pkg_025` | waived | - |
+| `tests/acceptance/test_package_resources.py::test_package_href_spaces_warning_reports_pkg_010` | waived | - |
+| `tests/acceptance/test_package_resources.py::test_package_namespace_error_reports_rsc_005` | waived | - |
+| `tests/unit/test_bootstrap_models.py::test_validation_config_defaults` | waived | - |
+| `tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors` | waived | - |
+| `tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings` | waived | - |
+| `tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first` | waived | - |
+| `tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths` | waived | - |
 
 ## Summary
 
@@ -20,7 +66,9 @@ Mode: `standalone`
 {
   "errors": 0,
   "forward": {},
-  "mode": "standalone",
-  "reverse": {}
+  "mode": "integrated",
+  "reverse": {
+    "waived": 47
+  }
 }
 ```

@@ -25,6 +25,16 @@
       "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
       "reason": "bootstrap configuration smoke test; internal behavior only",
       "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
+      "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet",
+      "owner": "pyepubcheck"
+    },
+    {
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
+      "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet",
+      "owner": "pyepubcheck"
     }
   ]
 }

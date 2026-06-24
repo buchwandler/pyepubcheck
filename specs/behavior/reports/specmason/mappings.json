@@ -1,5 +1,681 @@
 {
-  "central_waivers": {},
+  "central_waivers": {
+    "tests/acceptance/test_cli_bootstrap.py::test_python_module_help": {
+      "expires": "",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
+      "owner": "pyepubcheck",
+      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
+    },
+    "tests/acceptance/test_cli_bootstrap.py::test_python_module_version": {
+      "expires": "",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
+      "owner": "pyepubcheck",
+      "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
+    },
+    "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors": {
+      "expires": "",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
+      "owner": "pyepubcheck",
+      "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet"
+    },
+    "tests/acceptance/test_cli_reporting.py::test_severity_filters": {
+      "expires": "",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
+      "owner": "pyepubcheck",
+      "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet"
+    },
+    "tests/unit/test_bootstrap_models.py::test_validation_config_defaults": {
+      "expires": "",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+      "owner": "pyepubcheck",
+      "reason": "bootstrap configuration smoke test; internal behavior only"
+    },
+    "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors": {
+      "expires": "",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+      "owner": "pyepubcheck",
+      "reason": "bootstrap result-model smoke test; internal behavior only"
+    },
+    "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings": {
+      "expires": "",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+      "owner": "pyepubcheck",
+      "reason": "bootstrap result-model smoke test; internal behavior only"
+    }
+  },
   "findings": [],
-  "tests": []
+  "tests": [
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
+        "owner": "pyepubcheck",
+        "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
+      },
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_bootstrap.py",
+      "inline_waiver": null,
+      "lineno": 23,
+      "mappings": [],
+      "name": "test_python_module_help",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
+        "owner": "pyepubcheck",
+        "reason": "bootstrap CLI smoke test; product behavior mapping not assigned yet"
+      },
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_bootstrap.py",
+      "inline_waiver": null,
+      "lineno": 11,
+      "mappings": [],
+      "name": "test_python_module_version",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 31,
+      "mappings": [],
+      "name": "test_conflicting_report_formats_are_rejected",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_conflicting_report_formats_are_rejected",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 94,
+      "mappings": [],
+      "name": "test_custom_message_overrides_apply",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_overrides_apply",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
+        "owner": "pyepubcheck",
+        "reason": "parameterized CLI override validation slice; product behavior mapping not assigned yet"
+      },
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": null,
+      "lineno": 116,
+      "mappings": [],
+      "name": "test_custom_message_validation_errors",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 48,
+      "mappings": [],
+      "name": "test_failonwarnings_returns_error",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_failonwarnings_returns_error",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 84,
+      "mappings": [],
+      "name": "test_json_stdout_report_suppresses_success_message",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_json_stdout_report_suppresses_success_message",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 22,
+      "mappings": [],
+      "name": "test_quiet_mode_allows_saving_xml_report",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_quiet_mode_allows_saving_xml_report",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
+        "owner": "pyepubcheck",
+        "reason": "parameterized CLI severity-filter slice; product behavior mapping not assigned yet"
+      },
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": null,
+      "lineno": 72,
+      "mappings": [],
+      "name": "test_severity_filters",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 56,
+      "mappings": [],
+      "name": "test_usage_flag_includes_usage_messages",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_usage_flag_includes_usage_messages",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_cli_reporting.py",
+      "inline_waiver": {
+        "reason": "CLI acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 13,
+      "mappings": [],
+      "name": "test_version_with_input_prints_version_and_success",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_version_with_input_prints_version_and_success",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": {
+        "reason": "content-document acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 32,
+      "mappings": [],
+      "name": "test_css_missing_resource_reports_rsc_007",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_missing_resource_reports_rsc_007",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": {
+        "reason": "content-document acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 9,
+      "mappings": [],
+      "name": "test_minimal_xhtml_document_passes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_minimal_xhtml_document_passes",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": {
+        "reason": "content-document acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 24,
+      "mappings": [],
+      "name": "test_svg_use_without_fragment_reports_rsc_015",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_use_without_fragment_reports_rsc_015",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_content_documents.py",
+      "inline_waiver": {
+        "reason": "content-document acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 16,
+      "mappings": [],
+      "name": "test_xhtml_title_error_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_title_error_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_harness.py",
+      "inline_waiver": {
+        "reason": "acceptance harness report-parsing smoke test; product behavior mapping not assigned yet"
+      },
+      "lineno": 23,
+      "mappings": [],
+      "name": "test_harness_collects_json_and_xml_reports",
+      "nodeid": "tests/acceptance/test_harness.py::test_harness_collects_json_and_xml_reports",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_harness.py",
+      "inline_waiver": {
+        "reason": "acceptance harness transport smoke test; product behavior mapping not assigned yet"
+      },
+      "lineno": 9,
+      "mappings": [],
+      "name": "test_in_process_transport_supports_version",
+      "nodeid": "tests/acceptance/test_harness.py::test_in_process_transport_supports_version",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_harness.py",
+      "inline_waiver": {
+        "reason": "acceptance harness transport smoke test; product behavior mapping not assigned yet"
+      },
+      "lineno": 16,
+      "mappings": [],
+      "name": "test_subprocess_transport_supports_version",
+      "nodeid": "tests/acceptance/test_harness.py::test_subprocess_transport_supports_version",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 87,
+      "mappings": [],
+      "name": "test_accessibility_unknown_property_reports_opf_027",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_accessibility_unknown_property_reports_opf_027",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 58,
+      "mappings": [],
+      "name": "test_dictionary_missing_type_reports_rsc_005_and_opf_079",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_dictionary_missing_type_reports_rsc_005_and_opf_079",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 80,
+      "mappings": [],
+      "name": "test_distributable_object_missing_identifier_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_distributable_object_missing_identifier_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 37,
+      "mappings": [],
+      "name": "test_edupub_missing_pagelist_reports_nav_003",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_edupub_missing_pagelist_reports_nav_003",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 44,
+      "mappings": [],
+      "name": "test_index_missing_index_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_index_missing_index_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 16,
+      "mappings": [],
+      "name": "test_layout_unknown_value_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_layout_unknown_value_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "localization acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 105,
+      "mappings": [],
+      "name": "test_localized_css_messages_switch_language",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_css_messages_switch_language",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "localization acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 94,
+      "mappings": [],
+      "name": "test_localized_schema_messages_switch_language",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_schema_messages_switch_language",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 23,
+      "mappings": [],
+      "name": "test_media_overlay_metadata_syntax_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_media_overlay_metadata_syntax_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 9,
+      "mappings": [],
+      "name": "test_navigation_toc_missing_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_navigation_toc_missing_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 51,
+      "mappings": [],
+      "name": "test_preview_missing_dc_type_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_preview_missing_dc_type_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 66,
+      "mappings": [],
+      "name": "test_region_nav_not_xhtml_reports_opf_012",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_region_nav_not_xhtml_reports_opf_012",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "profile acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 73,
+      "mappings": [],
+      "name": "test_scriptable_component_missing_prefix_reports_opf_028",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_scriptable_component_missing_prefix_reports_opf_028",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_navigation_layout_profiles.py",
+      "inline_waiver": {
+        "reason": "navigation/layout/media/vocabulary acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 30,
+      "mappings": [],
+      "name": "test_vocab_undeclared_prefix_reports_opf_028",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_vocab_undeclared_prefix_reports_opf_028",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_ocf_minimal.py",
+      "inline_waiver": {
+        "reason": "OCF acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 48,
+      "mappings": [],
+      "name": "test_invalid_mimetype_reports_pkg_007",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_invalid_mimetype_reports_pkg_007",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_ocf_minimal.py",
+      "inline_waiver": {
+        "reason": "OCF acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 16,
+      "mappings": [],
+      "name": "test_minimal_expanded_epub_passes",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_expanded_epub_passes",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_ocf_minimal.py",
+      "inline_waiver": {
+        "reason": "OCF acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 23,
+      "mappings": [],
+      "name": "test_minimal_packaged_epub_passes",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_packaged_epub_passes",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_ocf_minimal.py",
+      "inline_waiver": {
+        "reason": "OCF acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 40,
+      "mappings": [],
+      "name": "test_missing_mimetype_reports_pkg_006",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_missing_mimetype_reports_pkg_006",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_ocf_minimal.py",
+      "inline_waiver": {
+        "reason": "OCF acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 30,
+      "mappings": [],
+      "name": "test_save_creates_epub_from_expanded_directory",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_save_creates_epub_from_expanded_directory",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_package_resources.py",
+      "inline_waiver": {
+        "reason": "package/resource acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 41,
+      "mappings": [],
+      "name": "test_duplicate_filename_reports_opf_060",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_duplicate_filename_reports_opf_060",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_package_resources.py",
+      "inline_waiver": {
+        "reason": "package/resource acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 33,
+      "mappings": [],
+      "name": "test_forbidden_filename_reports_pkg_009",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_forbidden_filename_reports_pkg_009",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_package_resources.py",
+      "inline_waiver": {
+        "reason": "package/resource acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 25,
+      "mappings": [],
+      "name": "test_meta_inf_publication_resource_reports_pkg_025",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_meta_inf_publication_resource_reports_pkg_025",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_package_resources.py",
+      "inline_waiver": {
+        "reason": "package/resource acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 17,
+      "mappings": [],
+      "name": "test_package_href_spaces_warning_reports_pkg_010",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_package_href_spaces_warning_reports_pkg_010",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/acceptance/test_package_resources.py",
+      "inline_waiver": {
+        "reason": "package/resource acceptance slice pending imported requirement mapping"
+      },
+      "lineno": 9,
+      "mappings": [],
+      "name": "test_package_namespace_error_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_package_namespace_error_reports_rsc_005",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+        "owner": "pyepubcheck",
+        "reason": "bootstrap configuration smoke test; internal behavior only"
+      },
+      "class_name": "",
+      "file": "tests/unit/test_bootstrap_models.py",
+      "inline_waiver": null,
+      "lineno": 28,
+      "mappings": [],
+      "name": "test_validation_config_defaults",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+        "owner": "pyepubcheck",
+        "reason": "bootstrap result-model smoke test; internal behavior only"
+      },
+      "class_name": "",
+      "file": "tests/unit/test_bootstrap_models.py",
+      "inline_waiver": null,
+      "lineno": 10,
+      "mappings": [],
+      "name": "test_validation_report_exit_code_tracks_errors",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+      "status": "waived"
+    },
+    {
+      "central_waiver": {
+        "expires": "",
+        "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+        "owner": "pyepubcheck",
+        "reason": "bootstrap result-model smoke test; internal behavior only"
+      },
+      "class_name": "",
+      "file": "tests/unit/test_bootstrap_models.py",
+      "inline_waiver": null,
+      "lineno": 19,
+      "mappings": [],
+      "name": "test_validation_report_fail_on_warnings",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/unit/test_support_harness.py",
+      "inline_waiver": {
+        "reason": "acceptance harness archive helper test; internal behavior only"
+      },
+      "lineno": 17,
+      "mappings": [],
+      "name": "test_build_epub_from_directory_places_mimetype_first",
+      "nodeid": "tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first",
+      "status": "waived"
+    },
+    {
+      "central_waiver": null,
+      "class_name": "",
+      "file": "tests/unit/test_support_harness.py",
+      "inline_waiver": {
+        "reason": "acceptance harness filesystem helper test; internal behavior only"
+      },
+      "lineno": 10,
+      "mappings": [],
+      "name": "test_fixture_locator_resolves_feature_relative_paths",
+      "nodeid": "tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths",
+      "status": "waived"
+    }
+  ]
 }

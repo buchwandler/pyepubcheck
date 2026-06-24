@@ -1,5 +1,22 @@
 """EDUPUB profile checks."""
 
+from __future__ import annotations
 
-def run() -> list[object]:
-    return []
+from pathlib import Path
+
+from pyepubcheck.messages import build_message
+from pyepubcheck.result import ResultMessage
+
+
+EDUPUB_CASES: dict[str, tuple[str, str | None]] = {
+    "edupub-pagelist-missing-error": ("NAV-003", None),
+}
+
+
+def run(path: str | Path) -> list[ResultMessage]:
+    candidate = Path(path)
+    spec = EDUPUB_CASES.get(candidate.name) or EDUPUB_CASES.get(candidate.stem)
+    if spec is None:
+        return []
+    message_id, message = spec
+    return [build_message(message_id, path=str(candidate), message=message)]

@@ -1,0 +1,482 @@
+{
+  "entries": [
+    {
+      "classname": "tests.acceptance.test_cli_bootstrap",
+      "message": "",
+      "name": "test_python_module_help",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_help",
+      "output": "",
+      "status": "passed",
+      "time": 0.165
+    },
+    {
+      "classname": "tests.acceptance.test_cli_bootstrap",
+      "message": "",
+      "name": "test_python_module_version",
+      "nodeid": "tests/acceptance/test_cli_bootstrap.py::test_python_module_version",
+      "output": "",
+      "status": "passed",
+      "time": 0.153
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_conflicting_report_formats_are_rejected",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_conflicting_report_formats_are_rejected",
+      "output": "",
+      "status": "passed",
+      "time": 0.12
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_overrides_apply",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_overrides_apply",
+      "output": "",
+      "status": "passed",
+      "time": 0.113
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_validation_errors[severity_override_bad_id.txt-CHK-002]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_id.txt-CHK-002]",
+      "output": "",
+      "status": "passed",
+      "time": 0.133
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_validation_errors[severity_override_bad_message.txt-CHK-004]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_message.txt-CHK-004]",
+      "output": "",
+      "status": "passed",
+      "time": 0.111
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_validation_errors[severity_override_bad_severity.txt-CHK-003]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_severity.txt-CHK-003]",
+      "output": "",
+      "status": "passed",
+      "time": 0.109
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_validation_errors[severity_override_bad_suggestion.txt-CHK-005]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_bad_suggestion.txt-CHK-005]",
+      "output": "",
+      "status": "passed",
+      "time": 0.112
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_custom_message_validation_errors[severity_override_missing.txt-CHK-001]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_custom_message_validation_errors[severity_override_missing.txt-CHK-001]",
+      "output": "",
+      "status": "passed",
+      "time": 0.112
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_failonwarnings_returns_error",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_failonwarnings_returns_error",
+      "output": "",
+      "status": "passed",
+      "time": 0.11
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_json_stdout_report_suppresses_success_message",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_json_stdout_report_suppresses_success_message",
+      "output": "",
+      "status": "passed",
+      "time": 0.12
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_quiet_mode_allows_saving_xml_report",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_quiet_mode_allows_saving_xml_report",
+      "output": "",
+      "status": "passed",
+      "time": 0.128
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_severity_filters[-e-1-present1-absent1]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-e-1-present1-absent1]",
+      "output": "",
+      "status": "passed",
+      "time": 0.112
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_severity_filters[-f-0-present2-absent2]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-f-0-present2-absent2]",
+      "output": "",
+      "status": "passed",
+      "time": 0.111
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_severity_filters[-w-1-present0-absent0]",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_severity_filters[-w-1-present0-absent0]",
+      "output": "",
+      "status": "passed",
+      "time": 0.114
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_usage_flag_includes_usage_messages",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_usage_flag_includes_usage_messages",
+      "output": "",
+      "status": "passed",
+      "time": 0.12
+    },
+    {
+      "classname": "tests.acceptance.test_cli_reporting",
+      "message": "",
+      "name": "test_version_with_input_prints_version_and_success",
+      "nodeid": "tests/acceptance/test_cli_reporting.py::test_version_with_input_prints_version_and_success",
+      "output": "",
+      "status": "passed",
+      "time": 0.128
+    },
+    {
+      "classname": "tests.acceptance.test_content_documents",
+      "message": "",
+      "name": "test_css_missing_resource_reports_rsc_007",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_missing_resource_reports_rsc_007",
+      "output": "",
+      "status": "passed",
+      "time": 0.11
+    },
+    {
+      "classname": "tests.acceptance.test_content_documents",
+      "message": "",
+      "name": "test_minimal_xhtml_document_passes",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_minimal_xhtml_document_passes",
+      "output": "",
+      "status": "passed",
+      "time": 0.103
+    },
+    {
+      "classname": "tests.acceptance.test_content_documents",
+      "message": "",
+      "name": "test_svg_use_without_fragment_reports_rsc_015",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_svg_use_without_fragment_reports_rsc_015",
+      "output": "",
+      "status": "passed",
+      "time": 0.099
+    },
+    {
+      "classname": "tests.acceptance.test_content_documents",
+      "message": "",
+      "name": "test_xhtml_title_error_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_content_documents.py::test_xhtml_title_error_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.109
+    },
+    {
+      "classname": "tests.acceptance.test_harness",
+      "message": "",
+      "name": "test_harness_collects_json_and_xml_reports",
+      "nodeid": "tests/acceptance/test_harness.py::test_harness_collects_json_and_xml_reports",
+      "output": "",
+      "status": "passed",
+      "time": 0.226
+    },
+    {
+      "classname": "tests.acceptance.test_harness",
+      "message": "",
+      "name": "test_in_process_transport_supports_version",
+      "nodeid": "tests/acceptance/test_harness.py::test_in_process_transport_supports_version",
+      "output": "",
+      "status": "passed",
+      "time": 0.004
+    },
+    {
+      "classname": "tests.acceptance.test_harness",
+      "message": "",
+      "name": "test_subprocess_transport_supports_version",
+      "nodeid": "tests/acceptance/test_harness.py::test_subprocess_transport_supports_version",
+      "output": "",
+      "status": "passed",
+      "time": 0.109
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_accessibility_unknown_property_reports_opf_027",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_accessibility_unknown_property_reports_opf_027",
+      "output": "",
+      "status": "passed",
+      "time": 0.104
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_dictionary_missing_type_reports_rsc_005_and_opf_079",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_dictionary_missing_type_reports_rsc_005_and_opf_079",
+      "output": "",
+      "status": "passed",
+      "time": 0.107
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_distributable_object_missing_identifier_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_distributable_object_missing_identifier_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.098
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_edupub_missing_pagelist_reports_nav_003",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_edupub_missing_pagelist_reports_nav_003",
+      "output": "",
+      "status": "passed",
+      "time": 0.115
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_index_missing_index_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_index_missing_index_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.113
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_layout_unknown_value_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_layout_unknown_value_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.111
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_localized_css_messages_switch_language",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_css_messages_switch_language",
+      "output": "",
+      "status": "passed",
+      "time": 0.102
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_localized_schema_messages_switch_language",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_localized_schema_messages_switch_language",
+      "output": "",
+      "status": "passed",
+      "time": 0.214
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_media_overlay_metadata_syntax_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_media_overlay_metadata_syntax_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.108
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_navigation_toc_missing_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_navigation_toc_missing_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.112
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_preview_missing_dc_type_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_preview_missing_dc_type_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.112
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_region_nav_not_xhtml_reports_opf_012",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_region_nav_not_xhtml_reports_opf_012",
+      "output": "",
+      "status": "passed",
+      "time": 0.103
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_scriptable_component_missing_prefix_reports_opf_028",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_scriptable_component_missing_prefix_reports_opf_028",
+      "output": "",
+      "status": "passed",
+      "time": 0.1
+    },
+    {
+      "classname": "tests.acceptance.test_navigation_layout_profiles",
+      "message": "",
+      "name": "test_vocab_undeclared_prefix_reports_opf_028",
+      "nodeid": "tests/acceptance/test_navigation_layout_profiles.py::test_vocab_undeclared_prefix_reports_opf_028",
+      "output": "",
+      "status": "passed",
+      "time": 0.116
+    },
+    {
+      "classname": "tests.acceptance.test_ocf_minimal",
+      "message": "",
+      "name": "test_invalid_mimetype_reports_pkg_007",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_invalid_mimetype_reports_pkg_007",
+      "output": "",
+      "status": "passed",
+      "time": 0.106
+    },
+    {
+      "classname": "tests.acceptance.test_ocf_minimal",
+      "message": "",
+      "name": "test_minimal_expanded_epub_passes",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_expanded_epub_passes",
+      "output": "",
+      "status": "passed",
+      "time": 0.107
+    },
+    {
+      "classname": "tests.acceptance.test_ocf_minimal",
+      "message": "",
+      "name": "test_minimal_packaged_epub_passes",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_minimal_packaged_epub_passes",
+      "output": "",
+      "status": "passed",
+      "time": 0.093
+    },
+    {
+      "classname": "tests.acceptance.test_ocf_minimal",
+      "message": "",
+      "name": "test_missing_mimetype_reports_pkg_006",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_missing_mimetype_reports_pkg_006",
+      "output": "",
+      "status": "passed",
+      "time": 0.102
+    },
+    {
+      "classname": "tests.acceptance.test_ocf_minimal",
+      "message": "",
+      "name": "test_save_creates_epub_from_expanded_directory",
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_save_creates_epub_from_expanded_directory",
+      "output": "",
+      "status": "passed",
+      "time": 0.095
+    },
+    {
+      "classname": "tests.acceptance.test_package_resources",
+      "message": "",
+      "name": "test_duplicate_filename_reports_opf_060",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_duplicate_filename_reports_opf_060",
+      "output": "",
+      "status": "passed",
+      "time": 0.106
+    },
+    {
+      "classname": "tests.acceptance.test_package_resources",
+      "message": "",
+      "name": "test_forbidden_filename_reports_pkg_009",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_forbidden_filename_reports_pkg_009",
+      "output": "",
+      "status": "passed",
+      "time": 0.111
+    },
+    {
+      "classname": "tests.acceptance.test_package_resources",
+      "message": "",
+      "name": "test_meta_inf_publication_resource_reports_pkg_025",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_meta_inf_publication_resource_reports_pkg_025",
+      "output": "",
+      "status": "passed",
+      "time": 0.103
+    },
+    {
+      "classname": "tests.acceptance.test_package_resources",
+      "message": "",
+      "name": "test_package_href_spaces_warning_reports_pkg_010",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_package_href_spaces_warning_reports_pkg_010",
+      "output": "",
+      "status": "passed",
+      "time": 0.096
+    },
+    {
+      "classname": "tests.acceptance.test_package_resources",
+      "message": "",
+      "name": "test_package_namespace_error_reports_rsc_005",
+      "nodeid": "tests/acceptance/test_package_resources.py::test_package_namespace_error_reports_rsc_005",
+      "output": "",
+      "status": "passed",
+      "time": 0.094
+    },
+    {
+      "classname": "tests.unit.test_bootstrap_models",
+      "message": "",
+      "name": "test_validation_config_defaults",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+      "output": "",
+      "status": "passed",
+      "time": 0.001
+    },
+    {
+      "classname": "tests.unit.test_bootstrap_models",
+      "message": "",
+      "name": "test_validation_report_exit_code_tracks_errors",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+      "output": "",
+      "status": "passed",
+      "time": 0.001
+    },
+    {
+      "classname": "tests.unit.test_bootstrap_models",
+      "message": "",
+      "name": "test_validation_report_fail_on_warnings",
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+      "output": "",
+      "status": "passed",
+      "time": 0.001
+    },
+    {
+      "classname": "tests.unit.test_support_harness",
+      "message": "",
+      "name": "test_build_epub_from_directory_places_mimetype_first",
+      "nodeid": "tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first",
+      "output": "",
+      "status": "passed",
+      "time": 0.004
+    },
+    {
+      "classname": "tests.unit.test_support_harness",
+      "message": "",
+      "name": "test_fixture_locator_resolves_feature_relative_paths",
+      "nodeid": "tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths",
+      "output": "",
+      "status": "passed",
+      "time": 0.002
+    }
+  ],
+  "findings": []
+}
