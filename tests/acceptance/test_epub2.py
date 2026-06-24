@@ -53,7 +53,6 @@ def test_item_href_with_spaces_reports_pkg_010(run_pyepubcheck, fixtures) -> Non
 
 
 # specmason: @scenario-EPUBCHECK-E9CAE47A
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_unique_identifier_not_found_reports_opf_030(run_pyepubcheck, fixtures) -> None:
     """The package 'unique-identifier' attribute must be a known ID."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-unique-identifier-not-found-error"), transport="subprocess")
@@ -62,7 +61,6 @@ def test_unique_identifier_not_found_reports_opf_030(run_pyepubcheck, fixtures) 
 
 
 # specmason: @scenario-EPUBCHECK-90B4BC91
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_spine_toc_attribute_missing(run_pyepubcheck, fixtures) -> None:
     """When an NCX document is present, it must be identified in the 'toc' attribute of the spine."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-spine-toc-attribute-missing-error"), transport="subprocess")
@@ -71,7 +69,6 @@ def test_spine_toc_attribute_missing(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-A5693E14
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_spine_toc_must_point_to_ncx(run_pyepubcheck, fixtures) -> None:
     """The 'toc' attribute of the spine must point to an NCX document."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-spine-toc-attribute-to-non-ncx-error"), transport="subprocess")
@@ -142,13 +139,11 @@ def test_hyperlinked_document_not_in_spine(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-38EF43F0
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_fallback_non_resolving(run_pyepubcheck, fixtures) -> None:
     """Report a manifest fallback that does not resolve to a resource in the publication."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-fallback-non-resolving-error"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("OPF-040")
-
 
 # specmason: @scenario-EPUBCHECK-E2AA60B8
 @pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
@@ -187,7 +182,6 @@ def test_spine_itemref_repeated(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-6A4D4604
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_spine_missing(run_pyepubcheck, fixtures) -> None:
     """Report a missing spine."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-spine-missing-error"), transport="subprocess")

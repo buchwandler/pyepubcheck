@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from pyepubcheck.checks.ocf import run as run_ocf_checks
+from pyepubcheck.checks.epub2 import run as run_epub2_checks
 from pyepubcheck.checks.package import run as run_package_checks
 from pyepubcheck.checks.resources import run as run_resource_checks
 from pyepubcheck.checks.xhtml import run as run_xhtml_checks
@@ -88,6 +89,7 @@ def validate_path(
         if opf_path:
             # Run checks on OPF
             report.messages.extend(run_package_checks(opf_path))
+            report.messages.extend(run_epub2_checks(opf_path))
             report.messages.extend(run_resource_checks(opf_path))
             report.messages.extend(run_layout_checks(opf_path))
             report.messages.extend(run_dictionary_checks(opf_path, profile=effective.profile))
@@ -120,6 +122,7 @@ def validate_path(
         # Run checks on single file
         report.messages.extend(run_ocf_checks(resolved))
         report.messages.extend(run_package_checks(resolved))
+        report.messages.extend(run_epub2_checks(resolved))
         report.messages.extend(run_resource_checks(resolved))
         report.messages.extend(run_xhtml_checks(resolved))
         report.messages.extend(run_svg_checks(resolved))

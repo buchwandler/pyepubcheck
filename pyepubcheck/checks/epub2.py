@@ -58,8 +58,22 @@ def _validate_spine_toc(path: Path, opf) -> list[ResultMessage]:
         return errors
 
     root = opf.xml_doc.root
+    
+    # Check if the root element has the correct namespace
+    root_ns = root.tag.split("}")[0].lstrip("{") if "{" in root.tag else ""
+    if root_ns != OPF_NS:
+        # Wrong namespace - don't check spine
+        return errors
+    
     spine_el = root.find(f"{{{OPF_NS}}}spine")
     if spine_el is None:
+        errors.append(
+            build_message(
+                "RSC-005",
+                path=str(path),
+                message="missing spine element",
+            )
+        )
         return errors
 
     toc_attr = spine_el.get("toc", "")
@@ -89,7 +103,7 @@ def _validate_spine_toc(path: Path, opf) -> list[ResultMessage]:
     for item_el in manifest_el.findall(f"{{{OPF_NS}}}item"):
         item_id = item_el.get("id", "")
         media_type = item_el.get("media-type", "")
-        if item_id == toc_attr:
+        if item_id.strip() == toc_attr.strip():
             if media_type != "application/x-dtbncx+xml":
                 errors.append(
                     build_message(

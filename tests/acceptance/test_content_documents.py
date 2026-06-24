@@ -42,7 +42,6 @@ def test_css_missing_resource_reports_rsc_007(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-7C26449E
-@pytest.mark.xfail(reason="Content document validation not yet implemented or fixture missing")
 def test_xhtml_duplicate_id_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
     """Report duplicate id attribute values."""
     result = run_pyepubcheck(_path(fixtures, "/epub3/06-content-document/files/id-duplicate-error.xhtml"), transport="subprocess")
@@ -51,10 +50,9 @@ def test_xhtml_duplicate_id_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-7EEDE145
-@pytest.mark.xfail(reason="Content document validation not yet implemented or fixture missing")
 def test_xhtml_img_no_alt_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
     """Report an img element with no alt attribute."""
-    result = run_pyepubcheck(_path(fixtures, "/epub3/06-content-document/files/img-no-alt-error.xhtml"), transport="subprocess")
+    result = run_pyepubcheck(_path(fixtures, "/epub3/06-content-document/files/img-alt-missing-error.xhtml"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("RSC-005")
 
