@@ -18,7 +18,7 @@ import xml.etree.ElementTree as ET
 from pyepubcheck.cli import main as cli_main
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MESSAGE_RE = re.compile(r"(?P<severity>FATAL|ERROR|WARNING|USAGE)\((?P<id>[A-Z]{3}-\d{3})\)")
+MESSAGE_RE = re.compile(r"(?P<severity>FATAL|ERROR|WARNING|USAGE)\((?P<id>[A-Z]+-\d{3})\)")
 
 
 class FixtureLocator:

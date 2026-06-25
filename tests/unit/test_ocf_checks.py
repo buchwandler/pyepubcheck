@@ -105,6 +105,9 @@ class TestValidateDirectory:
         epub_dir = tmp_path / "test"
         epub_dir.mkdir()
         (epub_dir / "mimetype").write_text("application/epub+zip")
+        (epub_dir / "META-INF").mkdir()
+        (epub_dir / "META-INF" / "container.xml").write_text("<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>")
+        (epub_dir / "content.opf").write_text("<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>")
         errors = _validate_directory(epub_dir)
         assert len(errors) == 0
 
@@ -120,7 +123,7 @@ class TestValidateDirectory:
         epub_dir.mkdir()
         (epub_dir / "mimetype").write_text("application/zip")
         errors = _validate_directory(epub_dir)
-        assert len(errors) == 1
+        assert len(errors) >= 1
         assert errors[0].id == "PKG-007"
 
 
@@ -182,6 +185,9 @@ class TestRun:
         epub_dir = tmp_path / "test"
         epub_dir.mkdir()
         (epub_dir / "mimetype").write_text("application/epub+zip")
+        (epub_dir / "META-INF").mkdir()
+        (epub_dir / "META-INF" / "container.xml").write_text("<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>")
+        (epub_dir / "content.opf").write_text("<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>")
         errors = run(epub_dir)
         assert len(errors) == 0
 

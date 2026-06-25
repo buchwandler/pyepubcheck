@@ -119,6 +119,16 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     mimetype_errors = _validate_mimetype_content(mimetype_content)
     errors.extend(mimetype_errors)
 
+    # Check for container.xml
+    container_path = path / "META-INF" / "container.xml"
+    if not container_path.exists():
+        errors.append(build_message("FATAL-001", path=str(container_path), message="container.xml not found"))
+        return errors
+
+    # Validate container.xml
+    container_errors = _validate_container_xml(path)
+    errors.extend(container_errors)
+
     # Collect all files in the directory
     filenames = []
     for file_path in path.rglob("*"):
@@ -135,9 +145,34 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     duplicate_errors = _check_duplicate_filenames(filenames)
     errors.extend(duplicate_errors)
 
-    # Check META-INF resources
-    meta_inf_errors = _check_meta_inf_resources(filenames)
-    errors.extend(meta_inf_errors)
+
+    # Check META-INF resources for EPUB 3
+    # Determine EPUB version from OPF
+    is_epub3 = False
+    container_path = path / "META-INF" / "container.xml"
+    if container_path.exists():
+        try:
+            from pyepubcheck.xml_parser import load_xml
+            doc = load_xml(container_path)
+            if not doc.errors:
+                rootfile = doc.find(".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile")
+                if rootfile is not None:
+                    full_path = rootfile.get("full-path", "")
+                    if full_path:
+                        opf_path = path / full_path
+                        if opf_path.exists():
+                            opf_doc = load_xml(opf_path)
+                            if not opf_doc.errors and opf_doc.root is not None:
+                                version = opf_doc.root.get("version", "")
+                                if version.startswith("3"):
+                                    is_epub3 = True
+        except Exception:
+            pass
+    if is_epub3:
+        meta_inf_errors = _check_meta_inf_resources(filenames)
+        errors.extend(meta_inf_errors)
+
+    # Note: Unknown files in META-INF are ignored (not reported as errors)
 
     return errors
 
@@ -200,3 +235,71 @@ def run(path: str | Path) -> list[ResultMessage]:
     if candidate.suffix.lower() == ".epub":
         return _validate_archive(candidate)
     return []
+
+
+def _validate_container_xml(path: Path) -> list[ResultMessage]:
+    """Validate container.xml file."""
+    errors: list[ResultMessage] = []
+    container_path = path / "META-INF" / "container.xml"
+
+    if not container_path.exists():
+        return errors
+
+    try:
+        from pyepubcheck.xml_parser import load_xml
+        doc = load_xml(container_path)
+        if doc.errors:
+            return doc.errors
+
+        root = doc.root
+        if root is None:
+            return errors
+
+        # Check namespace
+        ns = "urn:oasis:names:tc:opendocument:xmlns:container"
+        if not root.tag.startswith(f"{{{ns}}}"):
+            errors.append(build_message("RSC-005", path=str(container_path), message="invalid container namespace"))
+            return errors
+
+        # Find rootfiles element
+        rootfiles = root.find(f"{{{ns}}}rootfiles")
+        if rootfiles is None:
+            errors.append(build_message("RSC-005", path=str(container_path), message="missing rootfiles element"))
+            return errors
+
+        # Check each rootfile
+        rootfile_count = 0
+        for rootfile in rootfiles.findall(f"{{{ns}}}rootfile"):
+            rootfile_count += 1
+            full_path = rootfile.get("full-path", "")
+            media_type = rootfile.get("media-type", "")
+
+            # Validate full-path
+            if not full_path:
+                errors.append(build_message("PKG-001", path=str(container_path), message="rootfile full-path is empty or missing"))
+            else:
+                # Check if the OPF file exists (only for primary rootfile)
+                if rootfile_count == 1:
+                    opf_path = path / full_path
+                    if not opf_path.exists():
+                        errors.append(build_message("FATAL-001", path=str(container_path), message=f"rootfile '{full_path}' not found"))
+
+            # Validate media-type (only for primary rootfile)
+            if rootfile_count == 1 and media_type and media_type != "application/oebps-package+xml":
+                errors.append(build_message("PKG-007", path=str(container_path), message=f"invalid rootfile media-type '{media_type}'"))
+
+        # Check for multiple rootfiles with same media-type (error)
+        if rootfile_count > 1:
+            # Multiple rootfiles with same media-type is an error
+            media_types = []
+            for rootfile in rootfiles.findall(f"{{{ns}}}rootfile"):
+                mt = rootfile.get("media-type", "")
+                if mt:
+                    media_types.append(mt)
+            if len(media_types) > 1 and len(set(media_types)) == 1:
+                errors.append(build_message("PKG-001", path=str(container_path), message="multiple rootfiles with same media-type"))
+
+    except Exception as e:
+        errors.append(build_message("RSC-002", path=str(container_path), message=f"error parsing container.xml: {e}"))
+
+    return errors

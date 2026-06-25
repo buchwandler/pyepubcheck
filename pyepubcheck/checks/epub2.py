@@ -211,8 +211,12 @@ def _validate_fallbacks(path: Path, opf) -> list[ResultMessage]:
 
 
 def _validate_ncx_ids(path: Path, ncx_root) -> list[ResultMessage]:
-    """Validate NCX document for duplicate IDs."""
+    """Validate NCX document for duplicate and invalid IDs."""
     errors: list[ResultMessage] = []
+
+    # XML ID syntax: must start with letter or underscore, followed by letters, digits, hyphens, underscores, or periods
+    # Colons are not allowed in NCX IDs
+    id_syntax_re = re.compile(r'^[a-zA-Z_][a-zA-Z0-9_.\-]*$')
 
     # Collect all IDs in the NCX
     id_counts: dict[str, int] = {}
@@ -220,6 +224,15 @@ def _validate_ncx_ids(path: Path, ncx_root) -> list[ResultMessage]:
     def collect_ids(element):
         elem_id = element.get("id", "")
         if elem_id:
+            # Check for invalid ID syntax
+            if not id_syntax_re.match(elem_id):
+                errors.append(
+                    build_message(
+                        "NCX-002",
+                        path=str(path),
+                        message=f"invalid NCX ID syntax '{elem_id}'",
+                    )
+                )
             id_counts[elem_id] = id_counts.get(elem_id, 0) + 1
         for child in element:
             collect_ids(child)
@@ -284,13 +297,14 @@ def _validate_ncx_uid(path: Path, ncx_root, opf_uid: str) -> list[ResultMessage]
 
     for meta_el in head_el.findall(f"{{{ncx_ns}}}meta"):
         if meta_el.get("name", "") == "dtb:uid":
-            ncx_uid = meta_el.get("content", "")
-            if ncx_uid and opf_uid and ncx_uid != opf_uid:
+            ncx_uid = meta_el.get("content", "").strip()
+            opf_uid_stripped = opf_uid.strip()
+            if ncx_uid and opf_uid_stripped and ncx_uid != opf_uid_stripped:
                 errors.append(
                     build_message(
                         "NCX-004",
                         path=str(path),
-                        message=f"NCX UID '{ncx_uid}' does not match OPF UID '{opf_uid}'",
+                        message=f"NCX UID '{ncx_uid}' does not match OPF UID '{opf_uid_stripped}'",
                     )
                 )
             break
@@ -352,6 +366,118 @@ def _validate_remote_objects(path: Path, xhtml_root, manifest_items: set[str]) -
     return errors
 
 
+def run_ncx(path: str | Path, opf_path: Path | None = None) -> list[ResultMessage]:
+    """Run NCX-specific validation checks."""
+    candidate = Path(path)
+    errors: list[ResultMessage] = []
+
+    # Only check NCX files
+    if candidate.suffix.lower() != ".ncx":
+        return []
+
+    # Load and parse XML
+    xml_doc = load_xml(candidate)
+    if xml_doc.errors:
+        return xml_doc.errors
+
+    ncx_root = xml_doc.root
+    if ncx_root is None:
+        return errors
+
+    # Validate duplicate IDs
+    errors.extend(_validate_ncx_ids(candidate, ncx_root))
+
+    # If we have an OPF path, we can do additional validation
+    if opf_path and opf_path.exists():
+        opf = parse_opf(opf_path)
+        if not opf.errors and opf.xml_doc:
+            root = opf.xml_doc.root
+            spine_el = root.find(f"{{{OPF_NS}}}spine")
+            if spine_el is not None:
+                # Build set of spine item hrefs
+                opf_dir = opf_path.parent
+                spine_items: set[str] = set()
+                manifest_el = root.find(f"{{{OPF_NS}}}manifest")
+                if manifest_el is not None:
+                    item_map: dict[str, str] = {}
+                    for item_el in manifest_el.findall(f"{{{OPF_NS}}}item"):
+                        item_id = item_el.get("id", "").strip()
+                        href = item_el.get("href", "")
+                        if item_id and href:
+                            item_map[item_id] = href
+
+                    # Get spine itemrefs
+                    for itemref in spine_el.findall(f"{{{OPF_NS}}}itemref"):
+                        idref = itemref.get("idref", "")
+                        if idref in item_map:
+                            href = item_map[idref]
+                            # Resolve relative to OPF directory
+                            resolved = (opf_dir / href).resolve()
+                            spine_items.add(str(resolved))
+                            # Also add just the href for relative matching
+                            spine_items.add(href)
+
+                # Validate NCX resources against spine
+                errors.extend(_validate_ncx_resources(candidate, ncx_root, spine_items))
+
+            # Get OPF UID for NCX UID validation
+            dc_ns = "http://purl.org/dc/elements/1.1/"
+            metadata_el = root.find(f"{{{OPF_NS}}}metadata")
+            if metadata_el is not None:
+                unique_id_ref = root.get("unique-identifier", "")
+                if unique_id_ref:
+                    for identifier_el in metadata_el.findall(f"{{{dc_ns}}}identifier"):
+                        if identifier_el.get("id", "") == unique_id_ref:
+                            opf_uid = identifier_el.text or ""
+                            if opf_uid:
+                                errors.extend(_validate_ncx_uid(candidate, ncx_root, opf_uid))
+                            break
+
+    return errors
+
+
+def _validate_epub2_xhtml(path: Path) -> list[ResultMessage]:
+    """EPUB 2 specific XHTML validation."""
+    errors: list[ResultMessage] = []
+
+    try:
+        content = path.read_text(encoding='utf-8')
+    except Exception:
+        return errors
+
+    # Check for HTML5 DOCTYPE
+    if '<!doctype html>' in content.lower():
+        errors.append(
+            build_message(
+                'RSC-005',
+                path=str(path),
+                message='HTML5 DOCTYPE not allowed in EPUB 2',
+            )
+        )
+
+    # Check for HTML5 elements
+    try:
+        from lxml import etree
+        tree = etree.parse(str(path))
+        root = tree.getroot()
+        html5_elements = ['article', 'aside', 'details', 'figcaption', 'figure', 'footer', 'header', 'main', 'mark', 'nav', 'section', 'summary', 'time']
+        for elem in root.iter():
+            local_name = elem.tag.split('}')[-1] if '}' in str(elem.tag) else str(elem.tag)
+            if local_name in html5_elements:
+                errors.append(
+                    build_message(
+                        'RSC-005',
+                        path=str(path),
+                        message=f"HTML5 element '{local_name}' not allowed in EPUB 2",
+                    )
+                )
+                break
+    except Exception:
+        pass
+
+    return errors
+
+
 def run(path: str | Path) -> list[ResultMessage]:
     """Run EPUB 2 specific checks."""
     candidate = Path(path)
@@ -382,5 +508,15 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Validate fallbacks
     errors.extend(_validate_fallbacks(candidate, opf))
+
+    # Validate XHTML files in manifest for EPUB 2 specific issues
+    # Only apply EPUB 2 specific checks if version is 2.0
+    if opf.version.startswith('2'):
+        opf_dir = candidate.parent
+        for item in opf.manifest:
+            if item.media_type == 'application/xhtml+xml' and item.href:
+                item_path = opf_dir / item.href
+                if item_path.exists():
+                    errors.extend(_validate_epub2_xhtml(item_path))
 
     return errors

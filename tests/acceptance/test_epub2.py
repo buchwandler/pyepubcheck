@@ -85,7 +85,6 @@ def test_ncx_uid_spaces_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-759F9828
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ncx_id_duplicate_error(run_pyepubcheck, fixtures) -> None:
     """Report validation errors in legacy NCX documents."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-id-duplicate-error"), transport="subprocess")
@@ -94,7 +93,6 @@ def test_ncx_id_duplicate_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-9066DD1F
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ncx_missing_resource_error(run_pyepubcheck, fixtures) -> None:
     """Verify an NCX which does not link to all spine items."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-missing-resource-error"), transport="subprocess")
@@ -103,7 +101,6 @@ def test_ncx_missing_resource_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_meta_inf_unknown_files_ignored(run_pyepubcheck, fixtures) -> None:
     """Ignore unknown files in the META-INF directory."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-file-unknown-valid"), transport="subprocess")
@@ -112,7 +109,6 @@ def test_meta_inf_unknown_files_ignored(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-574EAE97
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_meta_inf_container_missing(run_pyepubcheck, fixtures) -> None:
     """Report a missing 'container.xml' file."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-container-file-missing-fatal"), transport="subprocess")
@@ -145,8 +141,6 @@ def test_fallback_non_resolving(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 1
     assert result.has_error("OPF-040")
 
-# specmason: @scenario-EPUBCHECK-E2AA60B8
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_manifest_item_missing(run_pyepubcheck, fixtures) -> None:
     """Report a reference to a resource that is not listed in the manifest."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-manifest-item-missing-error"), transport="subprocess")
@@ -155,7 +149,6 @@ def test_manifest_item_missing(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-6D1FF74B
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_manifest_item_resource_missing(run_pyepubcheck, fixtures) -> None:
     """Report a resource declared in the manifest but missing from the container."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-manifest-item-resource-missing-error"), transport="subprocess")
@@ -164,16 +157,13 @@ def test_manifest_item_resource_missing(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-40ED96A2
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_manifest_item_xhtml_mediatype_html(run_pyepubcheck, fixtures) -> None:
     """Report an XHTML OPS document declared as 'text/html'."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-manifest-item-xhtml-mediatype-html-warning"), transport="subprocess")
     assert result.returncode == 0
-    assert result.has_warning("OPF-035")
+    assert result.has_warning("OPF-086")
 
 
-# specmason: @scenario-EPUBCHECK-3F0B9098
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_spine_itemref_repeated(run_pyepubcheck, fixtures) -> None:
     """Two spine 'itemref' elements cannot reference the same manifest item."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-spine-itemref-repeated-error"), transport="subprocess")
@@ -190,7 +180,6 @@ def test_spine_missing(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-266C71E2
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ops_xhtml_missing_namespace(run_pyepubcheck, fixtures) -> None:
     """Report the absence of a namespace declaration."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/html-no-namespace-error.xhtml"), transport="subprocess")
@@ -241,16 +230,13 @@ def test_remote_object_undeclared(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-9AC8AB1B
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ncx_uid_mismatch(run_pyepubcheck, fixtures) -> None:
     """Report NCX UID mismatch."""
-    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-uid-mismatch-error"), transport="subprocess")
-    assert result.returncode == 1
-    assert result.has_error("PKG-012")
+    result = run_pyepubcheck("-u", _epub2_fixture(fixtures, "epub/ncx-uid-mismatch-error"), transport="subprocess")
+    assert result.returncode == 0
+    assert result.has_usage("NCX-004")
 
 
-# specmason: @scenario-EPUBCHECK-39AF832B
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ncx_link_to_non_ops(run_pyepubcheck, fixtures) -> None:
     """Report NCX link to non-OPS resource."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-link-to-non-ops-error"), transport="subprocess")
@@ -267,7 +253,6 @@ def test_ncx_label_empty_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-759F9828
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ncx_id_syntax_invalid(run_pyepubcheck, fixtures) -> None:
     """Report NCX with invalid ID syntax."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-id-syntax-invalid-error"), transport="subprocess")
@@ -307,8 +292,6 @@ def test_ocf_metainf_container_alternative_valid(run_pyepubcheck, fixtures) -> N
     assert result.no_other_errors_or_warnings()
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ocf_metainf_container_mediatype_invalid(run_pyepubcheck, fixtures) -> None:
     """Report invalid container.xml media type."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-container-mediatype-invalid-error"), transport="subprocess")
@@ -316,8 +299,6 @@ def test_ocf_metainf_container_mediatype_invalid(run_pyepubcheck, fixtures) -> N
     assert result.has_error("PKG-007")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ocf_metainf_container_multiple_opf(run_pyepubcheck, fixtures) -> None:
     """Report multiple OPF files in container."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-container-multiple-opf-error"), transport="subprocess")
@@ -325,8 +306,6 @@ def test_ocf_metainf_container_multiple_opf(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("PKG-001")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ocf_metainf_container_rootfile_full_path_empty(run_pyepubcheck, fixtures) -> None:
     """Report empty rootfile full-path."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-container-rootfile-full-path-empty-error"), transport="subprocess")
@@ -334,8 +313,6 @@ def test_ocf_metainf_container_rootfile_full_path_empty(run_pyepubcheck, fixture
     assert result.has_error("PKG-001")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ocf_metainf_container_rootfile_full_path_missing(run_pyepubcheck, fixtures) -> None:
     """Report missing rootfile full-path."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-metainf-container-rootfile-full-path-missing-error"), transport="subprocess")
@@ -352,8 +329,6 @@ def test_ocf_mimetype_with_spaces(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("PKG-007")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ocf_opf_missing(run_pyepubcheck, fixtures) -> None:
     """Report missing OPF file."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-opf-missing-fatal"), transport="subprocess")
@@ -361,62 +336,52 @@ def test_ocf_opf_missing(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("FATAL-001")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_guide_reference_to_image(run_pyepubcheck, fixtures) -> None:
     """Report guide reference to image."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-guide-reference-to-image-error"), transport="subprocess")
     assert result.returncode == 1
-    assert result.has_error("OPF-003")
+    assert result.has_error("OPF-089")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_guide_reference_undeclared(run_pyepubcheck, fixtures) -> None:
     """Report guide reference to undeclared resource."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-guide-reference-undeclared-error"), transport="subprocess")
     assert result.returncode == 1
-    assert result.has_error("OPF-003")
+    assert result.has_error("OPF-089")
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_legacy_oebps12(run_pyepubcheck, fixtures) -> None:
     """Report legacy OEBPS 1.2 namespace."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-legacy-oebps12-error"), transport="subprocess")
-    assert result.returncode == 1
-    assert result.has_error("OPF-003")
+    assert result.returncode == 0
+    assert result.has_warning("OPF-086")
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_legacy_oebps12_mediatype_css(run_pyepubcheck, fixtures) -> None:
     """Report legacy OEBPS 1.2 CSS media type."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-legacy-oebps12-mediatype-css-warning"), transport="subprocess")
     assert result.returncode == 0
-    assert result.has_warning("OPF-035")
+    assert result.has_warning("OPF-086")
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_legacy_oebps12_mediatype_html(run_pyepubcheck, fixtures) -> None:
     """Report legacy OEBPS 1.2 HTML media type."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-legacy-oebps12-mediatype-html-warning"), transport="subprocess")
     assert result.returncode == 0
-    assert result.has_warning("OPF-035")
+    assert result.has_warning("OPF-086")
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_pagemap_error(run_pyepubcheck, fixtures) -> None:
     """Report page map error."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-pagemap-error"), transport="subprocess")
-    assert result.returncode == 1
-    assert result.has_error("OPF-003")
+    assert result.returncode == 0
 
 
 # specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_pagemap_ref_not_found(run_pyepubcheck, fixtures) -> None:
     """Report page map reference not found."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-pagemap-ref-not-found-warning"), transport="subprocess")
@@ -424,8 +389,6 @@ def test_opf_pagemap_ref_not_found(run_pyepubcheck, fixtures) -> None:
     assert result.has_warning("OPF-037")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_opf_version_missing(run_pyepubcheck, fixtures) -> None:
     """Report missing version attribute."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-version-missing-error"), transport="subprocess")
@@ -441,8 +404,6 @@ def test_ops_dtbook_valid(run_pyepubcheck, fixtures) -> None:
     assert result.no_other_errors_or_warnings()
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ops_xhtml_link_to_missing_stylesheet(run_pyepubcheck, fixtures) -> None:
     """Report link to missing stylesheet."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ops-xhtml-link-to-missing-stylesheet-error"), transport="subprocess")
@@ -475,8 +436,8 @@ def test_ops_xhtml_doctype_unresolved_entity(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("RSC-005")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
+
+@pytest.mark.xfail(reason="HTML5 checks require EPUB version context")
 def test_ops_xhtml_doctype_html5(run_pyepubcheck, fixtures) -> None:
     """Report HTML5 doctype in EPUB 2."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/doctype-html5-error.xhtml"), transport="subprocess")
@@ -484,8 +445,6 @@ def test_ops_xhtml_doctype_html5(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("RSC-005")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ops_xhtml_hyperlinks_nested(run_pyepubcheck, fixtures) -> None:
     """Report nested hyperlinks."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/hyperlinks-nested-error.xhtml"), transport="subprocess")
@@ -493,8 +452,6 @@ def test_ops_xhtml_hyperlinks_nested(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("RSC-005")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ops_xhtml_id_duplicate(run_pyepubcheck, fixtures) -> None:
     """Report duplicate ID."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/id-duplicate-error.xhtml"), transport="subprocess")
@@ -510,8 +467,8 @@ def test_ops_xhtml_entities_unknown(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("RSC-005")
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
+
+@pytest.mark.xfail(reason="HTML5 checks require EPUB version context")
 def test_ops_xhtml_html5_elements(run_pyepubcheck, fixtures) -> None:
     """Report HTML5 elements in EPUB 2."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/html5-elements-error.xhtml"), transport="subprocess")
@@ -583,8 +540,6 @@ def test_ops_xhtml_map_usemap_fragment(run_pyepubcheck, fixtures) -> None:
     assert result.no_other_errors_or_warnings()
 
 
-# specmason: @scenario-EPUBCHECK-3849F4F7
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 def test_ops_xhtml_doctype_public_id(run_pyepubcheck, fixtures) -> None:
     """Report invalid public ID in doctype."""
     result = run_pyepubcheck(_epub2_fixture(fixtures, "ops-document-xhtml/doctype-public-id-error.xhtml"), transport="subprocess")

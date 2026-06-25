@@ -5,10 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 
 from pyepubcheck.checks.ocf import run as run_ocf_checks
-from pyepubcheck.checks.epub2 import run as run_epub2_checks
+from pyepubcheck.checks.epub2 import run as run_epub2_checks, run_ncx as run_ncx_checks
 from pyepubcheck.checks.package import run as run_package_checks
 from pyepubcheck.checks.resources import run as run_resource_checks
-from pyepubcheck.checks.xhtml import run as run_xhtml_checks
+from pyepubcheck.checks.xhtml import run as run_xhtml_checks, validate_resources as run_xhtml_resource_checks
 from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.css import run as run_css_checks
 from pyepubcheck.checks.navigation import run as run_navigation_checks
@@ -24,6 +24,7 @@ from pyepubcheck.messages import build_message
 from pyepubcheck.models import PublicationMetadata
 from pyepubcheck.opf_parser import parse_opf
 from pyepubcheck.result import ValidationReport
+from pyepubcheck.xml_parser import load_xml
 
 
 def _find_opf_in_directory(directory: Path) -> Path | None:
@@ -96,12 +97,16 @@ def validate_path(
             report.messages.extend(run_edupub_checks(opf_path, profile=effective.profile))
             report.messages.extend(run_index_checks(opf_path, profile=effective.profile))
             report.messages.extend(run_preview_checks(opf_path, profile=effective.profile))
-
             # Parse OPF to get manifest items
             opf = parse_opf(opf_path)
             if not opf.errors:
                 # Get OPF directory for resolving relative paths
                 opf_dir = opf_path.parent
+                # Build set of manifest hrefs
+                manifest_hrefs: set[str] = set()
+                for m in opf.manifest:
+                    if m.href:
+                        manifest_hrefs.add(m.href)
 
                 # Run checks on manifest items
                 for item in opf.manifest:
@@ -109,6 +114,10 @@ def validate_path(
                     if item_path.exists():
                         if item.media_type == "application/xhtml+xml":
                             report.messages.extend(run_xhtml_checks(item_path))
+                            # Load xml to check resources
+                            item_xml_doc = load_xml(item_path)
+                            if item_xml_doc and not item_xml_doc.errors and item_xml_doc.root is not None:
+                                report.messages.extend(run_xhtml_resource_checks(item_path, item_xml_doc.root, manifest_hrefs))
                             report.messages.extend(run_navigation_checks(item_path))
                             report.messages.extend(run_edupub_checks(item_path, profile=effective.profile))
                             report.messages.extend(run_index_checks(item_path, profile=effective.profile))
@@ -118,22 +127,28 @@ def validate_path(
                             report.messages.extend(run_css_checks(item_path))
                         elif item.media_type == "application/smil+xml":
                             report.messages.extend(run_media_overlay_checks(item_path))
+                        elif item.media_type == "application/x-dtbncx+xml":
+                            report.messages.extend(run_ncx_checks(item_path, opf_path=opf_path))
     else:
         # Run checks on single file
-        report.messages.extend(run_ocf_checks(resolved))
-        report.messages.extend(run_package_checks(resolved))
-        report.messages.extend(run_epub2_checks(resolved))
-        report.messages.extend(run_resource_checks(resolved))
-        report.messages.extend(run_xhtml_checks(resolved))
-        report.messages.extend(run_svg_checks(resolved))
-        report.messages.extend(run_css_checks(resolved))
-        report.messages.extend(run_navigation_checks(resolved))
-        report.messages.extend(run_layout_checks(resolved))
-        report.messages.extend(run_media_overlay_checks(resolved))
-        report.messages.extend(run_dictionary_checks(resolved, profile=effective.profile))
-        report.messages.extend(run_edupub_checks(resolved, profile=effective.profile))
-        report.messages.extend(run_index_checks(resolved, profile=effective.profile))
-        report.messages.extend(run_preview_checks(resolved, profile=effective.profile))
+        if resolved.suffix.lower() == ".ncx":
+            # NCX file - run NCX-specific checks
+            report.messages.extend(run_ncx_checks(resolved))
+        else:
+            report.messages.extend(run_ocf_checks(resolved))
+            report.messages.extend(run_package_checks(resolved))
+            report.messages.extend(run_epub2_checks(resolved))
+            report.messages.extend(run_resource_checks(resolved))
+            report.messages.extend(run_xhtml_checks(resolved))
+            report.messages.extend(run_svg_checks(resolved))
+            report.messages.extend(run_css_checks(resolved))
+            report.messages.extend(run_navigation_checks(resolved))
+            report.messages.extend(run_layout_checks(resolved))
+            report.messages.extend(run_media_overlay_checks(resolved))
+            report.messages.extend(run_dictionary_checks(resolved, profile=effective.profile))
+            report.messages.extend(run_edupub_checks(resolved, profile=effective.profile))
+            report.messages.extend(run_index_checks(resolved, profile=effective.profile))
+            report.messages.extend(run_preview_checks(resolved, profile=effective.profile))
 
     # Handle special test cases
     name = resolved.name

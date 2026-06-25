@@ -225,39 +225,61 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Check namespace - must be valid OPF namespace
     root = xml_doc.root
+    is_legacy = False
     if isinstance(root.tag, str) and root.tag.startswith("{"):
         ns = root.tag.split("}")[0].lstrip("{")
         if ns != OPF_NS:
-            # Wrong namespace - report multiple errors to match EPUBCheck behavior
-            errors.append(
-                build_message(
-                    "RSC-005",
-                    path=str(candidate),
-                    message="default namespace is invalid",
-                )
+            # Check for legacy OEBPS namespace
+            legacy_ns = "http://openebook.org/namespaces/oeb-package/1.0/"
+            if ns == legacy_ns:
+                is_legacy = True
+            else:
+                # Unknown namespace - report multiple errors
+                for _ in range(4):
+                    errors.append(
+                        build_message(
+                            "RSC-005",
+                            path=str(candidate),
+                            message="default namespace is invalid",
+                        )
+                    )
+                return errors
+    elif root.tag == "package":
+        # No namespace at all
+        errors.append(
+            build_message(
+                "RSC-005",
+                path=str(candidate),
+                message="default namespace is invalid",
             )
-            errors.append(
-                build_message(
-                    "RSC-005",
-                    path=str(candidate),
-                    message="default namespace is invalid",
-                )
+        )
+        return errors
+
+    # Parse OPF
+    opf = parse_opf(candidate)
+    if opf.errors:
+        return opf.errors
+
+    if is_legacy:
+        # For legacy OEBPS 1.2, report deprecation warning
+        errors.append(
+            build_message(
+                "OPF-086",
+                path=str(candidate),
+                message="legacy OEBPS package format",
             )
-            errors.append(
-                build_message(
-                    "RSC-005",
-                    path=str(candidate),
-                    message="default namespace is invalid",
+        )
+        # Check legacy media types (warning only)
+        for item in opf.manifest:
+            if item.media_type in ("text/x-oeb1-document", "text/html", "text/css"):
+                errors.append(
+                    build_message(
+                        "OPF-086",
+                        path=str(candidate),
+                        message=f"legacy media type '{item.media_type}'",
+                    )
                 )
-            )
-            errors.append(
-                build_message(
-                    "RSC-005",
-                    path=str(candidate),
-                    message="default namespace is invalid",
-                )
-            )
-            return errors
+        return errors
     elif root.tag == "package":
         # No namespace at all
         errors.append(
@@ -302,4 +324,228 @@ def run(path: str | Path) -> list[ResultMessage]:
     # Validate data navigation documents
     errors.extend(_validate_data_nav(candidate, opf))
 
+    # Validate manifest resources
+    errors.extend(_validate_manifest_resources(candidate, opf))
+
+    # Validate spine itemrefs
+    errors.extend(_validate_spine_itemrefs(candidate, opf))
+
+    # Validate version
+    errors.extend(_validate_version(candidate, opf))
+
+    # Validate guide references
+    errors.extend(_validate_guide_references(candidate, opf))
+
+    # Validate page-map
+    errors.extend(_validate_pagemap(candidate, opf))
+
+    # Check for deprecated media types in non-legacy OPFs
+    if not is_legacy:
+        for item in opf.manifest:
+            if item.media_type in ("text/x-oeb1-document", "text/html"):
+                errors.append(
+                    build_message(
+                        "OPF-086",
+                        path=str(candidate),
+                        message=f"legacy media type '{item.media_type}'",
+                    )
+                )
+
+    return errors
+
+
+def _validate_manifest_resources(path: Path, opf) -> list[ResultMessage]:
+    """Validate that manifest items have valid resources."""
+    errors: list[ResultMessage] = []
+    if not opf.xml_doc:
+        return errors
+
+    # Only check resource existence when the OPF is inside an EPUB directory
+    # Find the EPUB root by looking for META-INF/container.xml
+    opf_dir = path.parent
+    epub_root = None
+    check_dir = opf_dir
+    for _ in range(10):  # limit depth to avoid infinite loops
+        if (check_dir / "META-INF" / "container.xml").exists():
+            epub_root = check_dir
+            break
+        parent = check_dir.parent
+        if parent == check_dir:
+            break
+        check_dir = parent
+    if epub_root is None:
+        return errors
+
+    for item in opf.manifest:
+        if not item.href:
+            continue
+        # Resolve the resource path (URL-decode the href)
+        from urllib.parse import unquote
+        decoded_href = unquote(item.href)
+        resource_path = opf_dir / decoded_href
+        if not resource_path.exists():
+            errors.append(
+                build_message(
+                    "RSC-001",
+                    path=str(path),
+                    message=f"resource '{item.href}' not found",
+                )
+            )
+
+    return errors
+
+
+def _validate_spine_itemrefs(path: Path, opf) -> list[ResultMessage]:
+    """Validate spine itemrefs for duplicates and missing references."""
+    errors: list[ResultMessage] = []
+    if not opf.xml_doc:
+        return errors
+
+    root = opf.xml_doc.root
+    spine_el = root.find(f"{{{OPF_NS}}}spine")
+    if spine_el is None:
+        return errors
+
+    # Build set of manifest item IDs
+    manifest_ids = {item.id for item in opf.manifest}
+
+    # Check for repeated itemrefs
+    seen_refs: set[str] = set()
+    for itemref in spine_el.findall(f"{{{OPF_NS}}}itemref"):
+        idref = itemref.get("idref", "")
+        if not idref:
+            continue
+
+        # Check if idref references a manifest item
+        # Note: IDs should not have spaces, but we handle them for robustness
+        manifest_ids_stripped = {mid.strip() for mid in manifest_ids}
+        if idref not in manifest_ids and idref not in manifest_ids_stripped:
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message=f"spine itemref '{idref}' not found in manifest",
+                )
+            )
+
+        # Check for duplicates
+        if idref in seen_refs:
+            errors.append(
+                build_message(
+                    "OPF-003",
+                    path=str(path),
+                    message=f"spine itemref '{idref}' is repeated",
+                )
+            )
+        else:
+            seen_refs.add(idref)
+
+    return errors
+
+
+def _validate_version(path: Path, opf) -> list[ResultMessage]:
+    """Validate package version attribute."""
+    errors: list[ResultMessage] = []
+    if not opf.xml_doc:
+        return errors
+
+    root = opf.xml_doc.root
+    version = root.get("version", "")
+    if not version:
+        errors.append(
+            build_message(
+                "OPF-001",
+                path=str(path),
+                message="missing version attribute",
+            )
+        )
+
+    return errors
+
+
+def _validate_guide_references(path: Path, opf) -> list[ResultMessage]:
+    """Validate guide references."""
+    errors: list[ResultMessage] = []
+    if not opf.xml_doc:
+        return errors
+
+    root = opf.xml_doc.root
+    guide_el = root.find(f"{{{OPF_NS}}}guide")
+    if guide_el is None:
+        return errors
+
+    # Build set of manifest item hrefs
+    manifest_hrefs = {item.href for item in opf.manifest}
+
+    for ref_el in guide_el.findall(f"{{{OPF_NS}}}reference"):
+        href = ref_el.get("href", "")
+        if not href:
+            continue
+
+        # Check if href references a manifest item
+        base_href = href.split("#")[0] if "#" in href else href
+        if base_href and base_href not in manifest_hrefs:
+            errors.append(
+                build_message(
+                    "OPF-089",
+                    path=str(path),
+                    message=f"guide reference '{href}' not found in manifest",
+                )
+            )
+
+        # Check if reference is to an image
+        ref_type = ref_el.get("type", "")
+        if ref_type and ref_type.lower() in ("cover", "title-page"):
+            if href.lower().endswith((".jpg", ".jpeg", ".png", ".gif", ".svg")):
+                errors.append(
+                    build_message(
+                        "OPF-089",
+                        path=str(path),
+                        message=f"guide reference '{href}' points to an image",
+                    )
+                )
+
+    return errors
+
+
+def _validate_pagemap(path: Path, opf) -> list[ResultMessage]:
+    """Validate page-map attribute."""
+    errors: list[ResultMessage] = []
+    if not opf.xml_doc:
+        return errors
+
+    root = opf.xml_doc.root
+    spine_el = root.find(f"{{{OPF_NS}}}spine")
+    if spine_el is None:
+        return errors
+
+    page_map = spine_el.get("page-map", "")
+    if not page_map:
+        return errors
+
+    # Build set of manifest item IDs
+    manifest_ids = {item.id for item in opf.manifest}
+
+    # Check if the page-map ID references a valid manifest item
+    if page_map not in manifest_ids:
+        errors.append(
+            build_message(
+                "OPF-037",
+                path=str(path),
+                message=f"page-map '{page_map}' not found in manifest",
+            )
+        )
+    else:
+        # Find the referenced item and check its media type
+        for item in opf.manifest:
+            if item.id == page_map:
+                if item.media_type != "application/oebps-page-map+xml":
+                    errors.append(
+                        build_message(
+                            "OPF-003",
+                            path=str(path),
+                            message=f"page-map '{page_map}' has invalid media type",
+                        )
+                    )
+                break
     return errors

@@ -26,6 +26,9 @@ class MessageOverride:
 
 
 MESSAGES: dict[str, MessageDef] = {
+    # Fatal messages
+    "FATAL-001": MessageDef(Severity.FATAL, "fatal error"),
+
     # Check messages
     "CHK-001": MessageDef(Severity.ERROR, "custom message file not found"),
     "CHK-002": MessageDef(Severity.ERROR, "unknown custom message identifier"),
@@ -52,7 +55,7 @@ MESSAGES: dict[str, MessageDef] = {
     "NCX-001": MessageDef(Severity.ERROR, "NCX parsing error"),
     "NCX-002": MessageDef(Severity.ERROR, "duplicate NCX ID"),
     "NCX-003": MessageDef(Severity.ERROR, "NCX resource not found in spine"),
-    "NCX-004": MessageDef(Severity.USAGE, "usage information"),
+    "NCX-004": MessageDef(Severity.USAGE, "NCX UID mismatch"),
     "NCX-006": MessageDef(Severity.ERROR, "NCX structure error"),
 
     # OPF messages
@@ -80,7 +83,7 @@ MESSAGES: dict[str, MessageDef] = {
     "OPF-033": MessageDef(Severity.ERROR, "OPF title error"),
     "OPF-034": MessageDef(Severity.ERROR, "OPF language error"),
     "OPF-035": MessageDef(Severity.ERROR, "OPF date error"),
-    "OPF-037": MessageDef(Severity.ERROR, "OPF contributor error"),
+    "OPF-037": MessageDef(Severity.WARNING, "OPF pagemap reference not found"),
     "OPF-038": MessageDef(Severity.ERROR, "OPF type error"),
     "OPF-039": MessageDef(Severity.ERROR, "OPF format error"),
     "OPF-040": MessageDef(Severity.ERROR, "OPF source error"),
