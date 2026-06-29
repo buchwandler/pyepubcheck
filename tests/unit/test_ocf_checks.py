@@ -83,10 +83,12 @@ class TestCheckMetaInfResources:
     """Test META-INF resource checks."""
 
     def test_allowed_meta_inf(self) -> None:
-        errors = _check_meta_inf_resources([
-            "META-INF/container.xml",
-            "META-INF/encryption.xml",
-        ])
+        errors = _check_meta_inf_resources(
+            [
+                "META-INF/container.xml",
+                "META-INF/encryption.xml",
+            ]
+        )
         assert len(errors) == 0
 
     def test_forbidden_meta_inf(self) -> None:
@@ -103,8 +105,12 @@ class TestValidateDirectory:
         epub_dir.mkdir()
         (epub_dir / "mimetype").write_text("application/epub+zip")
         (epub_dir / "META-INF").mkdir()
-        (epub_dir / "META-INF" / "container.xml").write_text("<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>")
-        (epub_dir / "content.opf").write_text("<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>")
+        (epub_dir / "META-INF" / "container.xml").write_text(
+            "<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>"
+        )
+        (epub_dir / "content.opf").write_text(
+            "<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>"
+        )
         errors = _validate_directory(epub_dir)
         assert len(errors) == 0
 
@@ -130,7 +136,9 @@ class TestValidateArchive:
     def test_valid_archive(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
+            zf.writestr(
+                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
+            )
             zf.writestr("EPUB/content.xhtml", "<html/>")
         errors = _validate_archive(epub_file)
         assert len(errors) == 0
@@ -147,7 +155,9 @@ class TestValidateArchive:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
             zf.writestr("EPUB/content.xhtml", "<html/>")
-            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
+            zf.writestr(
+                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
+            )
         errors = _validate_archive(epub_file)
         assert any(e.id == "PKG-005" for e in errors)
 
@@ -161,7 +171,9 @@ class TestValidateArchive:
     def test_forbidden_filename(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
+            zf.writestr(
+                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
+            )
             zf.writestr("file+name.xhtml", "<html/>")
         errors = _validate_archive(epub_file)
         assert any(e.id == "PKG-009" for e in errors)
@@ -183,15 +195,21 @@ class TestRun:
         epub_dir.mkdir()
         (epub_dir / "mimetype").write_text("application/epub+zip")
         (epub_dir / "META-INF").mkdir()
-        (epub_dir / "META-INF" / "container.xml").write_text("<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>")
-        (epub_dir / "content.opf").write_text("<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>")
+        (epub_dir / "META-INF" / "container.xml").write_text(
+            "<?xml version='1.0'?><container xmlns='urn:oasis:names:tc:opendocument:xmlns:container' version='1.0'><rootfiles><rootfile full-path='content.opf' media-type='application/oebps-package+xml'/></rootfiles></container>"
+        )
+        (epub_dir / "content.opf").write_text(
+            "<?xml version='1.0'?><package xmlns='http://www.idpf.org/2007/opf' version='2.0'><metadata/></package>"
+        )
         errors = run(epub_dir)
         assert len(errors) == 0
 
     def test_epub_file(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
+            zf.writestr(
+                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
+            )
         errors = run(epub_file)
         assert len(errors) == 0
 

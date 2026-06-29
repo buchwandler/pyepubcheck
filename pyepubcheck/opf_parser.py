@@ -341,14 +341,26 @@ def validate_opf_prefixes(opf: OpfDocument) -> list[ResultMessage]:
     declared_prefixes.update(PREDEFINED_PREFIXES.keys())
 
     # Known property prefixes that don't need declaration
-    known_property_prefixes = {"nav", "cover", "mathml", "remote-resources", "scripted", "svg", "switch", "data-nav"}
+    known_property_prefixes = {
+        "nav",
+        "cover",
+        "mathml",
+        "remote-resources",
+        "scripted",
+        "svg",
+        "switch",
+        "data-nav",
+    }
 
     # Check manifest item properties
     for item in opf.manifest:
         for prop in item.properties:
             if ":" in prop:
                 prefix = prop.split(":")[0]
-                if prefix not in declared_prefixes and prefix not in known_property_prefixes:
+                if (
+                    prefix not in declared_prefixes
+                    and prefix not in known_property_prefixes
+                ):
                     errors.append(
                         ResultMessage(
                             id="OPF-028",
@@ -364,7 +376,10 @@ def validate_opf_prefixes(opf: OpfDocument) -> list[ResultMessage]:
             prop = meta_el.get("property", "")
             if ":" in prop:
                 prefix = prop.split(":")[0]
-                if prefix not in declared_prefixes and prefix not in known_property_prefixes:
+                if (
+                    prefix not in declared_prefixes
+                    and prefix not in known_property_prefixes
+                ):
                     errors.append(
                         ResultMessage(
                             id="OPF-028",

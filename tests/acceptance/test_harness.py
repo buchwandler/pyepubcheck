@@ -24,7 +24,9 @@ def test_harness_collects_json_and_xml_reports(run_pyepubcheck, tmp_path: Path) 
     source = tmp_path / "sample"
     (source / "META-INF").mkdir(parents=True)
     (source / "mimetype").write_text("application/epub+zip", encoding="utf-8")
-    (source / "META-INF" / "container.xml").write_text("<container />", encoding="utf-8")
+    (source / "META-INF" / "container.xml").write_text(
+        "<container />", encoding="utf-8"
+    )
     publication = build_epub_from_directory(source, tmp_path / "sample.epub")
     json_result = run_pyepubcheck(
         publication,

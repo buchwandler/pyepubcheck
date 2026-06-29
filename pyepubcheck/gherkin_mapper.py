@@ -134,7 +134,10 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:
 
         # Steps
         if in_scenario and stripped and not stripped.startswith("#"):
-            if any(stripped.startswith(kw) for kw in ("Given", "When", "Then", "And", "But")):
+            if any(
+                stripped.startswith(kw)
+                for kw in ("Given", "When", "Then", "And", "But")
+            ):
                 current_steps.append(stripped)
 
     # Save last scenario
@@ -215,7 +218,11 @@ def extract_test_mappings(test_file: Path) -> list[TestMapping]:
             else:
                 # Extract message IDs
                 tags = spec_content.split()
-                message_ids = [t.replace("@msg-", "") for t in tags if t.startswith("@msg-") or "@" not in t]
+                message_ids = [
+                    t.replace("@msg-", "")
+                    for t in tags
+                    if t.startswith("@msg-") or "@" not in t
+                ]
                 # Also extract any bare message IDs
                 message_ids.extend(extract_message_ids(spec_content))
                 message_ids = list(set(message_ids))
@@ -267,7 +274,9 @@ def generate_mapping_report(
         if mapping.scenario:
             covered_scenario_names.add(mapping.scenario.scenario_name)
 
-    uncovered = [s for s in all_scenarios if s.scenario_name not in covered_scenario_names]
+    uncovered = [
+        s for s in all_scenarios if s.scenario_name not in covered_scenario_names
+    ]
 
     return MappingReport(
         total_tests=len(all_mappings),

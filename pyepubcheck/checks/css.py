@@ -27,9 +27,9 @@ def _validate_css_properties(path: Path, content: str) -> list[ResultMessage]:
     # Check for unmatched braces (syntax errors)
     open_braces = 0
     for char in content:
-        if char == '{':
+        if char == "{":
             open_braces += 1
-        elif char == '}':
+        elif char == "}":
             open_braces -= 1
         if open_braces < 0:
             errors.append(
@@ -52,7 +52,9 @@ def _validate_css_properties(path: Path, content: str) -> list[ResultMessage]:
             )
 
     try:
-        rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
+        rules = tinycss2.parse_stylesheet(
+            content, skip_comments=True, skip_whitespace=True
+        )
     except Exception:
         errors.append(
             build_message(
@@ -89,7 +91,11 @@ def _validate_css_urls(path: Path, content: str) -> list[ResultMessage]:
         url = match.group(1)
 
         # Skip data URLs and remote URLs
-        if url.startswith("data:") or url.startswith("http://") or url.startswith("https://"):
+        if (
+            url.startswith("data:")
+            or url.startswith("http://")
+            or url.startswith("https://")
+        ):
             continue
 
         # Skip fragment-only URLs
@@ -150,7 +156,7 @@ def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
 
     # Check for direction property - always report as error in EPUB
-    direction_re = re.compile(r'direction\s*:\s*([^;]+)')
+    direction_re = re.compile(r"direction\s*:\s*([^;]+)")
     for match in direction_re.finditer(content):
         value = match.group(1).strip().lower()
         errors.append(
@@ -169,7 +175,9 @@ def _validate_css_selectors(path: Path, content: str) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
 
     try:
-        rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
+        rules = tinycss2.parse_stylesheet(
+            content, skip_comments=True, skip_whitespace=True
+        )
     except Exception:
         return errors
 
@@ -177,7 +185,11 @@ def _validate_css_selectors(path: Path, content: str) -> list[ResultMessage]:
         if rule.type == "qualified-rule":
             # Check for invalid selector patterns
             prelude = tinycss2.serialize(rule.prelude)
-            if "::" in prelude and "::before" not in prelude and "::after" not in prelude:
+            if (
+                "::" in prelude
+                and "::before" not in prelude
+                and "::after" not in prelude
+            ):
                 # Check for invalid pseudo-elements
                 pass
 

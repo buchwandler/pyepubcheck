@@ -19,7 +19,9 @@ from typing import Any
 from pyepubcheck.cli import main as cli_main
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MESSAGE_RE = re.compile(r"(?P<severity>FATAL|ERROR|WARNING|USAGE)\((?P<id>[A-Z]+-\d{3})\)")
+MESSAGE_RE = re.compile(
+    r"(?P<severity>FATAL|ERROR|WARNING|USAGE)\((?P<id>[A-Z]+-\d{3})\)"
+)
 
 
 class FixtureLocator:
@@ -94,7 +96,9 @@ class CliResult:
         )
 
 
-def build_epub_from_directory(source_dir: Path, output_path: Path | None = None) -> Path:
+def build_epub_from_directory(
+    source_dir: Path, output_path: Path | None = None
+) -> Path:
     source_dir = source_dir.resolve()
     destination = output_path or source_dir.with_suffix(".epub")
     with zipfile.ZipFile(destination, "w") as archive:
@@ -116,7 +120,9 @@ def _option_value(args: list[str], names: Iterable[str]) -> str | None:
     return None
 
 
-def _load_optional_reports(args: list[str], cwd: Path, stdout: str) -> tuple[dict[str, Any] | None, ET.Element | None]:
+def _load_optional_reports(
+    args: list[str], cwd: Path, stdout: str
+) -> tuple[dict[str, Any] | None, ET.Element | None]:
     json_target = _option_value(args, ("--json", "-j"))
     xml_target = _option_value(args, ("--out", "-o"))
 
@@ -145,7 +151,9 @@ def invoke_pyepubcheck(
     if transport == "subprocess":
         env = os.environ.copy()
         existing = env.get("PYTHONPATH", "")
-        env["PYTHONPATH"] = str(REPO_ROOT) if not existing else f"{REPO_ROOT}{os.pathsep}{existing}"
+        env["PYTHONPATH"] = (
+            str(REPO_ROOT) if not existing else f"{REPO_ROOT}{os.pathsep}{existing}"
+        )
         completed = subprocess.run(
             [sys.executable, "-m", "pyepubcheck", *rendered],
             cwd=cwd,
@@ -154,8 +162,16 @@ def invoke_pyepubcheck(
             text=True,
             env=env,
         )
-        json_report, xml_report = _load_optional_reports(rendered, cwd, completed.stdout)
-        return CliResult(completed.returncode, completed.stdout, completed.stderr, json_report, xml_report)
+        json_report, xml_report = _load_optional_reports(
+            rendered, cwd, completed.stdout
+        )
+        return CliResult(
+            completed.returncode,
+            completed.stdout,
+            completed.stderr,
+            json_report,
+            xml_report,
+        )
 
     if transport != "in_process":
         raise ValueError(f"unsupported transport: {transport}")

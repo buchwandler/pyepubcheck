@@ -95,7 +95,6 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
                 )
             )
 
-
     # Check for nested hyperlinks
     xhtml_ns = "http://www.w3.org/1999/xhtml"
     for a_el in root.iter(f"{{{xhtml_ns}}}a"):
@@ -117,7 +116,9 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
     return errors
 
 
-def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[ResultMessage]:
+def validate_xhtml_doctype(
+    path: Path | str, root: etree._Element
+) -> list[ResultMessage]:
     """Validate XHTML DOCTYPE declaration.
 
     Checks:
@@ -130,31 +131,30 @@ def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[Resul
 
     # Read the file to check DOCTYPE
     try:
-        content = file_path.read_text(encoding='utf-8')
+        content = file_path.read_text(encoding="utf-8")
     except Exception:
         return errors
 
-
-    if '<!DOCTYPE' in content:
+    if "<!DOCTYPE" in content:
         # Extract DOCTYPE declaration
-        doctype_start = content.find('<!DOCTYPE')
+        doctype_start = content.find("<!DOCTYPE")
         if doctype_start != -1:
-            doctype_end = content.find('>', doctype_start)
+            doctype_end = content.find(">", doctype_start)
             if doctype_end != -1:
-                doctype = content[doctype_start:doctype_end + 1]
-                
+                doctype = content[doctype_start : doctype_end + 1]
+
                 # Check for public ID
-                if 'PUBLIC' in doctype:
+                if "PUBLIC" in doctype:
                     # Extract public ID
-                    pub_start = doctype.find('PUBLIC')
+                    pub_start = doctype.find("PUBLIC")
                     if pub_start != -1:
-                        pub_part = doctype[pub_start + 6:].strip()
+                        pub_part = doctype[pub_start + 6 :].strip()
                         if pub_part.startswith('"'):
                             pub_end = pub_part.find('"', 1)
                             if pub_end != -1:
                                 public_id = pub_part[1:pub_end]
                                 # Check for invalid public IDs
-                                if public_id and not public_id.startswith('-//W3C//'):
+                                if public_id and not public_id.startswith("-//W3C//"):
                                     errors.append(
                                         ResultMessage(
                                             id="RSC-005",
@@ -164,24 +164,23 @@ def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[Resul
                                         )
                                     )
 
-
                 # Check for external DTD references that are not standard W3C DTDs
                 w3c_dtds = [
-                    'http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd',
-                    'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd',
-                    'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd',
-                    'http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd',
-                    'http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd',
-                    'http://www.w3.org/TR/xhtml-modularization/PE/xhtml11-model-1.mod',
-                    'http://www.w3.org/MarkUp/DTD/xhtml-special.ent',
-                    'http://www.w3.org/MarkUp/DTD/xhtml-lat1.ent',
-                    'http://www.w3.org/MarkUp/DTD/xhtml-symbol.ent',
+                    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd",
+                    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
+                    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd",
+                    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd",
+                    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd",
+                    "http://www.w3.org/TR/xhtml-modularization/PE/xhtml11-model-1.mod",
+                    "http://www.w3.org/MarkUp/DTD/xhtml-special.ent",
+                    "http://www.w3.org/MarkUp/DTD/xhtml-lat1.ent",
+                    "http://www.w3.org/MarkUp/DTD/xhtml-symbol.ent",
                 ]
-                if 'SYSTEM' in doctype:
+                if "SYSTEM" in doctype:
                     # Extract system identifier
-                    sys_start = doctype.find('SYSTEM')
+                    sys_start = doctype.find("SYSTEM")
                     if sys_start != -1:
-                        sys_part = doctype[sys_start + 6:].strip()
+                        sys_part = doctype[sys_start + 6 :].strip()
                         if sys_part.startswith('"'):
                             sys_end = sys_part.find('"', 1)
                             if sys_end != -1:
@@ -195,7 +194,6 @@ def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[Resul
                                             path=str(file_path),
                                         )
                                     )
-
 
     return errors
 
@@ -334,7 +332,9 @@ def validate_xhtml_alt_attributes(path: Path | str, root) -> list[ResultMessage]
     return errors
 
 
-def validate_xhtml_resource_references(path: Path | str, root, manifest_items: set[str]) -> list[ResultMessage]:
+def validate_xhtml_resource_references(
+    path: Path | str, root, manifest_items: set[str]
+) -> list[ResultMessage]:
     """Validate that referenced resources exist in manifest."""
     file_path = Path(path)
     errors: list[ResultMessage] = []

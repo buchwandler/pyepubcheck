@@ -22,7 +22,7 @@ For classes, add the comment before the class definition:
 # specmason: @scenario-EPUBCHECK-XXXX
 class TestMyFeature:
     """Tests for feature X."""
-    
+
     def test_case_1(self) -> None:
         pass
 ```

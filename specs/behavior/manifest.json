@@ -2464,10 +2464,7 @@
       "rule": null,
       "scenario": "the minimal Package Document is reported as valid",
       "source_sha256": "6ba9507a158c437a02c4f7d1c2672989311a58c21848e08a441a5bbbb97884f2",
-      "tags": [
-        "@spec",
-        "@xref:sec-epub-conf"
-      ]
+      "tags": ["@spec", "@xref:sec-epub-conf"]
     },
     {
       "examples_row": null,
@@ -2476,10 +2473,7 @@
       "rule": null,
       "scenario": "Verify a minimal packaged EPUB",
       "source_sha256": "6ba9507a158c437a02c4f7d1c2672989311a58c21848e08a441a5bbbb97884f2",
-      "tags": [
-        "@spec",
-        "@xref:sec-epub-conf"
-      ]
+      "tags": ["@spec", "@xref:sec-epub-conf"]
     },
     {
       "examples_row": null,
@@ -2488,10 +2482,7 @@
       "rule": null,
       "scenario": "items with Core Media Types do not require fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-core-media-types"
-      ]
+      "tags": ["@spec", "@xref:sec-core-media-types"]
     },
     {
       "examples_row": null,
@@ -2635,10 +2626,7 @@
       "rule": null,
       "scenario": "Allow a foreign resource in HTML `audio` with a manifest fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2647,10 +2635,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in HTML `audio` with no fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2659,10 +2644,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in HTML `audio` `source` with no fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2671,10 +2653,7 @@
       "rule": null,
       "scenario": "Allow a foreign resource in HTML `embed` with a manifest fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2683,10 +2662,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in HTML `embed` with no fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2695,10 +2671,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in HTML video `input` with no fallack",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2707,10 +2680,7 @@
       "rule": null,
       "scenario": "Allow a foreign resource in HTML video `poster` with a manifest fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2719,10 +2689,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in HTML video `poster` with no fallack",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2731,10 +2698,7 @@
       "rule": null,
       "scenario": "Report a foreign resource in MathML `altimg` attribute with no fallack",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2743,10 +2707,7 @@
       "rule": null,
       "scenario": "Allow foreign font media types without fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-exempt-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-exempt-resources"]
     },
     {
       "examples_row": null,
@@ -2755,10 +2716,7 @@
       "rule": null,
       "scenario": "Allow foreign linked resources without fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-exempt-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-exempt-resources"]
     },
     {
       "examples_row": null,
@@ -2767,10 +2725,7 @@
       "rule": null,
       "scenario": "Allow XPGT style sheets without fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-exempt-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-exempt-resources"]
     },
     {
       "examples_row": null,
@@ -2788,10 +2743,7 @@
       "rule": null,
       "scenario": "Allow foreign text tracks without fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-exempt-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-exempt-resources"]
     },
     {
       "examples_row": null,
@@ -2800,10 +2752,7 @@
       "rule": null,
       "scenario": "Allow foreign video in a HTML `video` element without a fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2812,10 +2761,7 @@
       "rule": null,
       "scenario": "Allow foreign video in a HTML `img` element without a fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-foreign-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-foreign-resources"]
     },
     {
       "examples_row": null,
@@ -2824,10 +2770,7 @@
       "rule": null,
       "scenario": "Allow unreferenced foreign resources without fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-exempt-resources"
-      ]
+      "tags": ["@spec", "@xref:sec-exempt-resources"]
     },
     {
       "examples_row": null,
@@ -2836,10 +2779,7 @@
       "rule": null,
       "scenario": "Allow non-CMT file to be in the spine if they have an XHTML Content Document fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2848,10 +2788,7 @@
       "rule": null,
       "scenario": "Allow an SVG Content Document to be used as a fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2860,10 +2797,7 @@
       "rule": null,
       "scenario": "Report files that aren't Content Documents (like audio) in spine when they don't have a fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2872,10 +2806,7 @@
       "rule": null,
       "scenario": "Allow valid manifest fallback chain (single doc)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2884,10 +2815,7 @@
       "rule": null,
       "scenario": "Allow valid manifest fallback chain (waterfall)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2896,10 +2824,7 @@
       "rule": null,
       "scenario": "Allow valid manifest fallback chain (n-to-1)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2908,10 +2833,7 @@
       "rule": null,
       "scenario": "Report a circular manifest fallback chain (single doc)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2920,10 +2842,7 @@
       "rule": null,
       "scenario": "Report a circular manifest fallback chain (full publication)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-fallbacks"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-fallbacks"]
     },
     {
       "examples_row": null,
@@ -2932,10 +2851,7 @@
       "rule": null,
       "scenario": "Report foreign HTML `audio` without fallbacks even with inner flow content",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-audio"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-audio"]
     },
     {
       "examples_row": null,
@@ -2944,10 +2860,7 @@
       "rule": null,
       "scenario": "Allow foreign HTML `audio` with a `source` fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-audio"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-audio"]
     },
     {
       "examples_row": null,
@@ -2956,10 +2869,7 @@
       "rule": null,
       "scenario": "Allow remote foreign HTML `audio` with a remote `source` fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -2968,10 +2878,7 @@
       "rule": null,
       "scenario": "Report foreign audio in HTML `video` element without fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-audio"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-audio"]
     },
     {
       "examples_row": null,
@@ -2980,10 +2887,7 @@
       "rule": null,
       "scenario": "Verify that an `img` element can reference a foreign resource so long as it has a manifest fallback (and is not in a `picture` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -2992,10 +2896,7 @@
       "rule": null,
       "scenario": "Verify that an `img srcset` can reference foreign resources when they have manifest fallbacks",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3004,10 +2905,7 @@
       "rule": null,
       "scenario": "Report an `img src` with a foreign resource and no manifest fallback (when the `img` is not in a `picture` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3016,10 +2914,7 @@
       "rule": null,
       "scenario": "Report a `picture` element with a foreign resource in its `img src` fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3028,10 +2923,7 @@
       "rule": null,
       "scenario": "Report a `picture` element with a foreign resource in its `img srcset` fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3040,10 +2932,7 @@
       "rule": null,
       "scenario": "Verify the `picture source` element can reference foreign resources so long as the `type` attribute is declared",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3052,10 +2941,7 @@
       "rule": null,
       "scenario": "Report a `picture source` element that does not include a `type` attribute for a foreign resource",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-fallbacks-img"
-      ]
+      "tags": ["@spec", "@xref:sec-fallbacks-img"]
     },
     {
       "examples_row": null,
@@ -3064,10 +2950,7 @@
       "rule": null,
       "scenario": "Verify a script data block does not require a fallback",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:html-script-element"
-      ]
+      "tags": ["@spec", "@xref:html-script-element"]
     },
     {
       "examples_row": null,
@@ -3094,10 +2977,7 @@
       "rule": null,
       "scenario": "Allow audio resources to be remote",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3106,10 +2986,7 @@
       "rule": null,
       "scenario": "Verify that remote audio resources are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3118,10 +2995,7 @@
       "rule": null,
       "scenario": "Verify that remote audio resources are allowed anywhere",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3130,10 +3004,7 @@
       "rule": null,
       "scenario": "Verify that remote audio resources defined in the `sources` element are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3142,10 +3013,7 @@
       "rule": null,
       "scenario": "Verify that remote video resources are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3154,10 +3022,7 @@
       "rule": null,
       "scenario": "Verify that remote video resources are allowed anywhere",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3166,10 +3031,7 @@
       "rule": null,
       "scenario": "Report a reference to a remote resource from an `iframe` element when the resource is declared in the package document (issue 852)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3178,10 +3040,7 @@
       "rule": null,
       "scenario": "Report a reference to a remote resource from an `iframe` element when the resource is not declared in package document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3190,10 +3049,7 @@
       "rule": null,
       "scenario": "Report a remote image that is declared in the packaged document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3202,10 +3058,7 @@
       "rule": null,
       "scenario": "Report a remote image that is not declared in the package document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3214,10 +3067,7 @@
       "rule": null,
       "scenario": "Report a remote image declared in the package document when it is referenced from an `img` tag and also retrieved by a script",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3226,10 +3076,7 @@
       "rule": null,
       "scenario": "Verify that remote fonts are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3238,10 +3085,7 @@
       "rule": null,
       "scenario": "Verify that remote SVG fonts are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3250,10 +3094,7 @@
       "rule": null,
       "scenario": "Verify that remote fonts of unknown type declared in CSS `@font-face` are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3262,10 +3103,7 @@
       "rule": null,
       "scenario": "Verify that remote fonts of unknown type declared in SVG `font-face-uri` are allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3274,10 +3112,7 @@
       "rule": null,
       "scenario": "Report a remote SVG font when it is referenced from an HTML `img` element",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3286,10 +3121,7 @@
       "rule": null,
       "scenario": "Report a reference to a remote resource from an `object` element when the resource is not declared in package document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3298,10 +3130,7 @@
       "rule": null,
       "scenario": "Report a remote SVG Content Document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3310,10 +3139,7 @@
       "rule": null,
       "scenario": "Verify that a remote foreign resource is allowed when used by a script",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3322,10 +3148,7 @@
       "rule": null,
       "scenario": "Verify that a remote core media type resource is allowed when used by a script",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3334,10 +3157,7 @@
       "rule": null,
       "scenario": "Report a remote top-level Content Documents",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3346,10 +3166,7 @@
       "rule": null,
       "scenario": "Report a remote script",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3358,10 +3175,7 @@
       "rule": null,
       "scenario": "Report a remote stylesheet",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3370,10 +3184,7 @@
       "rule": null,
       "scenario": "Report a remote stylesheet declared in SVG XML processing instruction",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3382,10 +3193,7 @@
       "rule": null,
       "scenario": "Report a remote stylesheet declared in SVG inline style import",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3394,10 +3202,7 @@
       "rule": null,
       "scenario": "Warn about a remote resource with a non `https` URL",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-resource-locations"
-      ]
+      "tags": ["@spec", "@xref:sec-resource-locations"]
     },
     {
       "examples_row": null,
@@ -3415,10 +3220,7 @@
       "rule": null,
       "scenario": "Report a data URL in a manifest item href (not in the spine)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3427,10 +3229,7 @@
       "rule": null,
       "scenario": "Report a data URL in a manifest item href (referenced in the spine)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3439,10 +3238,7 @@
       "rule": null,
       "scenario": "Report a data URL in a package link href",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3451,10 +3247,7 @@
       "rule": null,
       "scenario": "Report a data URL in the `href` attribute of an HTML `a` element",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3463,10 +3256,7 @@
       "rule": null,
       "scenario": "Report a data URL in the `href` attribute of an SVG `a` element",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3475,10 +3265,7 @@
       "rule": null,
       "scenario": "Report a data URL in the `href` attribute of an HTML `area` element",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3487,10 +3274,7 @@
       "rule": null,
       "scenario": "Allow a data URL defining an exmpt resource (in an HTML `link` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3499,10 +3283,7 @@
       "rule": null,
       "scenario": "Allow a data URL defining a CMT resource (in an HTML `img` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3511,10 +3292,7 @@
       "rule": null,
       "scenario": "Allow a data URL defining a foreign resource with intrinsic fallback (in an HTML `img` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3523,10 +3301,7 @@
       "rule": null,
       "scenario": "Report a data URL defining a foreign resource with no fallback (in an HTML `img` element)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3535,10 +3310,7 @@
       "rule": null,
       "scenario": "Verify a data URL having unesapced query-like component",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-data-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-data-urls"]
     },
     {
       "examples_row": null,
@@ -3547,10 +3319,7 @@
       "rule": null,
       "scenario": "Report a file URL used in the package document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-file-urls"]
     },
     {
       "examples_row": null,
@@ -3559,10 +3328,7 @@
       "rule": null,
       "scenario": "Report a file URL used in an XHTML content document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-file-urls"]
     },
     {
       "examples_row": null,
@@ -3571,10 +3337,7 @@
       "rule": null,
       "scenario": "Report a file URL used in an SVG content document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-file-urls"]
     },
     {
       "examples_row": null,
@@ -3583,10 +3346,7 @@
       "rule": null,
       "scenario": "Report a file URL used in a CSS document",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-urls"
-      ]
+      "tags": ["@spec", "@xref:sec-file-urls"]
     },
     {
       "examples_row": null,
@@ -3595,10 +3355,7 @@
       "rule": null,
       "scenario": "an XML document encoded as UTF-8 with an encoding declaration is valid",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3607,10 +3364,7 @@
       "rule": null,
       "scenario": "an XML document encoded as UTF-8 with a BOM is valid",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3619,10 +3373,7 @@
       "rule": null,
       "scenario": "an XML document encoded as UTF-8 with no encoding declaration is valid",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3631,10 +3382,7 @@
       "rule": null,
       "scenario": "Warn about an XML document encoded as UTF-16 (with an encoding declaration)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3643,10 +3391,7 @@
       "rule": null,
       "scenario": "Warn about an XML document encoded as UTF-16 (not declared but with a BOM)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3655,10 +3400,7 @@
       "rule": null,
       "scenario": "Warn about an XML document encoded as UTF-16 (even with an UTF-8 declaration)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3667,10 +3409,7 @@
       "rule": null,
       "scenario": "Report an XML document encoded as ISO-8859-1 (detected in the encoding declaration)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3679,10 +3418,7 @@
       "rule": null,
       "scenario": "Report an XML document encoded as UCS-4 (detected with a BOM)",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3691,10 +3427,7 @@
       "rule": null,
       "scenario": "Report an XML document declared with an unknown encoding name",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3703,10 +3436,7 @@
       "rule": null,
       "scenario": "a not well-formed Package Document is reported",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -3715,10 +3445,7 @@
       "rule": null,
       "scenario": "using a not-declared namespace is not allowed",
       "source_sha256": "01002242caee7d539a060cefd5d2171f0a892a18d1c5efee76fc07c6ebecdfa1",
-      "tags": [
-        "@spec",
-        "@xref:sec-xml-constraints"
-      ]
+      "tags": ["@spec", "@xref:sec-xml-constraints"]
     },
     {
       "examples_row": null,
@@ -4172,10 +3899,7 @@
       "rule": null,
       "scenario": "Report publication resources found in META-INF",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-file-and-dir-structure"
-      ]
+      "tags": ["@spec", "@xref:sec-container-file-and-dir-structure"]
     },
     {
       "examples_row": null,
@@ -4184,10 +3908,7 @@
       "rule": null,
       "scenario": "Verify a file name containing a `+` character is allowed (issue 188)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4196,10 +3917,7 @@
       "rule": null,
       "scenario": "Report a duplicate filename after common case folding",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4208,10 +3926,7 @@
       "rule": null,
       "scenario": "Report a duplicate filename after full case folding",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4220,10 +3935,7 @@
       "rule": null,
       "scenario": "Report a duplicate filename after Unicode canonical normalization (NFC)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4232,10 +3944,7 @@
       "rule": null,
       "scenario": "Allow a duplicate filename after Unicode compatibility normalization (NFKC)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4244,10 +3953,7 @@
       "rule": null,
       "scenario": "Allow Unicode emoji tag set in file name",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4256,10 +3962,7 @@
       "rule": null,
       "scenario": "Verify a file name containing a diacritic (\u00fc) can be referred with precomposed or composed characters",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4268,10 +3971,7 @@
       "rule": null,
       "scenario": "Report forbidden characters in file names",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4280,10 +3980,7 @@
       "rule": null,
       "scenario": "Report forbidden characters in file names even for non-publication resources",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4292,10 +3989,7 @@
       "rule": null,
       "scenario": "Allow forbidden characters in remote resource URLs",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4304,10 +3998,7 @@
       "rule": null,
       "scenario": "Report forbidden characters in file names (single package doc check)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4316,10 +4007,7 @@
       "rule": null,
       "scenario": "Inform about non-ASCII characters in file names (full-publication check)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4328,10 +4016,7 @@
       "rule": null,
       "scenario": "Inform about non-ASCII characters in file names (single package doc check)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4340,10 +4025,7 @@
       "rule": null,
       "scenario": "Warn about spaces in file names (full-publication check)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4352,10 +4034,7 @@
       "rule": null,
       "scenario": "Warn about spaces in file names (single package doc check)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-filenames"
-      ]
+      "tags": ["@spec", "@xref:sec-container-filenames"]
     },
     {
       "examples_row": null,
@@ -4364,10 +4043,7 @@
       "rule": null,
       "scenario": "Allow valid container URLs in XHTML",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4376,10 +4052,7 @@
       "rule": null,
       "scenario": "Allow percent-encoded URLs",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4388,10 +4061,7 @@
       "rule": null,
       "scenario": "Report leaking URLs in the package document",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4400,10 +4070,7 @@
       "rule": null,
       "scenario": "Report path-absolute URLs in the package document",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4412,10 +4079,7 @@
       "rule": null,
       "scenario": "Report a URL query string found in a manifest item",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4424,10 +4088,7 @@
       "rule": null,
       "scenario": "Report a URL query string found in a package link",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4436,10 +4097,7 @@
       "rule": null,
       "scenario": "Report a URL query string found in a manifest item",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4457,10 +4115,7 @@
       "rule": null,
       "scenario": "Report a relative `cite` URL when the resource is not found in the manifest",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4469,10 +4124,7 @@
       "rule": null,
       "scenario": "Report a reference from an XHTML `iframe` not declared in the manifest",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4481,10 +4133,7 @@
       "rule": null,
       "scenario": "Report a reference from an XHTML `track` not declared in the manifest",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -4493,10 +4142,7 @@
       "rule": null,
       "scenario": "Report an unknown element in the `container.xml` file",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-metainf-container.xml"
-      ]
+      "tags": ["@spec", "@xref:sec-container-metainf-container.xml"]
     },
     {
       "examples_row": null,
@@ -4505,10 +4151,7 @@
       "rule": null,
       "scenario": "Report a missing 'container.xml' file",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-metainf-container.xml"
-      ]
+      "tags": ["@spec", "@xref:sec-container-metainf-container.xml"]
     },
     {
       "examples_row": null,
@@ -4517,10 +4160,7 @@
       "rule": null,
       "scenario": "Report a fatal error when checking an archive that is not an OCF",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-metainf-container.xml"
-      ]
+      "tags": ["@spec", "@xref:sec-container-metainf-container.xml"]
     },
     {
       "examples_row": null,
@@ -4529,10 +4169,7 @@
       "rule": null,
       "scenario": "Report a missing OPF document",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-container.xml-rootfile-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-container.xml-rootfile-elem"]
     },
     {
       "examples_row": null,
@@ -4541,10 +4178,7 @@
       "rule": null,
       "scenario": "Report an `encryption.xml` file with invalid markup",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-encryption.xml-encryption"
-      ]
+      "tags": ["@spec", "@xref:sec-encryption.xml-encryption"]
     },
     {
       "examples_row": null,
@@ -4562,10 +4196,7 @@
       "rule": null,
       "scenario": "Report an `encryption.xml` file with duplicate IDs",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-encryption.xml-encryption"
-      ]
+      "tags": ["@spec", "@xref:sec-encryption.xml-encryption"]
     },
     {
       "examples_row": null,
@@ -4574,10 +4205,7 @@
       "rule": null,
       "scenario": "Report an `encryption.xml` file with invalid compression metadata",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-enc-compression"
-      ]
+      "tags": ["@spec", "@xref:sec-enc-compression"]
     },
     {
       "examples_row": null,
@@ -4586,10 +4214,7 @@
       "rule": null,
       "scenario": "Report a `signature.xml` file with invald markup",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-signatures.xml-signatures"
-      ]
+      "tags": ["@spec", "@xref:sec-signatures.xml-signatures"]
     },
     {
       "examples_row": null,
@@ -4611,10 +4236,7 @@
       "rule": null,
       "scenario": "Report an unreadable ZIP file (empty file)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4623,10 +4245,7 @@
       "rule": null,
       "scenario": "Report an unreadable ZIP file (no end header)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4635,10 +4254,7 @@
       "rule": null,
       "scenario": "Report an unreadable ZIP file (image file with an '.epub' extension)",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4647,10 +4263,7 @@
       "rule": null,
       "scenario": "Report a duplicate ZIP entry for the same file",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4659,10 +4272,7 @@
       "rule": null,
       "scenario": "Verify file names with non-ASCII UTF-8-encoded character are allowed",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4671,10 +4281,7 @@
       "rule": null,
       "scenario": "Report file names that are not encoded as UTF-8",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4683,10 +4290,7 @@
       "rule": null,
       "scenario": "Verify path names with non-ASCII UTF-8-encoded character are allowed",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4695,10 +4299,7 @@
       "rule": null,
       "scenario": "Report file names that are not encoded as UTF-8",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-zipreqs"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-zipreqs"]
     },
     {
       "examples_row": null,
@@ -4707,10 +4308,7 @@
       "rule": null,
       "scenario": "Report a mimetype file with an incorrect value",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4719,10 +4317,7 @@
       "rule": null,
       "scenario": "Report a mimetype file with leading spaces",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4731,10 +4326,7 @@
       "rule": null,
       "scenario": "Report a missing mimetype file",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4743,10 +4335,7 @@
       "rule": null,
       "scenario": "Report a missing mimetype file",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4755,10 +4344,7 @@
       "rule": null,
       "scenario": "Report a mimetype file with a trailing newline",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4767,10 +4353,7 @@
       "rule": null,
       "scenario": "Report a mimetype file with trailing spaces",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4779,10 +4362,7 @@
       "rule": null,
       "scenario": "Report when the 'mimetype' entry has an extra field in its ZIP header",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:sec-zip-container-mime"
-      ]
+      "tags": ["@spec", "@xref:sec-zip-container-mime"]
     },
     {
       "examples_row": null,
@@ -4791,10 +4371,7 @@
       "rule": null,
       "scenario": "Verify a publication with obfuscated font",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:obfus-specifying"
-      ]
+      "tags": ["@spec", "@xref:obfus-specifying"]
     },
     {
       "examples_row": null,
@@ -4803,10 +4380,7 @@
       "rule": null,
       "scenario": "Verify duplicating encryption declaration is allowed",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:obfus-specifying"
-      ]
+      "tags": ["@spec", "@xref:obfus-specifying"]
     },
     {
       "examples_row": null,
@@ -4815,10 +4389,7 @@
       "rule": null,
       "scenario": "Report an obfuscated font that is not a Core Media Type",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:obfus-specifying"
-      ]
+      "tags": ["@spec", "@xref:obfus-specifying"]
     },
     {
       "examples_row": null,
@@ -4827,10 +4398,7 @@
       "rule": null,
       "scenario": "Report an obfuscated font that is not a font",
       "source_sha256": "3ec0dbe1e5b8d162ea8ea25bc68d2f9f6a6b5e8230d500357d15c2282e74002b",
-      "tags": [
-        "@spec",
-        "@xref:obfus-specifying"
-      ]
+      "tags": ["@spec", "@xref:obfus-specifying"]
     },
     {
       "examples_row": null,
@@ -4848,10 +4416,7 @@
       "rule": null,
       "scenario": "the 'dir' attribute value can be 'auto'",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-dir"
-      ]
+      "tags": ["@spec", "@xref:attrdef-dir"]
     },
     {
       "examples_row": null,
@@ -4860,10 +4425,7 @@
       "rule": null,
       "scenario": "'link' target must not reference a manifest ID",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-href"
-      ]
+      "tags": ["@spec", "@xref:attrdef-href"]
     },
     {
       "examples_row": null,
@@ -4881,10 +4443,7 @@
       "rule": null,
       "scenario": "'id' attributes must be unique",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-id"
-      ]
+      "tags": ["@spec", "@xref:attrdef-id"]
     },
     {
       "examples_row": null,
@@ -4893,10 +4452,7 @@
       "rule": null,
       "scenario": "'id' attributes must be unique after whitespace normalization",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-id"
-      ]
+      "tags": ["@spec", "@xref:attrdef-id"]
     },
     {
       "examples_row": null,
@@ -4905,10 +4461,7 @@
       "rule": null,
       "scenario": "'refines' attribute MUST be a relative URL",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-refines"
-      ]
+      "tags": ["@spec", "@xref:attrdef-refines"]
     },
     {
       "examples_row": null,
@@ -4926,10 +4479,7 @@
       "rule": null,
       "scenario": "'refines' attribute, when using fragment ID, must target an existing ID",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-refines"
-      ]
+      "tags": ["@spec", "@xref:attrdef-refines"]
     },
     {
       "examples_row": null,
@@ -4938,10 +4488,7 @@
       "rule": null,
       "scenario": "'refines' references cycles are not allowed",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-refines"
-      ]
+      "tags": ["@spec", "@xref:attrdef-refines"]
     },
     {
       "examples_row": null,
@@ -4950,10 +4497,7 @@
       "rule": null,
       "scenario": "the 'xml:lang' attribute can be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-xml-lang"
-      ]
+      "tags": ["@spec", "@xref:attrdef-xml-lang"]
     },
     {
       "examples_row": null,
@@ -4962,10 +4506,7 @@
       "rule": null,
       "scenario": "the 'xml:lang' language tag must not have leading/trailing whitespace",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-xml-lang"
-      ]
+      "tags": ["@spec", "@xref:attrdef-xml-lang"]
     },
     {
       "examples_row": null,
@@ -4974,10 +4515,7 @@
       "rule": null,
       "scenario": "the 'xml:lang' language tag must be well-formed",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-xml-lang"
-      ]
+      "tags": ["@spec", "@xref:attrdef-xml-lang"]
     },
     {
       "examples_row": null,
@@ -4986,10 +4524,7 @@
       "rule": null,
       "scenario": "Verify that three-character language codes are allowed (issue 615)",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:attrdef-xml-lang"
-      ]
+      "tags": ["@spec", "@xref:attrdef-xml-lang"]
     },
     {
       "examples_row": null,
@@ -4998,10 +4533,7 @@
       "rule": null,
       "scenario": "the 'package' 'unique-identifier' attribute must be a known ID",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-package-elem"]
     },
     {
       "examples_row": null,
@@ -5010,10 +4542,7 @@
       "rule": null,
       "scenario": "the 'package' 'unique-identifier' attribute must point to a 'dc:identifier' element",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-package-elem"]
     },
     {
       "examples_row": null,
@@ -5022,10 +4551,7 @@
       "rule": null,
       "scenario": "the 'package' element must have a 'metadata' child element",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-package-elem"]
     },
     {
       "examples_row": null,
@@ -5034,10 +4560,7 @@
       "rule": null,
       "scenario": "the 'package' element's 'metadata' child must be before the 'manifest' child",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-package-elem"]
     },
     {
       "examples_row": null,
@@ -5046,10 +4569,7 @@
       "rule": null,
       "scenario": "the unique identifier must not be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-values"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-values"]
     },
     {
       "examples_row": null,
@@ -5058,10 +4578,7 @@
       "rule": null,
       "scenario": "'dc:identifier' must not be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-values"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-values"]
     },
     {
       "examples_row": null,
@@ -5070,10 +4587,7 @@
       "rule": null,
       "scenario": "'dc:language' must not be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-values"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-values"]
     },
     {
       "examples_row": null,
@@ -5082,10 +4596,7 @@
       "rule": null,
       "scenario": "'dc:title' must not be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-values"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-values"]
     },
     {
       "examples_row": null,
@@ -5094,10 +4605,7 @@
       "rule": null,
       "scenario": "a metadata's value must be defined",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-values"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-values"]
     },
     {
       "examples_row": null,
@@ -5115,10 +4623,7 @@
       "rule": null,
       "scenario": "'dc:title' must be specified",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-opf-dctitle"
-      ]
+      "tags": ["@spec", "@xref:sec-opf-dctitle"]
     },
     {
       "examples_row": null,
@@ -5127,10 +4632,7 @@
       "rule": null,
       "scenario": "'dc:language' must be well-formed",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-opf-dclanguage"
-      ]
+      "tags": ["@spec", "@xref:sec-opf-dclanguage"]
     },
     {
       "examples_row": null,
@@ -5148,10 +4650,7 @@
       "rule": null,
       "scenario": "Multiple 'dc:date' elements specified",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-opf-dcdate"
-      ]
+      "tags": ["@spec", "@xref:sec-opf-dcdate"]
     },
     {
       "examples_row": null,
@@ -5214,10 +4713,7 @@
       "rule": null,
       "scenario": "a metadata's property name must be defined",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-meta-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-meta-elem"]
     },
     {
       "examples_row": null,
@@ -5226,10 +4722,7 @@
       "rule": null,
       "scenario": "a metadata's property name must not be a list of values",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-meta-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-meta-elem"]
     },
     {
       "examples_row": null,
@@ -5238,10 +4731,7 @@
       "rule": null,
       "scenario": "a metadata's property name must be well-formed",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-meta-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-meta-elem"]
     },
     {
       "examples_row": null,
@@ -5259,10 +4749,7 @@
       "rule": null,
       "scenario": "'scheme' must not be list of values",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-meta-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-meta-elem"]
     },
     {
       "examples_row": null,
@@ -5271,10 +4758,7 @@
       "rule": null,
       "scenario": "'scheme' must not be an unknown value with no prefix",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-meta-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-meta-elem"]
     },
     {
       "examples_row": null,
@@ -5283,10 +4767,7 @@
       "rule": null,
       "scenario": "'dc:modified' must be defined",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-last-modified"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-last-modified"]
     },
     {
       "examples_row": null,
@@ -5295,10 +4776,7 @@
       "rule": null,
       "scenario": "'dc:modified' must be of the form 'CCYY-MM-DDThh:mm:ssZ'",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-metadata-last-modified"
-      ]
+      "tags": ["@spec", "@xref:sec-metadata-last-modified"]
     },
     {
       "examples_row": null,
@@ -5316,10 +4794,7 @@
       "rule": null,
       "scenario": "Report a missing 'media-type' attribute on links to container resources",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5328,10 +4803,7 @@
       "rule": null,
       "scenario": "Allow a missing 'media-type' attribute on links to remote resources",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5340,10 +4812,7 @@
       "rule": null,
       "scenario": "the link 'rel' attribute can have multiple properties",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5352,10 +4821,7 @@
       "rule": null,
       "scenario": "the link 'properties' attribute must not be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5364,10 +4830,7 @@
       "rule": null,
       "scenario": "a link with an unknown 'properties' value is reported",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5376,10 +4839,7 @@
       "rule": null,
       "scenario": "the 'link' element can have an 'hreflang' attribute",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5388,10 +4848,7 @@
       "rule": null,
       "scenario": "the 'link' 'hreflang' attribute can be empty",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5400,10 +4857,7 @@
       "rule": null,
       "scenario": "the 'link' 'hreflang' language tag must not have leading/trailing whitespace",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5412,10 +4866,7 @@
       "rule": null,
       "scenario": "the 'link' 'hreflang' language tag must be well-formed",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5424,10 +4875,7 @@
       "rule": null,
       "scenario": "Allow a link to a resource referenced from the spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5436,10 +4884,7 @@
       "rule": null,
       "scenario": "Allow a link to a resource embedded in a content document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-link-elem"]
     },
     {
       "examples_row": null,
@@ -5448,10 +4893,7 @@
       "rule": null,
       "scenario": "Report a remote image declared in the package document when it is referenced from an HTML `a` element",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5460,10 +4902,7 @@
       "rule": null,
       "scenario": "Report remote audio resources not declared in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5472,10 +4911,7 @@
       "rule": null,
       "scenario": "Report remote audio resources defined in `sources` elements but not declared in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5484,10 +4920,7 @@
       "rule": null,
       "scenario": "Report a remote font not declared in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5496,10 +4929,7 @@
       "rule": null,
       "scenario": "Report a self-referencing manifest (full publication check)",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5508,10 +4938,7 @@
       "rule": null,
       "scenario": "Report a self-referencing manifest (single file check)",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -5529,10 +4956,7 @@
       "rule": null,
       "scenario": "a manifest item must declare a media type",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5550,10 +4974,7 @@
       "rule": null,
       "scenario": "item URLs must not have a fragment identifier",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5562,10 +4983,7 @@
       "rule": null,
       "scenario": "two manifest items cannot represent the same resource",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5574,10 +4992,7 @@
       "rule": null,
       "scenario": "Report duplicate declarations of a resource in the package document manifest",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5586,11 +5001,7 @@
       "rule": null,
       "scenario": "Report a resource declared in the package document but missing from the container",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -5599,11 +5010,7 @@
       "rule": null,
       "scenario": "Report a manifest item path with unencoded spaces",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem",
-        "@xref:attrdef-href"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem", "@xref:attrdef-href"]
     },
     {
       "examples_row": null,
@@ -5612,11 +5019,7 @@
       "rule": null,
       "scenario": "Report fonts declared in the package document but missing from the container",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -5625,10 +5028,7 @@
       "rule": null,
       "scenario": "fallback attribute must point to an existing item ID",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5637,10 +5037,7 @@
       "rule": null,
       "scenario": "fallback attribute must not reference its item ID",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-item-elem"]
     },
     {
       "examples_row": null,
@@ -5658,10 +5055,7 @@
       "rule": null,
       "scenario": "An unknown item property in the default vocab is reported",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5670,10 +5064,7 @@
       "rule": null,
       "scenario": "The 'cover-image' item property is allowed on WebP images",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5682,10 +5073,7 @@
       "rule": null,
       "scenario": "The 'cover-image' item property must occur at most once",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5694,10 +5082,7 @@
       "rule": null,
       "scenario": "The 'cover-image' item property must only be used on images",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5706,10 +5091,7 @@
       "rule": null,
       "scenario": "Report an unknown manifest item property",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5718,10 +5100,7 @@
       "rule": null,
       "scenario": "Verify content documents are identified as containing mathml",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5730,10 +5109,7 @@
       "rule": null,
       "scenario": "Report an XHTML document with remote audio but without the `remote-resources` property set in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5742,10 +5118,7 @@
       "rule": null,
       "scenario": "Report remote fonts in CSS without the `remote-resource` property set in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5754,10 +5127,7 @@
       "rule": null,
       "scenario": "Report a missing `remote-resources` property when inline CSS has remote references",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5766,10 +5136,7 @@
       "rule": null,
       "scenario": "Report an SVG using remote fonts without the `remote-resource` property set in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5778,10 +5145,7 @@
       "rule": null,
       "scenario": "Report an XHTML document using remote fonts in `style` without the `remote-resource` property set in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5790,10 +5154,7 @@
       "rule": null,
       "scenario": "Report the declaration of the `remote-resources` property when the content has no script",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5802,10 +5163,7 @@
       "rule": null,
       "scenario": "Report a reference a remote resource when the `remote-resources` property is not set in the manifest",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5814,10 +5172,7 @@
       "rule": null,
       "scenario": "Report the incorrect use of the `remote-resources` property for a resource defined in an `object` `param` element (issue 249)",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5826,10 +5181,7 @@
       "rule": null,
       "scenario": "Report a media overlay document with remote resources but missing the `remote-resources` property",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5838,10 +5190,7 @@
       "rule": null,
       "scenario": "Verify that inline CSS does not trigger an unrequired `remote-resources` property error",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5850,10 +5199,7 @@
       "rule": null,
       "scenario": "Report the declaration of the `scripted` property when the content has no script",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5862,10 +5208,7 @@
       "rule": null,
       "scenario": "Report a scripted document (javascript) without the `scripted` property declared in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5874,10 +5217,7 @@
       "rule": null,
       "scenario": "Report a scripted document (form) without the `scripted` property declared in the package document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5886,10 +5226,7 @@
       "rule": null,
       "scenario": "Verify that script data blocks do not require the `scripted` property to be defined in the manifest",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5898,10 +5235,7 @@
       "rule": null,
       "scenario": "Report the declaration of the `svg` property when the content has no embedded SVG",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5910,10 +5244,7 @@
       "rule": null,
       "scenario": "Report references to embedded SVG when the `svg` property is not set in the manifest",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5922,10 +5253,7 @@
       "rule": null,
       "scenario": "Report reference to an embedded SVG when the `svg` property is not set in the manifest (one reference is set properly)",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5934,10 +5262,7 @@
       "rule": null,
       "scenario": "Report a content document without the `switch` property declared in the manifest",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5946,10 +5271,7 @@
       "rule": null,
       "scenario": "one item must have the 'nav' property",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5958,10 +5280,7 @@
       "rule": null,
       "scenario": "at most one item must have the 'nav' property",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5970,10 +5289,7 @@
       "rule": null,
       "scenario": "the 'nav' property must be on an XHTML Content Document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-item-resource-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-item-resource-properties"]
     },
     {
       "examples_row": null,
@@ -5991,10 +5307,7 @@
       "rule": null,
       "scenario": "Report a missing spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-spine-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-spine-elem"]
     },
     {
       "examples_row": null,
@@ -6003,10 +5316,7 @@
       "rule": null,
       "scenario": "Report an empty spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-spine-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-spine-elem"]
     },
     {
       "examples_row": null,
@@ -6015,10 +5325,7 @@
       "rule": null,
       "scenario": "Report when a document hyperlinked from a content document is not in the spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-spine-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-spine-elem"]
     },
     {
       "examples_row": null,
@@ -6027,10 +5334,7 @@
       "rule": null,
       "scenario": "Report when a document hyperlinked from the navigation document is not in the spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-spine-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-spine-elem"]
     },
     {
       "examples_row": null,
@@ -6039,10 +5343,7 @@
       "rule": null,
       "scenario": "An SVG Content Document is allowed in the spine",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6051,10 +5352,7 @@
       "rule": null,
       "scenario": "An unknown 'itemref' ID is reported",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6063,10 +5361,7 @@
       "rule": null,
       "scenario": "Two spine 'itemref' elements cannot reference the same manifest item",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6075,10 +5370,7 @@
       "rule": null,
       "scenario": "Report a spine that does not contain at least one linear itemref",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6087,10 +5379,7 @@
       "rule": null,
       "scenario": "Verify an EPUB where non-linear content is reachable via the navigation document",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6099,10 +5388,7 @@
       "rule": null,
       "scenario": "Verify an EPUB where non-linear content is reachable via a hyperlink",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6111,10 +5397,7 @@
       "rule": null,
       "scenario": "Report an EPUB where non-linear content is unreachable",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6123,10 +5406,7 @@
       "rule": null,
       "scenario": "Report an EPUB where non-linear content is unreachable",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-itemref-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-itemref-elem"]
     },
     {
       "examples_row": null,
@@ -6135,10 +5415,7 @@
       "rule": null,
       "scenario": "a collection role can be an absolute URL",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-collection-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-collection-elem"]
     },
     {
       "examples_row": null,
@@ -6147,10 +5424,7 @@
       "rule": null,
       "scenario": "a collection role must not be an invalid URL",
       "source_sha256": "3f71f55f7e8e80499ef98a3ed49be39f2cc21e7ce69d512f8c68d8bdfd326b95",
-      "tags": [
-        "@spec",
-        "@xref:sec-collection-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-collection-elem"]
     },
     {
       "examples_row": null,
@@ -6222,10 +5496,7 @@
       "rule": null,
       "scenario": "Verify a minimal publication with a stylesheet",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6234,10 +5505,7 @@
       "rule": null,
       "scenario": "Report the use of the CSS 'direction' property",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6246,10 +5514,7 @@
       "rule": null,
       "scenario": "Report the use of the CSS 'unicode-bidi' property",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6258,10 +5523,7 @@
       "rule": null,
       "scenario": "Verify a CSS document encoded in UTF-8 (declared with `@charset`)",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6270,10 +5532,7 @@
       "rule": null,
       "scenario": "Warn about a CSS document encoded in UTF-16 (declared with `@charset`)",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6282,10 +5541,7 @@
       "rule": null,
       "scenario": "Warn about a CSS document encoded in UTF-16 (and no `@charset` declaration)",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6294,10 +5550,7 @@
       "rule": null,
       "scenario": "Report a CSS document with a `@charset` declaration that is not utf-8 or utf-16",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-css-req"
-      ]
+      "tags": ["@spec", "@xref:sec-css-req"]
     },
     {
       "examples_row": null,
@@ -6315,10 +5568,7 @@
       "rule": null,
       "scenario": "Report an attempt to `@import` a CSS file that declared in the package document but not present in the container",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -6327,10 +5577,7 @@
       "rule": null,
       "scenario": "Report an attempt to `@import` a CSS file that is not declared in the manifest but is present in the container",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -6339,11 +5586,7 @@
       "rule": null,
       "scenario": "Report a CSS `url` that is not declared in the package document or present in the container",
       "source_sha256": "0578182a8630f309b00477c77bf95809af8d255117f46636b5265c8b84953159",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -6424,10 +5667,7 @@
       "rule": null,
       "scenario": "Verify that SVG Content Documents can be referenced in the spine",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-spine-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-spine-elem"]
     },
     {
       "examples_row": null,
@@ -6463,10 +5703,7 @@
       "rule": null,
       "scenario": "Verify that SVG validation erors are reported as USAGE",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-req"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-req"]
     },
     {
       "examples_row": null,
@@ -6475,10 +5712,7 @@
       "rule": null,
       "scenario": "Allow `epub:type` on structural, shape, and text elements",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-req"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-req"]
     },
     {
       "examples_row": null,
@@ -6487,10 +5721,7 @@
       "rule": null,
       "scenario": "Report an `epub:type` attribute used on an element where it is not allowed",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-req"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-req"]
     },
     {
       "examples_row": null,
@@ -6607,10 +5838,7 @@
       "rule": null,
       "scenario": "Verify that `foreignObject` conforming to the rules is allowed",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6628,10 +5856,7 @@
       "rule": null,
       "scenario": "Report `foreignObject` with non-HTML child content",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6640,10 +5865,7 @@
       "rule": null,
       "scenario": "Report `foreignObject` with non-flow content",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6652,10 +5874,7 @@
       "rule": null,
       "scenario": "Report `foreignObject` with multiple HTML `body` elements",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6664,10 +5883,7 @@
       "rule": null,
       "scenario": "Report HTML validation errors within `foreignObject` content",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6676,10 +5892,7 @@
       "rule": null,
       "scenario": "Verify `title` valid content model",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6688,10 +5901,7 @@
       "rule": null,
       "scenario": "Report `title` with non-HTML elements",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6700,10 +5910,7 @@
       "rule": null,
       "scenario": "Report HTML validation errors within `title` content",
       "source_sha256": "60ed7657b0ffc32fb7c98edf43d78196285bfc550e950f7556e65a56ab520ceb",
-      "tags": [
-        "@spec",
-        "@xref:sec-svg-restrictions"
-      ]
+      "tags": ["@spec", "@xref:sec-svg-restrictions"]
     },
     {
       "examples_row": null,
@@ -6721,10 +5928,7 @@
       "rule": null,
       "scenario": "Minimal Content Document",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-req"]
     },
     {
       "examples_row": null,
@@ -6733,10 +5937,7 @@
       "rule": null,
       "scenario": "Report RelaxNG schema errors when checking a Content Document in a full publication",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-req"]
     },
     {
       "examples_row": null,
@@ -6745,10 +5946,7 @@
       "rule": null,
       "scenario": "Report Schematron schema errors when checking a Content Document in a full publication",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-req"]
     },
     {
       "examples_row": null,
@@ -7090,10 +6288,7 @@
       "rule": null,
       "scenario": "Report a hyperlink to a resource missing from the publication",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -7147,10 +6342,7 @@
       "rule": null,
       "scenario": "Report a reference from an XHTML doc to a resource not declared in the manifest",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -7249,10 +6441,7 @@
       "rule": null,
       "scenario": "Report references to undeclared resources in `img srcset`",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -7378,10 +6567,7 @@
       "rule": null,
       "scenario": "Allow a MathML formula with an alternative image",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -7390,10 +6576,7 @@
       "rule": null,
       "scenario": "Report a MathML formula with an alternative image that cannot be found",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-manifest-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-manifest-elem"]
     },
     {
       "examples_row": null,
@@ -7438,10 +6621,7 @@
       "rule": null,
       "scenario": "Verify that `viewport meta` declaration is not checked for non-fixed layout documents (issue 419)",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -7540,10 +6720,7 @@
       "rule": null,
       "scenario": "Verify passing schematron assertions",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-req"]
     },
     {
       "examples_row": null,
@@ -7552,10 +6729,7 @@
       "rule": null,
       "scenario": "Report failing schematron assertions",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-req"]
     },
     {
       "examples_row": null,
@@ -7690,10 +6864,7 @@
       "rule": null,
       "scenario": "Verify valid URLs",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -7702,10 +6873,7 @@
       "rule": null,
       "scenario": "Report non-conforming URLs",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -7714,10 +6882,7 @@
       "rule": null,
       "scenario": "Report a URL host that cannot be parsed",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -7726,10 +6891,7 @@
       "rule": null,
       "scenario": "Report unregistered URL scheme",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-container-iri"
-      ]
+      "tags": ["@spec", "@xref:sec-container-iri"]
     },
     {
       "examples_row": null,
@@ -7747,10 +6909,7 @@
       "rule": null,
       "scenario": "Verify `epub:type` attribute on allowed content",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-structural-semantics"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-structural-semantics"]
     },
     {
       "examples_row": null,
@@ -7759,10 +6918,7 @@
       "rule": null,
       "scenario": "Report `epub:type` attribute on 'head' or metadata content",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-structural-semantics"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-structural-semantics"]
     },
     {
       "examples_row": null,
@@ -7816,10 +6972,7 @@
       "rule": null,
       "scenario": "Verify RDFa attributes are allowed on HTML elements",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-rdfa"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-rdfa"]
     },
     {
       "examples_row": null,
@@ -7909,10 +7062,7 @@
       "rule": null,
       "scenario": "Verify attributes in custom namespaces are ignored",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-custom-attributes"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-custom-attributes"]
     },
     {
       "examples_row": null,
@@ -7921,10 +7071,7 @@
       "rule": null,
       "scenario": "Report custom attributes using reserved strings in their namespace",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-custom-attributes"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-custom-attributes"]
     },
     {
       "examples_row": null,
@@ -7951,10 +7098,7 @@
       "rule": null,
       "scenario": "Verify ITS attributes are allowed",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-its"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-its"]
     },
     {
       "examples_row": null,
@@ -7981,10 +7125,7 @@
       "rule": null,
       "scenario": "Allow MathML deprecated features",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8002,10 +7143,7 @@
       "rule": null,
       "scenario": "Report MathML markup with only content MathML",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8023,10 +7161,7 @@
       "rule": null,
       "scenario": "Verify MathML with content MathML annotation",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8035,10 +7170,7 @@
       "rule": null,
       "scenario": "Verify MathML with presentation MathML annotation",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8074,10 +7206,7 @@
       "rule": null,
       "scenario": "Report MathML annotation with an invalid `encoding` attribute",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8104,10 +7233,7 @@
       "rule": null,
       "scenario": "Verify MathML markup with `annotation-xml` `name` attribute set to `contentequiv`",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-deviations"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-deviations"]
     },
     {
       "examples_row": null,
@@ -8143,10 +7269,7 @@
       "rule": null,
       "scenario": "Verify inclusion of SVG markup",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-svg"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-svg"]
     },
     {
       "examples_row": null,
@@ -8173,11 +7296,7 @@
       "rule": null,
       "scenario": "Verify that `epub:type` attribute can be used on SVG",
       "source_sha256": "a0c97f94f4b2950915c717af37547457fa5c5d548a4976fb0358d3bc1db67f79",
-      "tags": [
-        "@spec",
-        "@xref:sec-xhtml-svg",
-        "@xref:sec-svg-req"
-      ]
+      "tags": ["@spec", "@xref:sec-xhtml-svg", "@xref:sec-svg-req"]
     },
     {
       "examples_row": null,
@@ -8312,10 +7431,7 @@
       "rule": null,
       "scenario": "Verify a minimal Navigation Document",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-content-req"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-content-req"]
     },
     {
       "examples_row": null,
@@ -8324,10 +7440,7 @@
       "rule": null,
       "scenario": "Report a missing `toc` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-content-req"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-content-req"]
     },
     {
       "examples_row": null,
@@ -8336,10 +7449,7 @@
       "rule": null,
       "scenario": "Report schema errors when checking a Navigation Document in a full publication",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-content-req"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-content-req"]
     },
     {
       "examples_row": null,
@@ -8348,10 +7458,7 @@
       "rule": null,
       "scenario": "Report an empty nav heading",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8360,10 +7467,7 @@
       "rule": null,
       "scenario": "Report a `p` element used as a nav heading",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8372,10 +7476,7 @@
       "rule": null,
       "scenario": "Report a missing list item label",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8384,10 +7485,7 @@
       "rule": null,
       "scenario": "Report an empty list item label",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8405,10 +7503,7 @@
       "rule": null,
       "scenario": "Report a leaf list item with no link (just a span label)",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8417,10 +7512,7 @@
       "rule": null,
       "scenario": "Report a nav hyperlink without content",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8438,10 +7530,7 @@
       "rule": null,
       "scenario": "Report a nav hyperlink without content (but an empty nested span)",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8459,10 +7548,7 @@
       "rule": null,
       "scenario": "Report a nav list without content",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8471,10 +7557,7 @@
       "rule": null,
       "scenario": "Report a `toc nav` that links to documents not in the spine",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8483,10 +7566,7 @@
       "rule": null,
       "scenario": "Report external links in the `toc`, `page-list` and `landmarks` `nav` elements",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8495,10 +7575,7 @@
       "rule": null,
       "scenario": "Report a `toc nav` that links to resource that is not a Content Document",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-model"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-model"]
     },
     {
       "examples_row": null,
@@ -8561,10 +7638,7 @@
       "rule": null,
       "scenario": "Allow a `page-list` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-pagelist"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-pagelist"]
     },
     {
       "examples_row": null,
@@ -8573,10 +7647,7 @@
       "rule": null,
       "scenario": "Report multiple occurences of `page-list` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-pagelist"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-pagelist"]
     },
     {
       "examples_row": null,
@@ -8621,10 +7692,7 @@
       "rule": null,
       "scenario": "Allow a `landmarks` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-landmarks"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-landmarks"]
     },
     {
       "examples_row": null,
@@ -8633,10 +7701,7 @@
       "rule": null,
       "scenario": "Report a link without an epub:type in a `landmarks` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-landmarks"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-landmarks"]
     },
     {
       "examples_row": null,
@@ -8645,10 +7710,7 @@
       "rule": null,
       "scenario": "Report multiple occurences of `landmarks` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-landmarks"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-landmarks"]
     },
     {
       "examples_row": null,
@@ -8657,10 +7719,7 @@
       "rule": null,
       "scenario": "Allow multiple entries with the same epub:type in a `landmarks` nav when pointing to different resources",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-landmarks"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-landmarks"]
     },
     {
       "examples_row": null,
@@ -8669,10 +7728,7 @@
       "rule": null,
       "scenario": "Report multiple entries with the same epub:type in a `landmarks` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-landmarks"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-landmarks"]
     },
     {
       "examples_row": null,
@@ -8690,10 +7746,7 @@
       "rule": null,
       "scenario": "Allow a `lot` nav",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-types-other"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-types-other"]
     },
     {
       "examples_row": null,
@@ -8702,10 +7755,7 @@
       "rule": null,
       "scenario": "Report a nav other than 'toc'/'page-list'/'landmarks' without a heading",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-types-other"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-types-other"]
     },
     {
       "examples_row": null,
@@ -8714,10 +7764,7 @@
       "rule": null,
       "scenario": "Verify a nav without a declared epub:type is not restricted",
       "source_sha256": "2aca1a46892d12013d3714786a93483221824728fa2a0ad4313e3a021aebfe7e",
-      "tags": [
-        "@spec",
-        "@xref:sec-nav-def-types-other"
-      ]
+      "tags": ["@spec", "@xref:sec-nav-def-types-other"]
     },
     {
       "examples_row": null,
@@ -8753,10 +7800,7 @@
       "rule": null,
       "scenario": "the 'rendition:layout' property can be used to define the global layout preference",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout"
-      ]
+      "tags": ["@spec", "@xref:layout"]
     },
     {
       "examples_row": null,
@@ -8765,10 +7809,7 @@
       "rule": null,
       "scenario": "a 'rendition:layout' property with no value is reported",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout"
-      ]
+      "tags": ["@spec", "@xref:layout"]
     },
     {
       "examples_row": null,
@@ -8777,10 +7818,7 @@
       "rule": null,
       "scenario": "a 'rendition:layout' property with an unknown value is reported",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout"
-      ]
+      "tags": ["@spec", "@xref:layout"]
     },
     {
       "examples_row": null,
@@ -8789,10 +7827,7 @@
       "rule": null,
       "scenario": "the 'rendition:layout' property cannot be declared more than once",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout"
-      ]
+      "tags": ["@spec", "@xref:layout"]
     },
     {
       "examples_row": null,
@@ -8801,10 +7836,7 @@
       "rule": null,
       "scenario": "the 'rendition:layout' property cannot be used in a 'meta' element to refine a publication resource",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout"
-      ]
+      "tags": ["@spec", "@xref:layout"]
     },
     {
       "examples_row": null,
@@ -8813,10 +7845,7 @@
       "rule": null,
       "scenario": "the 'rendition:layout' property can be used as a spine override",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout-overrides"
-      ]
+      "tags": ["@spec", "@xref:layout-overrides"]
     },
     {
       "examples_row": null,
@@ -8825,10 +7854,7 @@
       "rule": null,
       "scenario": "the 'rendition:layout' spine overrides values are mutually exclusive",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:layout-overrides"
-      ]
+      "tags": ["@spec", "@xref:layout-overrides"]
     },
     {
       "examples_row": null,
@@ -8837,10 +7863,7 @@
       "rule": null,
       "scenario": "the 'rendition:orientation' property can be used to define the global orientation preference",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation"
-      ]
+      "tags": ["@spec", "@xref:orientation"]
     },
     {
       "examples_row": null,
@@ -8849,10 +7872,7 @@
       "rule": null,
       "scenario": "a 'rendition:orientation' property with an unknown value is reported",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation"
-      ]
+      "tags": ["@spec", "@xref:orientation"]
     },
     {
       "examples_row": null,
@@ -8861,10 +7881,7 @@
       "rule": null,
       "scenario": "the 'rendition:orientation' property cannot be declared more than once",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation"
-      ]
+      "tags": ["@spec", "@xref:orientation"]
     },
     {
       "examples_row": null,
@@ -8873,10 +7890,7 @@
       "rule": null,
       "scenario": "the 'rendition:orientation' property cannot be used in a 'meta' element to refine a publication resource",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation"
-      ]
+      "tags": ["@spec", "@xref:orientation"]
     },
     {
       "examples_row": null,
@@ -8885,10 +7899,7 @@
       "rule": null,
       "scenario": "the 'rendition:orientation' property can be used as a spine override",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation-overrides"
-      ]
+      "tags": ["@spec", "@xref:orientation-overrides"]
     },
     {
       "examples_row": null,
@@ -8897,10 +7908,7 @@
       "rule": null,
       "scenario": "the 'rendition:orientation' spine overrides values are mutually exclusive",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:orientation-overrides"
-      ]
+      "tags": ["@spec", "@xref:orientation-overrides"]
     },
     {
       "examples_row": null,
@@ -8909,10 +7917,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' property can be used to define the global spread preference",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -8921,10 +7926,7 @@
       "rule": null,
       "scenario": "a 'rendition:spread' property with an unknown value is reported",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -8933,10 +7935,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' property cannot be declared more than once",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -8945,10 +7944,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' property cannot be used in a 'meta' element to refine a publication resource",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -8957,10 +7953,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' 'portrait' value is deprecated as a global value",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -8969,10 +7962,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' property can be used as a spine override",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread-overrides"
-      ]
+      "tags": ["@spec", "@xref:spread-overrides"]
     },
     {
       "examples_row": null,
@@ -8981,10 +7971,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread' spine overrides values are mutually exclusive",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread-overrides"
-      ]
+      "tags": ["@spec", "@xref:spread-overrides"]
     },
     {
       "examples_row": null,
@@ -8993,10 +7980,7 @@
       "rule": null,
       "scenario": "the 'rendition:page-spread-*' properties can be used without the prefix",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:page-spread"
-      ]
+      "tags": ["@spec", "@xref:page-spread"]
     },
     {
       "examples_row": null,
@@ -9005,10 +7989,7 @@
       "rule": null,
       "scenario": "the 'rendition:page-spread-*' properties values are mutually exclusive",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:page-spread"
-      ]
+      "tags": ["@spec", "@xref:page-spread"]
     },
     {
       "examples_row": null,
@@ -9017,10 +7998,7 @@
       "rule": null,
       "scenario": "the 'rendition:spread-portrait' value is deprecated as a spine override",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:spread"
-      ]
+      "tags": ["@spec", "@xref:spread"]
     },
     {
       "examples_row": null,
@@ -9029,10 +8007,7 @@
       "rule": null,
       "scenario": "the 'rendition:viewport' property is deprecated",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:viewport"
-      ]
+      "tags": ["@spec", "@xref:viewport"]
     },
     {
       "examples_row": null,
@@ -9059,10 +8034,7 @@
       "rule": null,
       "scenario": "Verify a fixed-layout XHTML document with a valid viewport",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9071,10 +8043,7 @@
       "rule": null,
       "scenario": "Verify a fixed-layout XHTML document with non-integer viewport dimensions",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9083,10 +8052,7 @@
       "rule": null,
       "scenario": "Verify a fixed-layout XHTML document with a valid viewport with whitespace",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9095,10 +8061,7 @@
       "rule": null,
       "scenario": "Verify a fixed-layout XHTML document with a valid viewport using keywords value",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9107,10 +8070,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with no viewport",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9119,10 +8079,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with a syntactically invalid viewport",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9131,10 +8088,7 @@
       "rule": null,
       "scenario": "Report a single fixed-layout XHTML document with an invalid viewport in a reflowable publication",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9143,10 +8097,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with a viewport with no height",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9155,10 +8106,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with a viewport with no width",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9167,10 +8115,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with a viewport with an empty height value",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9179,10 +8124,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with a viewport using units",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9191,10 +8133,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout XHTML document with duplicate width/height in a single viewport meta tag",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9203,10 +8142,7 @@
       "rule": null,
       "scenario": "Do not check more than one viewport meta tag in a fixed-layout document (but report as usage)",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9215,10 +8151,7 @@
       "rule": null,
       "scenario": "Do not check viewport metadata in reflowable content documents (but report as usage)",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9236,10 +8169,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout SVG without a `viewbox` declaration",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9248,10 +8178,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout SVG without a `viewbox` declaration (only `width`/`height` in units)",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9260,10 +8187,7 @@
       "rule": null,
       "scenario": "Report a fixed-layout SVG without a `viewbox` declaration (only `width`/`height` in percent)",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:sec-fxl-content-dimensions"
-      ]
+      "tags": ["@spec", "@xref:sec-fxl-content-dimensions"]
     },
     {
       "examples_row": null,
@@ -9272,10 +8196,7 @@
       "rule": null,
       "scenario": "the 'rendition:flow' property can be used to define the global flow preference",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow"
-      ]
+      "tags": ["@spec", "@xref:flow"]
     },
     {
       "examples_row": null,
@@ -9284,10 +8205,7 @@
       "rule": null,
       "scenario": "a 'rendition:flow' property with an unknown value is reported",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow"
-      ]
+      "tags": ["@spec", "@xref:flow"]
     },
     {
       "examples_row": null,
@@ -9296,10 +8214,7 @@
       "rule": null,
       "scenario": "the 'rendition:flow' property cannot be declared more than once",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow"
-      ]
+      "tags": ["@spec", "@xref:flow"]
     },
     {
       "examples_row": null,
@@ -9308,10 +8223,7 @@
       "rule": null,
       "scenario": "the 'rendition:flow' property cannot be used in a 'meta' element to refine a publication resource",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow"
-      ]
+      "tags": ["@spec", "@xref:flow"]
     },
     {
       "examples_row": null,
@@ -9320,10 +8232,7 @@
       "rule": null,
       "scenario": "the 'rendition:flow' property can be used as a spine override",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow-overrides"
-      ]
+      "tags": ["@spec", "@xref:flow-overrides"]
     },
     {
       "examples_row": null,
@@ -9332,10 +8241,7 @@
       "rule": null,
       "scenario": "the 'rendition:flow' spine overrides values are mutually exclusive",
       "source_sha256": "632a03bb2a37fe5d7c8f15aee77829b72a63f1af57670c2b25c1315d4499249b",
-      "tags": [
-        "@spec",
-        "@xref:flow-overrides"
-      ]
+      "tags": ["@spec", "@xref:flow-overrides"]
     },
     {
       "examples_row": null,
@@ -9353,10 +8259,7 @@
       "rule": null,
       "scenario": "Verify a minimal EPUB 3 publication with Media Overlays",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-overlay-req"
-      ]
+      "tags": ["@spec", "@xref:sec-overlay-req"]
     },
     {
       "examples_row": null,
@@ -9365,10 +8268,7 @@
       "rule": null,
       "scenario": "Verify a minimal Media Overlay document",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-overlay-req"
-      ]
+      "tags": ["@spec", "@xref:sec-overlay-req"]
     },
     {
       "examples_row": null,
@@ -9377,10 +8277,7 @@
       "rule": null,
       "scenario": "Report an EPUB content document that is declared in more than one overlay",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-overlay-req"
-      ]
+      "tags": ["@spec", "@xref:sec-overlay-req"]
     },
     {
       "examples_row": null,
@@ -9389,10 +8286,7 @@
       "rule": null,
       "scenario": "Verify a minimal EPUB 3 publication with Media Overlays for SVG content",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-overlay-req"
-      ]
+      "tags": ["@spec", "@xref:sec-overlay-req"]
     },
     {
       "examples_row": null,
@@ -9401,10 +8295,7 @@
       "rule": null,
       "scenario": "Report a `meta` element used in the `head` container",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-head-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-head-elem"]
     },
     {
       "examples_row": null,
@@ -9422,10 +8313,7 @@
       "rule": null,
       "scenario": "Report media clips used as direct children of a `seq` element",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-seq-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-seq-elem"]
     },
     {
       "examples_row": null,
@@ -9434,10 +8322,7 @@
       "rule": null,
       "scenario": "Report a `par` element with more than one `text` child",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-par-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-par-elem"]
     },
     {
       "examples_row": null,
@@ -9446,10 +8331,7 @@
       "rule": null,
       "scenario": "Report a `par` element with a `seq` child",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-par-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-par-elem"]
     },
     {
       "examples_row": null,
@@ -9458,10 +8340,7 @@
       "rule": null,
       "scenario": "Report an audio file URL with a fragment",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9470,10 +8349,7 @@
       "rule": null,
       "scenario": "Allow clock values with the full clock syntax (`hh:mm:ss.milli`)",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9482,10 +8358,7 @@
       "rule": null,
       "scenario": "Allow clock values with the partial clock syntax (`mm:ss.milli`)",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9494,10 +8367,7 @@
       "rule": null,
       "scenario": "Allow clock values with the timecount syntax (`XXmin`)",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9506,10 +8376,7 @@
       "rule": null,
       "scenario": "Report invalid clock values",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9518,10 +8385,7 @@
       "rule": null,
       "scenario": "Report if the `clipBegin` value is after the `clipEnd` value",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9530,10 +8394,7 @@
       "rule": null,
       "scenario": "Report if the `clipEnd` value equals the `clipBegin` value",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9542,10 +8403,7 @@
       "rule": null,
       "scenario": "Report an audio clip that is not a Core Media Type",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-smil-audio-elem"
-      ]
+      "tags": ["@spec", "@xref:sec-smil-audio-elem"]
     },
     {
       "examples_row": null,
@@ -9563,10 +8421,7 @@
       "rule": null,
       "scenario": "Allow empty fragment identifiers",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-media-overlays-fragids"
-      ]
+      "tags": ["@spec", "@xref:sec-media-overlays-fragids"]
     },
     {
       "examples_row": null,
@@ -9575,10 +8430,7 @@
       "rule": null,
       "scenario": "Report a fragment identifier that does not resolve to an element",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-media-overlays-fragids"
-      ]
+      "tags": ["@spec", "@xref:sec-media-overlays-fragids"]
     },
     {
       "examples_row": null,
@@ -9587,10 +8439,7 @@
       "rule": null,
       "scenario": "Warn about XHTML scheme-based fragments",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-media-overlays-fragids"
-      ]
+      "tags": ["@spec", "@xref:sec-media-overlays-fragids"]
     },
     {
       "examples_row": null,
@@ -9599,10 +8448,7 @@
       "rule": null,
       "scenario": "Allow SVG fragment identifiers",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-media-overlays-fragids"
-      ]
+      "tags": ["@spec", "@xref:sec-media-overlays-fragids"]
     },
     {
       "examples_row": null,
@@ -9611,10 +8457,7 @@
       "rule": null,
       "scenario": "Warn about invalid SVG fragment identifiers",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-media-overlays-fragids"
-      ]
+      "tags": ["@spec", "@xref:sec-media-overlays-fragids"]
     },
     {
       "examples_row": null,
@@ -9650,10 +8493,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined in a stylesheet",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9662,10 +8502,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined inline",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9674,10 +8511,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined inline in SVG",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9686,10 +8520,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined in stylesheet linked from SVG",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9698,10 +8529,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined in stylesheet imported from SVG",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9710,10 +8538,7 @@
       "rule": null,
       "scenario": "Verify 'media:active-class' and 'media:playback-active-class' properties referring to classes defined in stylesheet linked as processing instruction from SVG",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9731,10 +8556,7 @@
       "rule": null,
       "scenario": "Report when 'media:active-class' is defined but no CSS was found in the XHTML content document",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9743,10 +8565,7 @@
       "rule": null,
       "scenario": "Report when 'media:playback-active-class' is defined but no CSS was found in the XHTML content document",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9755,10 +8574,7 @@
       "rule": null,
       "scenario": "Report when 'media:active-class' is defined but no CSS was found in the SVG content document",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9767,10 +8583,7 @@
       "rule": null,
       "scenario": "Report a 'media:active-class' property with a refines attribute",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9779,10 +8592,7 @@
       "rule": null,
       "scenario": "Report a 'media:playback-active-class' property with a refines attribute",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9791,10 +8601,7 @@
       "rule": null,
       "scenario": "Report  a 'media:active-class' property that defines more than one class",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9803,10 +8610,7 @@
       "rule": null,
       "scenario": "Report  a 'media:playback-active-class' property that defines more than one class",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-docs-assoc-style"
-      ]
+      "tags": ["@spec", "@xref:sec-docs-assoc-style"]
     },
     {
       "examples_row": null,
@@ -9815,10 +8619,7 @@
       "rule": null,
       "scenario": "Report an EPUB content document referenced from an overlay that is missing its media-overlay attribute",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-including"
-      ]
+      "tags": ["@spec", "@xref:sec-package-including"]
     },
     {
       "examples_row": null,
@@ -9827,10 +8628,7 @@
       "rule": null,
       "scenario": "Report an EPUB content document that references the wrong overlay",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-including"
-      ]
+      "tags": ["@spec", "@xref:sec-package-including"]
     },
     {
       "examples_row": null,
@@ -9839,10 +8637,7 @@
       "rule": null,
       "scenario": "Report an EPUB content document that declares a media-overlay attribute but is not referenced from the overlay",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-including"
-      ]
+      "tags": ["@spec", "@xref:sec-package-including"]
     },
     {
       "examples_row": null,
@@ -9851,10 +8646,7 @@
       "rule": null,
       "scenario": "a Media Overlay must have the media type 'application/smil+xml'",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-including"
-      ]
+      "tags": ["@spec", "@xref:sec-package-including"]
     },
     {
       "examples_row": null,
@@ -9863,10 +8655,7 @@
       "rule": null,
       "scenario": "Report use of the media-overlay attribute on non-EPUB Content Documents",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-package-including"
-      ]
+      "tags": ["@spec", "@xref:sec-package-including"]
     },
     {
       "examples_row": null,
@@ -9875,10 +8664,7 @@
       "rule": null,
       "scenario": "the entire publication duration must be defined",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-mo-package-metadata"
-      ]
+      "tags": ["@spec", "@xref:sec-mo-package-metadata"]
     },
     {
       "examples_row": null,
@@ -9887,10 +8673,7 @@
       "rule": null,
       "scenario": "the duration of each Media Overlay must be defined",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-mo-package-metadata"
-      ]
+      "tags": ["@spec", "@xref:sec-mo-package-metadata"]
     },
     {
       "examples_row": null,
@@ -9899,10 +8682,7 @@
       "rule": null,
       "scenario": "the total duration should be the sum of all Media Overlay durations",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-mo-package-metadata"
-      ]
+      "tags": ["@spec", "@xref:sec-mo-package-metadata"]
     },
     {
       "examples_row": null,
@@ -9911,10 +8691,7 @@
       "rule": null,
       "scenario": "the total duration has a 1s tolerance",
       "source_sha256": "54eef514a8af033916b52c24395136fe2ea88c71c43aab9506d7d09717b8b54e",
-      "tags": [
-        "@spec",
-        "@xref:sec-mo-package-metadata"
-      ]
+      "tags": ["@spec", "@xref:sec-mo-package-metadata"]
     },
     {
       "examples_row": null,
@@ -9923,10 +8700,7 @@
       "rule": null,
       "scenario": "Verify DOCTYPE declarations with allowed external identifiers",
       "source_sha256": "eb81443f5118f5d97056aa9629668cd36156f0b801635eb5464fe8a96a480487",
-      "tags": [
-        "@spec",
-        "@xref:app-identifiers-allowed"
-      ]
+      "tags": ["@spec", "@xref:app-identifiers-allowed"]
     },
     {
       "examples_row": null,
@@ -9944,10 +8718,7 @@
       "rule": null,
       "scenario": "Report a DOCTYPE declaration with an external identifier that is not allowed",
       "source_sha256": "eb81443f5118f5d97056aa9629668cd36156f0b801635eb5464fe8a96a480487",
-      "tags": [
-        "@spec",
-        "@xref:app-identifiers-allowed"
-      ]
+      "tags": ["@spec", "@xref:app-identifiers-allowed"]
     },
     {
       "examples_row": null,
@@ -9956,10 +8727,7 @@
       "rule": null,
       "scenario": "Report a 'media:active-class' property defined more than once",
       "source_sha256": "f98297e724d52352b0308bc1b1c19eca744431540a9da42a48ae3cc3065f5405",
-      "tags": [
-        "@spec",
-        "@xref:sec-active-class"
-      ]
+      "tags": ["@spec", "@xref:sec-active-class"]
     },
     {
       "examples_row": null,
@@ -9968,10 +8736,7 @@
       "rule": null,
       "scenario": "the 'media:duration' property can be expressed as a full clock value",
       "source_sha256": "f98297e724d52352b0308bc1b1c19eca744431540a9da42a48ae3cc3065f5405",
-      "tags": [
-        "@spec",
-        "@xref:sec-duration"
-      ]
+      "tags": ["@spec", "@xref:sec-duration"]
     },
     {
       "examples_row": null,
@@ -9980,10 +8745,7 @@
       "rule": null,
       "scenario": "the 'media:duration' property can be expressed as a timecount value",
       "source_sha256": "f98297e724d52352b0308bc1b1c19eca744431540a9da42a48ae3cc3065f5405",
-      "tags": [
-        "@spec",
-        "@xref:sec-duration"
-      ]
+      "tags": ["@spec", "@xref:sec-duration"]
     },
     {
       "examples_row": null,
@@ -9992,10 +8754,7 @@
       "rule": null,
       "scenario": "Report 'media:duration' properties with non-clock values",
       "source_sha256": "f98297e724d52352b0308bc1b1c19eca744431540a9da42a48ae3cc3065f5405",
-      "tags": [
-        "@spec",
-        "@xref:sec-duration"
-      ]
+      "tags": ["@spec", "@xref:sec-duration"]
     },
     {
       "examples_row": null,
@@ -10004,10 +8763,7 @@
       "rule": null,
       "scenario": "Report a 'media:playback-active-class' property defined more than once",
       "source_sha256": "f98297e724d52352b0308bc1b1c19eca744431540a9da42a48ae3cc3065f5405",
-      "tags": [
-        "@spec",
-        "@xref:sec-playback-active-class"
-      ]
+      "tags": ["@spec", "@xref:sec-playback-active-class"]
     },
     {
       "examples_row": null,
@@ -10016,10 +8772,7 @@
       "rule": null,
       "scenario": "'authority' metadata can refine a subject expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-authority"
-      ]
+      "tags": ["@spec", "@xref:sec-authority"]
     },
     {
       "examples_row": null,
@@ -10028,10 +8781,7 @@
       "rule": null,
       "scenario": "'authority' metadata can only refine a subject expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-authority"
-      ]
+      "tags": ["@spec", "@xref:sec-authority"]
     },
     {
       "examples_row": null,
@@ -10040,10 +8790,7 @@
       "rule": null,
       "scenario": "'authority' metadata must be associated to a term",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-authority"
-      ]
+      "tags": ["@spec", "@xref:sec-authority"]
     },
     {
       "examples_row": null,
@@ -10052,10 +8799,7 @@
       "rule": null,
       "scenario": "'authority' metadata must not be defined more than once",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-authority"
-      ]
+      "tags": ["@spec", "@xref:sec-authority"]
     },
     {
       "examples_row": null,
@@ -10064,10 +8808,7 @@
       "rule": null,
       "scenario": "'belongs-to-collection' metadata can identify the publication's collection",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-belongs-to-collection"
-      ]
+      "tags": ["@spec", "@xref:sec-belongs-to-collection"]
     },
     {
       "examples_row": null,
@@ -10076,10 +8817,7 @@
       "rule": null,
       "scenario": "'belongs-to-collection' metadata can only refine other 'belongs-to-collection' metadata",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-belongs-to-collection"
-      ]
+      "tags": ["@spec", "@xref:sec-belongs-to-collection"]
     },
     {
       "examples_row": null,
@@ -10088,10 +8826,7 @@
       "rule": null,
       "scenario": "'collection-type' cannot be used as a primary metadata",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-collection-type"
-      ]
+      "tags": ["@spec", "@xref:sec-collection-type"]
     },
     {
       "examples_row": null,
@@ -10100,10 +8835,7 @@
       "rule": null,
       "scenario": "'collection-type' metadata can only refine a 'belongs-to-collection' property",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-collection-type"
-      ]
+      "tags": ["@spec", "@xref:sec-collection-type"]
     },
     {
       "examples_row": null,
@@ -10112,10 +8844,7 @@
       "rule": null,
       "scenario": "'collection-type' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-collection-type"
-      ]
+      "tags": ["@spec", "@xref:sec-collection-type"]
     },
     {
       "examples_row": null,
@@ -10124,10 +8853,7 @@
       "rule": null,
       "scenario": "'display-seq' metadata is allowed",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-display-seq"
-      ]
+      "tags": ["@spec", "@xref:sec-display-seq"]
     },
     {
       "examples_row": null,
@@ -10136,10 +8862,7 @@
       "rule": null,
       "scenario": "'display-seq' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-display-seq"
-      ]
+      "tags": ["@spec", "@xref:sec-display-seq"]
     },
     {
       "examples_row": null,
@@ -10148,10 +8871,7 @@
       "rule": null,
       "scenario": "'file-as' metadata is allowed",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-as"
-      ]
+      "tags": ["@spec", "@xref:sec-file-as"]
     },
     {
       "examples_row": null,
@@ -10160,10 +8880,7 @@
       "rule": null,
       "scenario": "'file-as' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-file-as"
-      ]
+      "tags": ["@spec", "@xref:sec-file-as"]
     },
     {
       "examples_row": null,
@@ -10172,10 +8889,7 @@
       "rule": null,
       "scenario": "'group-position' metadata is allowed",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-group-position"
-      ]
+      "tags": ["@spec", "@xref:sec-group-position"]
     },
     {
       "examples_row": null,
@@ -10184,10 +8898,7 @@
       "rule": null,
       "scenario": "'group-position' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-group-position"
-      ]
+      "tags": ["@spec", "@xref:sec-group-position"]
     },
     {
       "examples_row": null,
@@ -10196,10 +8907,7 @@
       "rule": null,
       "scenario": "'identifier-type' metadata can only refine a 'source' or 'identifier' property",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-identifier-type"
-      ]
+      "tags": ["@spec", "@xref:sec-identifier-type"]
     },
     {
       "examples_row": null,
@@ -10208,10 +8916,7 @@
       "rule": null,
       "scenario": "'identifier-type' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-identifier-type"
-      ]
+      "tags": ["@spec", "@xref:sec-identifier-type"]
     },
     {
       "examples_row": null,
@@ -10229,10 +8934,7 @@
       "rule": null,
       "scenario": "'role' metadata can be used once or more to refine a creator, contributor, or publisher",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-role"
-      ]
+      "tags": ["@spec", "@xref:sec-role"]
     },
     {
       "examples_row": null,
@@ -10241,10 +8943,7 @@
       "rule": null,
       "scenario": "'role' metadata cannot be used to refine properties other than creator, contributor, or publisher",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-role"
-      ]
+      "tags": ["@spec", "@xref:sec-role"]
     },
     {
       "examples_row": null,
@@ -10253,10 +8952,7 @@
       "rule": null,
       "scenario": "'source-of' metadata can be used to refine the pagination source",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-source-of"
-      ]
+      "tags": ["@spec", "@xref:sec-source-of"]
     },
     {
       "examples_row": null,
@@ -10265,10 +8961,7 @@
       "rule": null,
       "scenario": "'source-of' metadata value must be \"pagination\"",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-source-of"
-      ]
+      "tags": ["@spec", "@xref:sec-source-of"]
     },
     {
       "examples_row": null,
@@ -10277,10 +8970,7 @@
       "rule": null,
       "scenario": "'source-of' metadata cannot be used as a primary metadata",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-source-of"
-      ]
+      "tags": ["@spec", "@xref:sec-source-of"]
     },
     {
       "examples_row": null,
@@ -10289,10 +8979,7 @@
       "rule": null,
       "scenario": "'source-of' metadata must refine a 'dc:source' metadata entry",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-source-of"
-      ]
+      "tags": ["@spec", "@xref:sec-source-of"]
     },
     {
       "examples_row": null,
@@ -10301,10 +8988,7 @@
       "rule": null,
       "scenario": "'source-of' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-source-of"
-      ]
+      "tags": ["@spec", "@xref:sec-source-of"]
     },
     {
       "examples_row": null,
@@ -10313,10 +8997,7 @@
       "rule": null,
       "scenario": "'term' metadata can refine a subject expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-term"
-      ]
+      "tags": ["@spec", "@xref:sec-term"]
     },
     {
       "examples_row": null,
@@ -10325,10 +9006,7 @@
       "rule": null,
       "scenario": "'term' metadata can only refine a subject expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-term"
-      ]
+      "tags": ["@spec", "@xref:sec-term"]
     },
     {
       "examples_row": null,
@@ -10337,10 +9015,7 @@
       "rule": null,
       "scenario": "'term' metadata must be associated to an authority",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-term"
-      ]
+      "tags": ["@spec", "@xref:sec-term"]
     },
     {
       "examples_row": null,
@@ -10349,10 +9024,7 @@
       "rule": null,
       "scenario": "'term' metadata must not be defined more than once",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-term"
-      ]
+      "tags": ["@spec", "@xref:sec-term"]
     },
     {
       "examples_row": null,
@@ -10361,10 +9033,7 @@
       "rule": null,
       "scenario": "'title-type' metadata can be used to refine a title expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-title-type"
-      ]
+      "tags": ["@spec", "@xref:sec-title-type"]
     },
     {
       "examples_row": null,
@@ -10373,10 +9042,7 @@
       "rule": null,
       "scenario": "'title-type' metadata can only refine a 'title' expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-title-type"
-      ]
+      "tags": ["@spec", "@xref:sec-title-type"]
     },
     {
       "examples_row": null,
@@ -10385,10 +9051,7 @@
       "rule": null,
       "scenario": "'title-type' metadata cannot be defined more than once to refine the same expression",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-title-type"
-      ]
+      "tags": ["@spec", "@xref:sec-title-type"]
     },
     {
       "examples_row": null,
@@ -10397,10 +9060,7 @@
       "rule": null,
       "scenario": "'pageBreakSource' metadata is allowed",
       "source_sha256": "0b9c01f06ec8eba9def8e467ee77bc8a59a5fb0906d59123c6c993fdde152c39",
-      "tags": [
-        "@spec",
-        "@xref:sec-title-type"
-      ]
+      "tags": ["@spec", "@xref:sec-title-type"]
     },
     {
       "examples_row": null,
@@ -10418,10 +9078,7 @@
       "rule": null,
       "scenario": "an 'alternate' link can identify an alternate version of the Package Document",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-alternate"
-      ]
+      "tags": ["@spec", "@xref:sec-alternate"]
     },
     {
       "examples_row": null,
@@ -10430,10 +9087,7 @@
       "rule": null,
       "scenario": "an 'alternate' link must not be paired with other keywords",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-alternate"
-      ]
+      "tags": ["@spec", "@xref:sec-alternate"]
     },
     {
       "examples_row": null,
@@ -10478,10 +9132,7 @@
       "rule": null,
       "scenario": "a 'record' link must have a 'media-type' attribute even when remote",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-record"
-      ]
+      "tags": ["@spec", "@xref:sec-record"]
     },
     {
       "examples_row": null,
@@ -10490,10 +9141,7 @@
       "rule": null,
       "scenario": "a 'record' link cannot refine another property or resource",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-record"
-      ]
+      "tags": ["@spec", "@xref:sec-record"]
     },
     {
       "examples_row": null,
@@ -10502,10 +9150,7 @@
       "rule": null,
       "scenario": "a 'voicing' link can identify the aural representation of metadata",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-voicing"
-      ]
+      "tags": ["@spec", "@xref:sec-voicing"]
     },
     {
       "examples_row": null,
@@ -10514,10 +9159,7 @@
       "rule": null,
       "scenario": "a 'voicing' link must refine another property or resource",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-voicing"
-      ]
+      "tags": ["@spec", "@xref:sec-voicing"]
     },
     {
       "examples_row": null,
@@ -10526,10 +9168,7 @@
       "rule": null,
       "scenario": "a 'voicing' link must have a 'media-type' attribute even when remote",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-voicing"
-      ]
+      "tags": ["@spec", "@xref:sec-voicing"]
     },
     {
       "examples_row": null,
@@ -10538,10 +9177,7 @@
       "rule": null,
       "scenario": "a 'voicing' link resource must have an audio media type",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-voicing"
-      ]
+      "tags": ["@spec", "@xref:sec-voicing"]
     },
     {
       "examples_row": null,
@@ -10559,10 +9195,7 @@
       "rule": null,
       "scenario": "a 'record' link type can be further identified with a 'properties' attribute",
       "source_sha256": "0b2cdc7e544efb014c285dae3a5480e337bd4d87e77704f5f6d1ab4cc630b9ee",
-      "tags": [
-        "@spec",
-        "@xref:sec-link-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-link-properties"]
     },
     {
       "examples_row": null,
@@ -10571,10 +9204,7 @@
       "rule": null,
       "scenario": "Report a custom rendition property using the 'rendition' prefix",
       "source_sha256": "9b08ee2b8b93c3e5ea3ac97ce7c5aff15e4d67dc3f4f99ff3f5e93819b77224d",
-      "tags": [
-        "@spec",
-        "@xref:sec-rendering-custom-properties"
-      ]
+      "tags": ["@spec", "@xref:sec-rendering-custom-properties"]
     },
     {
       "examples_row": null,
@@ -10583,10 +9213,7 @@
       "rule": "EPUB creators MUST NOT assign a prefix to the URLs associated with default vocabularies using the `prefix` attribute.",
       "scenario": "Report `prefix` re-mapping default vocabularies in a package document",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-default-vocab"
-      ]
+      "tags": ["@spec", "@xref:sec-default-vocab"]
     },
     {
       "examples_row": null,
@@ -10595,10 +9222,7 @@
       "rule": "EPUB creators MUST NOT assign a prefix to the URLs associated with default vocabularies using the `prefix` attribute.",
       "scenario": "Report `prefix` re-mapping default vocabularies in XHTML",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-default-vocab"
-      ]
+      "tags": ["@spec", "@xref:sec-default-vocab"]
     },
     {
       "examples_row": null,
@@ -10607,10 +9231,7 @@
       "rule": "The value of the `prefix` attribute is a whitespace-separated list of one or more prefix-to-URL mappings",
       "scenario": "Allow valid `prefix` attribute mappings in package documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10619,10 +9240,7 @@
       "rule": "The value of the `prefix` attribute is a whitespace-separated list of one or more prefix-to-URL mappings",
       "scenario": "Allow valid `prefix` attribute mappings in XHTML content documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10631,10 +9249,7 @@
       "rule": "The value of the `prefix` attribute is a whitespace-separated list of one or more prefix-to-URL mappings",
       "scenario": "Allow valid `prefix` attribute mappings in media overlays",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10643,10 +9258,7 @@
       "rule": "The value of the `prefix` attribute is a whitespace-separated list of one or more prefix-to-URL mappings",
       "scenario": "Allow valid `prefix` attribute mappings in SVG content documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10655,10 +9267,7 @@
       "rule": "The value of the `prefix` attribute is a whitespace-separated list of one or more prefix-to-URL mappings",
       "scenario": "Report syntax errors in the `prefix` attribute value",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10667,10 +9276,7 @@
       "rule": "With the exception of reserved prefixes, EPUB creators MUST declare all prefixes used in a document",
       "scenario": "Allow declared prefixes used in the XHTML `epub:type` attribute",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10679,10 +9285,7 @@
       "rule": "With the exception of reserved prefixes, EPUB creators MUST declare all prefixes used in a document",
       "scenario": "Report undeclared prefixes used in the XHTML `epub:type` attribute",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10691,10 +9294,7 @@
       "rule": "With the exception of reserved prefixes, EPUB creators MUST declare all prefixes used in a document",
       "scenario": "Report undeclared prefixes used in package metadata properties",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10703,10 +9303,7 @@
       "rule": "With the exception of reserved prefixes, EPUB creators MUST declare all prefixes used in a document",
       "scenario": "Report undeclared prefixes used in a Media Overlays `epub:type` attribute",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10715,10 +9312,7 @@
       "rule": "EPUB creators MUST declare the `prefix` attribute in the namespace `http://www.idpf.org/2007/ops` in EPUB content documents and media overlay documents.",
       "scenario": "Report a `epub:type` using a prefix declared in a `prefix` attribute with no namespace, in an XHTML content document.",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10727,10 +9321,7 @@
       "rule": "EPUB creators MUST declare the `prefix` attribute in the namespace `http://www.idpf.org/2007/ops` in EPUB content documents and media overlay documents.",
       "scenario": "Report an `epub:type` using a prefix declared in a `prefix` attribute with no namespace, in a media overlay.",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10739,10 +9330,7 @@
       "rule": "EPUB creators MUST only specify the `prefix` attribute on the root element of the respective format.",
       "scenario": "Report a `prefix` attribute on an XHTML `head` element",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10751,10 +9339,7 @@
       "rule": "EPUB creators MUST only specify the `prefix` attribute on the root element of the respective format.",
       "scenario": "Report a `prefix` attribute on an XHTML embedded `svg` element",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10763,10 +9348,7 @@
       "rule": "EPUB creators MUST NOT declare the prefix '_'.",
       "scenario": "Report a declaration of the prefix '_' in XHTML content documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10775,10 +9357,7 @@
       "rule": "EPUB creators MUST NOT declare a prefix for the Dublin Core `/elements/1.1/` namespace.",
       "scenario": "Report a prefix mapping to the Dublic Core elements namespace",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-prefix-attr"
-      ]
+      "tags": ["@spec", "@xref:sec-prefix-attr"]
     },
     {
       "examples_row": null,
@@ -10787,10 +9366,7 @@
       "rule": "(IMPLIED) EPUB creators can explicitly declare reserved prefixes.",
       "scenario": "Allow explicit declarations of reserved prefixes in package documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": null,
@@ -10799,10 +9375,7 @@
       "rule": "(IMPLIED) EPUB creators can explicitly declare reserved prefixes.",
       "scenario": "Allow explicit declarations of reserved prefixes in content documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": null,
@@ -10811,10 +9384,7 @@
       "rule": "EPUB creators MAY use reserved prefixes in attributes that expect a property value without declaring them in a `prefix` attribute.",
       "scenario": "Allow the reserved 'schema' prefix in package metadata properties",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": null,
@@ -10823,10 +9393,7 @@
       "rule": "EPUB creators MAY use reserved prefixes in attributes that expect a property value without declaring them in a `prefix` attribute.",
       "scenario": "Allow the reserved 'prism' prefix in XHTML `epub:type` attributes",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": null,
@@ -10835,10 +9402,7 @@
       "rule": "EPUB creators SHOULD NOT override reserved prefixes in the `prefix` attribute.",
       "scenario": "Report overriding of reserved prefixes in package documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": null,
@@ -10847,10 +9411,7 @@
       "rule": "EPUB creators SHOULD NOT override reserved prefixes in the `prefix` attribute.",
       "scenario": "Report overriding of reserved prefixes in XHTML content documents",
       "source_sha256": "e78a9995a39ac0ca93db51a9b7dc0e11c69b3a9bda8343718c68c199108fef19",
-      "tags": [
-        "@spec",
-        "@xref:sec-reserved-prefixes"
-      ]
+      "tags": ["@spec", "@xref:sec-reserved-prefixes"]
     },
     {
       "examples_row": {

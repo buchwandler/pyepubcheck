@@ -97,7 +97,9 @@ class TestValidateXhtmlResourceReferences:
 </html>"""
         root = etree.fromstring(xhtml_xml.encode())
         manifest_items = {"image.png"}
-        errors = validate_xhtml_resource_references(Path("test.xhtml"), root, manifest_items)
+        errors = validate_xhtml_resource_references(
+            Path("test.xhtml"), root, manifest_items
+        )
         assert len(errors) == 0
 
     def test_missing_resource_reference(self) -> None:
@@ -111,10 +113,15 @@ class TestValidateXhtmlResourceReferences:
 </html>"""
         root = etree.fromstring(xhtml_xml.encode())
         manifest_items: set[str] = set()
-        errors = validate_xhtml_resource_references(Path("test.xhtml"), root, manifest_items)
+        errors = validate_xhtml_resource_references(
+            Path("test.xhtml"), root, manifest_items
+        )
         assert len(errors) == 1
         assert errors[0].id == "RSC-007"
-        assert "referenced resource 'missing.png' not found in manifest" in errors[0].message
+        assert (
+            "referenced resource 'missing.png' not found in manifest"
+            in errors[0].message
+        )
 
     def test_remote_resource_allowed(self) -> None:
         """Test remote resource reference is allowed."""
@@ -127,7 +134,9 @@ class TestValidateXhtmlResourceReferences:
 </html>"""
         root = etree.fromstring(xhtml_xml.encode())
         manifest_items: set[str] = set()
-        errors = validate_xhtml_resource_references(Path("test.xhtml"), root, manifest_items)
+        errors = validate_xhtml_resource_references(
+            Path("test.xhtml"), root, manifest_items
+        )
         assert len(errors) == 0
 
 

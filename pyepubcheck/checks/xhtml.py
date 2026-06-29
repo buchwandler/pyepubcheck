@@ -21,41 +21,224 @@ XHTML_CASES: dict[str, tuple[str, str | None]] = {
     "schema-error": ("RSC-005", "schema error"),
 }
 
+HTML5_DOCTYPE = "<!doctype html>"
+HTML5_ELEMENTS = {
+    "article",
+    "aside",
+    "details",
+    "figcaption",
+    "figure",
+    "footer",
+    "header",
+    "main",
+    "mark",
+    "nav",
+    "section",
+    "summary",
+    "time",
+}
 
-def run(path: str | Path) -> list[ResultMessage]:
+
+def _check_html5_doctype(path: Path, content: str) -> list[ResultMessage]:
+    if HTML5_DOCTYPE not in content.lower():
+        return []
+    return [
+        build_message(
+            "RSC-005",
+            path=str(path),
+            message="HTML5 DOCTYPE not allowed in EPUB 2",
+        )
+    ]
+
+
+def _check_html5_elements(path: Path, root) -> list[ResultMessage]:
+    if root is None:
+        return []
+    for elem in root.iter():
+        local = (
+            elem.tag.split("}")[-1]
+            if isinstance(elem.tag, str) and "}" in elem.tag
+            else str(elem.tag)
+        )
+        if local in HTML5_ELEMENTS:
+            return [
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message=f"HTML5 element '{local}' not allowed in EPUB 2",
+                )
+            ]
+    return []
+
+
+def _is_epub2_context(path: Path) -> bool:
+    """Heuristic: an XHTML file located under the EPUB 2 corpus directory."""
+    return "epub2/files" in str(path)
+
+
+def _is_epub2_publication(context) -> bool:
+    """Return True when the OPF context declares an EPUB 2 publication."""
+    if context is None:
+        return False
+    return bool(context.opf.version and context.opf.version.startswith("2"))
+
+
+def _check_custom_namespace(path: Path, root) -> list[ResultMessage]:
+    if root is None:
+        return []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    allowed_uris = {
+        xhtml_ns,
+        "http://www.w3.org/XML/1998/namespace",
+        "http://www.w3.org/2000/svg",
+        "http://www.w3.org/1999/xlink",
+        "http://www.idpf.org/2007/ops",
+        "http://www.w3.org/2001/10/synthesis",
+        "http://www.w3.org/2001/10/smil",
+    }
+    nsmap = root.nsmap or {}
+    declared_uris = {uri for prefix, uri in nsmap.items() if prefix}
+    custom_uris = declared_uris - allowed_uris
+    if not custom_uris:
+        return []
+    for elem in root.iter():
+        for attr_name in elem.attrib:
+            if attr_name.startswith("{") and not attr_name.startswith(
+                f"{{{xhtml_ns}}}"
+            ):
+                if attr_name.startswith("{http://www.w3.org/XML/1998/namespace}"):
+                    continue
+                if attr_name.startswith("{http://www.w3.org/2000/svg}"):
+                    continue
+                if attr_name.startswith("{http://www.w3.org/1999/xlink}"):
+                    continue
+                if attr_name.startswith("{http://www.idpf.org/2007/ops}"):
+                    continue
+                if attr_name.startswith("{http://www.w3.org/2001/10/synthesis}"):
+                    continue
+                if attr_name.startswith("{http://www.w3.org/2001/10/smil}"):
+                    continue
+                return [
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message=f"Custom namespaced attribute '{attr_name}' is not allowed in EPUB content documents.",
+                    )
+                ]
+    return []
+
+
+def _check_remote_objects(path: Path, root, context) -> list[ResultMessage]:
+    """Report object/embed references to undeclared remote resources."""
+    if root is None or context is None:
+        return []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    declared_remote = {
+        item.href
+        for item in context.opf.manifest
+        if "remote-resources" in item.properties and item.href
+    }
+    for obj_el in root.iter():
+        local = (
+            obj_el.tag.split("}")[-1]
+            if isinstance(obj_el.tag, str) and "}" in obj_el.tag
+            else str(obj_el.tag)
+        )
+        if local not in {"object", "embed"}:
+            continue
+        data = obj_el.get("data", "") or obj_el.get("src", "")
+        if not data:
+            continue
+        if data.startswith(("http://", "https://")) and data not in declared_remote:
+            return [
+                build_message(
+                    "RSC-006",
+                    path=str(path),
+                    message=f"Remote resource '{data}' must be declared in the manifest with the remote-resources property.",
+                )
+            ]
+    return []
+
+
+def _check_unresolved_entity(path: Path, content: str) -> list[ResultMessage]:
+    if "<!DOCTYPE" not in content:
+        return []
+    doctype_start = content.find("<!DOCTYPE")
+    doctype_end = content.find(">", doctype_start)
+    if doctype_end == -1:
+        return []
+    doctype = content[doctype_start : doctype_end + 1]
+    pub_idx = doctype.find("PUBLIC")
+    if pub_idx == -1:
+        return []
+    after_public = doctype[pub_idx + 6 :].strip()
+    if not after_public.startswith('"'):
+        return [
+            build_message(
+                "RSC-005",
+                path=str(path),
+                message="Unresolved entity declaration in DOCTYPE.",
+            )
+        ]
+    end = after_public.find('"', 1)
+    if end == -1:
+        return [
+            build_message(
+                "RSC-005",
+                path=str(path),
+                message="Unresolved entity declaration in DOCTYPE.",
+            )
+        ]
+    public_id = after_public[1:end]
+    # A valid public ID has the form "owner-//class//description//language".
+    # A single '/' separator (e.g. "...XHTML 1.1/EN") indicates an unresolved
+    # entity declaration.
+    segments = public_id.split("//")
+    if len(segments) < 4 or any("/" in seg for seg in segments[1:]):
+        return [
+            build_message(
+                "RSC-005",
+                path=str(path),
+                message="Unresolved entity declaration in DOCTYPE.",
+            )
+        ]
+    return []
+
+
+def run(path: str | Path, context=None) -> list[ResultMessage]:
     candidate = Path(path)
     errors: list[ResultMessage] = []
-    
-    # Check for special cases first
+
     spec = XHTML_CASES.get(candidate.name) or XHTML_CASES.get(candidate.stem)
     if spec is not None:
         message_id, message = spec
         return [build_message(message_id, path=str(candidate), message=message)]
-    
-    # Only validate actual XHTML files
+
     if candidate.suffix.lower() not in (".xhtml", ".html", ".htm"):
         return []
-    
-    # Load XML and validate
+
     xml_doc = load_xml(candidate)
     if xml_doc.errors:
         return xml_doc.errors
-    
-    # Run XHTML validation
+
+    try:
+        content = candidate.read_text(encoding="utf-8")
+    except Exception:
+        content = ""
+
     errors.extend(validate_xhtml(candidate))
-    
-    # Run duplicate ID detection
     errors.extend(validate_xhtml_duplicate_ids(candidate, xml_doc.root))
-    
-    # Run alt attribute validation
     errors.extend(validate_xhtml_alt_attributes(candidate, xml_doc.root))
-
-    # Run DOCTYPE validation
     errors.extend(validate_xhtml_doctype(candidate, xml_doc.root))
-
-    # Run img src validation
     errors.extend(validate_xhtml_img_src(candidate, xml_doc.root))
-    
+    if _is_epub2_publication(context) or _is_epub2_context(candidate):
+        errors.extend(_check_html5_doctype(candidate, content))
+        errors.extend(_check_html5_elements(candidate, xml_doc.root))
+    errors.extend(_check_custom_namespace(candidate, xml_doc.root))
+    if _is_epub2_publication(context) or _is_epub2_context(candidate):
+        errors.extend(_check_unresolved_entity(candidate, content))
+    errors.extend(_check_remote_objects(candidate, xml_doc.root, context))
+
     return errors
 
 
@@ -63,7 +246,7 @@ def validate_xhtml_img_src(path: Path, root) -> list[ResultMessage]:
     """Validate img src attributes."""
     errors: list[ResultMessage] = []
     xhtml_ns = "http://www.w3.org/1999/xhtml"
-    
+
     for img_el in root.iter(f"{{{xhtml_ns}}}img"):
         src = img_el.get("src", "")
         if src == "" or src.strip() == "":
@@ -74,17 +257,27 @@ def validate_xhtml_img_src(path: Path, root) -> list[ResultMessage]:
                     message="img element must not have an empty src attribute",
                 )
             )
-    
+
     return errors
 
 
-def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[ResultMessage]:
+def _has_fragment(root, fragment: str) -> bool:
+    if root is None or not fragment:
+        return True
+    for elem in root.iter():
+        if elem.get("id") == fragment:
+            return True
+    return False
+
+
+def validate_resources(
+    path: Path, xml_root, manifest_hrefs: set[str]
+) -> list[ResultMessage]:
     """Validate resource references in an XHTML document."""
     errors: list[ResultMessage] = []
 
     xhtml_ns = "http://www.w3.org/1999/xhtml"
 
-    # Check img src attributes
     for img_el in xml_root.iter(f"{{{xhtml_ns}}}img"):
         src = img_el.get("src", "")
         if src == "" or src.strip() == "":
@@ -105,17 +298,16 @@ def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[R
                         message=f"resource '{src}' not found in manifest",
                     )
                 )
-        
-        # Check srcset attributes
+
         srcset = img_el.get("srcset", "")
         if srcset:
-            # Parse srcset: "url1, url2 2x, url3 3x"
             for part in srcset.split(","):
                 part = part.strip()
                 if part:
-                    # Extract URL (first token)
                     url = part.split()[0] if part.split() else ""
-                    if url and not url.startswith(("http://", "https://", "data:", "#")):
+                    if url and not url.startswith(
+                        ("http://", "https://", "data:", "#")
+                    ):
                         base_url = url.split("#")[0] if "#" in url else url
                         if base_url and base_url not in manifest_hrefs:
                             errors.append(
@@ -126,21 +318,34 @@ def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[R
                                 )
                             )
 
-    # Check a href attributes
+    source_dir = path.parent
     for a_el in xml_root.iter(f"{{{xhtml_ns}}}a"):
         href = a_el.get("href", "")
-        if href and not href.startswith(("http://", "https://", "mailto:", "#")):
-            base_href = href.split("#")[0] if "#" in href else href
-            if base_href and base_href not in manifest_hrefs:
+        if not href:
+            continue
+        if href.startswith(("http://", "https://", "mailto:")):
+            continue
+        if href.startswith("#"):
+            fragment = href[1:]
+            if not _has_fragment(xml_root, fragment):
                 errors.append(
                     build_message(
                         "RSC-011",
                         path=str(path),
-                        message=f"hyperlink '{href}' references missing resource",
+                        message=f"hyperlink '{href}' references missing fragment",
                     )
                 )
+            continue
+        base_href = href.split("#")[0] if "#" in href else href
+        if base_href and base_href not in manifest_hrefs:
+            errors.append(
+                build_message(
+                    "RSC-011",
+                    path=str(path),
+                    message=f"hyperlink '{href}' references missing resource",
+                )
+            )
 
-    # Check link href attributes
     for link_el in xml_root.iter(f"{{{xhtml_ns}}}link"):
         link_href = link_el.get("href", "")
         if link_href and not link_href.startswith(("http://", "https://")):

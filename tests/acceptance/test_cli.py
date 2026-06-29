@@ -3,11 +3,10 @@
 Tests cover:
 - cli/cli.feature (44 scenarios)
 """
+
 from __future__ import annotations
 
 from pathlib import Path
-
-import pytest
 
 
 def _cli_fixture(fixtures, name: str) -> Path:
@@ -188,7 +187,9 @@ def test_quiet_mode(run_pyepubcheck, fixtures) -> None:
 def test_quiet_mode_with_save(run_pyepubcheck, fixtures) -> None:
     """quiet mode does not conflict with saving a report."""
     valid = _cli_fixture(fixtures, "valid.epub")
-    result = run_pyepubcheck(valid, "--quiet", "-o", "report.xml", transport="subprocess")
+    result = run_pyepubcheck(
+        valid, "--quiet", "-o", "report.xml", transport="subprocess"
+    )
     assert result.returncode == 0
     assert result.stdout == ""
 
@@ -242,7 +243,9 @@ def test_error_messages_silenced_with_f_flag(run_pyepubcheck, fixtures) -> None:
 def test_failonwarnings(run_pyepubcheck, fixtures) -> None:
     """option `--faileonwarnings` make the command fail when a WARNING is reported."""
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
-    result = run_pyepubcheck("--failonwarnings", "-m", "exp", warning_dir, transport="subprocess")
+    result = run_pyepubcheck(
+        "--failonwarnings", "-m", "exp", warning_dir, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "WARNING(" in result.stderr
 
@@ -293,7 +296,9 @@ def test_json_report_stdout(run_pyepubcheck, fixtures) -> None:
 def test_conflicting_report_formats(run_pyepubcheck, fixtures) -> None:
     """conflicting report formats are rejected."""
     valid = _cli_fixture(fixtures, "valid.epub")
-    result = run_pyepubcheck(valid, "-o", "report.xml", "-j", "report.json", transport="subprocess")
+    result = run_pyepubcheck(
+        valid, "-o", "report.xml", "-j", "report.json", transport="subprocess"
+    )
     assert result.returncode == 1
     assert "Only one output format can be specified at a time." in result.stderr
 
@@ -343,7 +348,9 @@ def test_custom_message_overrides(run_pyepubcheck, fixtures) -> None:
     """messages and severities are overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "USAGE(" not in result.stdout
 
@@ -353,7 +360,9 @@ def test_custom_message_overrides_with_severity(run_pyepubcheck, fixtures) -> No
     """messages and severities overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
 
 
@@ -362,7 +371,9 @@ def test_override_unknown_message_id(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding an unknown message ID."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_missing.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-001" in result.stderr
 
@@ -372,7 +383,9 @@ def test_override_unknown_severity(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to an unknown severity."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_severity.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-003" in result.stderr
 
@@ -382,7 +395,9 @@ def test_override_parameters_mismatch(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to a message with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_message.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-004" in result.stderr
 
@@ -392,7 +407,9 @@ def test_override_suggestion_parameters_mismatch(run_pyepubcheck, fixtures) -> N
     """report an error when overriding to a message suggestion with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_suggestion.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-005" in result.stderr
 
@@ -415,7 +432,6 @@ def test_check_epub_with_warnings_2(run_pyepubcheck, fixtures) -> None:
     assert result.has_warning("PKG-010")
 
 
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 # specmason: @scenario-EPUBCHECK-E813A93B
 def test_version_info_comes_first_2(run_pyepubcheck, fixtures) -> None:
     """information about the EPUB version comes first."""
@@ -477,7 +493,6 @@ def test_check_unreadable_file_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 # specmason: @scenario-EPUBCHECK-BCB16508
 def test_save_resulting_epub_2(run_pyepubcheck, fixtures) -> None:
     """save the resulting EPUB."""
@@ -499,7 +514,9 @@ def test_quiet_mode_2(run_pyepubcheck, fixtures) -> None:
 def test_quiet_mode_with_save_2(run_pyepubcheck, fixtures) -> None:
     """quiet mode does not conflict with saving a report."""
     valid = _cli_fixture(fixtures, "valid.epub")
-    result = run_pyepubcheck(valid, "--quiet", "-o", "report.xml", transport="subprocess")
+    result = run_pyepubcheck(
+        valid, "--quiet", "-o", "report.xml", transport="subprocess"
+    )
     assert result.returncode == 0
     assert result.stdout == ""
 
@@ -553,12 +570,13 @@ def test_error_messages_silenced_with_f_flag_2(run_pyepubcheck, fixtures) -> Non
 def test_failonwarnings_2(run_pyepubcheck, fixtures) -> None:
     """option `--faileonwarnings` make the command fail when a WARNING is reported."""
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
-    result = run_pyepubcheck("--failonwarnings", "-m", "exp", warning_dir, transport="subprocess")
+    result = run_pyepubcheck(
+        "--failonwarnings", "-m", "exp", warning_dir, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "WARNING(" in result.stderr
 
 
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
 # specmason: @scenario-EPUBCHECK-DABCC813
 def test_save_xml_report_with_out_option_2(run_pyepubcheck, fixtures) -> None:
     """save an XML report with the `-out` option."""
@@ -604,7 +622,9 @@ def test_json_report_stdout_2(run_pyepubcheck, fixtures) -> None:
 def test_conflicting_report_formats_2(run_pyepubcheck, fixtures) -> None:
     """conflicting report formats are rejected."""
     valid = _cli_fixture(fixtures, "valid.epub")
-    result = run_pyepubcheck(valid, "-o", "report.xml", "-j", "report.json", transport="subprocess")
+    result = run_pyepubcheck(
+        valid, "-o", "report.xml", "-j", "report.json", transport="subprocess"
+    )
     assert result.returncode == 1
     assert "Only one output format can be specified at a time." in result.stderr
 
@@ -633,7 +653,6 @@ def test_invalid_locale_fallback_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
-@pytest.mark.xfail(reason="argparse returns 2 instead of 1 for missing arguments")
 # specmason: @scenario-EPUBCHECK-C9EA5FE2
 def test_missing_locale_argument_2(run_pyepubcheck, fixtures) -> None:
     """missing locale argument makes the command fail."""
@@ -642,7 +661,6 @@ def test_missing_locale_argument_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 2
 
 
-@pytest.mark.xfail(reason="argparse returns 2 instead of 1 for missing arguments")
 # specmason: @scenario-EPUBCHECK-139FF3A0
 def test_missing_locale_argument_last_option_2(run_pyepubcheck, fixtures) -> None:
     """missing locale argument when last option makes the command fail."""
@@ -656,7 +674,9 @@ def test_custom_message_overrides_2(run_pyepubcheck, fixtures) -> None:
     """messages and severities are overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "USAGE(" not in result.stdout
 
@@ -666,7 +686,9 @@ def test_custom_message_overrides_with_severity_2(run_pyepubcheck, fixtures) -> 
     """messages and severities overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
 
 
@@ -675,7 +697,9 @@ def test_override_unknown_message_id_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding an unknown message ID."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_missing.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-001" in result.stderr
 
@@ -685,7 +709,9 @@ def test_override_unknown_severity_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to an unknown severity."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_severity.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-003" in result.stderr
 
@@ -695,7 +721,9 @@ def test_override_parameters_mismatch_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to a message with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_message.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-004" in result.stderr
 
@@ -705,6 +733,8 @@ def test_override_suggestion_parameters_mismatch_2(run_pyepubcheck, fixtures) ->
     """report an error when overriding to a message suggestion with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
     overrides = _cli_fixture(fixtures, "severity_override_bad_suggestion.txt")
-    result = run_pyepubcheck("-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess")
+    result = run_pyepubcheck(
+        "-u", "-m", "exp", severity_dir, "-c", overrides, transport="subprocess"
+    )
     assert result.returncode == 1
     assert "CHK-005" in result.stderr

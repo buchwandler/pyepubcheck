@@ -58,13 +58,13 @@ def _validate_spine_toc(path: Path, opf) -> list[ResultMessage]:
         return errors
 
     root = opf.xml_doc.root
-    
+
     # Check if the root element has the correct namespace
     root_ns = root.tag.split("}")[0].lstrip("{") if "{" in root.tag else ""
     if root_ns != OPF_NS:
         # Wrong namespace - don't check spine
         return errors
-    
+
     spine_el = root.find(f"{{{OPF_NS}}}spine")
     if spine_el is None:
         errors.append(
@@ -216,7 +216,7 @@ def _validate_ncx_ids(path: Path, ncx_root) -> list[ResultMessage]:
 
     # XML ID syntax: must start with letter or underscore, followed by letters, digits, hyphens, underscores, or periods
     # Colons are not allowed in NCX IDs
-    id_syntax_re = re.compile(r'^[a-zA-Z_][a-zA-Z0-9_.\-]*$')
+    id_syntax_re = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_.\-]*$")
 
     # Collect all IDs in the NCX
     id_counts: dict[str, int] = {}
@@ -253,7 +253,9 @@ def _validate_ncx_ids(path: Path, ncx_root) -> list[ResultMessage]:
     return errors
 
 
-def _validate_ncx_resources(path: Path, ncx_root, spine_items: set[str]) -> list[ResultMessage]:
+def _validate_ncx_resources(
+    path: Path, ncx_root, spine_items: set[str]
+) -> list[ResultMessage]:
     """Validate NCX references to spine items."""
     errors: list[ResultMessage] = []
 
@@ -341,7 +343,9 @@ def _validate_xhtml_namespace(path: Path, xhtml_root) -> list[ResultMessage]:
     return errors
 
 
-def _validate_remote_objects(path: Path, xhtml_root, manifest_items: set[str]) -> list[ResultMessage]:
+def _validate_remote_objects(
+    path: Path, xhtml_root, manifest_items: set[str]
+) -> list[ResultMessage]:
     """Validate remote object references in XHTML."""
     errors: list[ResultMessage] = []
 
@@ -430,7 +434,9 @@ def run_ncx(path: str | Path, opf_path: Path | None = None) -> list[ResultMessag
                         if identifier_el.get("id", "") == unique_id_ref:
                             opf_uid = identifier_el.text or ""
                             if opf_uid:
-                                errors.extend(_validate_ncx_uid(candidate, ncx_root, opf_uid))
+                                errors.extend(
+                                    _validate_ncx_uid(candidate, ncx_root, opf_uid)
+                                )
                             break
 
     return errors
@@ -441,32 +447,49 @@ def _validate_epub2_xhtml(path: Path) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
 
     try:
-        content = path.read_text(encoding='utf-8')
+        content = path.read_text(encoding="utf-8")
     except Exception:
         return errors
 
     # Check for HTML5 DOCTYPE
-    if '<!doctype html>' in content.lower():
+    if "<!doctype html>" in content.lower():
         errors.append(
             build_message(
-                'RSC-005',
+                "RSC-005",
                 path=str(path),
-                message='HTML5 DOCTYPE not allowed in EPUB 2',
+                message="HTML5 DOCTYPE not allowed in EPUB 2",
             )
         )
 
     # Check for HTML5 elements
     try:
         from lxml import etree
+
         tree = etree.parse(str(path))
         root = tree.getroot()
-        html5_elements = ['article', 'aside', 'details', 'figcaption', 'figure', 'footer', 'header', 'main', 'mark', 'nav', 'section', 'summary', 'time']
+        html5_elements = [
+            "article",
+            "aside",
+            "details",
+            "figcaption",
+            "figure",
+            "footer",
+            "header",
+            "main",
+            "mark",
+            "nav",
+            "section",
+            "summary",
+            "time",
+        ]
         for elem in root.iter():
-            local_name = elem.tag.split('}')[-1] if '}' in str(elem.tag) else str(elem.tag)
+            local_name = (
+                elem.tag.split("}")[-1] if "}" in str(elem.tag) else str(elem.tag)
+            )
             if local_name in html5_elements:
                 errors.append(
                     build_message(
-                        'RSC-005',
+                        "RSC-005",
                         path=str(path),
                         message=f"HTML5 element '{local_name}' not allowed in EPUB 2",
                     )
@@ -511,10 +534,10 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Validate XHTML files in manifest for EPUB 2 specific issues
     # Only apply EPUB 2 specific checks if version is 2.0
-    if opf.version.startswith('2'):
+    if opf.version.startswith("2"):
         opf_dir = candidate.parent
         for item in opf.manifest:
-            if item.media_type == 'application/xhtml+xml' and item.href:
+            if item.media_type == "application/xhtml+xml" and item.href:
                 item_path = opf_dir / item.href
                 if item_path.exists():
                     errors.extend(_validate_epub2_xhtml(item_path))

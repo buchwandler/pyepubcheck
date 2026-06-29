@@ -18,41 +18,49 @@ class TestDetectDocType:
 
     def test_opf_package(self) -> None:
         from lxml import etree
+
         root = etree.Element("{http://www.idpf.org/2007/opf}package")
         assert detect_doc_type(root) == "opf"
 
     def test_xhtml_html(self) -> None:
         from lxml import etree
+
         root = etree.Element("{http://www.w3.org/1999/xhtml}html")
         assert detect_doc_type(root) == "xhtml"
 
     def test_xhtml_html_no_ns(self) -> None:
         from lxml import etree
+
         root = etree.Element("html")
         assert detect_doc_type(root) == "xhtml"
 
     def test_svg(self) -> None:
         from lxml import etree
+
         root = etree.Element("{http://www.w3.org/2000/svg}svg")
         assert detect_doc_type(root) == "svg"
 
     def test_svg_no_ns(self) -> None:
         from lxml import etree
+
         root = etree.Element("svg")
         assert detect_doc_type(root) == "svg"
 
     def test_ncx(self) -> None:
         from lxml import etree
+
         root = etree.Element("{http://www.daisy.org/z3986/2005/ncx/}ncx")
         assert detect_doc_type(root) == "ncx"
 
     def test_smil(self) -> None:
         from lxml import etree
+
         root = etree.Element("{http://www.w3.org/ns/SMIL}smil")
         assert detect_doc_type(root) == "smil"
 
     def test_unknown(self) -> None:
         from lxml import etree
+
         root = etree.Element("unknown")
         assert detect_doc_type(root) == "unknown"
 
@@ -175,12 +183,16 @@ class TestLoadXml:
 
     def test_opf_detection(self, tmp_path: Path) -> None:
         xml_file = tmp_path / "test.opf"
-        xml_file.write_text('<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf"/>')
+        xml_file.write_text(
+            '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf"/>'
+        )
         doc = load_xml(xml_file)
         assert doc.doc_type == "opf"
 
     def test_xhtml_detection(self, tmp_path: Path) -> None:
         xml_file = tmp_path / "test.xhtml"
-        xml_file.write_text('<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Test</title></head><body/></html>')
+        xml_file.write_text(
+            '<?xml version="1.0"?><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Test</title></head><body/></html>'
+        )
         doc = load_xml(xml_file)
         assert doc.doc_type == "xhtml"

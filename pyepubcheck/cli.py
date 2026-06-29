@@ -25,24 +25,66 @@ from pyepubcheck.severity import Severity
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="pyepubcheck", add_help=False)
-    parser.add_argument("-h", "-?", "--help", "-help", action="help", help="show this help message and exit")
-    parser.add_argument("--version", "-version", action="store_true", help="show version and exit")
-    parser.add_argument("path", nargs="?", help="publication, package, or content document to validate")
-    parser.add_argument("--mode", "-m", choices=SUPPORTED_MODES[1:], help="validation mode")
+    parser.add_argument(
+        "-h",
+        "-?",
+        "--help",
+        "-help",
+        action="help",
+        help="show this help message and exit",
+    )
+    parser.add_argument(
+        "--version", "-version", action="store_true", help="show version and exit"
+    )
+    parser.add_argument(
+        "path", nargs="?", help="publication, package, or content document to validate"
+    )
+    parser.add_argument(
+        "--mode", "-m", choices=SUPPORTED_MODES[1:], help="validation mode"
+    )
     parser.add_argument("-v", dest="epub_version", default="3.0", help="EPUB version")
-    parser.add_argument("--profile", "-p", choices=SUPPORTED_PROFILES, default="default", help="validation profile")
-    parser.add_argument("--save", action="store_true", help="save expanded EPUB as an archive")
-    parser.add_argument("--out", "-o", "-out", dest="xml_report", help="XML report path or -")
-    parser.add_argument("--json", "-j", dest="json_report", help="JSON report path or -")
+    parser.add_argument(
+        "--profile",
+        "-p",
+        choices=SUPPORTED_PROFILES,
+        default="default",
+        help="validation profile",
+    )
+    parser.add_argument(
+        "--save", action="store_true", help="save expanded EPUB as an archive"
+    )
+    parser.add_argument(
+        "--out", "-o", "-out", dest="xml_report", help="XML report path or -"
+    )
+    parser.add_argument(
+        "--json", "-j", dest="json_report", help="JSON report path or -"
+    )
     parser.add_argument("--xmp", "-x", dest="xmp_report", help="XMP report path or -")
-    parser.add_argument("--quiet", "-q", action="store_true", help="suppress console output")
-    parser.add_argument("--fatal", "-f", action="store_true", help="show only fatal messages")
-    parser.add_argument("--error", "-e", action="store_true", help="show error and fatal messages")
-    parser.add_argument("--warn", "-w", action="store_true", help="show warning, error, and fatal messages")
-    parser.add_argument("--usage", "-u", action="store_true", help="include usage messages")
-    parser.add_argument("--failonwarnings", action="store_true", help="exit 1 when warnings exist")
+    parser.add_argument(
+        "--quiet", "-q", action="store_true", help="suppress console output"
+    )
+    parser.add_argument(
+        "--fatal", "-f", action="store_true", help="show only fatal messages"
+    )
+    parser.add_argument(
+        "--error", "-e", action="store_true", help="show error and fatal messages"
+    )
+    parser.add_argument(
+        "--warn",
+        "-w",
+        action="store_true",
+        help="show warning, error, and fatal messages",
+    )
+    parser.add_argument(
+        "--usage", "-u", action="store_true", help="include usage messages"
+    )
+    parser.add_argument(
+        "--failonwarnings", action="store_true", help="exit 1 when warnings exist"
+    )
     parser.add_argument("--locale", help="report locale")
-    parser.add_argument("--customMessages", "-c", dest="custom_messages", help="custom message file")
+    parser.add_argument(
+        "--customMessages", "-c", dest="custom_messages", help="custom message file"
+    )
     return parser
 
 
@@ -65,7 +107,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not args.path:
         parser.print_help()
         return 0
-    report_targets = [value for value in (args.xml_report, args.json_report, args.xmp_report) if value]
+    report_targets = [
+        value for value in (args.xml_report, args.json_report, args.xmp_report) if value
+    ]
     if len(report_targets) > 1:
         print("Only one output format can be specified at a time.", file=sys.stderr)
         return 1
@@ -82,8 +126,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         # For packaged EPUBs, extract to a directory
         import tempfile
         import zipfile
+
         extract_dir = Path(tempfile.mkdtemp(prefix="pyepubcheck_"))
-        with zipfile.ZipFile(input_path, 'r') as zf:
+        with zipfile.ZipFile(input_path, "r") as zf:
             zf.extractall(extract_dir)
         DirectorySource.from_path(extract_dir).save()
 
@@ -109,29 +154,46 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     visible_severities = {Severity.FATAL, Severity.ERROR, Severity.WARNING}
     if args.usage:
-        visible_severities = {Severity.FATAL, Severity.ERROR, Severity.WARNING, Severity.INFO, Severity.USAGE}
+        visible_severities = {
+            Severity.FATAL,
+            Severity.ERROR,
+            Severity.WARNING,
+            Severity.INFO,
+            Severity.USAGE,
+        }
     elif args.warn:
         visible_severities = {Severity.FATAL, Severity.ERROR, Severity.WARNING}
     elif args.error:
         visible_severities = {Severity.FATAL, Severity.ERROR}
     elif args.fatal:
         visible_severities = {Severity.FATAL}
-    visible_messages = [message for message in report.messages if message.severity in visible_severities]
+    visible_messages = [
+        message for message in report.messages if message.severity in visible_severities
+    ]
 
     _write_report(args.json_report, render_json_report(report))
     _write_report(args.xml_report, render_xml_report(report))
     _write_report(args.xmp_report, render_xmp_report(report))
 
-    direct_report_to_stdout = any(target == "-" for target in (args.json_report, args.xml_report, args.xmp_report))
+    direct_report_to_stdout = any(
+        target == "-" for target in (args.json_report, args.xml_report, args.xmp_report)
+    )
     if not args.quiet and not direct_report_to_stdout:
-        stdout_text, stderr_text = render_console(report, locale=args.locale, messages=visible_messages)
+        stdout_text, stderr_text = render_console(
+            report, locale=args.locale, messages=visible_messages
+        )
         if stdout_text:
             print(stdout_text)
         if stderr_text:
             print(stderr_text, file=sys.stderr)
 
-    visible_error = any(message.severity in {Severity.FATAL, Severity.ERROR} for message in visible_messages)
-    visible_warning = any(message.severity is Severity.WARNING for message in visible_messages)
+    visible_error = any(
+        message.severity in {Severity.FATAL, Severity.ERROR}
+        for message in visible_messages
+    )
+    visible_warning = any(
+        message.severity is Severity.WARNING for message in visible_messages
+    )
     if visible_error:
         return 1
     if args.failonwarnings and visible_warning:

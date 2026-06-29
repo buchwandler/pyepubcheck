@@ -36,6 +36,7 @@ class TestValidateUniqueIdentifier:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_unique_identifier(opf_file, opf)
         assert len(errors) == 0
@@ -54,6 +55,7 @@ class TestValidateUniqueIdentifier:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_unique_identifier(opf_file, opf)
         assert len(errors) == 1
@@ -80,6 +82,7 @@ class TestValidateSpineToc:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_spine_toc(opf_file, opf)
         assert len(errors) == 0
@@ -100,6 +103,7 @@ class TestValidateSpineToc:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_spine_toc(opf_file, opf)
         assert len(errors) == 1
@@ -121,6 +125,7 @@ class TestValidateSpineToc:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_spine_toc(opf_file, opf)
         assert len(errors) == 1
@@ -147,6 +152,7 @@ class TestValidateManifestItems:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_manifest_items(opf_file, opf)
         assert len(errors) == 0
@@ -167,6 +173,7 @@ class TestValidateManifestItems:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_manifest_items(opf_file, opf)
         assert len(errors) == 1
@@ -188,6 +195,7 @@ class TestValidateManifestItems:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_manifest_items(opf_file, opf)
         assert len(errors) == 1
@@ -209,6 +217,7 @@ class TestValidateManifestItems:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_manifest_items(opf_file, opf)
         assert len(errors) == 1
@@ -236,6 +245,7 @@ class TestValidateFallbacks:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_fallbacks(opf_file, opf)
         assert len(errors) == 0
@@ -256,6 +266,7 @@ class TestValidateFallbacks:
         opf_file.write_text(opf_content)
 
         from pyepubcheck.opf_parser import parse_opf
+
         opf = parse_opf(opf_file)
         errors = _validate_fallbacks(opf_file, opf)
         assert len(errors) == 1
@@ -443,7 +454,9 @@ class TestValidateRemoteObjects:
 </html>"""
         xhtml_root = etree.fromstring(xhtml_xml.encode())
         manifest_items = {"image.png"}
-        errors = _validate_remote_objects(Path("test.xhtml"), xhtml_root, manifest_items)
+        errors = _validate_remote_objects(
+            Path("test.xhtml"), xhtml_root, manifest_items
+        )
         assert len(errors) == 0
 
     def test_missing_local_reference(self) -> None:
@@ -457,7 +470,9 @@ class TestValidateRemoteObjects:
 </html>"""
         xhtml_root = etree.fromstring(xhtml_xml.encode())
         manifest_items: set[str] = set()
-        errors = _validate_remote_objects(Path("test.xhtml"), xhtml_root, manifest_items)
+        errors = _validate_remote_objects(
+            Path("test.xhtml"), xhtml_root, manifest_items
+        )
         assert len(errors) == 1
         assert errors[0].id == "RSC-001"
 
@@ -472,7 +487,9 @@ class TestValidateRemoteObjects:
 </html>"""
         xhtml_root = etree.fromstring(xhtml_xml.encode())
         manifest_items: set[str] = set()
-        errors = _validate_remote_objects(Path("test.xhtml"), xhtml_root, manifest_items)
+        errors = _validate_remote_objects(
+            Path("test.xhtml"), xhtml_root, manifest_items
+        )
         assert len(errors) == 0
 
 

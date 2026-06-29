@@ -24,7 +24,16 @@ def _validate_mimetype_content(content: str) -> list[ResultMessage]:
     """Validate mimetype file content."""
     # Check for leading whitespace (explicitly forbidden)
     if content.startswith(" ") or content.startswith("\t"):
-        return [build_message("PKG-007", message="mimetype file has leading whitespace")]
+        return [
+            build_message("PKG-007", message="mimetype file has leading whitespace")
+        ]
+
+    # Check for any whitespace inside the content (forbidden, except a single
+    # trailing newline which is the common carriage-returned variant).
+    if " " in content.strip("\r\n") or "\t" in content.strip("\r\n"):
+        return [
+            build_message("PKG-007", message="mimetype file has internal whitespace")
+        ]
 
     # Strip trailing whitespace for value check
     # Trailing newlines are common in valid EPUBs and tolerated
@@ -45,12 +54,18 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
     for char in filename:
         if char in FORBIDDEN_CHARS:
             errors.append(
-                build_message("PKG-009", message=f"forbidden character '{char}' in filename '{filename}'")
+                build_message(
+                    "PKG-009",
+                    message=f"forbidden character '{char}' in filename '{filename}'",
+                )
             )
             break
         if char in FORBIDDEN_CONTROL_CHARS:
             errors.append(
-                build_message("PKG-009", message=f"forbidden control character in filename '{filename}'")
+                build_message(
+                    "PKG-009",
+                    message=f"forbidden control character in filename '{filename}'",
+                )
             )
             break
 
@@ -97,7 +112,10 @@ def _check_meta_inf_resources(filenames: list[str]) -> list[ResultMessage]:
             # Check if it's a directory
             if not name.endswith("/"):
                 errors.append(
-                    build_message("PKG-025", message=f"publication resource found in META-INF: '{name}'")
+                    build_message(
+                        "PKG-025",
+                        message=f"publication resource found in META-INF: '{name}'",
+                    )
                 )
 
     return errors
@@ -121,7 +139,11 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     # Check for container.xml
     container_path = path / "META-INF" / "container.xml"
     if not container_path.exists():
-        errors.append(build_message("FATAL-001", path=str(container_path), message="container.xml not found"))
+        errors.append(
+            build_message(
+                "FATAL-001", path=str(container_path), message="container.xml not found"
+            )
+        )
         return errors
 
     # Validate container.xml
@@ -144,7 +166,6 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     duplicate_errors = _check_duplicate_filenames(filenames)
     errors.extend(duplicate_errors)
 
-
     # Check META-INF resources for EPUB 3
     # Determine EPUB version from OPF
     is_epub3 = False
@@ -152,9 +173,12 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     if container_path.exists():
         try:
             from pyepubcheck.xml_parser import load_xml
+
             doc = load_xml(container_path)
             if not doc.errors:
-                rootfile = doc.find(".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile")
+                rootfile = doc.find(
+                    ".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile"
+                )
                 if rootfile is not None:
                     full_path = rootfile.get("full-path", "")
                     if full_path:
@@ -231,31 +255,31 @@ def _is_valid_media_query(query: str) -> bool:
     # Simple validation: check for balanced parentheses and basic structure
     if not query.strip():
         return False
-    
+
     # Check for balanced parentheses
     depth = 0
     for char in query:
-        if char == '(':
+        if char == "(":
             depth += 1
-        elif char == ')':
+        elif char == ")":
             depth -= 1
         if depth < 0:
             return False
-    
+
     if depth != 0:
         return False
-    
+
     # Check for basic media query structure
     # Valid examples: (min-width: 1920px), (orientation: landscape), etc.
     # Invalid examples: syntaxerror, (invalid), etc.
     query = query.strip()
-    if query.startswith('(') and query.endswith(')'):
+    if query.startswith("(") and query.endswith(")"):
         # Check for colon inside parentheses
         inner = query[1:-1].strip()
-        if ':' not in inner:
+        if ":" not in inner:
             return False
         # Check for valid media feature
-        parts = inner.split(':', 1)
+        parts = inner.split(":", 1)
         if len(parts) != 2:
             return False
         feature = parts[0].strip()
@@ -263,34 +287,40 @@ def _is_valid_media_query(query: str) -> bool:
         if not feature or not value:
             return False
         return True
-    
+
     return False
 
 
 def _validate_mapping_document(path: Path) -> list[ResultMessage]:
     """Validate a rendition mapping document."""
     errors: list[ResultMessage] = []
-    
+
     try:
         from pyepubcheck.xml_parser import load_xml
+
         doc = load_xml(path)
         if doc.errors:
             return doc.errors
-        
+
         root = doc.root
         if root is None:
             return errors
-        
+
         # Check for epub.multiple.renditions.version meta tag
         xhtml_ns = "http://www.w3.org/1999/xhtml"
         epub_ns = "http://www.idpf.org/2007/ops"
-        
+
         head = root.find(f"{{{xhtml_ns}}}head")
         if head is None:
-            errors.append(build_message("RSC-005", path=str(path), 
-                message="A meta tag with the name \"epub.multiple.renditions.version\" and value \"1.0\" is required"))
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message='A meta tag with the name "epub.multiple.renditions.version" and value "1.0" is required',
+                )
+            )
             return errors
-        
+
         # Check for version meta tag
         version_found = False
         for meta in head.findall(f"{{{xhtml_ns}}}meta"):
@@ -299,18 +329,28 @@ def _validate_mapping_document(path: Path) -> list[ResultMessage]:
             if name == "epub.multiple.renditions.version" and content == "1.0":
                 version_found = True
                 break
-        
+
         if not version_found:
-            errors.append(build_message("RSC-005", path=str(path), 
-                message="A meta tag with the name \"epub.multiple.renditions.version\" and value \"1.0\" is required"))
-        
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message='A meta tag with the name "epub.multiple.renditions.version" and value "1.0" is required',
+                )
+            )
+
         # Check for resource-map nav element
         body = root.find(f"{{{xhtml_ns}}}body")
         if body is None:
-            errors.append(build_message("RSC-005", path=str(path), 
-                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message='A Rendition Mapping Document must contain exactly one "resource-map" nav element',
+                )
+            )
             return errors
-        
+
         resource_map_count = 0
         for nav in body.findall(f".//{{{xhtml_ns}}}nav"):
             epub_type = nav.get(f"{{{epub_ns}}}type", "")
@@ -321,19 +361,40 @@ def _validate_mapping_document(path: Path) -> list[ResultMessage]:
                 pass
             else:
                 # Nav element without epub:type
-                errors.append(build_message("RSC-005", path=str(path), 
-                    message="nav element must have an epub:type attribute"))
-        
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message="nav element must have an epub:type attribute",
+                    )
+                )
+
         if resource_map_count == 0:
-            errors.append(build_message("RSC-005", path=str(path), 
-                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message='A Rendition Mapping Document must contain exactly one "resource-map" nav element',
+                )
+            )
         elif resource_map_count > 1:
-            errors.append(build_message("RSC-005", path=str(path), 
-                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
-    
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message='A Rendition Mapping Document must contain exactly one "resource-map" nav element',
+                )
+            )
+
     except Exception as e:
-        errors.append(build_message("RSC-002", path=str(path), message=f"error parsing mapping document: {e}"))
-    
+        errors.append(
+            build_message(
+                "RSC-002",
+                path=str(path),
+                message=f"error parsing mapping document: {e}",
+            )
+        )
+
     return errors
 
 
@@ -357,6 +418,7 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
 
     try:
         from pyepubcheck.xml_parser import load_xml
+
         doc = load_xml(container_path)
         if doc.errors:
             return doc.errors
@@ -368,13 +430,25 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
         # Check namespace
         ns = "urn:oasis:names:tc:opendocument:xmlns:container"
         if not root.tag.startswith(f"{{{ns}}}"):
-            errors.append(build_message("RSC-005", path=str(container_path), message="invalid container namespace"))
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(container_path),
+                    message="invalid container namespace",
+                )
+            )
             return errors
 
         # Find rootfiles element
         rootfiles = root.find(f"{{{ns}}}rootfiles")
         if rootfiles is None:
-            errors.append(build_message("RSC-005", path=str(container_path), message="missing rootfiles element"))
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(container_path),
+                    message="missing rootfiles element",
+                )
+            )
             return errors
 
         # Check each rootfile
@@ -386,17 +460,39 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
 
             # Validate full-path
             if not full_path:
-                errors.append(build_message("PKG-001", path=str(container_path), message="rootfile full-path is empty or missing"))
+                errors.append(
+                    build_message(
+                        "PKG-001",
+                        path=str(container_path),
+                        message="rootfile full-path is empty or missing",
+                    )
+                )
             else:
                 # Check if the OPF file exists (only for primary rootfile)
                 if rootfile_count == 1:
                     opf_path = path / full_path
                     if not opf_path.exists():
-                        errors.append(build_message("FATAL-001", path=str(container_path), message=f"rootfile '{full_path}' not found"))
+                        errors.append(
+                            build_message(
+                                "FATAL-001",
+                                path=str(container_path),
+                                message=f"rootfile '{full_path}' not found",
+                            )
+                        )
 
             # Validate media-type (only for primary rootfile)
-            if rootfile_count == 1 and media_type and media_type != "application/oebps-package+xml":
-                errors.append(build_message("PKG-007", path=str(container_path), message=f"invalid rootfile media-type '{media_type}'"))
+            if (
+                rootfile_count == 1
+                and media_type
+                and media_type != "application/oebps-package+xml"
+            ):
+                errors.append(
+                    build_message(
+                        "PKG-007",
+                        path=str(container_path),
+                        message=f"invalid rootfile media-type '{media_type}'",
+                    )
+                )
 
         # Check for multiple rootfiles
         if rootfile_count > 1:
@@ -407,10 +503,36 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                 media_type = rootfile.get("media-type", "")
                 if media_type == "application/oebps-package+xml":
                     opf_rootfiles.append(rootfile)
-            
-            # Note: Multiple OPF files are allowed for multiple renditions (EPUB 3)
-            # so we don't reject them here.
-            
+
+            # Multiple OPF files are allowed for multiple renditions (EPUB 3)
+            # if a rendition mapping document is declared. Otherwise the
+            # container must declare a single OPF.
+            links_element = root.find(f"{{{ns}}}links")
+            has_mapping = links_element is not None and any(
+                link.get("rel", "") == "mapping"
+                for link in links_element.findall(f"{{{ns}}}link")
+            )
+            if len(opf_rootfiles) > 1 and not has_mapping:
+                primary_version = ""
+                if opf_rootfiles:
+                    primary_path_attr = opf_rootfiles[0].get("full-path", "")
+                    if primary_path_attr:
+                        primary_opf = path / primary_path_attr
+                        if primary_opf.exists():
+                            from pyepubcheck.xml_parser import load_xml as _load
+
+                            primary_doc = _load(primary_opf)
+                            if not primary_doc.errors and primary_doc.root is not None:
+                                primary_version = primary_doc.root.get("version", "")
+                if not primary_version.startswith("3"):
+                    errors.append(
+                        build_message(
+                            "PKG-001",
+                            path=str(container_path),
+                            message="Multiple rootfile entries are not allowed without a rendition mapping document.",
+                        )
+                    )
+
             # Validate rendition selection attributes for non-primary rootfiles
             # Only for OPF rootfiles (not for alternative files like text/plain)
             rendition_ns = "http://www.idpf.org/2013/rendition"
@@ -428,20 +550,43 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                                 if "media" in attr_name:
                                     # Basic media query syntax validation
                                     if not attr_value.strip():
-                                        errors.append(build_message("RSC-005", path=str(container_path), 
-                                            message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'"))
+                                        errors.append(
+                                            build_message(
+                                                "RSC-005",
+                                                path=str(container_path),
+                                                message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'",
+                                            )
+                                        )
                                     elif not _is_valid_media_query(attr_value):
-                                        errors.append(build_message("RSC-005", path=str(container_path), 
-                                            message="value of attribute \"rendition:media\" is invalid"))
+                                        errors.append(
+                                            build_message(
+                                                "RSC-005",
+                                                path=str(container_path),
+                                                message='value of attribute "rendition:media" is invalid',
+                                            )
+                                        )
                                 # Check for unknown rendition selection attributes
-                                known_attrs = {f"{{{rendition_ns}}}media", f"{{{rendition_ns}}}label"}
+                                known_attrs = {
+                                    f"{{{rendition_ns}}}media",
+                                    f"{{{rendition_ns}}}label",
+                                }
                                 if attr_name not in known_attrs:
-                                    errors.append(build_message("RSC-005", path=str(container_path), 
-                                        message=f"attribute \"{attr_name}\" not allowed here"))
-                        
+                                    errors.append(
+                                        build_message(
+                                            "RSC-005",
+                                            path=str(container_path),
+                                            message=f'attribute "{attr_name}" not allowed here',
+                                        )
+                                    )
+
                         if not has_rendition_attr:
-                            errors.append(build_message("RSC-017", path=str(container_path), 
-                                message="At least one rendition selection attribute should be specified"))
+                            errors.append(
+                                build_message(
+                                    "RSC-017",
+                                    path=str(container_path),
+                                    message="At least one rendition selection attribute should be specified",
+                                )
+                            )
 
         # Check for links element (mapping documents)
         links = root.find(f"{{{ns}}}links")
@@ -451,20 +596,30 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                 rel = link.get("rel", "")
                 href = link.get("href", "")
                 media_type = link.get("media-type", "")
-                
+
                 if rel == "mapping":
                     # Validate mapping document media type
                     if media_type != "application/xhtml+xml":
-                        errors.append(build_message("RSC-005", path=str(container_path), 
-                            message="The media type of Rendition Mapping Documents must be \"application/xhtml+xml\""))
+                        errors.append(
+                            build_message(
+                                "RSC-005",
+                                path=str(container_path),
+                                message='The media type of Rendition Mapping Documents must be "application/xhtml+xml"',
+                            )
+                        )
                     else:
                         mapping_docs.append(href)
-            
+
             # Check for multiple mapping documents
             if len(mapping_docs) > 1:
-                errors.append(build_message("RSC-005", path=str(container_path), 
-                    message="The Container Document must not reference more than one mapping document."))
-            
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(container_path),
+                        message="The Container Document must not reference more than one mapping document.",
+                    )
+                )
+
             # Validate single mapping document
             if len(mapping_docs) == 1:
                 mapping_path = path / mapping_docs[0]
@@ -472,6 +627,12 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                     errors.extend(_validate_mapping_document(mapping_path))
 
     except Exception as e:
-        errors.append(build_message("RSC-002", path=str(container_path), message=f"error parsing container.xml: {e}"))
+        errors.append(
+            build_message(
+                "RSC-002",
+                path=str(container_path),
+                message=f"error parsing container.xml: {e}",
+            )
+        )
 
     return errors

@@ -87,6 +87,634 @@
     {
       "nodeid": "tests/unit/test_gherkin_mapper.py::TestSaveMappingReport::test_save_report",
       "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestRun::test_non_css_file",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestRun::test_valid_css",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssDirection::test_invalid_direction",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_ltr",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_rtl",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssProperties::test_disallowed_property",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssProperties::test_valid_css",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssSelectors::test_pseudo_element",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_css_checks.py::TestValidateCssSelectors::test_valid_selector",
+      "reason": "unit test for CSS check internals - validates pyepubcheck internal CSS processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestRun::test_non_opf_file",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestRun::test_valid_opf",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_missing_fallback",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_valid_fallback",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_href",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_id",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_media_type",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_valid_manifest_items",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_duplicate_ids",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_no_duplicate_ids",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_missing_ncx_resource",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_valid_ncx_resources",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_matching_uid",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_mismatched_uid",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_missing_local_reference",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_remote_reference_allowed",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_valid_local_reference",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_missing_spine_toc_with_ncx",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_spine_toc_not_ncx",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_valid_spine_toc",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_missing_unique_identifier",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_valid_unique_identifier",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_invalid_xhtml_namespace",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_missing_xhtml_namespace",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_valid_xhtml_namespace",
+      "reason": "unit test for EPUB 2 check internals - validates pyepubcheck internal EPUB 2 processing"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_unmapped_test",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckDuplicateFilenames::test_common_case_fold_duplicate",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckDuplicateFilenames::test_no_duplicates",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckMetaInfResources::test_allowed_meta_inf",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestCheckMetaInfResources::test_forbidden_meta_inf",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_directory",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_epub_file",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestRun::test_other_file",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_empty_archive",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_forbidden_filename",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_invalid_mimetype_value",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_mimetype_not_first",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_missing_mimetype",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateArchive::test_valid_archive",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_invalid_mimetype",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_missing_mimetype",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateDirectory::test_valid_directory",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_control_char",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_plus",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_forbidden_quote",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateFilename::test_valid_filename",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_incorrect_value",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_leading_whitespace",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_trailing_newline_tolerated",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_ocf_checks.py::TestValidateMimetypeContent::test_valid_mimetype",
+      "reason": "unit test for OCF check internals - validates pyepubcheck internal OCF processing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_invalid_xml",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_manifest_by_id",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_manifest_parsing",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_minimal_opf",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_prefix_parsing",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_rendition_metadata",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParseOpf::test_spine_parsing",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_empty_string",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_multiple_prefixes",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestParsePrefixAttribute::test_single_prefix",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfPrefixes::test_undeclared_prefix",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfPrefixes::test_valid_prefixes",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_identifier",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_language",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_missing_title",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_opf_parser.py::TestValidateOpfRequiredMetadata::test_valid_metadata",
+      "reason": "unit test for OPF parser - validates pyepubcheck internal OPF parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_invalid_rendition_layout",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_missing_identifier",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_missing_title",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_non_opf_file",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_undeclared_prefix",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestRun::test_valid_opf",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateDataNav::test_invalid_nav_media_type",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateDataNav::test_valid_nav",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateHrefSpaces::test_no_spaces",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateHrefSpaces::test_with_spaces",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_empty_prefix",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_invalid_syntax_missing_uri",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_valid_multiple_prefixes",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidatePrefixAttribute::test_valid_prefix",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_empty_layout",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_invalid_layout",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_valid_layout_pre_paginated",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_package_checks.py::TestValidateRenditionLayout::test_valid_layout_reflowable",
+      "reason": "unit test for package check internals - validates pyepubcheck internal package processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_data_url",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_http_url",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsDataUrl::test_relative_path",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_absolute_path",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_data_url",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_http_url",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_https_url",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestIsRemoteUrl::test_relative_path",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestRun::test_non_opf_file",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestRun::test_valid_opf",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateHrefFormat::test_href_with_spaces",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateHrefFormat::test_valid_href",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateMetaInfResources::test_meta_inf_resource_error",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateMetaInfResources::test_no_meta_inf_resources",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_data_url_allowed",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_remote_url_allowed",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_valid_references",
+      "reason": "unit test for resource check internals - validates pyepubcheck internal resource processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestRun::test_non_svg_file",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestRun::test_valid_svg",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestValidateSvgIds::test_duplicate_ids",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestValidateSvgIds::test_unique_ids",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_use_href_no_fragment",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_valid_use_href",
+      "reason": "unit test for SVG check internals - validates pyepubcheck internal SVG processing"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_with_alt",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_without_alt",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_duplicate_ids",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_no_duplicate_ids",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_missing_resource_reference",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_remote_resource_allowed",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_valid_resource_reference",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xhtml_validator.py::TestValidateXhtmlStyleElements::test_style_element_allowed",
+      "reason": "unit test for XHTML validator - validates pyepubcheck internal XHTML validation"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_ncx",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_opf_package",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_smil",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_svg",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_svg_no_ns",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_unknown",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_xhtml_html",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestDetectDocType::test_xhtml_html_no_ns",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_invalid_file",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_missing_file",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_opf_detection",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_valid_file",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXml::test_xhtml_detection",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_empty_content",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_invalid_xml",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_namespace_detection",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestLoadXmlString::test_valid_xml",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_invalid_xml",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_missing_file",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestValidateXmlWellFormedness::test_valid_xml",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_find_element",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_find_missing_element",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_findall_elements",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_get_attr",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_get_attr_default",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_xml_parser.py::TestXmlDocument::test_nsmap",
+      "reason": "unit test for XML parser - validates pyepubcheck internal XML parsing"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_known_good_epub3",
+      "reason": "smoke test - validates validate_path entry point for EPUB 3, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_known_bad_epub2",
+      "reason": "smoke test - validates validate_path entry point for EPUB 2, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_multiple_renditions.py::test_multiple_renditions_version",
+      "reason": "unit test for multiple renditions version - no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_usage_reporting",
+      "reason": "smoke test - validates validate_path entry point for usage reporting, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_hyperlinked_document_spine",
+      "reason": "smoke test - validates validate_path entry point for hyperlinked document spine, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_html5_doctype_in_epub2",
+      "reason": "smoke test - validates validate_path entry point for HTML5 doctype in EPUB 2, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/acceptance/test_smoke.py::test_validate_profile_tagged_publication",
+      "reason": "smoke test - validates validate_path entry point for profile-tagged publication, no gherkin counterpart"
     }
   ]
 }

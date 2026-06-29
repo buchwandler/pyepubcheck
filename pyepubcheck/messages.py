@@ -28,15 +28,15 @@ class MessageOverride:
 MESSAGES: dict[str, MessageDef] = {
     # Fatal messages
     "FATAL-001": MessageDef(Severity.FATAL, "fatal error"),
-
     # Check messages
     "CHK-001": MessageDef(Severity.ERROR, "custom message file not found"),
     "CHK-002": MessageDef(Severity.ERROR, "unknown custom message identifier"),
     "CHK-003": MessageDef(Severity.ERROR, "unknown custom message severity"),
     "CHK-004": MessageDef(Severity.ERROR, "invalid custom message placeholders"),
-    "CHK-005": MessageDef(Severity.ERROR, "invalid custom message suggestion placeholders"),
+    "CHK-005": MessageDef(
+        Severity.ERROR, "invalid custom message suggestion placeholders"
+    ),
     "CHK-008": MessageDef(Severity.ERROR, "check configuration error"),
-
     # CSS messages
     "CSS-001": MessageDef(Severity.ERROR, "disallowed CSS property"),
     "CSS-002": MessageDef(Severity.ERROR, "CSS parsing error"),
@@ -50,14 +50,12 @@ MESSAGES: dict[str, MessageDef] = {
     "CSS-019": MessageDef(Severity.ERROR, "CSS font error"),
     "CSS-029": MessageDef(Severity.ERROR, "CSS property error"),
     "CSS-030": MessageDef(Severity.ERROR, "CSS value error"),
-
     # NCX messages
     "NCX-001": MessageDef(Severity.ERROR, "NCX parsing error"),
     "NCX-002": MessageDef(Severity.ERROR, "duplicate NCX ID"),
     "NCX-003": MessageDef(Severity.ERROR, "NCX resource not found in spine"),
     "NCX-004": MessageDef(Severity.USAGE, "NCX UID mismatch"),
     "NCX-006": MessageDef(Severity.ERROR, "NCX structure error"),
-
     # OPF messages
     "OPF-001": MessageDef(Severity.ERROR, "OPF parsing error"),
     "OPF-002": MessageDef(Severity.ERROR, "OPF validation error"),
@@ -98,7 +96,9 @@ MESSAGES: dict[str, MessageDef] = {
     "OPF-053": MessageDef(Severity.ERROR, "OPF version error"),
     "OPF-054": MessageDef(Severity.ERROR, "OPF prefix error"),
     "OPF-055": MessageDef(Severity.ERROR, "OPF dc:type error"),
-    "OPF-060": MessageDef(Severity.ERROR, "duplicate publication resource after normalization"),
+    "OPF-060": MessageDef(
+        Severity.ERROR, "duplicate publication resource after normalization"
+    ),
     "OPF-063": MessageDef(Severity.ERROR, "OPF fallback error"),
     "OPF-065": MessageDef(Severity.ERROR, "OPF media overlay error"),
     "OPF-066": MessageDef(Severity.ERROR, "OPF remote resource error"),
@@ -130,7 +130,6 @@ MESSAGES: dict[str, MessageDef] = {
     "OPF-096": MessageDef(Severity.ERROR, "OPF id error"),
     "OPF-098": MessageDef(Severity.ERROR, "OPF properties error"),
     "OPF-099": MessageDef(Severity.ERROR, "OPF media overlay error"),
-
     # PKG messages
     "PKG-001": MessageDef(Severity.ERROR, "package parsing error"),
     "PKG-003": MessageDef(Severity.ERROR, "package validation error"),
@@ -152,7 +151,6 @@ MESSAGES: dict[str, MessageDef] = {
     "PKG-025": MessageDef(Severity.ERROR, "publication resource located in META-INF"),
     "PKG-026": MessageDef(Severity.ERROR, "package font error"),
     "PKG-027": MessageDef(Severity.ERROR, "package image error"),
-
     # RSC messages
     "RSC-001": MessageDef(Severity.ERROR, "resource not found"),
     "RSC-002": MessageDef(Severity.ERROR, "resource parsing error"),
@@ -183,7 +181,6 @@ MESSAGES: dict[str, MessageDef] = {
     "RSC-031": MessageDef(Severity.ERROR, "resource standalone error"),
     "RSC-032": MessageDef(Severity.ERROR, "resource version error"),
     "RSC-033": MessageDef(Severity.ERROR, "resource declaration error"),
-
     # Media overlay messages
     "MED-003": MessageDef(Severity.ERROR, "media overlay audio error"),
     "MED-004": MessageDef(Severity.ERROR, "media overlay text error"),
@@ -192,7 +189,9 @@ MESSAGES: dict[str, MessageDef] = {
     "MED-008": MessageDef(Severity.ERROR, "media overlay structure error"),
     "MED-009": MessageDef(Severity.ERROR, "media overlay timing error"),
     "MED-010": MessageDef(Severity.ERROR, "media overlay clip error"),
-    "MED-011": MessageDef(Severity.ERROR, "content document referenced by multiple media overlays"),
+    "MED-011": MessageDef(
+        Severity.ERROR, "content document referenced by multiple media overlays"
+    ),
     "MED-012": MessageDef(Severity.ERROR, "media overlay src error"),
     "MED-013": MessageDef(Severity.ERROR, "media overlay type error"),
     "MED-014": MessageDef(Severity.ERROR, "media overlay id error"),
@@ -200,13 +199,11 @@ MESSAGES: dict[str, MessageDef] = {
     "MED-016": MessageDef(Severity.ERROR, "media overlay begin error"),
     "MED-017": MessageDef(Severity.ERROR, "media overlay end error"),
     "MED-018": MessageDef(Severity.ERROR, "media overlay sync error"),
-
     # Navigation messages
     "NAV-003": MessageDef(Severity.ERROR, "EDUPUB page list missing"),
     "NAV-009": MessageDef(Severity.ERROR, "navigation structure error"),
     "NAV-010": MessageDef(Severity.ERROR, "navigation type error"),
     "NAV-011": MessageDef(Severity.ERROR, "navigation link error"),
-
     # HTML messages
     "HTM-001": MessageDef(Severity.ERROR, "HTML parsing error"),
     "HTM-003": MessageDef(Severity.ERROR, "HTML structure error"),
@@ -228,7 +225,6 @@ MESSAGES: dict[str, MessageDef] = {
     "HTM-059": MessageDef(Severity.ERROR, "HTML well-formedness error"),
     "HTM-060": MessageDef(Severity.ERROR, "HTML namespace error"),
     "HTM-061": MessageDef(Severity.ERROR, "HTML encoding error"),
-
     # Other messages
     "ACC-009": MessageDef(Severity.ERROR, "accessibility error"),
     "ACC-011": MessageDef(Severity.ERROR, "accessibility validation error"),
@@ -241,10 +237,7 @@ MESSAGES: dict[str, MessageDef] = {
 }
 
 PLACEHOLDER_RE = re.compile(r"%\d+\$s")
-SEVERITY_BY_NAME = {
-    severity.value: severity
-    for severity in Severity
-}
+SEVERITY_BY_NAME = {severity.value: severity for severity in Severity}
 SUPPORTED_OVERRIDE_SEVERITIES = set(SEVERITY_BY_NAME) | {"SUPPRESSED"}
 
 
@@ -252,7 +245,13 @@ def placeholder_count(text: str) -> int:
     return len(PLACEHOLDER_RE.findall(text))
 
 
-def build_message(message_id: str, *, path: str = "", message: str | None = None, severity: Severity | None = None) -> ResultMessage:
+def build_message(
+    message_id: str,
+    *,
+    path: str = "",
+    message: str | None = None,
+    severity: Severity | None = None,
+) -> ResultMessage:
     definition = MESSAGES[message_id]
     return ResultMessage(
         id=message_id,
@@ -263,7 +262,9 @@ def build_message(message_id: str, *, path: str = "", message: str | None = None
     )
 
 
-def load_custom_message_overrides(path: str | None) -> tuple[dict[str, MessageOverride], list[ResultMessage]]:
+def load_custom_message_overrides(
+    path: str | None,
+) -> tuple[dict[str, MessageOverride], list[ResultMessage]]:
     if not path:
         return {}, []
     override_path = Path(path)
@@ -287,10 +288,14 @@ def load_custom_message_overrides(path: str | None) -> tuple[dict[str, MessageOv
             continue
 
         definition = MESSAGES[message_id]
-        if message_text and placeholder_count(message_text) != placeholder_count(definition.text):
+        if message_text and placeholder_count(message_text) != placeholder_count(
+            definition.text
+        ):
             errors.append(build_message("CHK-004", path=str(override_path)))
             continue
-        if suggestion and placeholder_count(suggestion) != placeholder_count(definition.suggestion):
+        if suggestion and placeholder_count(suggestion) != placeholder_count(
+            definition.suggestion
+        ):
             errors.append(build_message("CHK-005", path=str(override_path)))
             continue
 

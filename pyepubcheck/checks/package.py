@@ -64,18 +64,30 @@ def _validate_prefix_attribute(path: Path, prefix_attr: str) -> list[ResultMessa
     for i in range(0, len(declarations), 2):
         if i + 1 >= len(declarations):
             errors.append(
-                build_message("OPF-007b", path=str(path), message="invalid prefix attribute syntax")
+                build_message(
+                    "OPF-007b",
+                    path=str(path),
+                    message="invalid prefix attribute syntax",
+                )
             )
             break
         prefix = declarations[i]
         uri = declarations[i + 1]
         if not prefix.endswith(":"):
             errors.append(
-                build_message("OPF-007b", path=str(path), message="invalid prefix attribute syntax")
+                build_message(
+                    "OPF-007b",
+                    path=str(path),
+                    message="invalid prefix attribute syntax",
+                )
             )
         if not uri.startswith("http"):
             errors.append(
-                build_message("OPF-007b", path=str(path), message="invalid prefix attribute syntax")
+                build_message(
+                    "OPF-007b",
+                    path=str(path),
+                    message="invalid prefix attribute syntax",
+                )
             )
 
     return errors
@@ -155,7 +167,9 @@ def _validate_collection_metadata(path: Path, opf) -> list[ResultMessage]:
                 if role == "distributable-object":
                     # Check for dc:identifier in collection metadata
                     has_identifier = False
-                    for dc_id in metadata_el.findall("{http://purl.org/dc/elements/1.1/}identifier"):
+                    for dc_id in metadata_el.findall(
+                        "{http://purl.org/dc/elements/1.1/}identifier"
+                    ):
                         if dc_id.text and dc_id.text.strip():
                             has_identifier = True
                             break
@@ -173,7 +187,6 @@ def _validate_collection_metadata(path: Path, opf) -> list[ResultMessage]:
 
 
 def _validate_href_spaces(path: Path, opf) -> list[ResultMessage]:
-
     """Validate manifest item hrefs for spaces."""
     errors: list[ResultMessage] = []
 
@@ -323,7 +336,9 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Validate rendition layout
     if opf.metadata.rendition_layout:
-        errors.extend(_validate_rendition_layout(candidate, opf.metadata.rendition_layout))
+        errors.extend(
+            _validate_rendition_layout(candidate, opf.metadata.rendition_layout)
+        )
 
     # Validate accessibility properties
     errors.extend(_validate_a11y_properties(candidate, opf))
@@ -394,6 +409,7 @@ def _validate_manifest_resources(path: Path, opf) -> list[ResultMessage]:
             continue
         # Resolve the resource path (URL-decode the href)
         from urllib.parse import unquote
+
         decoded_href = unquote(item.href)
         resource_path = opf_dir / decoded_href
         if not resource_path.exists():

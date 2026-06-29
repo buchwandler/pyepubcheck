@@ -15,7 +15,9 @@ def _validate_svg_use_href(path: Path, root) -> list[ResultMessage]:
 
     # Find all use elements
     for use_el in root.iter("{http://www.w3.org/2000/svg}use"):
-        href = use_el.get("href", "") or use_el.get("{http://www.w3.org/1999/xlink}href", "")
+        href = use_el.get("href", "") or use_el.get(
+            "{http://www.w3.org/1999/xlink}href", ""
+        )
         if not href:
             continue
 

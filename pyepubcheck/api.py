@@ -12,11 +12,12 @@ from pyepubcheck.checks.media_overlays import run as run_media_overlay_checks
 from pyepubcheck.checks.navigation import run as run_navigation_checks
 from pyepubcheck.checks.ocf import run as run_ocf_checks
 from pyepubcheck.checks.package import run as run_package_checks
-from pyepubcheck.checks.profiles.accessibility import run as run_accessibility_checks
-from pyepubcheck.checks.profiles.dictionaries import run as run_dictionary_checks
-from pyepubcheck.checks.profiles.edupub import run as run_edupub_checks
-from pyepubcheck.checks.profiles.indexes import run as run_index_checks
-from pyepubcheck.checks.profiles.previews import run as run_preview_checks
+from pyepubcheck.checks.profiles import (
+    PROFILE_MODULES,
+    ProfileContext,
+    build_profile_context,
+)
+from pyepubcheck.checks.reporting_usage import run as run_usage_checks
 from pyepubcheck.checks.resources import run as run_resource_checks
 from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.xhtml import run as run_xhtml_checks
@@ -34,15 +35,14 @@ def _find_opf_in_directory(directory: Path) -> Path | None:
     """Find OPF file in an expanded EPUB directory."""
     source = DirectorySource.from_path(directory)
 
-    # Check META-INF/container.xml for rootfile
     container_path = directory / "META-INF" / "container.xml"
     if container_path.exists():
         try:
-            from pyepubcheck.xml_parser import load_xml
             doc = load_xml(container_path)
             if not doc.errors:
-                # Find rootfile element
-                rootfile = doc.find(".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile")
+                rootfile = doc.find(
+                    ".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile"
+                )
                 if rootfile is not None:
                     full_path = rootfile.get("full-path", "")
                     if full_path:
@@ -52,7 +52,6 @@ def _find_opf_in_directory(directory: Path) -> Path | None:
         except Exception:
             pass
 
-    # Fallback: look for OPF files
     for opf_file in directory.rglob("*.opf"):
         return opf_file
 
@@ -66,6 +65,14 @@ def _collect_files_from_directory(directory: Path) -> list[Path]:
         if file_path.is_file():
             files.append(file_path)
     return files
+
+
+def _run_profile_modules(context: ProfileContext) -> list[ResultMessage]:
+    """Run every registered profile module against the shared context."""
+    messages: list[ResultMessage] = []
+    for runner in PROFILE_MODULES.values():
+        messages.extend(runner(context))
+    return messages
 
 
 def validate_path(
@@ -83,62 +90,65 @@ def validate_path(
         metadata=PublicationMetadata(title="Minimal EPUB 3.0"),
     )
 
-    # Handle EPUB directories
     if resolved.is_dir():
-        # Run OCF checks on directory
         report.messages.extend(run_ocf_checks(resolved))
 
-        # Find OPF file
         opf_path = _find_opf_in_directory(resolved)
+        context: ProfileContext | None = None
         if opf_path:
-            # Run checks on OPF
             report.messages.extend(run_package_checks(opf_path))
             report.messages.extend(run_epub2_checks(opf_path))
             report.messages.extend(run_resource_checks(opf_path))
             report.messages.extend(run_layout_checks(opf_path))
-            report.messages.extend(run_dictionary_checks(opf_path, profile=effective.profile))
-            report.messages.extend(run_edupub_checks(opf_path, profile=effective.profile))
-            report.messages.extend(run_index_checks(opf_path, profile=effective.profile))
-            report.messages.extend(run_preview_checks(opf_path, profile=effective.profile))
-            report.messages.extend(run_accessibility_checks(opf_path, profile=effective.profile))
-            # Parse OPF to get manifest items
+
             opf = parse_opf(opf_path)
             if not opf.errors:
-                # Get OPF directory for resolving relative paths
-                opf_dir = opf_path.parent
-                # Build set of manifest hrefs
-                manifest_hrefs: set[str] = set()
-                for m in opf.manifest:
-                    if m.href:
-                        manifest_hrefs.add(m.href)
+                context = build_profile_context(
+                    opf, opf_path, requested_profile=effective.profile
+                )
+                report.messages.extend(_run_profile_modules(context))
 
-                # Run checks on manifest items
-                for item in opf.manifest:
-                    item_path = opf_dir / item.href
-                    if item_path.exists():
-                        if item.media_type == "application/xhtml+xml":
-                            report.messages.extend(run_xhtml_checks(item_path))
-                            # Load xml to check resources
-                            item_xml_doc = load_xml(item_path)
-                            if item_xml_doc and not item_xml_doc.errors and item_xml_doc.root is not None:
-                                report.messages.extend(run_xhtml_resource_checks(item_path, item_xml_doc.root, manifest_hrefs))
-                            # Check if this is a data-nav file
-                            is_data_nav = "data-nav" in item.properties
-                            report.messages.extend(run_navigation_checks(item_path, is_data_nav=is_data_nav))
-                            report.messages.extend(run_edupub_checks(item_path, profile=effective.profile))
-                            report.messages.extend(run_index_checks(item_path, profile=effective.profile))
-                        elif item.media_type == "image/svg+xml":
-                            report.messages.extend(run_svg_checks(item_path))
-                        elif item.media_type == "text/css":
-                            report.messages.extend(run_css_checks(item_path))
-                        elif item.media_type == "application/smil+xml":
-                            report.messages.extend(run_media_overlay_checks(item_path))
-                        elif item.media_type == "application/x-dtbncx+xml":
-                            report.messages.extend(run_ncx_checks(item_path, opf_path=opf_path))
+            opf_dir = opf_path.parent
+            manifest_hrefs: set[str] = set()
+            for m in opf.manifest:
+                if m.href:
+                    manifest_hrefs.add(m.href)
+
+            report.messages.extend(
+                run_usage_checks(opf_path, _collect_files_from_directory(resolved))
+            )
+
+            for item in opf.manifest:
+                item_path = opf_dir / item.href
+                if not item_path.exists():
+                    continue
+                if item.media_type == "application/xhtml+xml":
+                    report.messages.extend(run_xhtml_checks(item_path, context=context))
+                    item_xml_doc = load_xml(item_path)
+                    if (
+                        item_xml_doc
+                        and not item_xml_doc.errors
+                        and item_xml_doc.root is not None
+                    ):
+                        report.messages.extend(
+                            run_xhtml_resource_checks(
+                                item_path, item_xml_doc.root, manifest_hrefs
+                            )
+                        )
+                    is_data_nav = "data-nav" in item.properties
+                    report.messages.extend(
+                        run_navigation_checks(item_path, is_data_nav=is_data_nav)
+                    )
+                elif item.media_type == "image/svg+xml":
+                    report.messages.extend(run_svg_checks(item_path))
+                elif item.media_type == "text/css":
+                    report.messages.extend(run_css_checks(item_path))
+                elif item.media_type == "application/smil+xml":
+                    report.messages.extend(run_media_overlay_checks(item_path))
+                elif item.media_type == "application/x-dtbncx+xml":
+                    report.messages.extend(run_ncx_checks(item_path, opf_path=opf_path))
     else:
-        # Run checks on single file
         if resolved.suffix.lower() == ".ncx":
-            # NCX file - run NCX-specific checks
             report.messages.extend(run_ncx_checks(resolved))
         else:
             report.messages.extend(run_ocf_checks(resolved))
@@ -151,13 +161,14 @@ def validate_path(
             report.messages.extend(run_navigation_checks(resolved))
             report.messages.extend(run_layout_checks(resolved))
             report.messages.extend(run_media_overlay_checks(resolved))
-            report.messages.extend(run_dictionary_checks(resolved, profile=effective.profile))
-            report.messages.extend(run_edupub_checks(resolved, profile=effective.profile))
-            report.messages.extend(run_index_checks(resolved, profile=effective.profile))
-            report.messages.extend(run_preview_checks(resolved, profile=effective.profile))
-            report.messages.extend(run_accessibility_checks(resolved, profile=effective.profile))
 
-    # Handle special test cases
+            opf = parse_opf(resolved) if resolved.suffix.lower() == ".opf" else None
+            if opf is not None and not opf.errors:
+                context = build_profile_context(
+                    opf, resolved, requested_profile=effective.profile
+                )
+                report.messages.extend(_run_profile_modules(context))
+
     name = resolved.name
     if name == "20-warning-tester":
         report.messages.append(build_message("PKG-010", path=str(resolved)))
@@ -173,10 +184,14 @@ def validate_path(
     elif name == "schema-error":
         locale = (effective.locale or "en").lower()
         message = "Erreur balise" if locale.startswith("fr") else "Error tag"
-        report.messages.append(build_message("RSC-005", path=str(resolved), message=message))
+        report.messages.append(
+            build_message("RSC-005", path=str(resolved), message=message)
+        )
     elif name == "css-error":
         locale = (effective.locale or "en").lower()
         message = "erreur css" if locale.startswith("fr") else "css error"
-        report.messages.append(build_message("CSS-008", path=str(resolved), message=message))
+        report.messages.append(
+            build_message("CSS-008", path=str(resolved), message=message)
+        )
 
     return report

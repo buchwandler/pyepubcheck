@@ -85,7 +85,9 @@ def _validate_nav_structure(path: Path, root) -> list[ResultMessage]:
 
         # Check for region-based nav structure
         if "region-based" in epub_type:
-            ol_children = [el for el in nav if str(el.tag).endswith("}ol") or str(el.tag) == "ol"]
+            ol_children = [
+                el for el in nav if str(el.tag).endswith("}ol") or str(el.tag) == "ol"
+            ]
             if len(ol_children) != 1:
                 errors.append(
                     build_message(
@@ -138,7 +140,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                 build_message(
                     "RSC-005",
                     path=str(path),
-                    message="The first child of a region-based nav list item must be either an \"a\" or \"span\" element",
+                    message='The first child of a region-based nav list item must be either an "a" or "span" element',
                 )
             )
             continue
@@ -147,13 +149,17 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
         first_tag = str(first_child.tag)
 
         # Check first child is a or span
-        if not (first_tag.endswith("}a") or first_tag == "a" or 
-                first_tag.endswith("}span") or first_tag == "span"):
+        if not (
+            first_tag.endswith("}a")
+            or first_tag == "a"
+            or first_tag.endswith("}span")
+            or first_tag == "span"
+        ):
             errors.append(
                 build_message(
                     "RSC-005",
                     path=str(path),
-                    message="The first child of a region-based nav list item must be either an \"a\" or \"span\" element",
+                    message='The first child of a region-based nav list item must be either an "a" or "span" element',
                 )
             )
             continue
@@ -161,13 +167,17 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
         # Check if first child is a span
         if first_tag.endswith("}span") or first_tag == "span":
             # Span must contain exactly two a elements
-            a_children = [el for el in first_child if str(el.tag).endswith("}a") or str(el.tag) == "a"]
+            a_children = [
+                el
+                for el in first_child
+                if str(el.tag).endswith("}a") or str(el.tag) == "a"
+            ]
             if len(a_children) != 2:
                 errors.append(
                     build_message(
                         "RSC-005",
                         path=str(path),
-                        message="\"span\" elements in region-base navs must contain exactly two \"a\" elements",
+                        message='"span" elements in region-base navs must contain exactly two "a" elements',
                     )
                 )
 
@@ -178,7 +188,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                     build_message(
                         "RSC-017",
                         path=str(path),
-                        message="\"a\" elements in region-based navs should not contain text labels",
+                        message='"a" elements in region-based navs should not contain text labels',
                     )
                 )
 
@@ -191,7 +201,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                     build_message(
                         "RSC-005",
                         path=str(path),
-                        message="The first child of a region-based nav list item can only be followed by a single \"ol\" element",
+                        message='The first child of a region-based nav list item can only be followed by a single "ol" element',
                     )
                 )
             elif remaining:
@@ -201,7 +211,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                         build_message(
                             "RSC-005",
                             path=str(path),
-                            message="The first child of a region-based nav list item can only be followed by a single \"ol\" element",
+                            message='The first child of a region-based nav list item can only be followed by a single "ol" element',
                         )
                     )
 

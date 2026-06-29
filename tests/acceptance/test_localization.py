@@ -3,6 +3,7 @@
 Tests cover:
 - localization/localization.feature (7 scenarios)
 """
+
 from __future__ import annotations
 
 from pathlib import Path

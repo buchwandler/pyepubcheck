@@ -42,8 +42,13 @@ class ValidationReport:
         return sum(1 for message in self.messages if message.id == message_id)
 
     def exit_code(self, *, fail_on_warnings: bool = False) -> int:
-        if any(message.severity in {Severity.FATAL, Severity.ERROR} for message in self.messages):
+        if any(
+            message.severity in {Severity.FATAL, Severity.ERROR}
+            for message in self.messages
+        ):
             return 1
-        if fail_on_warnings and any(message.severity is Severity.WARNING for message in self.messages):
+        if fail_on_warnings and any(
+            message.severity is Severity.WARNING for message in self.messages
+        ):
             return 1
         return 0
