@@ -7,8 +7,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 
 def _region_nav_fixture(fixtures, name: str) -> Path:
     return fixtures.fixture_path("/epub-region-nav/files/epub", name)

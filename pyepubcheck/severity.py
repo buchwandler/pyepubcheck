@@ -13,7 +13,7 @@ class Severity(str, Enum):
     USAGE = "USAGE"
 
     @classmethod
-    def reporting_order(cls) -> tuple["Severity", ...]:
+    def reporting_order(cls) -> tuple[Severity, ...]:
         return (
             cls.FATAL,
             cls.ERROR,

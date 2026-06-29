@@ -6,14 +6,13 @@ from pathlib import Path
 
 from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
-from pyepubcheck.xml_parser import load_xml
 from pyepubcheck.xhtml_validator import (
     validate_xhtml,
     validate_xhtml_alt_attributes,
     validate_xhtml_doctype,
     validate_xhtml_duplicate_ids,
 )
-
+from pyepubcheck.xml_parser import load_xml
 
 XHTML_CASES: dict[str, tuple[str, str | None]] = {
     "title-empty-error.xhtml": ("RSC-005", '"title" must not be empty'),

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-import unicodedata
 from pathlib import Path
 
 from pyepubcheck.io.archive import ZipSource
@@ -399,37 +398,50 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
             if rootfile_count == 1 and media_type and media_type != "application/oebps-package+xml":
                 errors.append(build_message("PKG-007", path=str(container_path), message=f"invalid rootfile media-type '{media_type}'"))
 
-        # Check for multiple rootfiles - this is valid for multiple renditions
-        # but we need to validate rendition selection attributes
+        # Check for multiple rootfiles
         if rootfile_count > 1:
-            # Validate rendition selection attributes for non-primary rootfiles
-            rendition_ns = "http://www.idpf.org/2013/rendition"
+            # Count OPF rootfiles (application/oebps-package+xml)
+            opf_rootfiles = []
             rootfile_elements = rootfiles.findall(f"{{{ns}}}rootfile")
+            for rootfile in rootfile_elements:
+                media_type = rootfile.get("media-type", "")
+                if media_type == "application/oebps-package+xml":
+                    opf_rootfiles.append(rootfile)
+            
+            # Note: Multiple OPF files are allowed for multiple renditions (EPUB 3)
+            # so we don't reject them here.
+            
+            # Validate rendition selection attributes for non-primary rootfiles
+            # Only for OPF rootfiles (not for alternative files like text/plain)
+            rendition_ns = "http://www.idpf.org/2013/rendition"
             for i, rootfile in enumerate(rootfile_elements):
                 if i > 0:  # Skip primary rootfile
-                    # Check for rendition selection attributes
-                    has_rendition_attr = False
-                    for attr_name, attr_value in rootfile.attrib.items():
-                        if attr_name.startswith(f"{{{rendition_ns}}}"):
-                            has_rendition_attr = True
-                            # Validate rendition:media attribute
-                            if "media" in attr_name:
-                                # Basic media query syntax validation
-                                if not attr_value.strip():
+                    media_type = rootfile.get("media-type", "")
+                    # Only check rendition attributes for OPF files
+                    if media_type == "application/oebps-package+xml":
+                        # Check for rendition selection attributes
+                        has_rendition_attr = False
+                        for attr_name, attr_value in rootfile.attrib.items():
+                            if attr_name.startswith(f"{{{rendition_ns}}}"):
+                                has_rendition_attr = True
+                                # Validate rendition:media attribute
+                                if "media" in attr_name:
+                                    # Basic media query syntax validation
+                                    if not attr_value.strip():
+                                        errors.append(build_message("RSC-005", path=str(container_path), 
+                                            message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'"))
+                                    elif not _is_valid_media_query(attr_value):
+                                        errors.append(build_message("RSC-005", path=str(container_path), 
+                                            message="value of attribute \"rendition:media\" is invalid"))
+                                # Check for unknown rendition selection attributes
+                                known_attrs = {f"{{{rendition_ns}}}media", f"{{{rendition_ns}}}label"}
+                                if attr_name not in known_attrs:
                                     errors.append(build_message("RSC-005", path=str(container_path), 
-                                        message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'"))
-                                elif not _is_valid_media_query(attr_value):
-                                    errors.append(build_message("RSC-005", path=str(container_path), 
-                                        message=f"value of attribute \"rendition:media\" is invalid"))
-                            # Check for unknown rendition selection attributes
-                            known_attrs = {f"{{{rendition_ns}}}media", f"{{{rendition_ns}}}label"}
-                            if attr_name not in known_attrs:
-                                errors.append(build_message("RSC-005", path=str(container_path), 
-                                    message=f"attribute \"{attr_name}\" not allowed here"))
-                    
-                    if not has_rendition_attr:
-                        errors.append(build_message("RSC-017", path=str(container_path), 
-                            message=f"At least one rendition selection attribute should be specified"))
+                                        message=f"attribute \"{attr_name}\" not allowed here"))
+                        
+                        if not has_rendition_attr:
+                            errors.append(build_message("RSC-017", path=str(container_path), 
+                                message="At least one rendition selection attribute should be specified"))
 
         # Check for links element (mapping documents)
         links = root.find(f"{{{ns}}}links")
@@ -444,7 +456,7 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                     # Validate mapping document media type
                     if media_type != "application/xhtml+xml":
                         errors.append(build_message("RSC-005", path=str(container_path), 
-                            message=f"The media type of Rendition Mapping Documents must be \"application/xhtml+xml\""))
+                            message="The media type of Rendition Mapping Documents must be \"application/xhtml+xml\""))
                     else:
                         mapping_docs.append(href)
             

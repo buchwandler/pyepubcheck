@@ -4,20 +4,23 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pyepubcheck.checks.ocf import run as run_ocf_checks
-from pyepubcheck.checks.epub2 import run as run_epub2_checks, run_ncx as run_ncx_checks
-from pyepubcheck.checks.package import run as run_package_checks
-from pyepubcheck.checks.resources import run as run_resource_checks
-from pyepubcheck.checks.xhtml import run as run_xhtml_checks, validate_resources as run_xhtml_resource_checks
-from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.css import run as run_css_checks
-from pyepubcheck.checks.navigation import run as run_navigation_checks
+from pyepubcheck.checks.epub2 import run as run_epub2_checks
+from pyepubcheck.checks.epub2 import run_ncx as run_ncx_checks
 from pyepubcheck.checks.layout import run as run_layout_checks
 from pyepubcheck.checks.media_overlays import run as run_media_overlay_checks
+from pyepubcheck.checks.navigation import run as run_navigation_checks
+from pyepubcheck.checks.ocf import run as run_ocf_checks
+from pyepubcheck.checks.package import run as run_package_checks
+from pyepubcheck.checks.profiles.accessibility import run as run_accessibility_checks
 from pyepubcheck.checks.profiles.dictionaries import run as run_dictionary_checks
 from pyepubcheck.checks.profiles.edupub import run as run_edupub_checks
 from pyepubcheck.checks.profiles.indexes import run as run_index_checks
 from pyepubcheck.checks.profiles.previews import run as run_preview_checks
+from pyepubcheck.checks.resources import run as run_resource_checks
+from pyepubcheck.checks.svg import run as run_svg_checks
+from pyepubcheck.checks.xhtml import run as run_xhtml_checks
+from pyepubcheck.checks.xhtml import validate_resources as run_xhtml_resource_checks
 from pyepubcheck.config import ValidationConfig
 from pyepubcheck.io.expanded import DirectorySource
 from pyepubcheck.messages import build_message
@@ -97,6 +100,7 @@ def validate_path(
             report.messages.extend(run_edupub_checks(opf_path, profile=effective.profile))
             report.messages.extend(run_index_checks(opf_path, profile=effective.profile))
             report.messages.extend(run_preview_checks(opf_path, profile=effective.profile))
+            report.messages.extend(run_accessibility_checks(opf_path, profile=effective.profile))
             # Parse OPF to get manifest items
             opf = parse_opf(opf_path)
             if not opf.errors:
@@ -151,6 +155,7 @@ def validate_path(
             report.messages.extend(run_edupub_checks(resolved, profile=effective.profile))
             report.messages.extend(run_index_checks(resolved, profile=effective.profile))
             report.messages.extend(run_preview_checks(resolved, profile=effective.profile))
+            report.messages.extend(run_accessibility_checks(resolved, profile=effective.profile))
 
     # Handle special test cases
     name = resolved.name

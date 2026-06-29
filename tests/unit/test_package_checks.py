@@ -4,11 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.checks.package import (
-    _validate_a11y_properties,
-    _validate_collection_metadata,
     _validate_data_nav,
     _validate_href_spaces,
     _validate_prefix_attribute,

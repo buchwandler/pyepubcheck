@@ -4,12 +4,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
 from lxml import etree
 
 from pyepubcheck.xhtml_validator import (
-    validate_xhtml_duplicate_ids,
     validate_xhtml_alt_attributes,
+    validate_xhtml_duplicate_ids,
     validate_xhtml_resource_references,
     validate_xhtml_style_elements,
 )

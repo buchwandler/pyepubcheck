@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import zipfile
 from dataclasses import dataclass
 from pathlib import Path
-import zipfile
 
 
 @dataclass(frozen=True)
@@ -18,7 +18,7 @@ class ZipSource:
     path: Path
 
     @classmethod
-    def from_path(cls, path: str | Path) -> "ZipSource":
+    def from_path(cls, path: str | Path) -> ZipSource:
         return cls(Path(path))
 
     def entries(self) -> list[ZipEntry]:

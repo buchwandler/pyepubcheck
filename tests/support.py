@@ -8,12 +8,13 @@ import os
 import re
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 import zipfile
+from collections.abc import Iterable
 from contextlib import redirect_stderr, redirect_stdout
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
-import xml.etree.ElementTree as ET
+from typing import Any
 
 from pyepubcheck.cli import main as cli_main
 

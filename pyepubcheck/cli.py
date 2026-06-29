@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import argparse
 import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 from pyepubcheck import __version__
 from pyepubcheck.api import validate_path
@@ -32,7 +32,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("-v", dest="epub_version", default="3.0", help="EPUB version")
     parser.add_argument("--profile", "-p", choices=SUPPORTED_PROFILES, default="default", help="validation profile")
     parser.add_argument("--save", action="store_true", help="save expanded EPUB as an archive")
-    parser.add_argument("--out", "-o", dest="xml_report", help="XML report path or -")
+    parser.add_argument("--out", "-o", "-out", dest="xml_report", help="XML report path or -")
     parser.add_argument("--json", "-j", dest="json_report", help="JSON report path or -")
     parser.add_argument("--xmp", "-x", dest="xmp_report", help="XMP report path or -")
     parser.add_argument("--quiet", "-q", action="store_true", help="suppress console output")
@@ -73,11 +73,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not input_path.exists():
         print(f"Input path not found: {args.path}", file=sys.stderr)
         return 1
-    if args.save and (args.mode != "exp" or not input_path.is_dir()):
-        print("--save requires --mode exp and an expanded EPUB directory.", file=sys.stderr)
+    if args.save and args.mode and args.mode != "exp":
+        print("--save requires --mode exp or no mode (auto-detect).", file=sys.stderr)
         return 1
-    if args.save:
+    if args.save and input_path.is_dir():
         DirectorySource.from_path(input_path).save()
+    elif args.save and input_path.is_file():
+        # For packaged EPUBs, extract to a directory
+        import tempfile
+        import zipfile
+        extract_dir = Path(tempfile.mkdtemp(prefix="pyepubcheck_"))
+        with zipfile.ZipFile(input_path, 'r') as zf:
+            zf.extractall(extract_dir)
+        DirectorySource.from_path(extract_dir).save()
 
     config = ValidationConfig(
         input_path=input_path,

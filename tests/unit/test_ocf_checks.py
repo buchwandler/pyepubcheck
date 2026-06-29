@@ -5,10 +5,7 @@ from __future__ import annotations
 import zipfile
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.checks.ocf import (
-    EXPECTED_MIMETYPE,
     _check_duplicate_filenames,
     _check_meta_inf_resources,
     _validate_archive,

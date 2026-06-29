@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import zipfile
 from dataclasses import dataclass
 from pathlib import Path
-import zipfile
 
 
 @dataclass(frozen=True)
@@ -12,7 +12,7 @@ class DirectorySource:
     path: Path
 
     @classmethod
-    def from_path(cls, path: str | Path) -> "DirectorySource":
+    def from_path(cls, path: str | Path) -> DirectorySource:
         return cls(Path(path))
 
     def has(self, relative_path: str) -> bool:

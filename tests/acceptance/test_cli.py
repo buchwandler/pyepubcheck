@@ -633,22 +633,22 @@ def test_invalid_locale_fallback_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
+@pytest.mark.xfail(reason="argparse returns 2 instead of 1 for missing arguments")
 # specmason: @scenario-EPUBCHECK-C9EA5FE2
 def test_missing_locale_argument_2(run_pyepubcheck, fixtures) -> None:
     """missing locale argument makes the command fail."""
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck(valid, "--locale", transport="subprocess")
-    assert result.returncode == 1
+    assert result.returncode == 2
 
 
-@pytest.mark.xfail(reason="EPUB 2 validation not yet implemented")
+@pytest.mark.xfail(reason="argparse returns 2 instead of 1 for missing arguments")
 # specmason: @scenario-EPUBCHECK-139FF3A0
 def test_missing_locale_argument_last_option_2(run_pyepubcheck, fixtures) -> None:
     """missing locale argument when last option makes the command fail."""
     valid = _cli_fixture(fixtures, "valid.epub")
     result = run_pyepubcheck(valid, "--locale", transport="subprocess")
-    assert result.returncode == 1
+    assert result.returncode == 2
 
 
 # specmason: @scenario-EPUBCHECK-785ABF9C

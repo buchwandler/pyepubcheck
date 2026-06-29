@@ -10,7 +10,6 @@ from pyepubcheck.result import ResultMessage
 from pyepubcheck.severity import Severity
 from pyepubcheck.xml_parser import (
     DC_NS,
-    EPUB_NS,
     OPF_NS,
     XmlDocument,
     load_xml,

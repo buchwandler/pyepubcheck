@@ -10,7 +10,6 @@ import tinycss2
 from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
 
-
 # Disallowed CSS properties in EPUB
 DISALLOWED_PROPERTIES = {
     "position",
@@ -158,7 +157,7 @@ def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
             build_message(
                 "CSS-001",
                 path=str(path),
-                message=f"CSS 'direction' property is not allowed in EPUB",
+                message="CSS 'direction' property is not allowed in EPUB",
             )
         )
 

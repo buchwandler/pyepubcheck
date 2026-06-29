@@ -191,7 +191,7 @@ def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[Resul
                                         ResultMessage(
                                             id="RSC-005",
                                             severity=Severity.ERROR,
-                                            message=f"External DTD reference not allowed",
+                                            message="External DTD reference not allowed",
                                             path=str(file_path),
                                         )
                                     )

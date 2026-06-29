@@ -7,8 +7,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 
 def _multiple_renditions_fixture(fixtures, name: str) -> Path:
     return fixtures.fixture_path("/epub-multiple-renditions/files/epub", name)

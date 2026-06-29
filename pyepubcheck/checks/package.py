@@ -13,7 +13,6 @@ from pyepubcheck.opf_parser import (
     validate_opf_required_metadata,
 )
 from pyepubcheck.result import ResultMessage
-from pyepubcheck.severity import Severity
 from pyepubcheck.xml_parser import load_xml
 
 # Valid rendition:layout values
@@ -94,6 +93,7 @@ def _validate_a11y_properties(path: Path, opf) -> list[ResultMessage]:
         "a11y:certifiedBy",
         "a11y:certifierReport",
         "a11y:certifierCredential",
+        "a11y:exemption",
         "schema:accessMode",
         "schema:accessibilityFeature",
         "schema:accessibilityHazard",
@@ -151,21 +151,23 @@ def _validate_collection_metadata(path: Path, opf) -> list[ResultMessage]:
             # Check collection metadata for identifier
             metadata_el = coll_el.find("{http://www.idpf.org/2007/opf}metadata")
             if metadata_el is not None:
-                # Check for dc:identifier in collection metadata
-                has_identifier = False
-                for dc_id in metadata_el.findall("{http://purl.org/dc/elements/1.1/}identifier"):
-                    if dc_id.text and dc_id.text.strip():
-                        has_identifier = True
-                        break
+                # Only require dc:identifier for distributable-object collections
+                if role == "distributable-object":
+                    # Check for dc:identifier in collection metadata
+                    has_identifier = False
+                    for dc_id in metadata_el.findall("{http://purl.org/dc/elements/1.1/}identifier"):
+                        if dc_id.text and dc_id.text.strip():
+                            has_identifier = True
+                            break
 
-                if not has_identifier:
-                    errors.append(
-                        build_message(
-                            "RSC-005",
-                            path=str(path),
-                            message="must include exactly one identifier",
+                    if not has_identifier:
+                        errors.append(
+                            build_message(
+                                "RSC-005",
+                                path=str(path),
+                                message="must include exactly one identifier",
+                            )
                         )
-                    )
 
     return errors
 

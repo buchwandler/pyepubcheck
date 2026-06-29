@@ -4,12 +4,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.checks.css import (
-    _validate_css_properties,
-    _validate_css_urls,
     _validate_css_direction,
+    _validate_css_properties,
     _validate_css_selectors,
     run,
 )
@@ -39,16 +36,18 @@ class TestValidateCssDirection:
     """Test CSS direction validation."""
 
     def test_valid_direction_ltr(self, tmp_path: Path) -> None:
-        """Test valid CSS direction ltr."""
+        """Test that direction property is always rejected in EPUB."""
         css_content = "body { direction: ltr; }"
         errors = _validate_css_direction(tmp_path / "test.css", css_content)
-        assert len(errors) == 0
+        assert len(errors) == 1
+        assert errors[0].id == "CSS-001"
 
     def test_valid_direction_rtl(self, tmp_path: Path) -> None:
-        """Test valid CSS direction rtl."""
+        """Test that direction property is always rejected in EPUB."""
         css_content = "body { direction: rtl; }"
         errors = _validate_css_direction(tmp_path / "test.css", css_content)
-        assert len(errors) == 0
+        assert len(errors) == 1
+        assert errors[0].id == "CSS-001"
 
     def test_invalid_direction(self, tmp_path: Path) -> None:
         """Test invalid CSS direction."""

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
-from pyepubcheck.xml_parser import SMIL_NS, load_xml
+from pyepubcheck.xml_parser import load_xml
 
 
 def _validate_smil_structure(path: Path, root) -> list[ResultMessage]:

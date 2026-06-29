@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 from pathlib import Path
-from urllib.parse import urldefrag
 
 from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
-from pyepubcheck.xml_parser import SVG_NS, load_xml
+from pyepubcheck.xml_parser import load_xml
 
 
 def _validate_svg_use_href(path: Path, root) -> list[ResultMessage]:

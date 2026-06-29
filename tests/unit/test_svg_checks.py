@@ -4,12 +4,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
 from lxml import etree
 
 from pyepubcheck.checks.svg import (
-    _validate_svg_use_href,
     _validate_svg_ids,
+    _validate_svg_use_href,
     run,
 )
 

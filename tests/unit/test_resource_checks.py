@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.checks.resources import (
     _is_data_url,
     _is_remote_url,

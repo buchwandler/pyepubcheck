@@ -4,13 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.opf_parser import (
-    ManifestItem,
-    OpfDocument,
-    PrefixDeclaration,
-    SpineItemref,
     parse_opf,
     parse_prefix_attribute,
     validate_opf_prefixes,

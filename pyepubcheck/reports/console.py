@@ -16,6 +16,11 @@ def render_console(
     selected = report.messages if messages is None else messages
     stdout_lines: list[str] = []
     stderr_lines: list[str] = []
+    
+    # Add version info header
+    from pyepubcheck import __version__
+    stdout_lines.append(f"EPUBCheck v{__version__}")
+    
     for message in selected:
         line = f"{message.severity.value}({message.id}): {message.message}"
         if message.severity in {Severity.WARNING, Severity.ERROR, Severity.FATAL}:

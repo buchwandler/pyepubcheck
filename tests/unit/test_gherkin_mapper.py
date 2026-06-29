@@ -4,13 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.gherkin_mapper import (
-    GherkinFeature,
-    GherkinScenario,
     MappingReport,
-    TestMapping,
     extract_message_ids,
     extract_test_mappings,
     generate_mapping_report,

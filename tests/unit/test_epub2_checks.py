@@ -4,18 +4,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.checks.epub2 import (
-    _validate_unique_identifier,
-    _validate_spine_toc,
-    _validate_manifest_items,
     _validate_fallbacks,
+    _validate_manifest_items,
     _validate_ncx_ids,
     _validate_ncx_resources,
     _validate_ncx_uid,
-    _validate_xhtml_namespace,
     _validate_remote_objects,
+    _validate_spine_toc,
+    _validate_unique_identifier,
+    _validate_xhtml_namespace,
     run,
 )
 

@@ -4,10 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from pyepubcheck.xml_parser import (
-    XmlDocument,
     detect_doc_type,
     load_xml,
     load_xml_string,
