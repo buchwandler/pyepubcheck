@@ -300,6 +300,40 @@ Mode: `integrated`
 | `tests/unit/test_bootstrap_models.py::test_validation_config_defaults` | unmapped | - |
 | `tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors` | unmapped | - |
 | `tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestRun::test_non_css_file` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestRun::test_valid_css` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssDirection::test_invalid_direction` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_ltr` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_rtl` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssProperties::test_disallowed_property` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssProperties::test_valid_css` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssSelectors::test_pseudo_element` | unmapped | - |
+| `tests/unit/test_css_checks.py::TestValidateCssSelectors::test_valid_selector` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestRun::test_non_opf_file` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestRun::test_valid_opf` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_missing_fallback` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_valid_fallback` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_href` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_id` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_media_type` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_valid_manifest_items` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_duplicate_ids` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_no_duplicate_ids` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_missing_ncx_resource` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_valid_ncx_resources` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_matching_uid` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_mismatched_uid` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_missing_local_reference` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_remote_reference_allowed` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_valid_local_reference` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_missing_spine_toc_with_ncx` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_spine_toc_not_ncx` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_valid_spine_toc` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_missing_unique_identifier` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_valid_unique_identifier` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_invalid_xhtml_namespace` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_missing_xhtml_namespace` | unmapped | - |
+| `tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_valid_xhtml_namespace` | unmapped | - |
 | `tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_multiple_message_ids` | unmapped | - |
 | `tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_no_message_ids` | unmapped | - |
 | `tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_single_message_id` | unmapped | - |
@@ -391,6 +425,20 @@ Mode: `integrated`
 | `tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_valid_references` | unmapped | - |
 | `tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first` | waived | - |
 | `tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths` | waived | - |
+| `tests/unit/test_svg_checks.py::TestRun::test_non_svg_file` | unmapped | - |
+| `tests/unit/test_svg_checks.py::TestRun::test_valid_svg` | unmapped | - |
+| `tests/unit/test_svg_checks.py::TestValidateSvgIds::test_duplicate_ids` | unmapped | - |
+| `tests/unit/test_svg_checks.py::TestValidateSvgIds::test_unique_ids` | unmapped | - |
+| `tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_use_href_no_fragment` | unmapped | - |
+| `tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_valid_use_href` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_with_alt` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_without_alt` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_duplicate_ids` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_no_duplicate_ids` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_missing_resource_reference` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_remote_resource_allowed` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_valid_resource_reference` | unmapped | - |
+| `tests/unit/test_xhtml_validator.py::TestValidateXhtmlStyleElements::test_style_element_allowed` | unmapped | - |
 | `tests/unit/test_xml_parser.py::TestDetectDocType::test_ncx` | unmapped | - |
 | `tests/unit/test_xml_parser.py::TestDetectDocType::test_opf_package` | unmapped | - |
 | `tests/unit/test_xml_parser.py::TestDetectDocType::test_smil` | unmapped | - |
@@ -422,11 +470,11 @@ Mode: `integrated`
 
 ```json
 {
-  "errors": 399,
+  "errors": 447,
   "forward": {},
   "mode": "integrated",
   "reverse": {
-    "unmapped": 399,
+    "unmapped": 447,
     "waived": 6
   }
 }
@@ -718,6 +766,40 @@ Mode: `integrated`
 - tests/unit/test_bootstrap_models.py::test_validation_config_defaults: SML013 error: pytest test tests/unit/test_bootstrap_models.py::test_validation_config_defaults is not mapped to a requirement
 - tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors: SML013 error: pytest test tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors is not mapped to a requirement
 - tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings: SML013 error: pytest test tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestRun::test_non_css_file: SML013 error: pytest test tests/unit/test_css_checks.py::TestRun::test_non_css_file is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestRun::test_valid_css: SML013 error: pytest test tests/unit/test_css_checks.py::TestRun::test_valid_css is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssDirection::test_invalid_direction: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssDirection::test_invalid_direction is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_ltr: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_ltr is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_rtl: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssDirection::test_valid_direction_rtl is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssProperties::test_disallowed_property: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssProperties::test_disallowed_property is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssProperties::test_valid_css: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssProperties::test_valid_css is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssSelectors::test_pseudo_element: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssSelectors::test_pseudo_element is not mapped to a requirement
+- tests/unit/test_css_checks.py::TestValidateCssSelectors::test_valid_selector: SML013 error: pytest test tests/unit/test_css_checks.py::TestValidateCssSelectors::test_valid_selector is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestRun::test_non_opf_file: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestRun::test_non_opf_file is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestRun::test_valid_opf: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestRun::test_valid_opf is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_missing_fallback: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_missing_fallback is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_valid_fallback: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateFallbacks::test_valid_fallback is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_href: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_href is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_id: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_id is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_media_type: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_missing_item_media_type is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_valid_manifest_items: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateManifestItems::test_valid_manifest_items is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_duplicate_ids: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_duplicate_ids is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_no_duplicate_ids: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxIds::test_no_duplicate_ids is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_missing_ncx_resource: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_missing_ncx_resource is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_valid_ncx_resources: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxResources::test_valid_ncx_resources is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_matching_uid: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_matching_uid is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_mismatched_uid: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateNcxUid::test_mismatched_uid is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_missing_local_reference: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_missing_local_reference is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_remote_reference_allowed: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_remote_reference_allowed is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_valid_local_reference: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateRemoteObjects::test_valid_local_reference is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_missing_spine_toc_with_ncx: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_missing_spine_toc_with_ncx is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_spine_toc_not_ncx: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_spine_toc_not_ncx is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_valid_spine_toc: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateSpineToc::test_valid_spine_toc is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_missing_unique_identifier: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_missing_unique_identifier is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_valid_unique_identifier: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateUniqueIdentifier::test_valid_unique_identifier is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_invalid_xhtml_namespace: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_invalid_xhtml_namespace is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_missing_xhtml_namespace: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_missing_xhtml_namespace is not mapped to a requirement
+- tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_valid_xhtml_namespace: SML013 error: pytest test tests/unit/test_epub2_checks.py::TestValidateXhtmlNamespace::test_valid_xhtml_namespace is not mapped to a requirement
 - tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_multiple_message_ids: SML013 error: pytest test tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_multiple_message_ids is not mapped to a requirement
 - tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_no_message_ids: SML013 error: pytest test tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_no_message_ids is not mapped to a requirement
 - tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_single_message_id: SML013 error: pytest test tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_single_message_id is not mapped to a requirement
@@ -807,6 +889,20 @@ Mode: `integrated`
 - tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_data_url_allowed: SML013 error: pytest test tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_data_url_allowed is not mapped to a requirement
 - tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_remote_url_allowed: SML013 error: pytest test tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_remote_url_allowed is not mapped to a requirement
 - tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_valid_references: SML013 error: pytest test tests/unit/test_resource_checks.py::TestValidateResourceReferences::test_valid_references is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestRun::test_non_svg_file: SML013 error: pytest test tests/unit/test_svg_checks.py::TestRun::test_non_svg_file is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestRun::test_valid_svg: SML013 error: pytest test tests/unit/test_svg_checks.py::TestRun::test_valid_svg is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestValidateSvgIds::test_duplicate_ids: SML013 error: pytest test tests/unit/test_svg_checks.py::TestValidateSvgIds::test_duplicate_ids is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestValidateSvgIds::test_unique_ids: SML013 error: pytest test tests/unit/test_svg_checks.py::TestValidateSvgIds::test_unique_ids is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_use_href_no_fragment: SML013 error: pytest test tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_use_href_no_fragment is not mapped to a requirement
+- tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_valid_use_href: SML013 error: pytest test tests/unit/test_svg_checks.py::TestValidateSvgUseHref::test_valid_use_href is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_with_alt: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_with_alt is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_without_alt: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlAltAttributes::test_img_without_alt is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_duplicate_ids: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_duplicate_ids is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_no_duplicate_ids: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlDuplicateIds::test_no_duplicate_ids is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_missing_resource_reference: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_missing_resource_reference is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_remote_resource_allowed: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_remote_resource_allowed is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_valid_resource_reference: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlResourceReferences::test_valid_resource_reference is not mapped to a requirement
+- tests/unit/test_xhtml_validator.py::TestValidateXhtmlStyleElements::test_style_element_allowed: SML013 error: pytest test tests/unit/test_xhtml_validator.py::TestValidateXhtmlStyleElements::test_style_element_allowed is not mapped to a requirement
 - tests/unit/test_xml_parser.py::TestDetectDocType::test_ncx: SML013 error: pytest test tests/unit/test_xml_parser.py::TestDetectDocType::test_ncx is not mapped to a requirement
 - tests/unit/test_xml_parser.py::TestDetectDocType::test_opf_package: SML013 error: pytest test tests/unit/test_xml_parser.py::TestDetectDocType::test_opf_package is not mapped to a requirement
 - tests/unit/test_xml_parser.py::TestDetectDocType::test_smil: SML013 error: pytest test tests/unit/test_xml_parser.py::TestDetectDocType::test_smil is not mapped to a requirement

@@ -25,6 +25,33 @@ def _validate_css_properties(path: Path, content: str) -> list[ResultMessage]:
     """Validate CSS properties."""
     errors: list[ResultMessage] = []
 
+    # Check for unmatched braces (syntax errors)
+    open_braces = 0
+    for char in content:
+        if char == '{':
+            open_braces += 1
+        elif char == '}':
+            open_braces -= 1
+        if open_braces < 0:
+            errors.append(
+                build_message(
+                    "CSS-008",
+                    path=str(path),
+                    message="CSS syntax error: unexpected closing brace",
+                )
+            )
+            open_braces = 0
+
+    if open_braces > 0:
+        for _ in range(open_braces):
+            errors.append(
+                build_message(
+                    "CSS-008",
+                    path=str(path),
+                    message="CSS syntax error: missing closing brace",
+                )
+            )
+
     try:
         rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
     except Exception:
@@ -110,6 +137,12 @@ def run(path: str | Path) -> list[ResultMessage]:
     # Validate CSS URLs
     errors.extend(_validate_css_urls(candidate, content))
 
+    # Validate CSS direction property
+    errors.extend(_validate_css_direction(candidate, content))
+
+    # Validate CSS selectors
+    errors.extend(_validate_css_selectors(candidate, content))
+
     return errors
 
 
@@ -117,18 +150,17 @@ def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
     """Validate CSS direction property usage."""
     errors: list[ResultMessage] = []
 
-    # Check for direction property
+    # Check for direction property - always report as error in EPUB
     direction_re = re.compile(r'direction\s*:\s*([^;]+)')
     for match in direction_re.finditer(content):
         value = match.group(1).strip().lower()
-        if value not in ('ltr', 'rtl'):
-            errors.append(
-                build_message(
-                    "CSS-001",
-                    path=str(path),
-                    message=f"invalid CSS direction value: '{value}'",
-                )
+        errors.append(
+            build_message(
+                "CSS-001",
+                path=str(path),
+                message=f"CSS 'direction' property is not allowed in EPUB",
             )
+        )
 
     return errors
 

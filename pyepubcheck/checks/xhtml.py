@@ -53,6 +53,28 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Run DOCTYPE validation
     errors.extend(validate_xhtml_doctype(candidate, xml_doc.root))
+
+    # Run img src validation
+    errors.extend(validate_xhtml_img_src(candidate, xml_doc.root))
+    
+    return errors
+
+
+def validate_xhtml_img_src(path: Path, root) -> list[ResultMessage]:
+    """Validate img src attributes."""
+    errors: list[ResultMessage] = []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    
+    for img_el in root.iter(f"{{{xhtml_ns}}}img"):
+        src = img_el.get("src", "")
+        if src == "" or src.strip() == "":
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message="img element must not have an empty src attribute",
+                )
+            )
     
     return errors
 
@@ -66,7 +88,15 @@ def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[R
     # Check img src attributes
     for img_el in xml_root.iter(f"{{{xhtml_ns}}}img"):
         src = img_el.get("src", "")
-        if src and not src.startswith(("http://", "https://", "data:", "#")):
+        if src == "" or src.strip() == "":
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message="img element must not have an empty src attribute",
+                )
+            )
+        elif src and not src.startswith(("http://", "https://", "data:", "#")):
             base_src = src.split("#")[0] if "#" in src else src
             if base_src and base_src not in manifest_hrefs:
                 errors.append(
@@ -76,6 +106,26 @@ def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[R
                         message=f"resource '{src}' not found in manifest",
                     )
                 )
+        
+        # Check srcset attributes
+        srcset = img_el.get("srcset", "")
+        if srcset:
+            # Parse srcset: "url1, url2 2x, url3 3x"
+            for part in srcset.split(","):
+                part = part.strip()
+                if part:
+                    # Extract URL (first token)
+                    url = part.split()[0] if part.split() else ""
+                    if url and not url.startswith(("http://", "https://", "data:", "#")):
+                        base_url = url.split("#")[0] if "#" in url else url
+                        if base_url and base_url not in manifest_hrefs:
+                            errors.append(
+                                build_message(
+                                    "RSC-008",
+                                    path=str(path),
+                                    message=f"resource '{url}' in srcset not found in manifest",
+                                )
+                            )
 
     # Check a href attributes
     for a_el in xml_root.iter(f"{{{xhtml_ns}}}a"):

@@ -118,7 +118,9 @@ def validate_path(
                             item_xml_doc = load_xml(item_path)
                             if item_xml_doc and not item_xml_doc.errors and item_xml_doc.root is not None:
                                 report.messages.extend(run_xhtml_resource_checks(item_path, item_xml_doc.root, manifest_hrefs))
-                            report.messages.extend(run_navigation_checks(item_path))
+                            # Check if this is a data-nav file
+                            is_data_nav = "data-nav" in item.properties
+                            report.messages.extend(run_navigation_checks(item_path, is_data_nav=is_data_nav))
                             report.messages.extend(run_edupub_checks(item_path, profile=effective.profile))
                             report.messages.extend(run_index_checks(item_path, profile=effective.profile))
                         elif item.media_type == "image/svg+xml":

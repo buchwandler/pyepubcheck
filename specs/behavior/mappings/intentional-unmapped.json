@@ -1,6 +1,92 @@
 {
-  "test_bootstrap_models": "unit test for internal models - validates pyepubcheck internal data structures",
-  "test_support_harness": "unit test for test harness - validates test infrastructure utilities",
-  "test_harness": "acceptance harness smoke test - validates test transport and report parsing",
-  "test_gherkin_mapper": "unit test for specmason integration - validates gherkin mapping functionality"
+  "items": [
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_config_defaults",
+      "reason": "unit test for internal models - validates pyepubcheck internal data structures"
+    },
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_exit_code_tracks_errors",
+      "reason": "unit test for internal models - validates pyepubcheck internal data structures"
+    },
+    {
+      "nodeid": "tests/unit/test_bootstrap_models.py::test_validation_report_fail_on_warnings",
+      "reason": "unit test for internal models - validates pyepubcheck internal data structures"
+    },
+    {
+      "nodeid": "tests/unit/test_support_harness.py::test_build_epub_from_directory_places_mimetype_first",
+      "reason": "unit test for test harness - validates test infrastructure utilities"
+    },
+    {
+      "nodeid": "tests/unit/test_support_harness.py::test_fixture_locator_resolves_feature_relative_paths",
+      "reason": "unit test for test harness - validates test infrastructure utilities"
+    },
+    {
+      "nodeid": "tests/acceptance/test_harness.py::test_harness_collects_json_and_xml_reports",
+      "reason": "acceptance harness smoke test - validates test transport and report parsing"
+    },
+    {
+      "nodeid": "tests/acceptance/test_harness.py::test_in_process_transport_supports_version",
+      "reason": "acceptance harness smoke test - validates test transport and report parsing"
+    },
+    {
+      "nodeid": "tests/acceptance/test_harness.py::test_subprocess_transport_supports_version",
+      "reason": "acceptance harness smoke test - validates test transport and report parsing"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_multiple_message_ids",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_no_message_ids",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractMessageIds::test_single_message_id",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_mapped_test",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_no_mapping",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestExtractTestMappings::test_unmapped_test",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestGenerateMappingReport::test_basic_report",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestLoadIntentionalUnmapped::test_missing_file",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestLoadIntentionalUnmapped::test_valid_file",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_message_ids_in_steps",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_minimal_feature",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_multiple_scenarios",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_tags",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestSaveMappingReport::test_save_report",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    }
+  ]
 }

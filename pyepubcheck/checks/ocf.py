@@ -227,6 +227,117 @@ def _validate_archive(path: Path) -> list[ResultMessage]:
     return errors
 
 
+def _is_valid_media_query(query: str) -> bool:
+    """Basic media query syntax validation."""
+    # Simple validation: check for balanced parentheses and basic structure
+    if not query.strip():
+        return False
+    
+    # Check for balanced parentheses
+    depth = 0
+    for char in query:
+        if char == '(':
+            depth += 1
+        elif char == ')':
+            depth -= 1
+        if depth < 0:
+            return False
+    
+    if depth != 0:
+        return False
+    
+    # Check for basic media query structure
+    # Valid examples: (min-width: 1920px), (orientation: landscape), etc.
+    # Invalid examples: syntaxerror, (invalid), etc.
+    query = query.strip()
+    if query.startswith('(') and query.endswith(')'):
+        # Check for colon inside parentheses
+        inner = query[1:-1].strip()
+        if ':' not in inner:
+            return False
+        # Check for valid media feature
+        parts = inner.split(':', 1)
+        if len(parts) != 2:
+            return False
+        feature = parts[0].strip()
+        value = parts[1].strip()
+        if not feature or not value:
+            return False
+        return True
+    
+    return False
+
+
+def _validate_mapping_document(path: Path) -> list[ResultMessage]:
+    """Validate a rendition mapping document."""
+    errors: list[ResultMessage] = []
+    
+    try:
+        from pyepubcheck.xml_parser import load_xml
+        doc = load_xml(path)
+        if doc.errors:
+            return doc.errors
+        
+        root = doc.root
+        if root is None:
+            return errors
+        
+        # Check for epub.multiple.renditions.version meta tag
+        xhtml_ns = "http://www.w3.org/1999/xhtml"
+        epub_ns = "http://www.idpf.org/2007/ops"
+        
+        head = root.find(f"{{{xhtml_ns}}}head")
+        if head is None:
+            errors.append(build_message("RSC-005", path=str(path), 
+                message="A meta tag with the name \"epub.multiple.renditions.version\" and value \"1.0\" is required"))
+            return errors
+        
+        # Check for version meta tag
+        version_found = False
+        for meta in head.findall(f"{{{xhtml_ns}}}meta"):
+            name = meta.get("name", "")
+            content = meta.get("content", "")
+            if name == "epub.multiple.renditions.version" and content == "1.0":
+                version_found = True
+                break
+        
+        if not version_found:
+            errors.append(build_message("RSC-005", path=str(path), 
+                message="A meta tag with the name \"epub.multiple.renditions.version\" and value \"1.0\" is required"))
+        
+        # Check for resource-map nav element
+        body = root.find(f"{{{xhtml_ns}}}body")
+        if body is None:
+            errors.append(build_message("RSC-005", path=str(path), 
+                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
+            return errors
+        
+        resource_map_count = 0
+        for nav in body.findall(f".//{{{xhtml_ns}}}nav"):
+            epub_type = nav.get(f"{{{epub_ns}}}type", "")
+            if "resource-map" in epub_type:
+                resource_map_count += 1
+            elif epub_type:
+                # Check for untyped nav elements
+                pass
+            else:
+                # Nav element without epub:type
+                errors.append(build_message("RSC-005", path=str(path), 
+                    message="nav element must have an epub:type attribute"))
+        
+        if resource_map_count == 0:
+            errors.append(build_message("RSC-005", path=str(path), 
+                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
+        elif resource_map_count > 1:
+            errors.append(build_message("RSC-005", path=str(path), 
+                message="A Rendition Mapping Document must contain exactly one \"resource-map\" nav element"))
+    
+    except Exception as e:
+        errors.append(build_message("RSC-002", path=str(path), message=f"error parsing mapping document: {e}"))
+    
+    return errors
+
+
 def run(path: str | Path) -> list[ResultMessage]:
     """Run OCF-level checks on a path."""
     candidate = Path(path)
@@ -288,16 +399,65 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
             if rootfile_count == 1 and media_type and media_type != "application/oebps-package+xml":
                 errors.append(build_message("PKG-007", path=str(container_path), message=f"invalid rootfile media-type '{media_type}'"))
 
-        # Check for multiple rootfiles with same media-type (error)
+        # Check for multiple rootfiles - this is valid for multiple renditions
+        # but we need to validate rendition selection attributes
         if rootfile_count > 1:
-            # Multiple rootfiles with same media-type is an error
-            media_types = []
-            for rootfile in rootfiles.findall(f"{{{ns}}}rootfile"):
-                mt = rootfile.get("media-type", "")
-                if mt:
-                    media_types.append(mt)
-            if len(media_types) > 1 and len(set(media_types)) == 1:
-                errors.append(build_message("PKG-001", path=str(container_path), message="multiple rootfiles with same media-type"))
+            # Validate rendition selection attributes for non-primary rootfiles
+            rendition_ns = "http://www.idpf.org/2013/rendition"
+            rootfile_elements = rootfiles.findall(f"{{{ns}}}rootfile")
+            for i, rootfile in enumerate(rootfile_elements):
+                if i > 0:  # Skip primary rootfile
+                    # Check for rendition selection attributes
+                    has_rendition_attr = False
+                    for attr_name, attr_value in rootfile.attrib.items():
+                        if attr_name.startswith(f"{{{rendition_ns}}}"):
+                            has_rendition_attr = True
+                            # Validate rendition:media attribute
+                            if "media" in attr_name:
+                                # Basic media query syntax validation
+                                if not attr_value.strip():
+                                    errors.append(build_message("RSC-005", path=str(container_path), 
+                                        message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'"))
+                                elif not _is_valid_media_query(attr_value):
+                                    errors.append(build_message("RSC-005", path=str(container_path), 
+                                        message=f"value of attribute \"rendition:media\" is invalid"))
+                            # Check for unknown rendition selection attributes
+                            known_attrs = {f"{{{rendition_ns}}}media", f"{{{rendition_ns}}}label"}
+                            if attr_name not in known_attrs:
+                                errors.append(build_message("RSC-005", path=str(container_path), 
+                                    message=f"attribute \"{attr_name}\" not allowed here"))
+                    
+                    if not has_rendition_attr:
+                        errors.append(build_message("RSC-017", path=str(container_path), 
+                            message=f"At least one rendition selection attribute should be specified"))
+
+        # Check for links element (mapping documents)
+        links = root.find(f"{{{ns}}}links")
+        if links is not None:
+            mapping_docs = []
+            for link in links.findall(f"{{{ns}}}link"):
+                rel = link.get("rel", "")
+                href = link.get("href", "")
+                media_type = link.get("media-type", "")
+                
+                if rel == "mapping":
+                    # Validate mapping document media type
+                    if media_type != "application/xhtml+xml":
+                        errors.append(build_message("RSC-005", path=str(container_path), 
+                            message=f"The media type of Rendition Mapping Documents must be \"application/xhtml+xml\""))
+                    else:
+                        mapping_docs.append(href)
+            
+            # Check for multiple mapping documents
+            if len(mapping_docs) > 1:
+                errors.append(build_message("RSC-005", path=str(container_path), 
+                    message="The Container Document must not reference more than one mapping document."))
+            
+            # Validate single mapping document
+            if len(mapping_docs) == 1:
+                mapping_path = path / mapping_docs[0]
+                if mapping_path.exists():
+                    errors.extend(_validate_mapping_document(mapping_path))
 
     except Exception as e:
         errors.append(build_message("RSC-002", path=str(container_path), message=f"error parsing container.xml: {e}"))

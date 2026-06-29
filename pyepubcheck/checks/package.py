@@ -206,6 +206,17 @@ def _validate_data_nav(path: Path, opf) -> list[ResultMessage]:
                     )
                 )
 
+    # Check for multiple data-nav files
+    data_nav_items = [item for item in opf.manifest if "data-nav" in item.properties]
+    if len(data_nav_items) > 1:
+        errors.append(
+            build_message(
+                "RSC-005",
+                path=str(path),
+                message="The manifest must not include more than one Data Navigation Document",
+            )
+        )
+
     return errors
 
 
@@ -409,6 +420,9 @@ def _validate_spine_itemrefs(path: Path, opf) -> list[ResultMessage]:
     # Build set of manifest item IDs
     manifest_ids = {item.id for item in opf.manifest}
 
+    # Build set of data-nav item IDs
+    data_nav_ids = {item.id for item in opf.manifest if "data-nav" in item.properties}
+
     # Check for repeated itemrefs
     seen_refs: set[str] = set()
     for itemref in spine_el.findall(f"{{{OPF_NS}}}itemref"):
@@ -425,6 +439,16 @@ def _validate_spine_itemrefs(path: Path, opf) -> list[ResultMessage]:
                     "RSC-005",
                     path=str(path),
                     message=f"spine itemref '{idref}' not found in manifest",
+                )
+            )
+
+        # Check for data-nav in spine
+        if idref in data_nav_ids:
+            errors.append(
+                build_message(
+                    "OPF-087",
+                    path=str(path),
+                    message=f"data nav item '{idref}' included in spine",
                 )
             )
 

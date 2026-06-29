@@ -397,6 +397,7 @@ def test_override_suggestion_parameters_mismatch(run_pyepubcheck, fixtures) -> N
     assert "CHK-005" in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-4F794F0E
 def test_check_valid_epub(run_pyepubcheck, fixtures) -> None:
     """check a valid packaged EPUB."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -405,6 +406,7 @@ def test_check_valid_epub(run_pyepubcheck, fixtures) -> None:
     assert result.no_other_errors_or_warnings()
 
 
+# specmason: @scenario-EPUBCHECK-CC85DB11
 def test_check_epub_with_warnings_2(run_pyepubcheck, fixtures) -> None:
     """check a packaged EPUB with warnings."""
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
@@ -424,6 +426,7 @@ def test_version_info_comes_first_2(run_pyepubcheck, fixtures) -> None:
     assert "EPUBCheck" in result.stdout
 
 
+# specmason: @scenario-EPUBCHECK-9D00E0BE
 def test_check_epub_with_poorly_cased_extension_2(run_pyepubcheck, fixtures) -> None:
     """check a packaged EPUB with poorly cased extension."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -432,6 +435,7 @@ def test_check_epub_with_poorly_cased_extension_2(run_pyepubcheck, fixtures) -> 
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-76337D5D
 def test_check_epub_with_non_epub_extension_2(run_pyepubcheck, fixtures) -> None:
     """check a packaged EPUB with non-epub extension."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -440,6 +444,7 @@ def test_check_epub_with_non_epub_extension_2(run_pyepubcheck, fixtures) -> None
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-C097E4B2
 def test_check_epub_with_no_extension_2(run_pyepubcheck, fixtures) -> None:
     """check a packaged EPUB with no extension."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -448,6 +453,7 @@ def test_check_epub_with_no_extension_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-7776FF7E
 def test_check_single_valid_navigation_document_2(run_pyepubcheck, fixtures) -> None:
     """check a single valid navigation document."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -455,6 +461,7 @@ def test_check_single_valid_navigation_document_2(run_pyepubcheck, fixtures) -> 
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-4CBC4AA1
 def test_check_single_invalid_navigation_document_2(run_pyepubcheck, fixtures) -> None:
     """check a single invalid navigation document."""
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
@@ -462,6 +469,7 @@ def test_check_single_invalid_navigation_document_2(run_pyepubcheck, fixtures) -
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-B219851A
 def test_check_unreadable_file_2(run_pyepubcheck, fixtures) -> None:
     """check an unreadable file."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -478,6 +486,7 @@ def test_save_resulting_epub_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-1BE1F6F7
 def test_quiet_mode_2(run_pyepubcheck, fixtures) -> None:
     """quiet mode prevents extra output."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -486,6 +495,7 @@ def test_quiet_mode_2(run_pyepubcheck, fixtures) -> None:
     assert result.stdout == ""
 
 
+# specmason: @scenario-EPUBCHECK-B57EA7F2
 def test_quiet_mode_with_save_2(run_pyepubcheck, fixtures) -> None:
     """quiet mode does not conflict with saving a report."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -494,6 +504,7 @@ def test_quiet_mode_with_save_2(run_pyepubcheck, fixtures) -> None:
     assert result.stdout == ""
 
 
+# specmason: @scenario-EPUBCHECK-0FAE3BA0
 def test_usage_messages_not_reported_by_default_2(run_pyepubcheck, fixtures) -> None:
     """USAGE messages are not reported by default."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -502,6 +513,7 @@ def test_usage_messages_not_reported_by_default_2(run_pyepubcheck, fixtures) -> 
     assert "USAGE(" not in result.stdout
 
 
+# specmason: @scenario-EPUBCHECK-69B78FC4
 def test_usage_messages_with_u_flag_2(run_pyepubcheck, fixtures) -> None:
     """USAGE messages are reported with option `-u`."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -510,6 +522,7 @@ def test_usage_messages_with_u_flag_2(run_pyepubcheck, fixtures) -> None:
     assert "USAGE(" in result.stdout
 
 
+# specmason: @scenario-EPUBCHECK-3664BAA6
 def test_warning_messages_with_w_flag_2(run_pyepubcheck, fixtures) -> None:
     """WARNING messages are reported with option `-w`."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -518,6 +531,7 @@ def test_warning_messages_with_w_flag_2(run_pyepubcheck, fixtures) -> None:
     assert "WARNING(" in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-E351045A
 def test_warning_messages_silenced_with_e_flag_2(run_pyepubcheck, fixtures) -> None:
     """WARNING messages are silenced with option `-e`."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -526,6 +540,7 @@ def test_warning_messages_silenced_with_e_flag_2(run_pyepubcheck, fixtures) -> N
     assert "WARNING(" not in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-1F82EEC7
 def test_error_messages_silenced_with_f_flag_2(run_pyepubcheck, fixtures) -> None:
     """ERROR messages are silenced with option `-f`."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -534,6 +549,7 @@ def test_error_messages_silenced_with_f_flag_2(run_pyepubcheck, fixtures) -> Non
     assert "ERROR(" not in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-B3C07913
 def test_failonwarnings_2(run_pyepubcheck, fixtures) -> None:
     """option `--faileonwarnings` make the command fail when a WARNING is reported."""
     warning_dir = _cli_fixture(fixtures, "20-warning-tester")
@@ -551,6 +567,7 @@ def test_save_xml_report_with_out_option_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-13959CC4
 def test_save_xml_report_with_o_option_2(run_pyepubcheck, fixtures) -> None:
     """save an XML report with the `-o` option."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -558,6 +575,7 @@ def test_save_xml_report_with_o_option_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-FB5A5CFB
 def test_save_xmp_report_2(run_pyepubcheck, fixtures) -> None:
     """save an XMP report with the `-x` option."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -565,6 +583,7 @@ def test_save_xmp_report_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-D4AA6CEE
 def test_save_json_report_2(run_pyepubcheck, fixtures) -> None:
     """save a JSON report with the `-j` option."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -572,6 +591,7 @@ def test_save_json_report_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-8F47AA55
 def test_json_report_stdout_2(run_pyepubcheck, fixtures) -> None:
     """output a JSON report to the standard output."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -580,6 +600,7 @@ def test_json_report_stdout_2(run_pyepubcheck, fixtures) -> None:
     assert result.json_report is not None
 
 
+# specmason: @scenario-EPUBCHECK-B406E70A
 def test_conflicting_report_formats_2(run_pyepubcheck, fixtures) -> None:
     """conflicting report formats are rejected."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -588,6 +609,7 @@ def test_conflicting_report_formats_2(run_pyepubcheck, fixtures) -> None:
     assert "Only one output format can be specified at a time." in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-8BF1F519
 def test_locale_option_2(run_pyepubcheck, fixtures) -> None:
     """`--locale` option can be used to localize messages."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -595,6 +617,7 @@ def test_locale_option_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-B500913F
 def test_unsupported_locale_fallback_2(run_pyepubcheck, fixtures) -> None:
     """unsupported locale falls back to the default locale."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -602,6 +625,7 @@ def test_unsupported_locale_fallback_2(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 0
 
 
+# specmason: @scenario-EPUBCHECK-2CBA066C
 def test_invalid_locale_fallback_2(run_pyepubcheck, fixtures) -> None:
     """invalid locale falls back to the default locale."""
     valid = _cli_fixture(fixtures, "valid.epub")
@@ -627,6 +651,7 @@ def test_missing_locale_argument_last_option_2(run_pyepubcheck, fixtures) -> Non
     assert result.returncode == 1
 
 
+# specmason: @scenario-EPUBCHECK-785ABF9C
 def test_custom_message_overrides_2(run_pyepubcheck, fixtures) -> None:
     """messages and severities are overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -636,6 +661,7 @@ def test_custom_message_overrides_2(run_pyepubcheck, fixtures) -> None:
     assert "USAGE(" not in result.stdout
 
 
+# specmason: @scenario-EPUBCHECK-E2B7E47B
 def test_custom_message_overrides_with_severity_2(run_pyepubcheck, fixtures) -> None:
     """messages and severities overridden with the `-c` option."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -644,6 +670,7 @@ def test_custom_message_overrides_with_severity_2(run_pyepubcheck, fixtures) -> 
     assert result.returncode == 1
 
 
+# specmason: @scenario-EPUBCHECK-708BF7A2
 def test_override_unknown_message_id_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding an unknown message ID."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -653,6 +680,7 @@ def test_override_unknown_message_id_2(run_pyepubcheck, fixtures) -> None:
     assert "CHK-001" in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-D1AF5BF5
 def test_override_unknown_severity_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to an unknown severity."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -662,6 +690,7 @@ def test_override_unknown_severity_2(run_pyepubcheck, fixtures) -> None:
     assert "CHK-003" in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-46E7158E
 def test_override_parameters_mismatch_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to a message with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")
@@ -671,6 +700,7 @@ def test_override_parameters_mismatch_2(run_pyepubcheck, fixtures) -> None:
     assert "CHK-004" in result.stderr
 
 
+# specmason: @scenario-EPUBCHECK-940BF01F
 def test_override_suggestion_parameters_mismatch_2(run_pyepubcheck, fixtures) -> None:
     """report an error when overriding to a message suggestion with parameters mismatch."""
     severity_dir = _cli_fixture(fixtures, "20-severity-tester")

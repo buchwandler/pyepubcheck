@@ -118,7 +118,7 @@ MESSAGES: dict[str, MessageDef] = {
     "OPF-084": MessageDef(Severity.ERROR, "OPF key info error"),
     "OPF-085": MessageDef(Severity.ERROR, "OPF certificate error"),
     "OPF-086": MessageDef(Severity.WARNING, "OPF deprecation warning"),
-    "OPF-087": MessageDef(Severity.ERROR, "OPF manifest item error"),
+    "OPF-087": MessageDef(Severity.WARNING, "data nav included in spine"),
     "OPF-088": MessageDef(Severity.ERROR, "OPF spine itemref error"),
     "OPF-089": MessageDef(Severity.ERROR, "OPF guide reference error"),
     "OPF-090": MessageDef(Severity.ERROR, "OPF tour error"),
