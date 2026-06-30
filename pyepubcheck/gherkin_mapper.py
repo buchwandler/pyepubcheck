@@ -19,6 +19,7 @@ class GherkinScenario:
     tags: list[str] = field(default_factory=list)
     steps: list[str] = field(default_factory=list)
     message_ids: list[str] = field(default_factory=list)
+    data_tables: dict[int, list[list[str]]] = field(default_factory=dict)
 
 
 @dataclass
@@ -30,6 +31,7 @@ class GherkinFeature:
     description: str = ""
     tags: list[str] = field(default_factory=list)
     scenarios: list[GherkinScenario] = field(default_factory=list)
+    background_steps: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -73,7 +75,77 @@ def extract_message_ids(text: str) -> list[str]:
     return MESSAGE_ID_RE.findall(text)
 
 
-def parse_feature_file(file_path: Path) -> GherkinFeature:
+def _expand_outline(
+    outline_name: str,
+    outline_line: int,
+    outline_tags: list[str],
+    outline_steps: list[str],
+    examples_tables: list[list[list[str]]],
+    background_steps: list[str],
+    feature_file: Path,
+    feature_name: str,
+) -> list[GherkinScenario]:
+    """Expand a Scenario Outline with Examples tables into concrete scenarios."""
+    result: list[GherkinScenario] = []
+    if not examples_tables:
+        # No examples — treat as a regular scenario
+        all_steps = background_steps + outline_steps
+        message_ids = []
+        for step in all_steps:
+            message_ids.extend(extract_message_ids(step))
+        result.append(
+            GherkinScenario(
+                feature_file=feature_file,
+                feature_name=feature_name,
+                scenario_name=outline_name,
+                line_number=outline_line,
+                tags=list(outline_tags),
+                steps=all_steps,
+                message_ids=message_ids,
+            )
+        )
+        return result
+
+    for table in examples_tables:
+        if len(table) < 2:
+            continue
+        headers = [h.strip() for h in table[0]]
+        for _row_idx, row in enumerate(table[1:], 1):
+            params = {}
+            for col_idx, header in enumerate(headers):
+                if col_idx < len(row):
+                    params[header] = row[col_idx].strip()
+            # Substitute placeholders in steps
+            concrete_steps = []
+            for step in outline_steps:
+                concrete = step
+                for placeholder, value in params.items():
+                    concrete = concrete.replace(f"<{placeholder}>", value)
+                concrete_steps.append(concrete)
+            # Substitute in scenario name
+            concrete_name = outline_name
+            for placeholder, value in params.items():
+                concrete_name = concrete_name.replace(f"<{placeholder}>", value)
+
+            all_steps = background_steps + concrete_steps
+            message_ids = []
+            for step in all_steps:
+                message_ids.extend(extract_message_ids(step))
+            result.append(
+                GherkinScenario(
+                    feature_file=feature_file,
+                    feature_name=feature_name,
+                    scenario_name=concrete_name,
+                    line_number=outline_line,
+                    tags=list(outline_tags),
+                    steps=all_steps,
+                    message_ids=message_ids,
+                )
+            )
+    return result
+
+
+def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
     """Parse a Gherkin feature file."""
     content = file_path.read_text(encoding="utf-8")
     lines = content.splitlines()
@@ -82,12 +154,68 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:
     feature_description = ""
     feature_tags: list[str] = []
     scenarios: list[GherkinScenario] = []
+    background_steps: list[str] = []
 
     current_tags: list[str] = []
     current_scenario_name = ""
     current_scenario_line = 0
     current_steps: list[str] = []
+    current_data_tables: dict[int, list[list[str]]] = {}
     in_scenario = False
+    in_background = False
+    is_outline = False
+    examples_tables: list[list[list[str]]] = []
+    current_table: list[list[str]] = []
+    in_examples = False
+    in_data_table = False
+
+    def _save_current_scenario() -> None:
+        nonlocal current_scenario_name, current_steps, in_scenario
+        nonlocal is_outline, examples_tables, in_examples
+        nonlocal current_data_tables, in_data_table
+        if not current_scenario_name:
+            return
+        if is_outline:
+            expanded = _expand_outline(
+                current_scenario_name,
+                current_scenario_line,
+                current_tags.copy() if in_scenario else [],
+                current_steps,
+                examples_tables,
+                background_steps,
+                file_path,
+                feature_name,
+            )
+            scenarios.extend(expanded)
+        else:
+            message_ids = []
+            all_steps = background_steps + current_steps
+            for step in all_steps:
+                message_ids.extend(extract_message_ids(step))
+            # Adjust data table indices for background steps offset
+            adjusted_tables = {}
+            for idx, table in current_data_tables.items():
+                adjusted_tables[idx + len(background_steps)] = table
+            scenarios.append(
+                GherkinScenario(
+                    feature_file=file_path,
+                    feature_name=feature_name,
+                    scenario_name=current_scenario_name,
+                    line_number=current_scenario_line,
+                    tags=current_tags.copy(),
+                    steps=all_steps,
+                    message_ids=message_ids,
+                    data_tables=adjusted_tables,
+                )
+            )
+        current_scenario_name = ""
+        current_steps = []
+        in_scenario = False
+        is_outline = False
+        examples_tables = []
+        in_examples = False
+        current_data_tables = {}
+        in_data_table = False
 
     for i, line in enumerate(lines, 1):
         stripped = line.strip()
@@ -105,58 +233,92 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:
             current_tags = []
             continue
 
-        # Scenario line
-        if stripped.startswith("Scenario:") or stripped.startswith("Example:"):
-            # Save previous scenario
-            if in_scenario and current_scenario_name:
-                message_ids = []
-                for step in current_steps:
-                    message_ids.extend(extract_message_ids(step))
+        # Background line
+        if stripped.startswith("Background:"):
+            _save_current_scenario()
+            in_background = True
+            in_scenario = False
+            in_examples = False
+            continue
 
-                scenarios.append(
-                    GherkinScenario(
-                        feature_file=file_path,
-                        feature_name=feature_name,
-                        scenario_name=current_scenario_name,
-                        line_number=current_scenario_line,
-                        tags=current_tags.copy(),
-                        steps=current_steps.copy(),
-                        message_ids=message_ids,
-                    )
-                )
-
+        # Scenario Outline line
+        if (stripped.startswith("Scenario Outline:")
+                or stripped.startswith("Scenario Template:")):
+            _save_current_scenario()
             current_scenario_name = stripped.split(":", 1)[1].strip()
             current_scenario_line = i
             current_steps = []
             in_scenario = True
-            # Don't reset current_tags - they belong to this scenario
+            in_background = False
+            is_outline = True
+            examples_tables = []
+            in_examples = False
             continue
 
+        # Scenario / Example line
+        if stripped.startswith("Scenario:") or stripped.startswith("Example:"):
+            _save_current_scenario()
+            current_scenario_name = stripped.split(":", 1)[1].strip()
+            current_scenario_line = i
+            current_steps = []
+            in_scenario = True
+            in_background = False
+            is_outline = False
+            examples_tables = []
+            in_examples = False
+            continue
+
+        # Examples / Scenarios table header
+        if (in_scenario and is_outline
+                and (stripped.startswith("Examples:")
+                     or stripped.startswith("Scenarios:"))):
+            # Finalize any previous table
+            if current_table:
+                examples_tables.append(current_table)
+                current_table = []
+            in_examples = True
+            continue
+
+        # Table row (inside examples)
+        if in_examples and stripped.startswith("|"):
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            current_table.append(cells)
+            continue
+
+        # Table row (data table after a step)
+        if in_scenario and not in_examples and stripped.startswith("|"):
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            step_idx = len(current_steps) - 1
+            if step_idx >= 0:
+                if step_idx not in current_data_tables:
+                    current_data_tables[step_idx] = []
+                current_data_tables[step_idx].append(cells)
+            continue
+
+        # Non-table row while in examples — finalize current table
+        if in_examples and stripped and not stripped.startswith("#"):
+            if current_table:
+                examples_tables.append(current_table)
+                current_table = []
+            in_examples = False
+
         # Steps
-        if in_scenario and stripped and not stripped.startswith("#"):
+        if (in_scenario or in_background) and stripped and not stripped.startswith("#"):
             if any(
                 stripped.startswith(kw)
-                for kw in ("Given", "When", "Then", "And", "But")
+                for kw in ("Given", "When", "Then", "And", "But", "*")
             ):
-                current_steps.append(stripped)
+                if in_background:
+                    background_steps.append(stripped)
+                else:
+                    current_steps.append(stripped)
+
+    # Finalize any open examples table
+    if in_examples and current_table:
+        examples_tables.append(current_table)
 
     # Save last scenario
-    if in_scenario and current_scenario_name:
-        message_ids = []
-        for step in current_steps:
-            message_ids.extend(extract_message_ids(step))
-
-        scenarios.append(
-            GherkinScenario(
-                feature_file=file_path,
-                feature_name=feature_name,
-                scenario_name=current_scenario_name,
-                line_number=current_scenario_line,
-                tags=current_tags.copy(),
-                steps=current_steps.copy(),
-                message_ids=message_ids,
-            )
-        )
+    _save_current_scenario()
 
     return GherkinFeature(
         file_path=file_path,
@@ -164,6 +326,7 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:
         description=feature_description,
         tags=feature_tags,
         scenarios=scenarios,
+        background_steps=background_steps,
     )
 
 
