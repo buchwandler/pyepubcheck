@@ -50,9 +50,22 @@ def _validate_source_publication(context: ProfileContext) -> list[ResultMessage]
 
 
 def _validate_embedded_manifest(context: ProfileContext) -> list[ResultMessage]:
+    # Check for collection with role "preview" containing a child collection with role "manifest"
     for item in context.opf.manifest:
         if "preview" in item.properties and "manifest" in item.properties:
             return []
+    # Check for OPF collection structure
+    if context.opf.xml_doc is None or context.opf.xml_doc.root is None:
+        return []
+    opf_ns = "http://www.idpf.org/2007/opf"
+    for collection in context.opf.xml_doc.root.iter(f"{{{opf_ns}}}collection"):
+        role = collection.get("role", "")
+        if role == "preview":
+            # Check for child manifest collection
+            for child in collection.findall(f"{{{opf_ns}}}collection"):
+                child_role = child.get("role", "")
+                if child_role == "manifest":
+                    return []
     return [
         build_message(
             "RSC-005",
@@ -72,9 +85,17 @@ def run(context: ProfileContext) -> list[ResultMessage]:
     if not (is_preview_profile or is_preview_meta or in_collection):
         return []
     errors: list[ResultMessage] = []
-    if is_preview_profile or is_preview_meta:
+    # Validate dc:type and source publication when explicitly declared as preview
+    # or when --profile preview is requested (but not for collection-based previews)
+    if is_preview_meta:
         errors.extend(_validate_dc_type(context))
         errors.extend(_validate_source_publication(context))
+    elif is_preview_profile and not in_collection:
+        # Only require dc:type when --profile preview is requested
+        # but there's no collection structure
+        errors.extend(_validate_dc_type(context))
+        errors.extend(_validate_source_publication(context))
+    # Validate embedded manifest when in collection
     if in_collection:
         errors.extend(_validate_embedded_manifest(context))
     return errors

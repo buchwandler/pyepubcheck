@@ -55,7 +55,6 @@ def test_dictionary_single_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-5B3D5A1A
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_dictionary_search_key_map_required(run_pyepubcheck, fixtures) -> None:
     """A single EPUB Dictionary must declare a search key map."""
     result = run_pyepubcheck(
@@ -73,7 +72,6 @@ def test_dictionary_search_key_map_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-47B43F0E
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_dictionary_type_monolingual_valid(run_pyepubcheck, fixtures) -> None:
     """A dictionary-type property 'monolingual' is valid."""
     result = run_pyepubcheck(
@@ -89,7 +87,6 @@ def test_dictionary_type_monolingual_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-3BA53D73
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_dictionary_type_unknown_value(run_pyepubcheck, fixtures) -> None:
     """A dictionary-type property with an unknown value is reported."""
     result = run_pyepubcheck(
@@ -105,7 +102,6 @@ def test_dictionary_type_unknown_value(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-D22648A6
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_dictionary_source_language_required(run_pyepubcheck, fixtures) -> None:
     """The source language of a single-dictionary publication must be defined."""
     result = run_pyepubcheck(
@@ -151,7 +147,6 @@ def test_dictionary_multiple_publication(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-881D1A46
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_dictionary_glossary_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a publication with a single glossary."""
     result = run_pyepubcheck(
@@ -185,7 +180,6 @@ def test_edupub_minimal_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-35B1BB79
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_dc_type_required(run_pyepubcheck, fixtures) -> None:
     """an EDUPUB publication must declare the type 'edupub'."""
     result = run_pyepubcheck(
@@ -199,7 +193,6 @@ def test_edupub_dc_type_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-0BBFF0F9
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_accessibility_features_required(run_pyepubcheck, fixtures) -> None:
     """an EDUPUB's accessibility features must be declared."""
     result = run_pyepubcheck(
@@ -254,7 +247,6 @@ def test_edupub_page_list_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-6FEEF980
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_content_document_minimal(run_pyepubcheck, fixtures) -> None:
     """Minimal Content Document."""
     result = run_pyepubcheck(
@@ -270,7 +262,6 @@ def test_edupub_content_document_minimal(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-235C695A
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_body_as_section(run_pyepubcheck, fixtures) -> None:
     """Verify body used as an explicit section of content."""
     result = run_pyepubcheck(
@@ -288,7 +279,6 @@ def test_edupub_body_as_section(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-4C8AF668
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_body_section_without_heading(run_pyepubcheck, fixtures) -> None:
     """Report body used as an explicit section without a heading."""
     result = run_pyepubcheck(
@@ -306,7 +296,6 @@ def test_edupub_body_section_without_heading(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-FBECBFE2
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_edupub_heading_aria_role(run_pyepubcheck, fixtures) -> None:
     """Allow a section heading specified as ARIA heading role."""
     result = run_pyepubcheck(
@@ -329,7 +318,6 @@ def test_edupub_heading_aria_role(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-BBDD13E1
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_indexes_minimal_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a minimal index."""
     result = run_pyepubcheck(
@@ -343,7 +331,6 @@ def test_indexes_minimal_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-9407495A
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_indexes_collection_valid(run_pyepubcheck, fixtures) -> None:
     """An index collection is reported as valid."""
     result = run_pyepubcheck(
@@ -357,7 +344,6 @@ def test_indexes_collection_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-1B7EB95D
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_indexes_publication_valid(run_pyepubcheck, fixtures) -> None:
     """Verify an index publication."""
     result = run_pyepubcheck(
@@ -386,7 +372,6 @@ def test_indexes_publication_without_index(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-8F665117
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_indexes_single_file_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a single-file index."""
     result = run_pyepubcheck(
@@ -415,7 +400,6 @@ def test_indexes_single_file_without_index(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-BF627573
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_indexes_collection_valid(run_pyepubcheck, fixtures) -> None:
     """Verify an index collection."""
     result = run_pyepubcheck(
@@ -492,7 +476,6 @@ def test_previews_source_publication_required(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-EF5BBC17
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_previews_embedded_valid(run_pyepubcheck, fixtures) -> None:
     """Verify an embedded preview."""
     result = run_pyepubcheck(
@@ -521,7 +504,6 @@ def test_previews_embedded_manifest_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-DD46E736
-@pytest.mark.xfail(reason="Profile validation not yet implemented or fixture missing")
 def test_previews_collection_valid(run_pyepubcheck, fixtures) -> None:
     """an embedded EPUB preview collection."""
     result = run_pyepubcheck(

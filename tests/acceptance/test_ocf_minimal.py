@@ -64,3 +64,85 @@ def test_invalid_mimetype_reports_pkg_007(run_pyepubcheck, fixtures) -> None:
     assert result.returncode == 1
     assert result.has_error("PKG-007")
     assert result.no_other_errors_or_warnings({"PKG-007"})
+
+
+# Filename checker tests
+from pyepubcheck.checks.ocf import check_filename
+
+
+def test_filename_valid_ascii() -> None:
+    """Valid ASCII filename should pass."""
+    errors = check_filename("only-ascii")
+    assert len(errors) == 0
+
+
+def test_filename_valid_non_ascii() -> None:
+    """Valid non-ASCII filename should pass."""
+    errors = check_filename("not-ascii-é")
+    assert len(errors) == 0
+
+
+def test_filename_valid_ideograph() -> None:
+    """Valid ideograph filename should pass."""
+    errors = check_filename("ideograph-䀀")
+    assert len(errors) == 0
+
+
+def test_filename_valid_emoji() -> None:
+    """Valid emoji filename should pass."""
+    errors = check_filename("emoji-😊")
+    assert len(errors) == 0
+
+
+def test_filename_valid_emoji_tag_sequence() -> None:
+    """Valid emoji tag sequence filename should pass."""
+    errors = check_filename("emoji-tag-sequence-🏴󠁧󠁢󠁥󠁮󠁧󠁿")
+    assert len(errors) == 0
+
+
+def test_filename_space_warning() -> None:
+    """Space character should report PKG-010 warning."""
+    errors = check_filename("a name")
+    assert any(e.id == "PKG-010" for e in errors)
+
+
+def test_filename_tab_warning() -> None:
+    """Tab character should report PKG-010 warning."""
+    errors = check_filename("a\tname")
+    assert any(e.id == "PKG-010" for e in errors)
+
+
+def test_filename_full_stop_error() -> None:
+    """Full stop as last character should report PKG-011 error."""
+    errors = check_filename("aname.")
+    assert any(e.id == "PKG-011" for e in errors)
+
+
+def test_filename_forbidden_char() -> None:
+    """Forbidden character should report PKG-009 error."""
+    errors = check_filename("a*name")
+    assert any(e.id == "PKG-009" for e in errors)
+    assert any("U+002A" in e.message for e in errors)
+
+
+def test_filename_multiple_forbidden_chars() -> None:
+    """Multiple forbidden characters should be reported together."""
+    errors = check_filename('a*na"me')
+    assert any(e.id == "PKG-009" for e in errors)
+    assert any("U+002A" in e.message and "U+0022" in e.message for e in errors)
+
+
+def test_filename_repeated_forbidden_char() -> None:
+    """Repeated forbidden character should be reported only once."""
+    errors = check_filename("a*na*me")
+    assert any(e.id == "PKG-009" for e in errors)
+    # Should contain U+002A only once
+    pkg009_errors = [e for e in errors if e.id == "PKG-009"]
+    assert len(pkg009_errors) == 1
+
+
+def test_filename_control_char_error() -> None:
+    """Control character should report PKG-009 error."""
+    errors = check_filename("a\x7fname")
+    assert any(e.id == "PKG-009" for e in errors)
+    assert any("CONTROL" in e.message for e in errors)

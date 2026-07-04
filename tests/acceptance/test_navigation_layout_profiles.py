@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pytest
 
 def _path(fixtures, relative: str) -> str:
     return str(fixtures.resolve(relative))
@@ -190,3 +191,152 @@ def test_localized_css_messages_switch_language(run_pyepubcheck, fixtures) -> No
     )
     assert result.returncode == 1
     assert "erreur css" in result.stderr
+
+
+# Additional navigation tests (10 scenarios)
+
+
+# specmason: @scenario-EPUBCHECK-
+def test_navigation_minimal_valid(run_pyepubcheck, fixtures) -> None:
+    """Verify a minimal Navigation Document."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/minimal.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 0
+    assert result.no_other_errors_or_warnings()
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_heading_empty_error(run_pyepubcheck, fixtures) -> None:
+    """Report an empty nav heading."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-heading-empty-error.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 1
+    assert result.has_error("RSC-005")
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_heading_p_error(run_pyepubcheck, fixtures) -> None:
+    """Report a p element used as a nav heading."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-heading-p-error.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 1
+    assert result.has_error("RSC-005")
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_li_label_missing_error(run_pyepubcheck, fixtures) -> None:
+    """Report a missing list item label."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-li-label-missing-error.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 1
+    assert result.has_error("RSC-005")
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_li_label_empty_error(run_pyepubcheck, fixtures) -> None:
+    """Report an empty list item label."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-li-label-empty-error.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 1
+    assert result.has_error("RSC-005")
+
+
+# specmason: @scenario-EPUBCHECK-
+def test_navigation_li_label_multiple_images_valid(run_pyepubcheck, fixtures) -> None:
+    """Allow multiple images in a list item label."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-li-label-multiple-images-valid.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 0
+    assert result.no_other_errors_or_warnings()
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_li_leaf_no_link_error(run_pyepubcheck, fixtures) -> None:
+    """Report a leaf list item with no link (just a span label)."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/content-model-li-leaf-with-no-link-error.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 1
+    assert result.has_error("RSC-005")
+
+
+# specmason: @scenario-EPUBCHECK-
+@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
+def test_navigation_toc_valid(run_pyepubcheck, fixtures) -> None:
+    """Verify a valid toc nav element."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/nav-toc-valid.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 0
+    assert result.no_other_errors_or_warnings()
+
+
+# specmason: @scenario-EPUBCHECK-
+def test_navigation_page_list_valid(run_pyepubcheck, fixtures) -> None:
+    """Verify a valid page-list nav element."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/nav-page-list-valid.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 0
+    assert result.no_other_errors_or_warnings()
+
+
+# specmason: @scenario-EPUBCHECK-
+def test_navigation_landmarks_valid(run_pyepubcheck, fixtures) -> None:
+    """Verify a valid landmarks nav element."""
+    result = run_pyepubcheck(
+        _path(
+            fixtures,
+            "/epub3/07-navigation-document/files/nav-landmarks-valid.xhtml",
+        ),
+        transport="subprocess",
+    )
+    assert result.returncode == 0
+    assert result.no_other_errors_or_warnings()

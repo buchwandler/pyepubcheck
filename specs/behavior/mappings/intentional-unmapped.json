@@ -715,6 +715,130 @@
     {
       "nodeid": "tests/acceptance/test_smoke.py::test_validate_profile_tagged_publication",
       "reason": "smoke test - validates validate_path entry point for profile-tagged publication, no gherkin counterpart"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixAttributeSyntax::test_empty_prefix_attribute",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixAttributeSyntax::test_invalid_syntax_missing_colon",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixAttributeSyntax::test_invalid_syntax_missing_uri",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixAttributeSyntax::test_valid_multiple_prefixes",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixAttributeSyntax::test_valid_single_prefix",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixReservedVocabularies::test_a11y_prefix_allowed",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/unit/test_vocabulary_checks.py::TestPrefixReservedVocabularies::test_schema_prefix_allowed",
+      "reason": "unit test for vocabulary validation - validates prefix attribute syntax and reserved vocabularies"
+    },
+    {
+      "nodeid": "tests/acceptance/test_content_documents.py::test_css_import_not_declared",
+      "reason": "acceptance test for CSS import validation - requires manifest validation not yet implemented"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_control_char_error",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_forbidden_char",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_full_stop_error",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_multiple_forbidden_chars",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_repeated_forbidden_char",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_space_warning",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_tab_warning",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_valid_ascii",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_valid_emoji",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_valid_emoji_tag_sequence",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_valid_ideograph",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/acceptance/test_ocf_minimal.py::test_filename_valid_non_ascii",
+      "reason": "acceptance test for filename validation - validates OCF filename rules"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestFullCorpusIntegration::test_all_feature_files_parse",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestFullCorpusIntegration::test_scenario_outline_expansion_count",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_background_steps_prepended",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_data_table_after_step",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_no_background",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_no_data_table",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_scenario_outline_expansion",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_scenario_outline_multiple_tables",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_scenario_outline_wildcard_step",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_scenario_outline_with_background",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
+    },
+    {
+      "nodeid": "tests/unit/test_gherkin_mapper.py::TestParseFeatureFile::test_wildcard_step",
+      "reason": "unit test for specmason integration - validates gherkin mapping functionality"
     }
   ]
 }

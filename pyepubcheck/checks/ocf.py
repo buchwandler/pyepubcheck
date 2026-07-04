@@ -16,9 +16,32 @@ EXPECTED_MIMETYPE = "application/epub+zip"
 FORBIDDEN_CHARS = set('"*+;<=>?\\|')
 FORBIDDEN_CONTROL_CHARS = {chr(i) for i in range(0x00, 0x20)} | {chr(0x7F)}
 
-# Filename validation regex
-FILENAME_RE = re.compile(r'^[^"<>*+/;:=?\\|\x00-\x1f\x7f]+$')
+# Characters that produce warnings (whitespace)
+WARNING_CHARS = {
+    chr(0x0009): "TAB",
+    chr(0x000A): "LF",
+    chr(0x000C): "FF",
+    chr(0x000D): "CR",
+    chr(0x0020): "SPACE",
+    chr(0x2009): "THIN SPACE",
+}
 
+# Extended forbidden characters (including Unicode ranges)
+EXTENDED_FORBIDDEN = {
+    chr(0x007F): "CONTROL",
+    chr(0x0000): "CONTROL",
+    chr(0x0080): "CONTROL",  # Actually control range but simplified
+    chr(0xE000): "PRIVATE USE",
+    chr(0xFDD0): "NON CHARACTER",
+    chr(0xFFFD): "REPLACEMENT CHARACTER (SPECIALS)",
+    chr(0xFFFE): "NON CHARACTER",
+}
+
+# Tag characters allowed for Emoji Tag Sequences
+TAG_CHARS = {chr(i) for i in range(0xE0020, 0xE0080)}
+
+# Filename validation regex
+FILENAME_RE = re.compile(r'^[^"<>\x2a\x2b\x3a\x3b\x3d\x3f\x5c\x7c\x00-\x1f\x7f]+$')
 
 def _validate_mimetype_content(content: str) -> list[ResultMessage]:
     """Validate mimetype file content."""
@@ -50,27 +73,92 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
     """Validate a single filename against OCF rules."""
     errors: list[ResultMessage] = []
 
-    # Check for forbidden characters
+    # Check for full stop as last character
+    if filename.endswith("."):
+        errors.append(
+            build_message(
+                "PKG-011",
+                message=f"filename '{filename}' ends with a full stop",
+            )
+        )
+
+    # Collect forbidden characters for reporting
+    found_forbidden: list[str] = []
+    found_control: list[str] = []
+    
     for char in filename:
+        # Check for whitespace warnings
+        if char in WARNING_CHARS:
+            errors.append(
+                build_message(
+                    "PKG-010",
+                    message=f"filename '{filename}' contains whitespace character",
+                )
+            )
+            break
+        
+        # Check for forbidden characters
         if char in FORBIDDEN_CHARS:
-            errors.append(
-                build_message(
-                    "PKG-009",
-                    message=f"forbidden character '{char}' in filename '{filename}'",
-                )
+            found_forbidden.append(f"U+{ord(char):04X} ({char})")
+        elif char in FORBIDDEN_CONTROL_CHARS:
+            found_control.append(f"U+{ord(char):04X} (CONTROL)")
+        elif char in EXTENDED_FORBIDDEN:
+            desc = EXTENDED_FORBIDDEN[char]
+            found_forbidden.append(f"U+{ord(char):04X} ({desc})")
+        elif char in TAG_CHARS:
+            # Tag characters allowed for Emoji Tag Sequences
+            pass
+        elif ord(char) >= 0xE0001 and ord(char) <= 0xE001F:
+            # Language tag characters (deprecated)
+            found_forbidden.append(f"U+{ord(char):04X} LANGUAGE TAG (DEPRECATED)")
+        elif (ord(char) >= 0xF0000 and ord(char) <= 0xFFFFD) or \
+             (ord(char) >= 0x100000 and ord(char) <= 0x10FFFD):
+            found_forbidden.append(f"U+{ord(char):04X} (PRIVATE USE)")
+        elif (ord(char) >= 0x1FFFE and ord(char) <= 0x1FFFF) or \
+             (ord(char) >= 0x2FFFE and ord(char) <= 0x2FFFF) or \
+             (ord(char) >= 0x3FFFE and ord(char) <= 0x3FFFF) or \
+             (ord(char) >= 0x4FFFE and ord(char) <= 0x4FFFF) or \
+             (ord(char) >= 0x5FFFE and ord(char) <= 0x5FFFF) or \
+             (ord(char) >= 0x6FFFE and ord(char) <= 0x6FFFF) or \
+             (ord(char) >= 0x7FFFE and ord(char) <= 0x7FFFF) or \
+             (ord(char) >= 0x8FFFE and ord(char) <= 0x8FFFF) or \
+             (ord(char) >= 0x9FFFE and ord(char) <= 0x9FFFF) or \
+             (ord(char) >= 0xAFFFE and ord(char) <= 0xAFFFF) or \
+             (ord(char) >= 0xBFFFE and ord(char) <= 0xBFFFF) or \
+             (ord(char) >= 0xCFFFE and ord(char) <= 0xCFFFF) or \
+             (ord(char) >= 0xDFFFE and ord(char) <= 0xDFFFF) or \
+             (ord(char) >= 0xEFFFE and ord(char) <= 0xEFFFF) or \
+             (ord(char) >= 0xFFFFE and ord(char) <= 0xFFFFF) or \
+             (ord(char) >= 0x10FFFE and ord(char) <= 0x10FFFF):
+            found_forbidden.append(f"U+{ord(char):04X} (NON CHARACTER)")
+
+    # Report forbidden characters
+    if found_forbidden:
+        chars_str = ", ".join(found_forbidden)
+        errors.append(
+            build_message(
+                "PKG-009",
+                message=f"forbidden characters in filename '{filename}': {chars_str}",
             )
-            break
-        if char in FORBIDDEN_CONTROL_CHARS:
-            errors.append(
-                build_message(
-                    "PKG-009",
-                    message=f"forbidden control character in filename '{filename}'",
-                )
+        )
+    
+    # Report control characters
+    if found_control:
+        chars_str = ", ".join(found_control)
+        errors.append(
+            build_message(
+                "PKG-009",
+                message=f"forbidden control characters in filename '{filename}': {chars_str}",
             )
-            break
+        )
 
     return errors
 
+
+
+def check_filename(filename: str) -> list[ResultMessage]:
+    """Public API to validate a single filename against OCF rules."""
+    return _validate_filename(filename)
 
 def _check_duplicate_filenames(filenames: list[str]) -> list[ResultMessage]:
     """Check for duplicate filenames after case folding."""

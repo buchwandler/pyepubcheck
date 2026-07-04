@@ -22,6 +22,7 @@ from pyepubcheck.checks.resources import run as run_resource_checks
 from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.xhtml import run as run_xhtml_checks
 from pyepubcheck.checks.xhtml import validate_resources as run_xhtml_resource_checks
+from pyepubcheck.xhtml_validator import validate_external_identifier
 from pyepubcheck.config import ValidationConfig
 from pyepubcheck.io.expanded import DirectorySource
 from pyepubcheck.messages import build_message
@@ -147,6 +148,22 @@ def validate_path(
                     report.messages.extend(run_media_overlay_checks(item_path))
                 elif item.media_type == "application/x-dtbncx+xml":
                     report.messages.extend(run_ncx_checks(item_path, opf_path=opf_path))
+                # Validate external identifiers for XML content
+                if item.media_type in (
+                    "application/xhtml+xml",
+                    "application/mathml+xml",
+                    "application/mathml-presentation+xml",
+                    "application/mathml-content+xml",
+                    "image/svg+xml",
+                    "application/x-dtbncx+xml",
+                ):
+                    try:
+                        content = item_path.read_text(encoding="utf-8")
+                        report.messages.extend(
+                            validate_external_identifier(item_path, item.media_type, content)
+                        )
+                    except Exception:
+                        pass
     else:
         if resolved.suffix.lower() == ".ncx":
             report.messages.extend(run_ncx_checks(resolved))
@@ -155,7 +172,7 @@ def validate_path(
             report.messages.extend(run_package_checks(resolved))
             report.messages.extend(run_epub2_checks(resolved))
             report.messages.extend(run_resource_checks(resolved))
-            report.messages.extend(run_xhtml_checks(resolved))
+            report.messages.extend(run_xhtml_checks(resolved, profile=effective.profile))
             report.messages.extend(run_svg_checks(resolved))
             report.messages.extend(run_css_checks(resolved))
             report.messages.extend(run_navigation_checks(resolved))

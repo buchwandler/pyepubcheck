@@ -198,6 +198,161 @@ def validate_xhtml_doctype(
     return errors
 
 
+
+# Allowed external identifiers by media type
+ALLOWED_EXTERNAL_IDENTIFIERS = {
+    "application/xhtml+xml": {
+        "public_ids": [
+            "-//W3C//DTD XHTML 1.1//EN",
+            "-//W3C//DTD XHTML Basic 1.1//EN",
+            "-//W3C//DTD XHTML 1.0 Strict//EN",
+            "-//W3C//DTD XHTML 1.0 Transitional//EN",
+            "-//W3C//DTD XHTML 1.0 Frameset//EN",
+        ],
+        "system_ids": [
+            "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd",
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd",
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd",
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd",
+            "http://www.w3.org/TR/xhtml-modularization/xhtml-modularization.dtd",
+            "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd",
+        ],
+    },
+    "application/mathml+xml": {
+        "public_ids": [
+            "-//W3C//DTD MathML 3.0//EN",
+            "-//W3C//DTD MathML 2.0//EN",
+        ],
+        "system_ids": [
+            "http://www.w3.org/Math/DTD/mathml3/mathml3.dtd",
+            "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd",
+        ],
+    },
+    "application/mathml-presentation+xml": {
+        "public_ids": [
+            "-//W3C//DTD MathML 3.0//EN",
+            "-//W3C//DTD MathML 2.0//EN",
+        ],
+        "system_ids": [
+            "http://www.w3.org/Math/DTD/mathml3/mathml3.dtd",
+            "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd",
+        ],
+    },
+    "application/mathml-content+xml": {
+        "public_ids": [
+            "-//W3C//DTD MathML 3.0//EN",
+            "-//W3C//DTD MathML 2.0//EN",
+        ],
+        "system_ids": [
+            "http://www.w3.org/Math/DTD/mathml3/mathml3.dtd",
+            "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd",
+        ],
+    },
+    "image/svg+xml": {
+        "public_ids": [
+            "-//W3C//DTD SVG 1.1//EN",
+            "-//W3C//DTD SVG 1.0//EN",
+        ],
+        "system_ids": [
+            "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd",
+            "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd",
+        ],
+    },
+    "application/x-dtbncx+xml": {
+        "public_ids": [
+            "-//NISO//DTD ncx 2005-1//EN",
+            "-//NISO//DTD ncx 2005-2//EN",
+        ],
+        "system_ids": [
+            "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd",
+            "http://www.daisy.org/z3986/2005/ncx-2005-2.dtd",
+        ],
+    },
+}
+
+
+def validate_external_identifier(
+    path: Path | str,
+    media_type: str,
+    content: str,
+) -> list[ResultMessage]:
+    """Validate external identifier in DOCTYPE declaration.
+
+    Checks if external identifier is allowed for the given media type.
+    Reports OPF-073 if not allowed.
+    """
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    if "<!DOCTYPE" not in content:
+        return errors
+
+    # Extract DOCTYPE declaration
+    doctype_start = content.find("<!DOCTYPE")
+    if doctype_start == -1:
+        return errors
+    doctype_end = content.find(">", doctype_start)
+    if doctype_end == -1:
+        return errors
+    doctype = content[doctype_start : doctype_end + 1]
+
+    # Extract public ID if present
+    public_id = None
+    system_id = None
+    if "PUBLIC" in doctype:
+        pub_start = doctype.find("PUBLIC")
+        if pub_start != -1:
+            pub_part = doctype[pub_start + 6 :].strip()
+            if pub_part.startswith('"'):
+                pub_end = pub_part.find('"', 1)
+                if pub_end != -1:
+                    public_id = pub_part[1:pub_end]
+                    # System ID follows public ID
+                    rest = pub_part[pub_end + 1 :].strip()
+                    if rest.startswith('"'):
+                        sys_end = rest.find('"', 1)
+                        if sys_end != -1:
+                            system_id = rest[1:sys_end]
+    elif "SYSTEM" in doctype:
+        sys_start = doctype.find("SYSTEM")
+        if sys_start != -1:
+            sys_part = doctype[sys_start + 6 :].strip()
+            if sys_part.startswith('"'):
+                sys_end = sys_part.find('"', 1)
+                if sys_end != -1:
+                    system_id = sys_part[1:sys_end]
+
+    # Get allowed identifiers for this media type
+    allowed = ALLOWED_EXTERNAL_IDENTIFIERS.get(media_type, {})
+    allowed_public_ids = allowed.get("public_ids", [])
+    allowed_system_ids = allowed.get("system_ids", [])
+
+    # Check public ID
+    if public_id and allowed_public_ids:
+        if public_id not in allowed_public_ids:
+            errors.append(
+                ResultMessage(
+                    id="OPF-073",
+                    severity=Severity.ERROR,
+                    message=f"Public identifier '{public_id}' is not allowed for media type '{media_type}'",
+                    path=str(file_path),
+                )
+            )
+
+    # Check system ID
+    if system_id and allowed_system_ids:
+        if system_id not in allowed_system_ids:
+            errors.append(
+                ResultMessage(
+                    id="OPF-073",
+                    severity=Severity.ERROR,
+                    message=f"System identifier '{system_id}' is not allowed for media type '{media_type}'",
+                    path=str(file_path),
+                )
+            )
+
+    return errors
+
 def validate_xhtml_nav(doc: XmlDocument) -> list[ResultMessage]:
     """Validate XHTML navigation document.
 

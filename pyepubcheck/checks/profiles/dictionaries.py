@@ -17,13 +17,13 @@ from pyepubcheck.result import ResultMessage
 
 
 def _is_dict_profile_active(context: ProfileContext) -> bool:
-    return context.requested_profile == "dict" or is_profile_active(
-        context, "dictionary"
-    )
+    if context.requested_profile == "dict":
+        return True
+    return is_profile_active(context, "dictionary")
 
 
 def _is_glossary_profile_active(context: ProfileContext) -> bool:
-    return context.requested_profile == "dict" or is_profile_active(context, "glossary")
+    return is_profile_active(context, "glossary")
 
 
 def _validate_dc_type(context: ProfileContext) -> list[ResultMessage]:
@@ -109,10 +109,19 @@ def _validate_glossary_marker(context: ProfileContext) -> list[ResultMessage]:
 
 def run(context: ProfileContext) -> list[ResultMessage]:
     is_dict = _is_dict_profile_active(context)
-    is_glossary = is_profile_active(context, "glossary")
+    is_glossary = _is_glossary_profile_active(context)
     if not (is_dict or is_glossary):
         return []
     errors: list[ResultMessage] = []
+    # When --profile dict is requested but publication has glossary markers
+    # and no dictionary dc:type, treat as glossary only
+    has_glossary_marker = any(
+        "glossary" in item.properties for item in context.opf.manifest
+    )
+    if is_dict and has_glossary_marker and not is_profile_active(context, "dictionary"):
+        # Treat as glossary publication
+        errors.extend(_validate_glossary_marker(context))
+        return errors
     if is_dict:
         errors.extend(_validate_dc_type(context))
         errors.extend(_validate_source_language(context))

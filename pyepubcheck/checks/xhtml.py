@@ -205,7 +205,47 @@ def _check_unresolved_entity(path: Path, content: str) -> list[ResultMessage]:
     return []
 
 
-def run(path: str | Path, context=None) -> list[ResultMessage]:
+
+def _validate_edupub_content_document(path: Path, root) -> list[ResultMessage]:
+    """Validate EDUPUB content document requirements.
+    
+    When body has epub:type (used as section), it must contain a heading.
+    """
+    errors: list[ResultMessage] = []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    epub_ns = "http://www.idpf.org/2007/ops"
+    heading_tags = {f"{{{xhtml_ns}}}h1", f"{{{xhtml_ns}}}h2", f"{{{xhtml_ns}}}h3",
+                   f"{{{xhtml_ns}}}h4", f"{{{xhtml_ns}}}h5", f"{{{xhtml_ns}}}h6"}
+    
+    for body in root.iter(f"{{{xhtml_ns}}}body"):
+        epub_type = body.get(f"{{{epub_ns}}}type", "") or body.get("epub:type", "")
+        if not epub_type:
+            continue
+        # Body has epub:type, so it's used as a section
+        # Check if it contains a heading element
+        has_heading = False
+        for child in body.iter():
+            if child.tag in heading_tags:
+                has_heading = True
+                break
+            # Check for ARIA heading role
+            role = child.get("role", "")
+            if "heading" in role:
+                has_heading = True
+                break
+        if not has_heading:
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message=("Body element used as section must contain a "
+                            "heading element (h1-h6 or role='heading')."),
+                )
+            )
+    return errors
+
+
+def run(path: str | Path, context=None, profile: str = "default") -> list[ResultMessage]:
     candidate = Path(path)
     errors: list[ResultMessage] = []
 
@@ -238,10 +278,12 @@ def run(path: str | Path, context=None) -> list[ResultMessage]:
     if _is_epub2_publication(context) or _is_epub2_context(candidate):
         errors.extend(_check_unresolved_entity(candidate, content))
     errors.extend(_check_remote_objects(candidate, xml_doc.root, context))
+    
+    # EDUPUB content document validation
+    if profile == "edupub" and xml_doc.root is not None:
+        errors.extend(_validate_edupub_content_document(candidate, xml_doc.root))
 
     return errors
-
-
 def validate_xhtml_img_src(path: Path, root) -> list[ResultMessage]:
     """Validate img src attributes."""
     errors: list[ResultMessage] = []
