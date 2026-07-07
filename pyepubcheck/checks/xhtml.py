@@ -245,6 +245,127 @@ def _validate_edupub_content_document(path: Path, root) -> list[ResultMessage]:
     return errors
 
 
+def _check_encoding(path: Path, content: str) -> list[ResultMessage]:
+    """Check for invalid encoding (must be UTF-8)."""
+    errors: list[ResultMessage] = []
+    
+    # Check for UTF-16 BOM
+    if content.startswith('\ufeff') or content.startswith('\xff\xfe') or content.startswith('\xfe\xff'):
+        errors.append(
+            build_message(
+                "HTM-058",
+                path=str(path),
+                message="XHTML content documents must be encoded as UTF-8",
+            )
+        )
+        return errors
+    
+    # Check for null bytes (indicator of UTF-16)
+    if '\x00' in content[:1000]:
+        errors.append(
+            build_message(
+                "HTM-058",
+                path=str(path),
+                message="XHTML content documents must be encoded as UTF-8",
+            )
+        )
+    
+    return errors
+
+
+def _check_external_entities(path: Path, content: str) -> list[ResultMessage]:
+    """Check for external entity declarations."""
+    errors: list[ResultMessage] = []
+    
+    if "<!DOCTYPE" not in content:
+        return errors
+    
+    # Find DOCTYPE declaration
+    doctype_start = content.find("<!DOCTYPE")
+    if doctype_start == -1:
+        return errors
+    doctype_end = content.find(">", doctype_start)
+    if doctype_end == -1:
+        return errors
+    doctype = content[doctype_start:doctype_end + 1]
+    
+    # Check for SYSTEM entity declarations
+    if "SYSTEM" in doctype and "ENTITY" in doctype:
+        errors.append(
+            build_message(
+                "HTM-003",
+                path=str(path),
+                message="External entities are not allowed in EPUB content documents",
+            )
+        )
+    
+    return errors
+
+
+def _check_obsolete_doctype(path: Path, content: str) -> list[ResultMessage]:
+    """Check for obsolete XHTML doctypes."""
+    errors: list[ResultMessage] = []
+    
+    if "<!DOCTYPE" not in content:
+        return errors
+    
+    # Find DOCTYPE declaration
+    doctype_start = content.find("<!DOCTYPE")
+    if doctype_start == -1:
+        return errors
+    doctype_end = content.find(">", doctype_start)
+    if doctype_end == -1:
+        return errors
+    doctype = content[doctype_start:doctype_end + 1].upper()
+    
+    # Check for obsolete XHTML 1.x doctypes
+    obsolete_patterns = [
+        "-//W3C//DTD XHTML 1.0 TRANSITIONAL",
+        "-//W3C//DTD XHTML 1.0 FRAMESET",
+        "-//W3C//DTD XHTML 1.1//EN",
+        "-//W3C//DTD XHTML BASIC 1.0",
+    ]
+    
+    for pattern in obsolete_patterns:
+        if pattern in doctype:
+            errors.append(
+                build_message(
+                    "HTM-004",
+                    path=str(path),
+                    message="Obsolete XHTML doctype detected",
+                )
+            )
+            break
+    
+    return errors
+
+
+def _check_entity_semicolons(path: Path, content: str) -> list[ResultMessage]:
+    """Check for entity references without semicolons."""
+    errors: list[ResultMessage] = []
+    
+    # Pattern for entity references without semicolons
+    import re
+    # Match &word that is not followed by ; or another &
+    entity_pattern = re.compile(r'&([a-zA-Z][a-zA-Z0-9]*)(?![;a-zA-Z])')
+    
+    for match in entity_pattern.finditer(content):
+        entity = match.group(1)
+        # Skip common HTML entities that might appear in attributes
+        if entity in ('amp', 'lt', 'gt', 'quot', 'apos'):
+            continue
+        errors.append(
+            build_message(
+                "RSC-016",
+                path=str(path),
+                message=f"Entity reference '&{entity}' missing semicolon",
+            )
+        )
+        break  # Report only first occurrence
+    
+    return errors
+
+
 def run(path: str | Path, context=None, profile: str = "default") -> list[ResultMessage]:
     candidate = Path(path)
     errors: list[ResultMessage] = []
@@ -257,14 +378,28 @@ def run(path: str | Path, context=None, profile: str = "default") -> list[Result
     if candidate.suffix.lower() not in (".xhtml", ".html", ".htm"):
         return []
 
+    # Check encoding before parsing
+    try:
+        raw_bytes = candidate.read_bytes()
+        content = raw_bytes.decode("utf-8")
+    except UnicodeDecodeError:
+        errors.append(
+            build_message(
+                "HTM-058",
+                path=str(candidate),
+                message="XHTML content documents must be encoded as UTF-8",
+            )
+        )
+        return errors
+    except Exception:
+        content = ""
+
+    # Check for encoding issues (UTF-16 BOM, etc.)
+    errors.extend(_check_encoding(candidate, content))
+
     xml_doc = load_xml(candidate)
     if xml_doc.errors:
         return xml_doc.errors
-
-    try:
-        content = candidate.read_text(encoding="utf-8")
-    except Exception:
-        content = ""
 
     errors.extend(validate_xhtml(candidate))
     errors.extend(validate_xhtml_duplicate_ids(candidate, xml_doc.root))
@@ -278,6 +413,15 @@ def run(path: str | Path, context=None, profile: str = "default") -> list[Result
     if _is_epub2_publication(context) or _is_epub2_context(candidate):
         errors.extend(_check_unresolved_entity(candidate, content))
     errors.extend(_check_remote_objects(candidate, xml_doc.root, context))
+    
+    # Additional validation checks
+    errors.extend(_check_external_entities(candidate, content))
+    
+    # Only check for obsolete doctypes in EPUB 3.0+ context
+    if not _is_epub2_publication(context) and not _is_epub2_context(candidate):
+        errors.extend(_check_obsolete_doctype(candidate, content))
+    
+    errors.extend(_check_entity_semicolons(candidate, content))
     
     # EDUPUB content document validation
     if profile == "edupub" and xml_doc.root is not None:

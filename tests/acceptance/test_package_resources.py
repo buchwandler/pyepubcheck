@@ -154,7 +154,6 @@ def test_package_dir_auto_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_link_to_package_document_id_error(run_pyepubcheck, fixtures) -> None:
     """'link' target must not reference a manifest ID."""
     result = run_pyepubcheck(
@@ -183,7 +182,6 @@ def test_package_attr_id_with_spaces(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_attr_id_duplicate_error(run_pyepubcheck, fixtures) -> None:
     """'id' attributes must be unique."""
     result = run_pyepubcheck(
@@ -198,7 +196,6 @@ def test_package_attr_id_duplicate_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_refines_not_relative_error(run_pyepubcheck, fixtures) -> None:
     """'refines' attribute MUST be a relative URL."""
     result = run_pyepubcheck(
@@ -213,7 +210,6 @@ def test_package_metadata_refines_not_relative_error(run_pyepubcheck, fixtures) 
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_refines_not_fragment_warning(run_pyepubcheck, fixtures) -> None:
     """'refines' attribute should use a fragment ID if refering to a Publication Resource."""
     result = run_pyepubcheck(
@@ -228,7 +224,6 @@ def test_package_metadata_refines_not_fragment_warning(run_pyepubcheck, fixtures
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_refines_unknown_id_error(run_pyepubcheck, fixtures) -> None:
     """'refines' attribute, when using fragment ID, must target an existing ID."""
     result = run_pyepubcheck(
@@ -243,7 +238,6 @@ def test_package_metadata_refines_unknown_id_error(run_pyepubcheck, fixtures) ->
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_refines_cycle_error(run_pyepubcheck, fixtures) -> None:
     """'refines' references cycles are not allowed."""
     result = run_pyepubcheck(
@@ -272,7 +266,6 @@ def test_package_attr_lang_empty_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_attr_lang_whitespace_error(run_pyepubcheck, fixtures) -> None:
     """The 'xml:lang' language tag must not have leading/trailing whitespace."""
     result = run_pyepubcheck(
@@ -287,7 +280,6 @@ def test_package_attr_lang_whitespace_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_identifier_required(run_pyepubcheck, fixtures) -> None:
     """A package must have a unique identifier."""
     result = run_pyepubcheck(
@@ -302,7 +294,6 @@ def test_package_metadata_identifier_required(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_title_required(run_pyepubcheck, fixtures) -> None:
     """A package must have a title."""
     result = run_pyepubcheck(
@@ -317,7 +308,6 @@ def test_package_metadata_title_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_language_required(run_pyepubcheck, fixtures) -> None:
     """A package must have a language."""
     result = run_pyepubcheck(
@@ -466,7 +456,6 @@ def test_package_version_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_link_media_type_missing_local_error(run_pyepubcheck, fixtures) -> None:
     """Local links must have a media-type attribute."""
     result = run_pyepubcheck(

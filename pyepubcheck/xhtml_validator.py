@@ -72,11 +72,12 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
                 )
             )
     else:
+        # Missing title is a warning, not an error
         errors.append(
             ResultMessage(
-                id="RSC-005",
-                severity=Severity.ERROR,
-                message="XHTML document must have a title element",
+                id="RSC-017",
+                severity=Severity.WARNING,
+                message="XHTML document should have a title element",
                 path=str(file_path),
             )
         )
@@ -176,6 +177,10 @@ def validate_xhtml_doctype(
                     "http://www.w3.org/MarkUp/DTD/xhtml-lat1.ent",
                     "http://www.w3.org/MarkUp/DTD/xhtml-symbol.ent",
                 ]
+                # Valid HTML5 doctype SYSTEM identifiers
+                valid_system_ids = [
+                    "about:legacy-compat",
+                ]
                 if "SYSTEM" in doctype:
                     # Extract system identifier
                     sys_start = doctype.find("SYSTEM")
@@ -185,7 +190,7 @@ def validate_xhtml_doctype(
                             sys_end = sys_part.find('"', 1)
                             if sys_end != -1:
                                 system_id = sys_part[1:sys_end]
-                                if system_id and system_id not in w3c_dtds:
+                                if system_id and system_id not in w3c_dtds and system_id not in valid_system_ids:
                                     errors.append(
                                         ResultMessage(
                                             id="RSC-005",

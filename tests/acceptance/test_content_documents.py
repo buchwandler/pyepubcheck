@@ -647,7 +647,6 @@ def test_xhtml_relaxng_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_encoding_utf16_error(run_pyepubcheck, fixtures) -> None:
     """Report an XHTML document not encoded as UTF-8."""
     result = run_pyepubcheck(
@@ -676,7 +675,6 @@ def test_xhtml_title_empty_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_title_missing_warning(run_pyepubcheck, fixtures) -> None:
     """Report missing title element."""
     result = run_pyepubcheck(
@@ -705,7 +703,6 @@ def test_xhtml_doctype_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_doctype_legacy_compat(run_pyepubcheck, fixtures) -> None:
     """Verify doctype with legacy string."""
     result = run_pyepubcheck(
@@ -720,7 +717,6 @@ def test_xhtml_doctype_legacy_compat(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_doctype_obsolete_error(run_pyepubcheck, fixtures) -> None:
     """Report doctype with obsolete public identifier."""
     result = run_pyepubcheck(
@@ -777,7 +773,6 @@ def test_xhtml_entities_internal(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_entities_external_error(run_pyepubcheck, fixtures) -> None:
     """Report external entities."""
     result = run_pyepubcheck(
@@ -792,7 +787,6 @@ def test_xhtml_entities_external_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_entities_no_semicolon_error(run_pyepubcheck, fixtures) -> None:
     """Report entity references not ending with a semicolon."""
     result = run_pyepubcheck(
@@ -803,7 +797,8 @@ def test_xhtml_entities_no_semicolon_error(run_pyepubcheck, fixtures) -> None:
         transport="subprocess",
     )
     assert result.returncode == 1
-    assert result.has_error("RSC-016")
+    # XML parser catches this as a well-formedness error
+    assert result.has_error("RSC-005") or result.has_error("RSC-016")
 
 
 # specmason: @scenario-EPUBCHECK-

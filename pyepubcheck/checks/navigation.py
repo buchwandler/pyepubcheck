@@ -218,6 +218,180 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
     return errors
 
 
+def _validate_nav_content_model(path: Path, root) -> list[ResultMessage]:
+    """Validate navigation document content model."""
+    errors: list[ResultMessage] = []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    epub_ns = "http://www.idpf.org/2007/ops"
+    
+    for nav in root.iter(f"{{{xhtml_ns}}}nav"):
+        epub_type = nav.get(f"{{{epub_ns}}}type", "") or nav.get("epub:type", "")
+        if "toc" not in epub_type:
+            continue
+        
+        # Check for p elements used as headings (direct child of nav, before ol)
+        has_heading = False
+        for child in nav:
+            tag = str(child.tag)
+            local_tag = tag.split("}")[-1] if "}" in tag else tag
+            
+            # Check if this is a heading element
+            if local_tag in ("h1", "h2", "h3", "h4", "h5", "h6"):
+                has_heading = True
+                # Check for empty headings
+                if _is_empty_or_blank(child):
+                    errors.append(
+                        build_message(
+                            "RSC-005",
+                            path=str(path),
+                            message="Navigation heading must not be empty",
+                        )
+                    )
+                
+                # Check for p elements inside headings
+                for p in child.iter(f"{{{xhtml_ns}}}p"):
+                    errors.append(
+                        build_message(
+                            "RSC-005",
+                            path=str(path),
+                            message="Heading elements must not contain p elements",
+                        )
+                    )
+                    break
+            
+            # Check for p elements used as headings (not inside h1-h6)
+            elif local_tag == "p" and not has_heading:
+                # This p element is used as a heading, which is not allowed
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message="Navigation heading must use a heading element (h1-h6)",
+                    )
+                )
+                break
+        
+        # Check list items
+        for ol in nav.iter(f"{{{xhtml_ns}}}ol"):
+            errors.extend(_validate_nav_list_items(path, ol))
+    
+    return errors
+
+
+def _is_empty_or_blank(element) -> bool:
+    """Check if an element is empty or contains only whitespace."""
+    text = element.text or ""
+    if text.strip():
+        return False
+    # Check children
+    for child in element:
+        child_text = child.text or ""
+        if child_text.strip():
+            return False
+        # Check tail
+        if child.tail and child.tail.strip():
+            return False
+    return True
+
+
+def _validate_nav_list_items(path: Path, ol) -> list[ResultMessage]:
+    """Validate navigation list items."""
+    errors: list[ResultMessage] = []
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    
+    for li in ol:
+        tag = str(li.tag)
+        if not tag.endswith("}li") and tag != "li":
+            continue
+        
+        # Get direct children
+        children = list(li)
+        
+        # Check if li has a label (a or span)
+        has_link = False
+        has_span = False
+        has_nested_ol = False
+        label_element = None
+        
+        for child in children:
+            child_tag = str(child.tag)
+            local_tag = child_tag.split("}")[-1] if "}" in child_tag else child_tag
+            
+            if local_tag == "a":
+                has_link = True
+                label_element = child
+            elif local_tag == "span":
+                has_span = True
+                label_element = child
+            elif local_tag == "ol":
+                has_nested_ol = True
+        
+        # Leaf items (no nested ol) must have a link, not just a span
+        if not has_nested_ol:
+            if not has_link and not has_span:
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message="Leaf list item must have a link or span label",
+                    )
+                )
+            elif has_span and not has_link:
+                # Span without link and without nested ol is an error
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message="Leaf list item with span label must have a nested ol",
+                    )
+                )
+            continue
+        
+        # Non-leaf items must have a label
+        if not has_link and not has_span:
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message="List item with nested list must have a label",
+                )
+            )
+            continue
+        
+        # Check if label is empty
+        if label_element is not None:
+            if _is_label_empty(label_element):
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message="List item label must not be empty",
+                    )
+                )
+    
+    return errors
+
+
+def _is_label_empty(element) -> bool:
+    """Check if a label element (a or span) is empty or whitespace-only."""
+    text = element.text or ""
+    if text.strip():
+        return False
+    
+    # Check for img elements
+    for child in element:
+        child_tag = str(child.tag)
+        local_tag = child_tag.split("}")[-1] if "}" in child_tag else child_tag
+        if local_tag == "img":
+            return False
+        # Check child text
+        child_text = child.text or ""
+        if child_text.strip():
+            return False
+    
+    return True
+
+
 def run(path: str | Path, *, is_data_nav: bool = False) -> list[ResultMessage]:
     """Run navigation document checks."""
     candidate = Path(path)
@@ -256,5 +430,8 @@ def run(path: str | Path, *, is_data_nav: bool = False) -> list[ResultMessage]:
 
     # Validate nav structure
     errors.extend(_validate_nav_structure(candidate, root))
+    
+    # Validate nav content model
+    errors.extend(_validate_nav_content_model(candidate, root))
 
     return errors

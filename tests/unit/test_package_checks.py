@@ -173,6 +173,7 @@ class TestRun:
     <dc:identifier id="uid">urn:uuid:12345</dc:identifier>
     <dc:title>Test Book</dc:title>
     <dc:language>en</dc:language>
+    <meta property="dcterms:modified">2023-01-01T00:00:00Z</meta>
   </metadata>
   <manifest>
     <item id="content" href="content.xhtml" media-type="application/xhtml+xml"/>

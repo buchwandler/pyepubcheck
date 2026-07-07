@@ -211,7 +211,6 @@ def test_navigation_minimal_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_heading_empty_error(run_pyepubcheck, fixtures) -> None:
     """Report an empty nav heading."""
     result = run_pyepubcheck(
@@ -226,7 +225,6 @@ def test_navigation_heading_empty_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_heading_p_error(run_pyepubcheck, fixtures) -> None:
     """Report a p element used as a nav heading."""
     result = run_pyepubcheck(
@@ -241,7 +239,6 @@ def test_navigation_heading_p_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_li_label_missing_error(run_pyepubcheck, fixtures) -> None:
     """Report a missing list item label."""
     result = run_pyepubcheck(
@@ -256,7 +253,6 @@ def test_navigation_li_label_missing_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_li_label_empty_error(run_pyepubcheck, fixtures) -> None:
     """Report an empty list item label."""
     result = run_pyepubcheck(
@@ -285,7 +281,6 @@ def test_navigation_li_label_multiple_images_valid(run_pyepubcheck, fixtures) ->
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_li_leaf_no_link_error(run_pyepubcheck, fixtures) -> None:
     """Report a leaf list item with no link (just a span label)."""
     result = run_pyepubcheck(
@@ -300,7 +295,6 @@ def test_navigation_li_leaf_no_link_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_navigation_toc_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a valid toc nav element."""
     result = run_pyepubcheck(
