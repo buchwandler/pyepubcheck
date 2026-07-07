@@ -11,6 +11,7 @@ from pyepubcheck.xhtml_validator import (
     validate_xhtml_alt_attributes,
     validate_xhtml_doctype,
     validate_xhtml_duplicate_ids,
+    validate_xhtml_elements,
 )
 from pyepubcheck.xml_parser import load_xml
 
@@ -420,6 +421,7 @@ def run(
     errors.extend(validate_xhtml_alt_attributes(candidate, xml_doc.root))
     errors.extend(validate_xhtml_doctype(candidate, xml_doc.root))
     errors.extend(validate_xhtml_img_src(candidate, xml_doc.root))
+    errors.extend(validate_xhtml_elements(candidate, xml_doc.root))
     if _is_epub2_publication(context) or _is_epub2_context(candidate):
         errors.extend(_check_html5_doctype(candidate, content))
         errors.extend(_check_html5_elements(candidate, xml_doc.root))
@@ -490,7 +492,16 @@ def validate_resources(
                     message="img element must not have an empty src attribute",
                 )
             )
-        elif src and not src.startswith(("http://", "https://", "data:", "#")):
+        elif src and src.startswith(("http://", "https://")):
+            # Remote URLs must be declared in manifest with remote-resources property
+            errors.append(
+                build_message(
+                    "RSC-006",
+                    path=str(path),
+                    message=f"Remote resource '{src}' must be declared in the manifest with the remote-resources property.",
+                )
+            )
+        elif src and not src.startswith(("data:", "#")):
             base_src = src.split("#")[0] if "#" in src else src
             if base_src and base_src not in manifest_hrefs:
                 errors.append(

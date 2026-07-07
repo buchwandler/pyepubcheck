@@ -514,6 +514,83 @@ def _validate_required_metadata(path: Path, opf) -> list[ResultMessage]:
     return errors
 
 
+# Core media types that don't require fallbacks
+CORE_MEDIA_TYPES = {
+    # Images
+    "image/gif",
+    "image/jpeg",
+    "image/png",
+    "image/svg+xml",
+    "image/webp",
+    # Audio
+    "audio/mpeg",
+    "audio/mp4",
+    "audio/opus",
+    "audio/wav",
+    "audio/wave",
+    "audio/x-wav",
+    "audio/ogg",
+    # Video
+    "video/webm",
+    "video/mp4",
+    "video/h264",
+    "video/ogg",
+    # Style
+    "text/css",
+    # Fonts
+    "font/ttf",
+    "font/otf",
+    "font/woff",
+    "font/woff2",
+    "application/font-sfnt",
+    "application/x-font-ttf",
+    "application/vnd.ms-opentype",
+    "application/font-woff",
+    # Other
+    "application/xhtml+xml",
+    "application/javascript",
+    "application/ecmascript",
+    "text/javascript",
+    "application/x-dtbncx+xml",
+    "application/smil+xml",
+    "application/pls+xml",
+    "application/mathml+xml",
+    "application/mathml-presentation+xml",
+    "application/mathml-content+xml",
+    # EPUB Dictionary
+    "application/vnd.epub.search-key-map+xml",
+}
+
+
+def _validate_fallback_chains(path: Path, opf) -> list[ResultMessage]:
+    """Validate that foreign resources have fallback attributes."""
+    errors: list[ResultMessage] = []
+
+    # Only check EPUB 3 publications
+    if opf.version and opf.version.startswith("2"):
+        return errors
+
+    for item in opf.manifest:
+        if not item.href:
+            continue
+        # Skip remote URLs
+        if item.href.startswith(("http://", "https://")):
+            continue
+        # Check if this is a foreign resource (not a core media type)
+        if item.media_type and item.media_type not in CORE_MEDIA_TYPES:
+            # Foreign resources must have a fallback attribute
+            if not item.fallback:
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(path),
+                        message=f"foreign resource '{item.href}' with media type '{item.media_type}' must have a fallback",
+                    )
+                )
+
+    return errors
+
+
 def run(path: str | Path) -> list[ResultMessage]:
     """Run package document checks."""
     candidate = Path(path)
@@ -649,6 +726,9 @@ def run(path: str | Path) -> list[ResultMessage]:
     # Validate manifest resources
     errors.extend(_validate_manifest_resources(candidate, opf))
 
+    # Validate fallback chains for foreign resources
+    errors.extend(_validate_fallback_chains(candidate, opf))
+
     # Validate spine itemrefs
     errors.extend(_validate_spine_itemrefs(candidate, opf))
 
@@ -700,6 +780,9 @@ def _validate_manifest_resources(path: Path, opf) -> list[ResultMessage]:
 
     for item in opf.manifest:
         if not item.href:
+            continue
+        # Skip remote URLs (http/https) - they are not local files
+        if item.href.startswith(("http://", "https://")):
             continue
         # Resolve the resource path (URL-decode the href)
         from urllib.parse import unquote

@@ -630,7 +630,6 @@ def test_xhtml_file_extension_unusual(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_relaxng_error(run_pyepubcheck, fixtures) -> None:
     """Report RelaxNG schema errors in a Content Document."""
     result = run_pyepubcheck(
@@ -955,7 +954,6 @@ def test_xhtml_remote_resources_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_manifest_fallback_required(run_pyepubcheck, fixtures) -> None:
     """Report resources without required manifest fallback."""
     result = run_pyepubcheck(

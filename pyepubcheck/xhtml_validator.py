@@ -6,9 +6,264 @@ from pathlib import Path
 
 from lxml import etree
 
+from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
 from pyepubcheck.severity import Severity
 from pyepubcheck.xml_parser import XHTML_NS, XmlDocument, load_xml
+
+# Valid XHTML elements for EPUB 3 (HTML5 elements)
+VALID_XHTML_ELEMENTS = {
+    # Root element
+    "html",
+    # Document metadata
+    "head",
+    "title",
+    "base",
+    "link",
+    "meta",
+    "style",
+    # Scripting
+    "script",
+    "noscript",
+    # Sections
+    "body",
+    "section",
+    "nav",
+    "article",
+    "aside",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "hgroup",
+    "header",
+    "footer",
+    "address",
+    # Grouping content
+    "p",
+    "hr",
+    "pre",
+    "blockquote",
+    "ol",
+    "ul",
+    "li",
+    "dl",
+    "dt",
+    "dd",
+    "figure",
+    "figcaption",
+    "main",
+    "div",
+    # Text-level semantics
+    "a",
+    "em",
+    "strong",
+    "small",
+    "s",
+    "cite",
+    "q",
+    "dfn",
+    "abbr",
+    "ruby",
+    "rt",
+    "rp",
+    "data",
+    "time",
+    "code",
+    "var",
+    "samp",
+    "kbd",
+    "sub",
+    "sup",
+    "i",
+    "b",
+    "u",
+    "mark",
+    "bdi",
+    "bdo",
+    "span",
+    "br",
+    "wbr",
+    # Edits
+    "ins",
+    "del",
+    # Embedded content
+    "picture",
+    "source",
+    "img",
+    "iframe",
+    "embed",
+    "object",
+    "param",
+    "video",
+    "audio",
+    "track",
+    "map",
+    "area",
+    # Tabular data
+    "table",
+    "caption",
+    "colgroup",
+    "col",
+    "tbody",
+    "thead",
+    "tfoot",
+    "tr",
+    "td",
+    "th",
+    # Forms
+    "form",
+    "label",
+    "input",
+    "button",
+    "select",
+    "datalist",
+    "optgroup",
+    "option",
+    "textarea",
+    "keygen",
+    "output",
+    "progress",
+    "meter",
+    "fieldset",
+    "legend",
+    # Interactive elements
+    "details",
+    "summary",
+    "menuitem",
+    "menu",
+    # Scripting
+    "canvas",
+    "template",
+    "slot",
+    # MathML
+    "math",
+    "maction",
+    "maligngroup",
+    "malignmark",
+    "mglyph",
+    "mpadded",
+    "mphantom",
+    "mroot",
+    "mrow",
+    "ms",
+    "mspace",
+    "mtable",
+    "mtd",
+    "mtext",
+    "mtr",
+    "mlongdiv",
+    "mscarries",
+    "mscarry",
+    "msgroup",
+    "msline",
+    "msrow",
+    "mstack",
+    "menclose",
+    "merror",
+    "mfenced",
+    "mfrac",
+    "mi",
+    "mmultiscripts",
+    "mn",
+    "mo",
+    "mover",
+    "mprescripts",
+    "msqrt",
+    "msub",
+    "msup",
+    "msubsup",
+    "munder",
+    "munderover",
+    "semantics",
+    "annotation",
+    "annotation-xml",
+    "none",
+    "mprescripts",
+    # SVG
+    "svg",
+    "a",
+    "altGlyph",
+    "altGlyphDef",
+    "altGlyphItem",
+    "animate",
+    "animateColor",
+    "animateMotion",
+    "animateTransform",
+    "circle",
+    "clipPath",
+    "color-profile",
+    "cursor",
+    "defs",
+    "desc",
+    "ellipse",
+    "feBlend",
+    "feColorMatrix",
+    "feComponentTransfer",
+    "feComposite",
+    "feConvolveMatrix",
+    "feDiffuseLighting",
+    "feDisplacementMap",
+    "feDistantLight",
+    "feFlood",
+    "feFuncA",
+    "feFuncB",
+    "feFuncG",
+    "feFuncR",
+    "feGaussianBlur",
+    "feImage",
+    "feMerge",
+    "feMergeNode",
+    "feMorphology",
+    "feOffset",
+    "fePointLight",
+    "feSpecularLighting",
+    "feSpotLight",
+    "feTile",
+    "feTurbulence",
+    "filter",
+    "font",
+    "font-face",
+    "font-face-format",
+    "font-face-name",
+    "font-face-src",
+    "font-face-uri",
+    "foreignObject",
+    "g",
+    "glyph",
+    "glyphRef",
+    "hkern",
+    "image",
+    "line",
+    "linearGradient",
+    "marker",
+    "mask",
+    "metadata",
+    "missing-glyph",
+    "mpath",
+    "path",
+    "pattern",
+    "polygon",
+    "polyline",
+    "radialGradient",
+    "rect",
+    "script",
+    "set",
+    "stop",
+    "style",
+    "switch",
+    "symbol",
+    "text",
+    "textPath",
+    "title",
+    "tref",
+    "tspan",
+    "use",
+    "view",
+    "vkern",
+}
 
 
 def validate_xhtml(path: Path | str) -> list[ResultMessage]:
@@ -114,6 +369,55 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
         else:
             continue
         break
+    return errors
+
+
+def validate_xhtml_elements(
+    path: Path | str, root: etree._Element
+) -> list[ResultMessage]:
+    """Validate that all elements in XHTML are valid HTML5 elements."""
+    file_path = Path(path)
+    errors: list[ResultMessage] = []
+
+    if root is None:
+        return errors
+
+    xhtml_ns = "http://www.w3.org/1999/xhtml"
+    svg_ns = "http://www.w3.org/2000/svg"
+    mathml_ns = "http://www.w3.org/1998/Math/MathML"
+
+    for elem in root.iter():
+        # Skip comments and processing instructions
+        if not isinstance(elem.tag, str):
+            continue
+
+        # Get the local name (without namespace)
+        if "}" in elem.tag:
+            ns_uri = elem.tag.split("}")[0].lstrip("{")
+            local_name = elem.tag.split("}")[-1]
+        else:
+            ns_uri = ""
+            local_name = elem.tag
+
+        # Skip non-element nodes
+        if not local_name:
+            continue
+
+        # Allow elements in XHTML, SVG, and MathML namespaces
+        if ns_uri in (xhtml_ns, svg_ns, mathml_ns, ""):
+            # Check if it's a valid element
+            if local_name not in VALID_XHTML_ELEMENTS:
+                # Allow custom elements (contain hyphen)
+                if "-" in local_name:
+                    continue
+                errors.append(
+                    build_message(
+                        "RSC-005",
+                        path=str(file_path),
+                        message=f"invalid element '{local_name}'",
+                    )
+                )
+
     return errors
 
 

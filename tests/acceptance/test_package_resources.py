@@ -484,7 +484,6 @@ def test_package_link_media_type_missing_remote_valid(
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_remote_font_valid(run_pyepubcheck, fixtures) -> None:
     """Verify remote fonts are allowed with proper declaration."""
     result = run_pyepubcheck(
@@ -571,7 +570,6 @@ def test_resource_remote_resource_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_remote_resource_error(run_pyepubcheck, fixtures) -> None:
     """Report remote resources without proper declaration."""
     result = run_pyepubcheck(
@@ -586,7 +584,6 @@ def test_resource_remote_resource_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_fallback_required(run_pyepubcheck, fixtures) -> None:
     """Report resources without required fallback."""
     result = run_pyepubcheck(
