@@ -12,7 +12,7 @@ from pyepubcheck.xml_parser import (
     DC_NS,
     OPF_NS,
     XmlDocument,
-    load_xml,
+    load_xml_bytes,
 )
 
 
@@ -158,9 +158,16 @@ def parse_opf(path: Path | str) -> OpfDocument:
     Returns OpfDocument with extracted metadata, manifest, spine.
     """
     file_path = Path(path)
+    return parse_opf_document(file_path.read_bytes(), str(file_path))
+
+
+def parse_opf_document(xml_bytes: bytes, logical_path: str) -> OpfDocument:
+    """Parse an OPF package document from bytes."""
+
+    file_path = Path(logical_path)
     errors: list[ResultMessage] = []
 
-    xml_doc = load_xml(file_path)
+    xml_doc = load_xml_bytes(xml_bytes, path=file_path)
     if xml_doc.errors:
         return OpfDocument(path=file_path, errors=xml_doc.errors)
 

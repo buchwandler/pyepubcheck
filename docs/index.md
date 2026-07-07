@@ -11,6 +11,7 @@ The package layout is intentionally flat: the importable package is `./pyepubche
 installation
 quickstart
 cli
+inspection
 reports
 api
 validation-scope

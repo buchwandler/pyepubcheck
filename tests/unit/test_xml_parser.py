@@ -7,6 +7,7 @@ from pathlib import Path
 from pyepubcheck.xml_parser import (
     detect_doc_type,
     load_xml,
+    load_xml_bytes,
     load_xml_string,
     validate_xml_well_formedness,
 )
@@ -90,6 +91,20 @@ class TestLoadXmlString:
         content = '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf"/>'
         doc = load_xml_string(content)
         assert doc.doc_type == "opf"
+
+
+class TestLoadXmlBytes:
+    """Test loading XML from bytes."""
+
+    def test_valid_xml_bytes(self) -> None:
+        doc = load_xml_bytes(b'<?xml version="1.0"?><root><child/></root>')
+        assert doc.root.tag == "root"
+        assert len(doc.errors) == 0
+
+    def test_invalid_xml_bytes(self) -> None:
+        doc = load_xml_bytes(b'<?xml version="1.0"?><root><child></root>')
+        assert len(doc.errors) == 1
+        assert doc.errors[0].id == "RSC-005"
 
 
 # specmason: @scenario-EPUBCHECK-DB777964

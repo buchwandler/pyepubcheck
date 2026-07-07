@@ -9,6 +9,7 @@ The console report prints:
 1. A version header.
 2. Visible validation messages.
 3. A success message if no selected messages are visible.
+4. A compact publication summary on clean validation runs unless `--quiet`, `--no-summary`, or structured stdout is used.
 
 Warnings, errors, and fatal messages are written to stderr. Informational and usage messages are written to stdout when selected.
 
@@ -62,6 +63,43 @@ pyepubcheck book.epub --xmp report.xmp
 ```
 
 The current XMP renderer is intentionally minimal in this alpha release.
+
+## Inspection output
+
+The inspection commands render read-only publication information instead of validation messages.
+
+### Full inspection JSON
+
+Use:
+
+```bash
+pyepubcheck inspect book.epub --format json
+```
+
+The JSON schema includes:
+
+| Key          | Description                                                         |
+| ------------ | ------------------------------------------------------------------- |
+| `inputPath`  | Input publication path.                                             |
+| `container`  | Container type, mimetype, rootfiles, and aggregate entry counts.    |
+| `packages`   | Package-level title, version, language, spine, and identifier data. |
+| `metadata`   | OPF metadata and package attributes.                                |
+| `manifest`   | Manifest items and resolved resource information.                   |
+| `images`     | Image inventory, dimensions, sizes, properties, and references.     |
+| `navigation` | TOC, landmark, and page-list entries.                               |
+| `stats`      | Estimated words, characters, and optional estimated pages.          |
+| `warnings`   | Non-fatal inspection warnings.                                      |
+
+### CSV inspection output
+
+Use:
+
+```bash
+pyepubcheck images book.epub --format csv
+pyepubcheck manifest book.epub --format csv
+```
+
+These CSV outputs are intended for scripting and tabular review.
 
 ## Writing a report to stdout
 

@@ -13,6 +13,9 @@ The package intentionally uses a flat layout: importable code lives in `./pyepub
 - EPUB 2 and EPUB 3 behavior coverage derived from Gherkin scenarios.
 - Optional profile checks for dictionaries, EDUPUB, indexes, previews, accessibility, and related profile constraints.
 - Console, JSON, XML, and XMP report renderers.
+- Read-only publication inspection for metadata, manifest items, images, navigation, and text statistics.
+- Image inventory reports with media type, byte size, dimensions, manifest properties, and references.
+- Metadata reports for OPF Dublin Core fields, rendition metadata, accessibility-related entries, and package identifiers.
 - Custom message override support compatible with the project acceptance tests.
 - SpecMason configuration for tracking Gherkin-to-test coverage.
 
@@ -64,6 +67,15 @@ pyepubcheck OPS/package.opf
 pyepubcheck OPS/chapter-001.xhtml
 ```
 
+Inspect a publication:
+
+```bash
+pyepubcheck inspect book.epub
+pyepubcheck images book.epub --sort size --largest 10
+pyepubcheck metadata book.epub --format json
+pyepubcheck stats book.epub --estimate-pages
+```
+
 Write a JSON report:
 
 ```bash
@@ -86,30 +98,33 @@ pyepubcheck book.epub --profile edupub
 ## CLI reference
 
 ```text
-usage: pyepubcheck [-h] [--version] [--mode {opf,xhtml,svg,nav,mo,exp}]
-                   [-v EPUB_VERSION]
-                   [--profile {default,dict,edupub,idx,preview,accessibility}]
-                   [--save] [--out XML_REPORT] [--json JSON_REPORT]
-                   [--xmp XMP_REPORT] [--quiet] [--fatal] [--error] [--warn]
-                   [--usage] [--failonwarnings] [--locale LOCALE]
-                   [--customMessages CUSTOM_MESSAGES]
-                   [path]
+usage: pyepubcheck [-h] [--version]
+                   {check,inspect,images,metadata,manifest,nav,stats} ...
 ```
 
-Common options:
+Legacy validation remains supported:
 
-| Option                                    | Purpose                                                                                               |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `--mode`, `-m`                            | Select the validation mode: `opf`, `xhtml`, `svg`, `nav`, `mo`, or `exp`. Omit it for auto detection. |
-| `--profile`, `-p`                         | Select `default`, `dict`, `edupub`, `idx`, `preview`, or `accessibility`.                             |
-| `--out`, `-o`, `-out`                     | Write an XML report to a path or to `-` for stdout.                                                   |
-| `--json`, `-j`                            | Write a JSON report to a path or to `-` for stdout.                                                   |
-| `--xmp`, `-x`                             | Write an XMP report to a path or to `-` for stdout.                                                   |
-| `--quiet`, `-q`                           | Suppress console output.                                                                              |
-| `--fatal`, `--error`, `--warn`, `--usage` | Filter visible severities.                                                                            |
-| `--failonwarnings`                        | Return exit code `1` when visible warnings are present.                                               |
-| `--locale`                                | Select report localization where implemented.                                                         |
-| `--customMessages`, `-c`                  | Load custom message overrides.                                                                        |
+```bash
+pyepubcheck book.epub
+```
+
+This behaves like:
+
+```bash
+pyepubcheck check book.epub
+```
+
+Primary commands:
+
+| Command    | Purpose                                                                   |
+| ---------- | ------------------------------------------------------------------------- |
+| `check`    | Validate a publication and optionally append a compact clean-run summary. |
+| `inspect`  | Produce an all-in-one read-only publication overview.                     |
+| `images`   | List image assets, dimensions, byte sizes, properties, and references.    |
+| `metadata` | Report stored OPF metadata and package identifiers.                       |
+| `manifest` | Report manifest items, resolved paths, and file presence.                 |
+| `nav`      | Report TOC, landmarks, and page-list data.                                |
+| `stats`    | Report estimated word and character counts and optional estimated pages.  |
 
 ## Python API
 

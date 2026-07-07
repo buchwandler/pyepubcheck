@@ -6,9 +6,7 @@
 pyepubcheck book.epub
 ```
 
-For `.epub` files, this alpha release focuses on archive-level OCF checks. For full publication-level validation, validate an expanded EPUB directory.
-
-The command prints a version header and any visible validation messages. If no visible problems are found, it prints a localized success message.
+The command prints a version header and any visible validation messages. If no visible problems are found, it prints a localized success message and a compact publication summary unless `--quiet` or `--no-summary` is used.
 
 ## Validate an expanded EPUB directory
 
@@ -52,6 +50,18 @@ pyepubcheck book.epub --json -
 ```
 
 Only one structured report target can be selected at a time.
+
+## Inspect a publication
+
+```bash
+pyepubcheck inspect book.epub
+pyepubcheck inspect book.epub --format markdown --output book-inspection.md
+pyepubcheck images book.epub --sort size --largest 10
+pyepubcheck metadata book.epub --format json
+pyepubcheck stats book.epub --estimate-pages
+```
+
+Inspection commands are read-only. They summarize publication contents, metadata, images, navigation, and text statistics without modifying the EPUB.
 
 ## Exit codes
 

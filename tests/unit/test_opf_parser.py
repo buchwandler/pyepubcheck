@@ -6,6 +6,7 @@ from pathlib import Path
 
 from pyepubcheck.opf_parser import (
     parse_opf,
+    parse_opf_document,
     parse_prefix_attribute,
     validate_opf_prefixes,
     validate_opf_required_metadata,
@@ -181,6 +182,29 @@ class TestParseOpf:
         opf = parse_opf(opf_file)
         assert len(opf.errors) == 1
         assert opf.errors[0].id == "RSC-005"
+
+    def test_parse_opf_document_from_bytes(self) -> None:
+        opf = parse_opf_document(
+            b"""<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="uid">urn:uuid:12345</dc:identifier>
+    <dc:title>Test Book</dc:title>
+    <dc:language>en</dc:language>
+  </metadata>
+  <manifest>
+    <item id="content" href="content.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine>
+    <itemref idref="content"/>
+  </spine>
+</package>""",
+            "OPS/package.opf",
+        )
+        assert len(opf.errors) == 0
+        assert opf.path == Path("OPS/package.opf")
+        assert opf.version == "3.0"
+        assert opf.metadata.titles == ["Test Book"]
 
     def test_manifest_by_id(self, tmp_path: Path) -> None:
         opf_file = tmp_path / "test.opf"

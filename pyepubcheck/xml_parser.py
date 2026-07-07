@@ -116,11 +116,7 @@ def load_xml(path: Path | str) -> XmlDocument:
         return XmlDocument(path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors)
 
     try:
-        parser = etree.XMLParser(recover=False, encoding="utf-8")
-        tree = etree.parse(str(file_path), parser)
-        root = tree.getroot()
-        doc_type = detect_doc_type(root)
-        return XmlDocument(path=file_path, tree=tree, root=root, doc_type=doc_type, errors=errors)
+        return load_xml_bytes(file_path.read_bytes(), path=file_path)
     except etree.XMLSyntaxError as e:
         errors.append(
             ResultMessage(
@@ -135,12 +131,13 @@ def load_xml(path: Path | str) -> XmlDocument:
         return XmlDocument(path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors)
 
 
-def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
-    """Load XML from a string."""
+def load_xml_bytes(content: bytes, path: Path | str = "<bytes>") -> XmlDocument:
+    """Load XML from bytes."""
+
     errors: list[ResultMessage] = []
     try:
-        parser = etree.XMLParser(recover=False, encoding="utf-8")
-        root = etree.fromstring(content.encode("utf-8"), parser)
+        parser = etree.XMLParser(recover=False)
+        root = etree.fromstring(content, parser)
         tree = etree.ElementTree(root)
         doc_type = detect_doc_type(root)
         return XmlDocument(path=Path(path), tree=tree, root=root, doc_type=doc_type, errors=errors)
@@ -156,6 +153,11 @@ def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
         )
         dummy = etree.Element("dummy")
         return XmlDocument(path=Path(path), tree=etree.ElementTree(dummy), root=dummy, errors=errors)
+
+
+def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
+    """Load XML from a string."""
+    return load_xml_bytes(content.encode("utf-8"), path=path)
 
 
 def validate_xml_well_formedness(path: Path | str) -> list[ResultMessage]:

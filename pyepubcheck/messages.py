@@ -243,14 +243,17 @@ def build_message(
     message_id: str,
     *,
     path: str = "",
-    message: str | None = None,
+    message: str | tuple[str, ...] | list[str] | None = None,
     severity: Severity | None = None,
 ) -> ResultMessage:
     definition = MESSAGES[message_id]
+    resolved_message = message
+    if isinstance(resolved_message, (tuple, list)):
+        resolved_message = "".join(str(part) for part in resolved_message)
     return ResultMessage(
         id=message_id,
         severity=severity or definition.severity,
-        message=message or definition.text,
+        message=resolved_message or definition.text,
         suggestion=definition.suggestion,
         path=path,
     )
