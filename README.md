@@ -1,3 +1,7 @@
+[![PyPI - Version](https://img.shields.io/pypi/v/pyepubcheck)](https://pypi.org/project/pyepubcheck/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyepubcheck)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyepubcheck)
+
 # pyepubcheck
 
 `pyepubcheck` is a clean-room Python EPUB validation project driven by the imported EPUBCheck behavior specifications in `specs/behavior/features`.

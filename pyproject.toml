@@ -55,3 +55,9 @@ include = ["pyepubcheck*"]
 testpaths = ["tests"]
 python_files = "test_*.py"
 addopts = "-q"
+
+[project.urls]
+Homepage = "https://github.com/buchwandler/pyepubcheck"
+Repository = "https://github.com/buchwandler/pyepubcheck"
+Issues = "https://github.com/buchwandler/pyepubcheck/issues"
+Changelog = "https://github.com/buchwandler/pyepubcheck/releases"
