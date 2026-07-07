@@ -35,9 +35,7 @@ class TestPrefixAttributeSyntax:
 
     def test_invalid_syntax_missing_uri(self, tmp_path: Path) -> None:
         """Report syntax error when URI is missing."""
-        errors = _validate_prefix_attribute(
-            tmp_path / "test.opf", "foaf:"
-        )
+        errors = _validate_prefix_attribute(tmp_path / "test.opf", "foaf:")
         assert any(e.id == "OPF-007b" for e in errors)
 
     def test_empty_prefix_attribute(self, tmp_path: Path) -> None:

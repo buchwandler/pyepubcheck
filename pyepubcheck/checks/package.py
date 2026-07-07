@@ -243,7 +243,7 @@ def _validate_link_references(path: Path, opf) -> list[ResultMessage]:
 
     # Build set of manifest item IDs
     manifest_ids = {item.id for item in opf.manifest if item.id}
-    
+
     # Build set of all IDs in the document
     all_ids: set[str] = set()
     for elem in opf.xml_doc.root.iter():
@@ -257,10 +257,10 @@ def _validate_link_references(path: Path, opf) -> list[ResultMessage]:
         for link_el in metadata_el.findall("{http://www.idpf.org/2007/opf}link"):
             href = link_el.get("href", "")
             media_type = link_el.get("media-type", "")
-            
+
             if not href:
                 continue
-            
+
             # Check if href references a package document ID (fragment reference)
             if href.startswith("#"):
                 ref_id = href[1:]
@@ -303,12 +303,12 @@ def _validate_unique_ids(path: Path, opf) -> list[ResultMessage]:
 
     # Collect all IDs and check for duplicates
     id_counts: dict[str, list[str]] = {}  # id -> list of element paths
-    
+
     for elem in opf.xml_doc.root.iter():
         elem_id = elem.get("id", "")
         if not elem_id:
             continue
-        
+
         # Build a simple path for the element
         tag = elem.tag.split("}")[-1] if "}" in elem.tag else elem.tag
         if elem_id not in id_counts:
@@ -349,7 +349,7 @@ def _validate_refines_references(path: Path, opf) -> list[ResultMessage]:
             refines = meta_el.get("refines", "")
             if not refines:
                 continue
-            
+
             # Check for full URLs (not allowed)
             if refines.startswith(("http://", "https://")):
                 errors.append(
@@ -360,7 +360,7 @@ def _validate_refines_references(path: Path, opf) -> list[ResultMessage]:
                     )
                 )
                 continue
-            
+
             # Check for non-fragment relative paths (warning)
             if not refines.startswith("#"):
                 errors.append(
@@ -371,7 +371,7 @@ def _validate_refines_references(path: Path, opf) -> list[ResultMessage]:
                     )
                 )
                 continue
-            
+
             # Check that the referenced ID exists
             ref_id = refines[1:]
             if ref_id not in all_ids:
@@ -396,7 +396,7 @@ def _check_refines_cycles(opf, errors: list[ResultMessage], path: Path) -> None:
 
     # Build refines graph
     refines_graph: dict[str, set[str]] = {}  # id -> set of ids it refines
-    
+
     metadata_el = opf.xml_doc.find("{http://www.idpf.org/2007/opf}metadata")
     if metadata_el is None:
         return
@@ -406,7 +406,7 @@ def _check_refines_cycles(opf, errors: list[ResultMessage], path: Path) -> None:
         refines = meta_el.get("refines", "")
         if not meta_id or not refines or not refines.startswith("#"):
             continue
-        
+
         target_id = refines[1:]
         if meta_id not in refines_graph:
             refines_graph[meta_id] = set()
@@ -415,18 +415,18 @@ def _check_refines_cycles(opf, errors: list[ResultMessage], path: Path) -> None:
     # Check for cycles using DFS
     visited: set[str] = set()
     rec_stack: set[str] = set()
-    
+
     def has_cycle(node: str) -> bool:
         visited.add(node)
         rec_stack.add(node)
-        
+
         for neighbor in refines_graph.get(node, set()):
             if neighbor not in visited:
                 if has_cycle(neighbor):
                     return True
             elif neighbor in rec_stack:
                 return True
-        
+
         rec_stack.discard(node)
         return False
 
@@ -453,7 +453,7 @@ def _validate_lang_attributes(path: Path, opf) -> list[ResultMessage]:
         lang = elem.get("{http://www.w3.org/XML/1998/namespace}lang", "")
         if not lang:
             continue
-        
+
         # Check for leading/trailing whitespace
         if lang != lang.strip():
             errors.append(
@@ -470,7 +470,7 @@ def _validate_lang_attributes(path: Path, opf) -> list[ResultMessage]:
 def _validate_required_metadata(path: Path, opf) -> list[ResultMessage]:
     """Validate required metadata fields."""
     errors: list[ResultMessage] = []
-    
+
     # Check for required metadata
     if not opf.metadata.identifiers:
         errors.append(
@@ -480,7 +480,7 @@ def _validate_required_metadata(path: Path, opf) -> list[ResultMessage]:
                 message="package must have a dc:identifier",
             )
         )
-    
+
     if not opf.metadata.titles:
         errors.append(
             build_message(
@@ -489,7 +489,7 @@ def _validate_required_metadata(path: Path, opf) -> list[ResultMessage]:
                 message="package must have a dc:title",
             )
         )
-    
+
     if not opf.metadata.languages:
         errors.append(
             build_message(
@@ -498,9 +498,9 @@ def _validate_required_metadata(path: Path, opf) -> list[ResultMessage]:
                 message="package must have a dc:language",
             )
         )
-    
+
     # dcterms:modified is only required for EPUB 3.0+
-    version = getattr(opf, 'version', '3.0')
+    version = getattr(opf, "version", "3.0")
     if version and not version.startswith("2"):
         if not opf.metadata.modified:
             errors.append(

@@ -242,8 +242,9 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
             continue
 
         # Scenario Outline line
-        if (stripped.startswith("Scenario Outline:")
-                or stripped.startswith("Scenario Template:")):
+        if stripped.startswith("Scenario Outline:") or stripped.startswith(
+            "Scenario Template:"
+        ):
             _save_current_scenario()
             current_scenario_name = stripped.split(":", 1)[1].strip()
             current_scenario_line = i
@@ -269,9 +270,11 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
             continue
 
         # Examples / Scenarios table header
-        if (in_scenario and is_outline
-                and (stripped.startswith("Examples:")
-                     or stripped.startswith("Scenarios:"))):
+        if (
+            in_scenario
+            and is_outline
+            and (stripped.startswith("Examples:") or stripped.startswith("Scenarios:"))
+        ):
             # Finalize any previous table
             if current_table:
                 examples_tables.append(current_table)

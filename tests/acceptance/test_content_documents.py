@@ -305,7 +305,6 @@ def test_css_syntax_errors(run_pyepubcheck, fixtures) -> None:
     assert result.has_error("CSS-008")
 
 
-
 # specmason: @scenario-EPUBCHECK-
 def test_css_unicode_bidi_property(run_pyepubcheck, fixtures) -> None:
     """Report the use of the CSS unicode-bidi property."""
@@ -521,6 +520,7 @@ def test_css_fragment_only_url(run_pyepubcheck, fixtures) -> None:
     )
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
+
 
 # specmason: @scenario-EPUBCHECK-01D3BBFE
 def test_svg_in_spine(run_pyepubcheck, fixtures) -> None:
@@ -862,7 +862,9 @@ def test_xhtml_wai_aria_valid(run_pyepubcheck, fixtures) -> None:
 
 # specmason: @scenario-EPUBCHECK-
 @pytest.mark.xfail(reason="Validation not yet implemented")
-def test_xhtml_content_xhtml_img_srcset_undeclared_error(run_pyepubcheck, fixtures) -> None:
+def test_xhtml_content_xhtml_img_srcset_undeclared_error(
+    run_pyepubcheck, fixtures
+) -> None:
     """Report undeclared resources in srcset."""
     result = run_pyepubcheck(
         _path(
@@ -1025,7 +1027,9 @@ def test_xhtml_content_xhtml_svg_in_spine(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_xhtml_content_xhtml_link_to_local_file_escaped(run_pyepubcheck, fixtures) -> None:
+def test_xhtml_content_xhtml_link_to_local_file_escaped(
+    run_pyepubcheck, fixtures
+) -> None:
     """Verify escaped hyperlinks to local files are allowed."""
     result = run_pyepubcheck(
         _path(
@@ -1157,7 +1161,9 @@ def test_media_overlay_metadata_properties_valid(run_pyepubcheck, fixtures) -> N
 
 # specmason: @scenario-EPUBCHECK-
 @pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
-def test_media_overlay_seq_with_direct_media_children(run_pyepubcheck, fixtures) -> None:
+def test_media_overlay_seq_with_direct_media_children(
+    run_pyepubcheck, fixtures
+) -> None:
     """Report media clips used as direct children of a seq element."""
     result = run_pyepubcheck(
         _path(

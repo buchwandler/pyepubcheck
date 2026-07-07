@@ -43,6 +43,7 @@ TAG_CHARS = {chr(i) for i in range(0xE0020, 0xE0080)}
 # Filename validation regex
 FILENAME_RE = re.compile(r'^[^"<>\x2a\x2b\x3a\x3b\x3d\x3f\x5c\x7c\x00-\x1f\x7f]+$')
 
+
 def _validate_mimetype_content(content: str) -> list[ResultMessage]:
     """Validate mimetype file content."""
     # Check for leading whitespace (explicitly forbidden)
@@ -85,7 +86,7 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
     # Collect forbidden characters for reporting
     found_forbidden: list[str] = []
     found_control: list[str] = []
-    
+
     for char in filename:
         # Check for whitespace warnings
         if char in WARNING_CHARS:
@@ -96,7 +97,7 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
                 )
             )
             break
-        
+
         # Check for forbidden characters
         if char in FORBIDDEN_CHARS:
             found_forbidden.append(f"U+{ord(char):04X} ({char})")
@@ -111,25 +112,28 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
         elif ord(char) >= 0xE0001 and ord(char) <= 0xE001F:
             # Language tag characters (deprecated)
             found_forbidden.append(f"U+{ord(char):04X} LANGUAGE TAG (DEPRECATED)")
-        elif (ord(char) >= 0xF0000 and ord(char) <= 0xFFFFD) or \
-             (ord(char) >= 0x100000 and ord(char) <= 0x10FFFD):
+        elif (ord(char) >= 0xF0000 and ord(char) <= 0xFFFFD) or (
+            ord(char) >= 0x100000 and ord(char) <= 0x10FFFD
+        ):
             found_forbidden.append(f"U+{ord(char):04X} (PRIVATE USE)")
-        elif (ord(char) >= 0x1FFFE and ord(char) <= 0x1FFFF) or \
-             (ord(char) >= 0x2FFFE and ord(char) <= 0x2FFFF) or \
-             (ord(char) >= 0x3FFFE and ord(char) <= 0x3FFFF) or \
-             (ord(char) >= 0x4FFFE and ord(char) <= 0x4FFFF) or \
-             (ord(char) >= 0x5FFFE and ord(char) <= 0x5FFFF) or \
-             (ord(char) >= 0x6FFFE and ord(char) <= 0x6FFFF) or \
-             (ord(char) >= 0x7FFFE and ord(char) <= 0x7FFFF) or \
-             (ord(char) >= 0x8FFFE and ord(char) <= 0x8FFFF) or \
-             (ord(char) >= 0x9FFFE and ord(char) <= 0x9FFFF) or \
-             (ord(char) >= 0xAFFFE and ord(char) <= 0xAFFFF) or \
-             (ord(char) >= 0xBFFFE and ord(char) <= 0xBFFFF) or \
-             (ord(char) >= 0xCFFFE and ord(char) <= 0xCFFFF) or \
-             (ord(char) >= 0xDFFFE and ord(char) <= 0xDFFFF) or \
-             (ord(char) >= 0xEFFFE and ord(char) <= 0xEFFFF) or \
-             (ord(char) >= 0xFFFFE and ord(char) <= 0xFFFFF) or \
-             (ord(char) >= 0x10FFFE and ord(char) <= 0x10FFFF):
+        elif (
+            (ord(char) >= 0x1FFFE and ord(char) <= 0x1FFFF)
+            or (ord(char) >= 0x2FFFE and ord(char) <= 0x2FFFF)
+            or (ord(char) >= 0x3FFFE and ord(char) <= 0x3FFFF)
+            or (ord(char) >= 0x4FFFE and ord(char) <= 0x4FFFF)
+            or (ord(char) >= 0x5FFFE and ord(char) <= 0x5FFFF)
+            or (ord(char) >= 0x6FFFE and ord(char) <= 0x6FFFF)
+            or (ord(char) >= 0x7FFFE and ord(char) <= 0x7FFFF)
+            or (ord(char) >= 0x8FFFE and ord(char) <= 0x8FFFF)
+            or (ord(char) >= 0x9FFFE and ord(char) <= 0x9FFFF)
+            or (ord(char) >= 0xAFFFE and ord(char) <= 0xAFFFF)
+            or (ord(char) >= 0xBFFFE and ord(char) <= 0xBFFFF)
+            or (ord(char) >= 0xCFFFE and ord(char) <= 0xCFFFF)
+            or (ord(char) >= 0xDFFFE and ord(char) <= 0xDFFFF)
+            or (ord(char) >= 0xEFFFE and ord(char) <= 0xEFFFF)
+            or (ord(char) >= 0xFFFFE and ord(char) <= 0xFFFFF)
+            or (ord(char) >= 0x10FFFE and ord(char) <= 0x10FFFF)
+        ):
             found_forbidden.append(f"U+{ord(char):04X} (NON CHARACTER)")
 
     # Report forbidden characters
@@ -141,7 +145,7 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
                 message=f"forbidden characters in filename '{filename}': {chars_str}",
             )
         )
-    
+
     # Report control characters
     if found_control:
         chars_str = ", ".join(found_control)
@@ -155,10 +159,10 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
     return errors
 
 
-
 def check_filename(filename: str) -> list[ResultMessage]:
     """Public API to validate a single filename against OCF rules."""
     return _validate_filename(filename)
+
 
 def _check_duplicate_filenames(filenames: list[str]) -> list[ResultMessage]:
     """Check for duplicate filenames after case folding."""

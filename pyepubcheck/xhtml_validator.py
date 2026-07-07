@@ -190,7 +190,11 @@ def validate_xhtml_doctype(
                             sys_end = sys_part.find('"', 1)
                             if sys_end != -1:
                                 system_id = sys_part[1:sys_end]
-                                if system_id and system_id not in w3c_dtds and system_id not in valid_system_ids:
+                                if (
+                                    system_id
+                                    and system_id not in w3c_dtds
+                                    and system_id not in valid_system_ids
+                                ):
                                     errors.append(
                                         ResultMessage(
                                             id="RSC-005",
@@ -201,7 +205,6 @@ def validate_xhtml_doctype(
                                     )
 
     return errors
-
 
 
 # Allowed external identifiers by media type
@@ -357,6 +360,7 @@ def validate_external_identifier(
             )
 
     return errors
+
 
 def validate_xhtml_nav(doc: XmlDocument) -> list[ResultMessage]:
     """Validate XHTML navigation document.

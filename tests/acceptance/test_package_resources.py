@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pytest
 
+
 def _path(fixtures, relative: str) -> str:
     return str(fixtures.resolve(relative))
 
@@ -210,7 +211,9 @@ def test_package_metadata_refines_not_relative_error(run_pyepubcheck, fixtures) 
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_package_metadata_refines_not_fragment_warning(run_pyepubcheck, fixtures) -> None:
+def test_package_metadata_refines_not_fragment_warning(
+    run_pyepubcheck, fixtures
+) -> None:
     """'refines' attribute should use a fragment ID if refering to a Publication Resource."""
     result = run_pyepubcheck(
         _path(
@@ -470,7 +473,9 @@ def test_package_link_media_type_missing_local_error(run_pyepubcheck, fixtures) 
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_package_link_media_type_missing_remote_valid(run_pyepubcheck, fixtures) -> None:
+def test_package_link_media_type_missing_remote_valid(
+    run_pyepubcheck, fixtures
+) -> None:
     """Remote links do not require a media-type attribute."""
     result = run_pyepubcheck(
         _path(
@@ -531,7 +536,9 @@ def test_resource_core_media_types_not_preferred(run_pyepubcheck, fixtures) -> N
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_resource_conformance_xml_undeclared_namespace(run_pyepubcheck, fixtures) -> None:
+def test_resource_conformance_xml_undeclared_namespace(
+    run_pyepubcheck, fixtures
+) -> None:
     """Report undeclared namespace in XML."""
     result = run_pyepubcheck(
         _path(

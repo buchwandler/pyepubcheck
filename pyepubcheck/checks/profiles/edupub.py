@@ -113,15 +113,21 @@ def _validate_accessibility_features(context: ProfileContext) -> list[ResultMess
 
 def _validate_content_documents(context: ProfileContext) -> list[ResultMessage]:
     """Validate EDUPUB content document requirements.
-    
+
     When body has epub:type (used as section), it must contain a heading.
     """
     errors: list[ResultMessage] = []
     xhtml_ns = "http://www.w3.org/1999/xhtml"
     epub_ns = "http://www.idpf.org/2007/ops"
-    heading_tags = {f"{{{xhtml_ns}}}h1", f"{{{xhtml_ns}}}h2", f"{{{xhtml_ns}}}h3",
-                   f"{{{xhtml_ns}}}h4", f"{{{xhtml_ns}}}h5", f"{{{xhtml_ns}}}h6"}
-    
+    heading_tags = {
+        f"{{{xhtml_ns}}}h1",
+        f"{{{xhtml_ns}}}h2",
+        f"{{{xhtml_ns}}}h3",
+        f"{{{xhtml_ns}}}h4",
+        f"{{{xhtml_ns}}}h5",
+        f"{{{xhtml_ns}}}h6",
+    }
+
     for item in context.opf.manifest:
         if not item.href or item.media_type != "application/xhtml+xml":
             continue
@@ -154,8 +160,10 @@ def _validate_content_documents(context: ProfileContext) -> list[ResultMessage]:
                     build_message(
                         "RSC-005",
                         path=str(path),
-                        message=("Body element used as section must contain a "
-                                "heading element (h1-h6 or role='heading')."),
+                        message=(
+                            "Body element used as section must contain a "
+                            "heading element (h1-h6 or role='heading')."
+                        ),
                     )
                 )
     return errors

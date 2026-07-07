@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import pytest
 
 def _path(fixtures, relative: str) -> str:
     return str(fixtures.resolve(relative))

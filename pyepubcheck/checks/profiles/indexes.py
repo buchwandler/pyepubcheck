@@ -7,7 +7,11 @@ XHTML content document that contains an ``index``-typed section.
 
 from __future__ import annotations
 
-from pyepubcheck.checks.profiles import ProfileContext, has_collection_role, is_profile_active
+from pyepubcheck.checks.profiles import (
+    ProfileContext,
+    has_collection_role,
+    is_profile_active,
+)
 from pyepubcheck.messages import build_message
 from pyepubcheck.result import ResultMessage
 from pyepubcheck.xml_parser import load_xml
@@ -32,16 +36,20 @@ def _index_documents(context: ProfileContext) -> list:
     candidates = []
     is_index_type = is_profile_active(context, "index")
     has_index_collection = "index" in context.collection_roles
-    
+
     # First check manifest items with index property
     for item in context.opf.manifest:
         if not item.href or item.media_type != "application/xhtml+xml":
             continue
         if "index" in item.properties:
             candidates.append(context.opf_dir / item.href)
-    
+
     # If there's an index collection, get the linked documents
-    if has_index_collection and context.opf.xml_doc is not None and context.opf.xml_doc.root is not None:
+    if (
+        has_index_collection
+        and context.opf.xml_doc is not None
+        and context.opf.xml_doc.root is not None
+    ):
         opf_ns = "http://www.idpf.org/2007/opf"
         for collection in context.opf.xml_doc.root.iter(f"{{{opf_ns}}}collection"):
             if collection.get("role", "") != "index":
@@ -52,7 +60,7 @@ def _index_documents(context: ProfileContext) -> list:
                     path = context.opf_dir / href
                     if path not in candidates:
                         candidates.append(path)
-    
+
     # If dc:type is index but no specific index documents found,
     # all XHTML documents are candidates
     if is_index_type and not candidates:

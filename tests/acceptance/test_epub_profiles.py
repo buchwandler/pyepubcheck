@@ -14,8 +14,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 
 def _profile_fixture(fixtures, profile: str, name: str) -> Path:
     return fixtures.fixture_path(f"/{profile}/files", name)
@@ -152,9 +150,7 @@ def test_dictionary_glossary_valid(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _profile_fixture(
-            fixtures, "epub-dictionaries", "epub/glossary-single-valid"
-        ),
+        _profile_fixture(fixtures, "epub-dictionaries", "epub/glossary-single-valid"),
         transport="subprocess",
     )
     assert result.returncode == 0

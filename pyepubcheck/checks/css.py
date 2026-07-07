@@ -143,7 +143,7 @@ def run(path: str | Path) -> list[ResultMessage]:
     # Detect encoding from BOM or @charset
     encoding = "utf-8"
     has_bom = False
-    
+
     # Check for BOM
     if raw_bytes[:3] == b"\xef\xbb\xbf":
         encoding = "utf-8"
@@ -154,7 +154,7 @@ def run(path: str | Path) -> list[ResultMessage]:
     elif raw_bytes[:2] == b"\xfe\xff":
         encoding = "utf-16-be"
         has_bom = True
-    
+
     # Try to read with detected encoding
     try:
         content = raw_bytes.decode(encoding)
@@ -214,10 +214,12 @@ def run(path: str | Path) -> list[ResultMessage]:
     errors.extend(_validate_css_font_face(candidate, content))
 
     return errors
+
+
 def _validate_css_encoding(path: Path, content: str) -> list[ResultMessage]:
     """Validate CSS @charset encoding."""
     errors: list[ResultMessage] = []
-    
+
     # Check for @charset declaration
     charset_re = re.compile(r"@charset\s+['\"]([^'\"]+)['\"]\s*;")
     match = charset_re.search(content)
@@ -231,7 +233,7 @@ def _validate_css_encoding(path: Path, content: str) -> list[ResultMessage]:
                     message=f"CSS @charset encoding '{encoding}' is not allowed",
                 )
             )
-    
+
     # Check for UTF-16 encoding warning
     if "utf-16" in content.lower():
         errors.append(
@@ -241,25 +243,27 @@ def _validate_css_encoding(path: Path, content: str) -> list[ResultMessage]:
                 message="CSS encoded in UTF-16",
             )
         )
-    
+
     return errors
 
 
-def _validate_css_import(path: Path, content: str, css_dir: Path) -> list[ResultMessage]:
+def _validate_css_import(
+    path: Path, content: str, css_dir: Path
+) -> list[ResultMessage]:
     """Validate CSS @import statements."""
     errors: list[ResultMessage] = []
-    
+
     import_re = re.compile(r"@import\s+(?:url\()?['\"]?([^'\"\);]+)['\"]?\)?")
     for match in import_re.finditer(content):
         url = match.group(1).strip()
-        
+
         # Skip remote URLs
         if url.startswith(("http://", "https://", "data:")):
             continue
-        
+
         # Resolve URL relative to CSS file
         resolved_url = (css_dir / url).resolve()
-        
+
         # Check if URL exists
         if not resolved_url.exists():
             errors.append(
@@ -269,14 +273,14 @@ def _validate_css_import(path: Path, content: str, css_dir: Path) -> list[Result
                     message=f"@import resource not found: '{url}'",
                 )
             )
-    
+
     return errors
 
 
 def _validate_css_font_face(path: Path, content: str) -> list[ResultMessage]:
     """Validate CSS @font-face declarations."""
     errors: list[ResultMessage] = []
-    
+
     # Check for empty @font-face declarations
     font_face_re = re.compile(r"@font-face\s*\{\s*\}")
     if font_face_re.search(content):
@@ -287,9 +291,11 @@ def _validate_css_font_face(path: Path, content: str) -> list[ResultMessage]:
                 message="Empty @font-face declaration",
             )
         )
-    
+
     # Check for @font-face with empty URL
-    font_face_url_re = re.compile(r"@font-face\s*\{[^}]*url\(\s*['\"]?\s*['\"]?\s*\)[^}]*\}")
+    font_face_url_re = re.compile(
+        r"@font-face\s*\{[^}]*url\(\s*['\"]?\s*['\"]?\s*\)[^}]*\}"
+    )
     if font_face_url_re.search(content):
         errors.append(
             build_message(
@@ -298,7 +304,7 @@ def _validate_css_font_face(path: Path, content: str) -> list[ResultMessage]:
                 message="@font-face with empty URL reference",
             )
         )
-    
+
     return errors
 
     # Validate CSS @font-face

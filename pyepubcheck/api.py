@@ -22,13 +22,13 @@ from pyepubcheck.checks.resources import run as run_resource_checks
 from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.xhtml import run as run_xhtml_checks
 from pyepubcheck.checks.xhtml import validate_resources as run_xhtml_resource_checks
-from pyepubcheck.xhtml_validator import validate_external_identifier
 from pyepubcheck.config import ValidationConfig
 from pyepubcheck.io.expanded import DirectorySource
 from pyepubcheck.messages import build_message
 from pyepubcheck.models import PublicationMetadata
 from pyepubcheck.opf_parser import parse_opf
 from pyepubcheck.result import ValidationReport
+from pyepubcheck.xhtml_validator import validate_external_identifier
 from pyepubcheck.xml_parser import load_xml
 
 
@@ -160,7 +160,9 @@ def validate_path(
                     try:
                         content = item_path.read_text(encoding="utf-8")
                         report.messages.extend(
-                            validate_external_identifier(item_path, item.media_type, content)
+                            validate_external_identifier(
+                                item_path, item.media_type, content
+                            )
                         )
                     except Exception:
                         pass
@@ -172,7 +174,9 @@ def validate_path(
             report.messages.extend(run_package_checks(resolved))
             report.messages.extend(run_epub2_checks(resolved))
             report.messages.extend(run_resource_checks(resolved))
-            report.messages.extend(run_xhtml_checks(resolved, profile=effective.profile))
+            report.messages.extend(
+                run_xhtml_checks(resolved, profile=effective.profile)
+            )
             report.messages.extend(run_svg_checks(resolved))
             report.messages.extend(run_css_checks(resolved))
             report.messages.extend(run_navigation_checks(resolved))
