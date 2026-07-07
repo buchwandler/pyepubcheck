@@ -33,9 +33,7 @@ def _validate_rendition_layout(path: Path, layout: str) -> list[ResultMessage]:
     return errors
 
 
-def _validate_rendition_orientation(
-    path: Path, orientation: str
-) -> list[ResultMessage]:
+def _validate_rendition_orientation(path: Path, orientation: str) -> list[ResultMessage]:
     """Validate rendition:orientation value."""
     errors: list[ResultMessage] = []
     if orientation and orientation not in VALID_ORIENTATIONS:
@@ -122,21 +120,13 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Validate rendition properties
     if opf.metadata.rendition_layout:
-        errors.extend(
-            _validate_rendition_layout(candidate, opf.metadata.rendition_layout)
-        )
+        errors.extend(_validate_rendition_layout(candidate, opf.metadata.rendition_layout))
 
     if opf.metadata.rendition_orientation:
-        errors.extend(
-            _validate_rendition_orientation(
-                candidate, opf.metadata.rendition_orientation
-            )
-        )
+        errors.extend(_validate_rendition_orientation(candidate, opf.metadata.rendition_orientation))
 
     if opf.metadata.rendition_spread:
-        errors.extend(
-            _validate_rendition_spread(candidate, opf.metadata.rendition_spread)
-        )
+        errors.extend(_validate_rendition_spread(candidate, opf.metadata.rendition_spread))
 
     # Validate prefix declarations
     errors.extend(_validate_prefix_declarations(candidate, opf))

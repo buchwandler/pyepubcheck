@@ -149,11 +149,7 @@ def _text_or_empty(element, xpath: str, namespaces: dict[str, str]) -> str:
 
 def _text_list(element, xpath: str, namespaces: dict[str, str]) -> list[str]:
     """Get list of text contents from elements matching xpath."""
-    return [
-        el.text.strip()
-        for el in element.findall(xpath, namespaces)
-        if el.text and el.text.strip()
-    ]
+    return [el.text.strip() for el in element.findall(xpath, namespaces) if el.text and el.text.strip()]
 
 
 def parse_opf(path: Path | str) -> OpfDocument:
@@ -357,10 +353,7 @@ def validate_opf_prefixes(opf: OpfDocument) -> list[ResultMessage]:
         for prop in item.properties:
             if ":" in prop:
                 prefix = prop.split(":")[0]
-                if (
-                    prefix not in declared_prefixes
-                    and prefix not in known_property_prefixes
-                ):
+                if prefix not in declared_prefixes and prefix not in known_property_prefixes:
                     errors.append(
                         ResultMessage(
                             id="OPF-028",
@@ -376,10 +369,7 @@ def validate_opf_prefixes(opf: OpfDocument) -> list[ResultMessage]:
             prop = meta_el.get("property", "")
             if ":" in prop:
                 prefix = prop.split(":")[0]
-                if (
-                    prefix not in declared_prefixes
-                    and prefix not in known_property_prefixes
-                ):
+                if prefix not in declared_prefixes and prefix not in known_property_prefixes:
                     errors.append(
                         ResultMessage(
                             id="OPF-028",

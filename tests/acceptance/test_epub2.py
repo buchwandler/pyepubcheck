@@ -22,9 +22,7 @@ def _epub2_fixture(fixtures, name: str) -> Path:
 # specmason: @scenario-EPUBCHECK-F5D49F84
 def test_minimal_epub2_passes(run_pyepubcheck, fixtures) -> None:
     """Verify a minimal EPUB 2.0.1 publication."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/minimal"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/minimal"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -98,9 +96,7 @@ def test_spine_toc_must_point_to_ncx(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-15FB0255
 def test_ncx_uid_spaces_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a publication featuring a legacy NCX navigation document."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ncx-uid-spaces-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-uid-spaces-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -108,9 +104,7 @@ def test_ncx_uid_spaces_valid(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-759F9828
 def test_ncx_id_duplicate_error(run_pyepubcheck, fixtures) -> None:
     """Report validation errors in legacy NCX documents."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ncx-id-duplicate-error"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-id-duplicate-error"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("NCX-002")
 
@@ -231,9 +225,7 @@ def test_spine_itemref_repeated(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-6A4D4604
 def test_spine_missing(run_pyepubcheck, fixtures) -> None:
     """Report a missing spine."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/opf-spine-missing-error"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-spine-missing-error"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("RSC-005")
 
@@ -330,9 +322,7 @@ def test_ncx_link_to_non_ops(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-15FB0255
 def test_ncx_label_empty_valid(run_pyepubcheck, fixtures) -> None:
     """Verify NCX with empty labels is valid."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ncx-label-empty-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ncx-label-empty-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -415,14 +405,10 @@ def test_ocf_metainf_container_multiple_opf(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-B57E1D97
-def test_ocf_metainf_container_rootfile_full_path_empty(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_ocf_metainf_container_rootfile_full_path_empty(run_pyepubcheck, fixtures) -> None:
     """Report empty rootfile full-path."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "epub/ocf-metainf-container-rootfile-full-path-empty-error"
-        ),
+        _epub2_fixture(fixtures, "epub/ocf-metainf-container-rootfile-full-path-empty-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -430,14 +416,10 @@ def test_ocf_metainf_container_rootfile_full_path_empty(
 
 
 # specmason: @scenario-EPUBCHECK-41101BA8
-def test_ocf_metainf_container_rootfile_full_path_missing(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_ocf_metainf_container_rootfile_full_path_missing(run_pyepubcheck, fixtures) -> None:
     """Report missing rootfile full-path."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "epub/ocf-metainf-container-rootfile-full-path-missing-error"
-        ),
+        _epub2_fixture(fixtures, "epub/ocf-metainf-container-rootfile-full-path-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -458,9 +440,7 @@ def test_ocf_mimetype_with_spaces(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-A1794483
 def test_ocf_opf_missing(run_pyepubcheck, fixtures) -> None:
     """Report missing OPF file."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ocf-opf-missing-fatal"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ocf-opf-missing-fatal"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("FATAL-001")
 
@@ -523,9 +503,7 @@ def test_opf_legacy_oebps12_mediatype_html(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-3849F4F7
 def test_opf_pagemap_error(run_pyepubcheck, fixtures) -> None:
     """Report page map error."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/opf-pagemap-error"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/opf-pagemap-error"), transport="subprocess")
     assert result.returncode == 0
 
 
@@ -554,9 +532,7 @@ def test_opf_version_missing(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-3849F4F7
 def test_ops_dtbook_valid(run_pyepubcheck, fixtures) -> None:
     """Verify DTBook is valid."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ops-dtbook-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ops-dtbook-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -575,9 +551,7 @@ def test_ops_xhtml_link_to_missing_stylesheet(run_pyepubcheck, fixtures) -> None
 # specmason: @scenario-EPUBCHECK-3849F4F7
 def test_ops_xhtml_script_valid(run_pyepubcheck, fixtures) -> None:
     """Verify XHTML with script is valid."""
-    result = run_pyepubcheck(
-        _epub2_fixture(fixtures, "epub/ops-xhtml-script-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_epub2_fixture(fixtures, "epub/ops-xhtml-script-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -597,9 +571,7 @@ def test_ops_xhtml_unusual_extension(run_pyepubcheck, fixtures) -> None:
 def test_ops_xhtml_doctype_unresolved_entity(run_pyepubcheck, fixtures) -> None:
     """Report unresolved entity in doctype."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "ops-document-xhtml/doctype-unresolved-entity-error.xhtml"
-        ),
+        _epub2_fixture(fixtures, "ops-document-xhtml/doctype-unresolved-entity-error.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -665,9 +637,7 @@ def test_ops_xhtml_html5_elements(run_pyepubcheck, fixtures) -> None:
 def test_ops_xhtml_svg_foreignObject_with_html(run_pyepubcheck, fixtures) -> None:
     """Verify SVG foreignObject with HTML is valid."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "ops-document-xhtml/svg-foreignObject-with-html-valid.xhtml"
-        ),
+        _epub2_fixture(fixtures, "ops-document-xhtml/svg-foreignObject-with-html-valid.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -678,9 +648,7 @@ def test_ops_xhtml_svg_foreignObject_with_html(run_pyepubcheck, fixtures) -> Non
 def test_ops_xhtml_svg_foreignObject_switch(run_pyepubcheck, fixtures) -> None:
     """Verify SVG foreignObject switch is valid."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "ops-document-xhtml/svg-foreignObject-switch-valid.xhtml"
-        ),
+        _epub2_fixture(fixtures, "ops-document-xhtml/svg-foreignObject-switch-valid.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -713,9 +681,7 @@ def test_ops_xhtml_lang_attr(run_pyepubcheck, fixtures) -> None:
 def test_ops_xhtml_entities_character_references(run_pyepubcheck, fixtures) -> None:
     """Verify character references are valid."""
     result = run_pyepubcheck(
-        _epub2_fixture(
-            fixtures, "ops-document-xhtml/entities-character-references-valid.xhtml"
-        ),
+        _epub2_fixture(fixtures, "ops-document-xhtml/entities-character-references-valid.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 0

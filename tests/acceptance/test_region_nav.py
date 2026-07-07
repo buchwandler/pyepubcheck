@@ -16,9 +16,7 @@ def _region_nav_fixture(fixtures, name: str) -> Path:
 # specmason: @scenario-EPUBCHECK-30D84A43
 def test_region_nav_basic_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a basic data nav file."""
-    result = run_pyepubcheck(
-        _region_nav_fixture(fixtures, "data-nav-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_region_nav_fixture(fixtures, "data-nav-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -59,9 +57,7 @@ def test_region_nav_unidentified_element(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-15EA5B7C
 def test_region_nav_multiple_files(run_pyepubcheck, fixtures) -> None:
     """Report the inclusion of more than one data nav file."""
-    result = run_pyepubcheck(
-        _region_nav_fixture(fixtures, "data-nav-multiple-error"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_region_nav_fixture(fixtures, "data-nav-multiple-error"), transport="subprocess")
     assert result.returncode == 1
     assert result.has_error("RSC-005")
 
@@ -69,9 +65,7 @@ def test_region_nav_multiple_files(run_pyepubcheck, fixtures) -> None:
 # specmason: @scenario-EPUBCHECK-ACC24EA9
 def test_region_nav_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a data nav that defines region-based navigation."""
-    result = run_pyepubcheck(
-        _region_nav_fixture(fixtures, "region-based-nav-valid"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_region_nav_fixture(fixtures, "region-based-nav-valid"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 

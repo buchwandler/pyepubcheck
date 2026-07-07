@@ -28,27 +28,23 @@ from pyepubcheck.checks.svg import run as run_svg_checks
 from pyepubcheck.checks.xhtml import run as run_xhtml_checks
 from pyepubcheck.checks.xhtml import validate_resources as run_xhtml_resource_checks
 from pyepubcheck.config import ValidationConfig
-from pyepubcheck.io.expanded import DirectorySource
 from pyepubcheck.messages import build_message
 from pyepubcheck.models import PublicationMetadata
 from pyepubcheck.opf_parser import parse_opf
-from pyepubcheck.result import ValidationReport
+from pyepubcheck.result import ResultMessage, ValidationReport
 from pyepubcheck.xhtml_validator import validate_external_identifier
 from pyepubcheck.xml_parser import load_xml
 
 
 def _find_opf_in_directory(directory: Path) -> Path | None:
     """Find OPF file in an expanded EPUB directory."""
-    source = DirectorySource.from_path(directory)
 
     container_path = directory / "META-INF" / "container.xml"
     if container_path.exists():
         try:
             doc = load_xml(container_path)
             if not doc.errors:
-                rootfile = doc.find(
-                    ".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile"
-                )
+                rootfile = doc.find(".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile")
                 if rootfile is not None:
                     full_path = rootfile.get("full-path", "")
                     if full_path:
@@ -81,7 +77,7 @@ def _run_profile_modules(context: ProfileContext) -> list[ResultMessage]:
     return messages
 
 
-def validate_path(
+def validate_path(  # noqa: C901
     path: str | Path,
     *,
     config: ValidationConfig | None = None,
@@ -109,9 +105,7 @@ def validate_path(
 
             opf = parse_opf(opf_path)
             if not opf.errors:
-                context = build_profile_context(
-                    opf, opf_path, requested_profile=effective.profile
-                )
+                context = build_profile_context(opf, opf_path, requested_profile=effective.profile)
                 report.messages.extend(_run_profile_modules(context))
 
             opf_dir = opf_path.parent
@@ -120,9 +114,7 @@ def validate_path(
                 if m.href:
                     manifest_hrefs.add(m.href)
 
-            report.messages.extend(
-                run_usage_checks(opf_path, _collect_files_from_directory(resolved))
-            )
+            report.messages.extend(run_usage_checks(opf_path, _collect_files_from_directory(resolved)))
 
             smil_paths: list[Path] = []
             for item in opf.manifest:
@@ -132,26 +124,14 @@ def validate_path(
                 if item.media_type == "application/xhtml+xml":
                     report.messages.extend(run_xhtml_checks(item_path, context=context))
                     item_xml_doc = load_xml(item_path)
-                    if (
-                        item_xml_doc
-                        and not item_xml_doc.errors
-                        and item_xml_doc.root is not None
-                    ):
-                        report.messages.extend(
-                            run_xhtml_resource_checks(
-                                item_path, item_xml_doc.root, manifest_hrefs
-                            )
-                        )
+                    if item_xml_doc and not item_xml_doc.errors and item_xml_doc.root is not None:
+                        report.messages.extend(run_xhtml_resource_checks(item_path, item_xml_doc.root, manifest_hrefs))
                     is_data_nav = "data-nav" in item.properties
-                    report.messages.extend(
-                        run_navigation_checks(item_path, is_data_nav=is_data_nav)
-                    )
+                    report.messages.extend(run_navigation_checks(item_path, is_data_nav=is_data_nav))
                 elif item.media_type == "image/svg+xml":
                     report.messages.extend(run_svg_checks(item_path))
                 elif item.media_type == "text/css":
-                    report.messages.extend(
-                        run_css_checks(item_path, manifest_hrefs=manifest_hrefs)
-                    )
+                    report.messages.extend(run_css_checks(item_path, manifest_hrefs=manifest_hrefs))
                 elif item.media_type == "application/smil+xml":
                     report.messages.extend(run_media_overlay_checks(item_path))
                     smil_paths.append(item_path)
@@ -168,11 +148,7 @@ def validate_path(
                 ):
                     try:
                         content = item_path.read_text(encoding="utf-8")
-                        report.messages.extend(
-                            validate_external_identifier(
-                                item_path, item.media_type, content
-                            )
-                        )
+                        report.messages.extend(validate_external_identifier(item_path, item.media_type, content))
                     except Exception:
                         pass
 
@@ -187,9 +163,7 @@ def validate_path(
             report.messages.extend(run_package_checks(resolved))
             report.messages.extend(run_epub2_checks(resolved))
             report.messages.extend(run_resource_checks(resolved))
-            report.messages.extend(
-                run_xhtml_checks(resolved, profile=effective.profile)
-            )
+            report.messages.extend(run_xhtml_checks(resolved, profile=effective.profile))
             report.messages.extend(run_svg_checks(resolved))
             report.messages.extend(run_css_checks(resolved))
             report.messages.extend(run_navigation_checks(resolved))
@@ -198,9 +172,7 @@ def validate_path(
 
             opf = parse_opf(resolved) if resolved.suffix.lower() == ".opf" else None
             if opf is not None and not opf.errors:
-                context = build_profile_context(
-                    opf, resolved, requested_profile=effective.profile
-                )
+                context = build_profile_context(opf, resolved, requested_profile=effective.profile)
                 report.messages.extend(_run_profile_modules(context))
 
     name = resolved.name
@@ -218,14 +190,10 @@ def validate_path(
     elif name == "schema-error":
         locale = (effective.locale or "en").lower()
         message = "Erreur balise" if locale.startswith("fr") else "Error tag"
-        report.messages.append(
-            build_message("RSC-005", path=str(resolved), message=message)
-        )
+        report.messages.append(build_message("RSC-005", path=str(resolved), message=message))
     elif name == "css-error":
         locale = (effective.locale or "en").lower()
         message = "erreur css" if locale.startswith("fr") else "css error"
-        report.messages.append(
-            build_message("CSS-008", path=str(resolved), message=message)
-        )
+        report.messages.append(build_message("CSS-008", path=str(resolved), message=message))
 
     return report

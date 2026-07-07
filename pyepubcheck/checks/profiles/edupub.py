@@ -103,10 +103,7 @@ def _validate_accessibility_features(context: ProfileContext) -> list[ResultMess
         build_message(
             "RSC-005",
             path=str(context.opf_path),
-            message=(
-                "At least one schema:accessibilityFeature declaration is required "
-                "for EDUPUB publications."
-            ),
+            message=("At least one schema:accessibilityFeature declaration is required for EDUPUB publications."),
         )
     ]
 
@@ -161,8 +158,7 @@ def _validate_content_documents(context: ProfileContext) -> list[ResultMessage]:
                         "RSC-005",
                         path=str(path),
                         message=(
-                            "Body element used as section must contain a "
-                            "heading element (h1-h6 or role='heading')."
+                            "Body element used as section must contain a heading element (h1-h6 or role='heading')."
                         ),
                     )
                 )
@@ -170,9 +166,7 @@ def _validate_content_documents(context: ProfileContext) -> list[ResultMessage]:
 
 
 def run(context: ProfileContext) -> list[ResultMessage]:
-    is_edupub = context.requested_profile == "edupub" or is_profile_active(
-        context, "edupub"
-    )
+    is_edupub = context.requested_profile == "edupub" or is_profile_active(context, "edupub")
     if not is_edupub:
         return []
     errors: list[ResultMessage] = []

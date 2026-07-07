@@ -183,9 +183,7 @@ class TestLoadXml:
 
     def test_opf_detection(self, tmp_path: Path) -> None:
         xml_file = tmp_path / "test.opf"
-        xml_file.write_text(
-            '<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf"/>'
-        )
+        xml_file.write_text('<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf"/>')
         doc = load_xml(xml_file)
         assert doc.doc_type == "opf"
 

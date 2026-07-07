@@ -39,9 +39,7 @@ def test_multiple_renditions_container_required(run_pyepubcheck, fixtures) -> No
 def test_multiple_renditions_spine_required(run_pyepubcheck, fixtures) -> None:
     """Report a data nav file included in the spine."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-mapping-no-resourcemap-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-mapping-no-resourcemap-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -63,9 +61,7 @@ def test_multiple_renditions_nav_element(run_pyepubcheck, fixtures) -> None:
 def test_multiple_renditions_single_data_nav(run_pyepubcheck, fixtures) -> None:
     """Report the inclusion of more than one data nav file."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-mapping-multiple-docs-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-mapping-multiple-docs-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -87,9 +83,7 @@ def test_multiple_renditions_region_navigation(run_pyepubcheck, fixtures) -> Non
 def test_multiple_renditions_region_nav_element(run_pyepubcheck, fixtures) -> None:
     """Report region-based navigation not defined on a nav element."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-selection-attribute-unknown-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-selection-attribute-unknown-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -100,9 +94,7 @@ def test_multiple_renditions_region_nav_element(run_pyepubcheck, fixtures) -> No
 def test_multiple_renditions_region_nav_fixed_layout(run_pyepubcheck, fixtures) -> None:
     """Report a region-based nav element that does not point to fixed-layout document."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-selection-mediaquery-syntax-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-selection-mediaquery-syntax-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -110,14 +102,10 @@ def test_multiple_renditions_region_nav_fixed_layout(run_pyepubcheck, fixtures) 
 
 
 # specmason: @scenario-EPUBCHECK-DF43DBCE
-def test_multiple_renditions_region_nav_content_model(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_multiple_renditions_region_nav_content_model(run_pyepubcheck, fixtures) -> None:
     """Report a region-based nav element with an invalid content model."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-selection-attribute-missing-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-selection-attribute-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -139,9 +127,7 @@ def test_multiple_renditions_comics_semantics(run_pyepubcheck, fixtures) -> None
 def test_multiple_renditions_metadata(run_pyepubcheck, fixtures) -> None:
     """Verify multiple renditions metadata."""
     result = run_pyepubcheck(
-        _multiple_renditions_fixture(
-            fixtures, "renditions-metadata-identifier-incomplete-error"
-        ),
+        _multiple_renditions_fixture(fixtures, "renditions-metadata-identifier-incomplete-error"),
         transport="subprocess",
     )
     assert result.returncode == 0

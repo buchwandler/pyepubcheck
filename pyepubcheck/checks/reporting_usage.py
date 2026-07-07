@@ -62,10 +62,7 @@ def run(
             build_message(
                 "OPF-003",
                 path=str(file_path),
-                message=(
-                    f"File '{relative}' is in the container but not "
-                    f"declared in the manifest."
-                ),
+                message=(f"File '{relative}' is in the container but not declared in the manifest."),
             )
         )
         results[-1] = ResultMessage(

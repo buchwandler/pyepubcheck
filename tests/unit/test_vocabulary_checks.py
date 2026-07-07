@@ -13,9 +13,7 @@ class TestPrefixAttributeSyntax:
 
     def test_valid_single_prefix(self, tmp_path: Path) -> None:
         """Allow valid single prefix mapping."""
-        errors = _validate_prefix_attribute(
-            tmp_path / "test.opf", "foaf: http://xmlns.com/foaf/spec/"
-        )
+        errors = _validate_prefix_attribute(tmp_path / "test.opf", "foaf: http://xmlns.com/foaf/spec/")
         assert len(errors) == 0
 
     def test_valid_multiple_prefixes(self, tmp_path: Path) -> None:
@@ -28,9 +26,7 @@ class TestPrefixAttributeSyntax:
 
     def test_invalid_syntax_missing_colon(self, tmp_path: Path) -> None:
         """Report syntax error when prefix is missing colon."""
-        errors = _validate_prefix_attribute(
-            tmp_path / "test.opf", "foaf http://xmlns.com/foaf/spec/"
-        )
+        errors = _validate_prefix_attribute(tmp_path / "test.opf", "foaf http://xmlns.com/foaf/spec/")
         assert any(e.id == "OPF-007b" for e in errors)
 
     def test_invalid_syntax_missing_uri(self, tmp_path: Path) -> None:
@@ -59,7 +55,5 @@ class TestPrefixReservedVocabularies:
 
     def test_schema_prefix_allowed(self, tmp_path: Path) -> None:
         """schema prefix is a reserved prefix and should be allowed."""
-        errors = _validate_prefix_attribute(
-            tmp_path / "test.opf", "schema: http://schema.org/"
-        )
+        errors = _validate_prefix_attribute(tmp_path / "test.opf", "schema: http://schema.org/")
         assert not any(e.id == "OPF-007b" for e in errors)

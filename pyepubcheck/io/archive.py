@@ -23,10 +23,7 @@ class ZipSource:
 
     def entries(self) -> list[ZipEntry]:
         with zipfile.ZipFile(self.path) as archive:
-            return [
-                ZipEntry(info.filename, info.compress_type)
-                for info in archive.infolist()
-            ]
+            return [ZipEntry(info.filename, info.compress_type) for info in archive.infolist()]
 
     def has(self, name: str) -> bool:
         return any(entry.name == name for entry in self.entries())

@@ -50,10 +50,7 @@ def _validate_source_language(context: ProfileContext) -> list[ResultMessage]:
         build_message(
             "RSC-005",
             path=str(context.opf_path),
-            message=(
-                "The source language of a single-dictionary publication "
-                "must be defined."
-            ),
+            message=("The source language of a single-dictionary publication must be defined."),
         )
     ]
 
@@ -83,9 +80,7 @@ def _validate_monolingual_type(context: ProfileContext) -> list[ResultMessage]:
             build_message(
                 "RSC-005",
                 path=str(context.opf_path),
-                message=(
-                    "A monolingual dictionary must declare a single source language."
-                ),
+                message=("A monolingual dictionary must declare a single source language."),
             )
         ]
     return []
@@ -99,10 +94,7 @@ def _validate_glossary_marker(context: ProfileContext) -> list[ResultMessage]:
         build_message(
             "RSC-005",
             path=str(context.opf_path),
-            message=(
-                "A glossary publication must declare a manifest item "
-                'with property "glossary".'
-            ),
+            message=('A glossary publication must declare a manifest item with property "glossary".'),
         )
     ]
 
@@ -115,9 +107,7 @@ def run(context: ProfileContext) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
     # When --profile dict is requested but publication has glossary markers
     # and no dictionary dc:type, treat as glossary only
-    has_glossary_marker = any(
-        "glossary" in item.properties for item in context.opf.manifest
-    )
+    has_glossary_marker = any("glossary" in item.properties for item in context.opf.manifest)
     if is_dict and has_glossary_marker and not is_profile_active(context, "dictionary"):
         # Treat as glossary publication
         errors.extend(_validate_glossary_marker(context))

@@ -44,6 +44,7 @@ repos:
       - id: trailing-whitespace
       - id: check-symlinks
       - id: check-xml
+        exclude: ^specs/behavior/
       - id: mixed-line-ending
         args: ["--fix=lf"]
       - id: debug-statements

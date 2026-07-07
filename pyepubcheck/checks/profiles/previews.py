@@ -70,10 +70,7 @@ def _validate_embedded_manifest(context: ProfileContext) -> list[ResultMessage]:
         build_message(
             "RSC-005",
             path=str(context.opf_path),
-            message=(
-                "An embedded preview must declare a manifest item with the "
-                "'preview' and 'manifest' properties."
-            ),
+            message=("An embedded preview must declare a manifest item with the 'preview' and 'manifest' properties."),
         )
     ]
 

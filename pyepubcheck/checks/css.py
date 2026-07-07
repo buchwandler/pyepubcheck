@@ -55,9 +55,7 @@ def _validate_css_properties(path: Path, content: str) -> list[ResultMessage]:
             )
 
     try:
-        rules = tinycss2.parse_stylesheet(
-            content, skip_comments=True, skip_whitespace=True
-        )
+        rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
     except Exception:
         errors.append(
             build_message(
@@ -94,11 +92,7 @@ def _validate_css_urls(path: Path, content: str) -> list[ResultMessage]:
         url = match.group(1)
 
         # Skip data URLs and remote URLs
-        if (
-            url.startswith("data:")
-            or url.startswith("http://")
-            or url.startswith("https://")
-        ):
+        if url.startswith("data:") or url.startswith("http://") or url.startswith("https://"):
             continue
 
         # Reject file:// URLs
@@ -133,9 +127,7 @@ def _validate_css_urls(path: Path, content: str) -> list[ResultMessage]:
     return errors
 
 
-def run(
-    path: str | Path, *, manifest_hrefs: set[str] | None = None
-) -> list[ResultMessage]:
+def run(path: str | Path, *, manifest_hrefs: set[str] | None = None) -> list[ResultMessage]:
     """Run CSS content document checks."""
     candidate = Path(path)
     errors: list[ResultMessage] = []
@@ -155,18 +147,14 @@ def run(
 
     # Detect encoding from BOM or @charset
     encoding = "utf-8"
-    has_bom = False
 
     # Check for BOM
     if raw_bytes[:3] == b"\xef\xbb\xbf":
         encoding = "utf-8"
-        has_bom = True
     elif raw_bytes[:2] == b"\xff\xfe":
         encoding = "utf-16-le"
-        has_bom = True
     elif raw_bytes[:2] == b"\xfe\xff":
         encoding = "utf-16-be"
-        has_bom = True
 
     # Try to read with detected encoding
     try:
@@ -314,9 +302,7 @@ def _validate_css_font_face(path: Path, content: str) -> list[ResultMessage]:
         )
 
     # Check for @font-face with empty URL
-    font_face_url_re = re.compile(
-        r"@font-face\s*\{[^}]*url\(\s*['\"]?\s*['\"]?\s*\)[^}]*\}"
-    )
+    font_face_url_re = re.compile(r"@font-face\s*\{[^}]*url\(\s*['\"]?\s*['\"]?\s*\)[^}]*\}")
     if font_face_url_re.search(content):
         errors.append(
             build_message(
@@ -328,11 +314,6 @@ def _validate_css_font_face(path: Path, content: str) -> list[ResultMessage]:
 
     return errors
 
-    # Validate CSS @font-face
-    errors.extend(_validate_css_font_face(candidate, content))
-
-    return errors
-
 
 def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
     """Validate CSS direction property usage."""
@@ -341,7 +322,7 @@ def _validate_css_direction(path: Path, content: str) -> list[ResultMessage]:
     # Check for direction property - always report as error in EPUB
     direction_re = re.compile(r"direction\s*:\s*([^;]+)")
     for match in direction_re.finditer(content):
-        value = match.group(1).strip().lower()
+        match.group(1).strip().lower()
         errors.append(
             build_message(
                 "CSS-001",
@@ -358,9 +339,7 @@ def _validate_css_selectors(path: Path, content: str) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
 
     try:
-        rules = tinycss2.parse_stylesheet(
-            content, skip_comments=True, skip_whitespace=True
-        )
+        rules = tinycss2.parse_stylesheet(content, skip_comments=True, skip_whitespace=True)
     except Exception:
         return errors
 
@@ -368,11 +347,7 @@ def _validate_css_selectors(path: Path, content: str) -> list[ResultMessage]:
         if rule.type == "qualified-rule":
             # Check for invalid selector patterns
             prelude = tinycss2.serialize(rule.prelude)
-            if (
-                "::" in prelude
-                and "::before" not in prelude
-                and "::after" not in prelude
-            ):
+            if "::" in prelude and "::before" not in prelude and "::after" not in prelude:
                 # Check for invalid pseudo-elements
                 pass
 

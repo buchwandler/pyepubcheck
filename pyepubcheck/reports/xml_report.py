@@ -12,8 +12,6 @@ def render_xml_report(report: ValidationReport) -> str:
     root.set("title", report.metadata.title)
     messages = ET.SubElement(root, "messages")
     for message in report.messages:
-        node = ET.SubElement(
-            messages, "message", id=message.id, severity=message.severity.value
-        )
+        node = ET.SubElement(messages, "message", id=message.id, severity=message.severity.value)
         node.text = message.message
     return ET.tostring(root, encoding="unicode")

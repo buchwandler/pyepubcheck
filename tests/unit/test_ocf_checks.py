@@ -136,9 +136,7 @@ class TestValidateArchive:
     def test_valid_archive(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr(
-                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
-            )
+            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
             zf.writestr("EPUB/content.xhtml", "<html/>")
         errors = _validate_archive(epub_file)
         assert len(errors) == 0
@@ -155,9 +153,7 @@ class TestValidateArchive:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
             zf.writestr("EPUB/content.xhtml", "<html/>")
-            zf.writestr(
-                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
-            )
+            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
         errors = _validate_archive(epub_file)
         assert any(e.id == "PKG-005" for e in errors)
 
@@ -171,9 +167,7 @@ class TestValidateArchive:
     def test_forbidden_filename(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr(
-                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
-            )
+            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
             zf.writestr("file+name.xhtml", "<html/>")
         errors = _validate_archive(epub_file)
         assert any(e.id == "PKG-009" for e in errors)
@@ -207,9 +201,7 @@ class TestRun:
     def test_epub_file(self, tmp_path: Path) -> None:
         epub_file = tmp_path / "test.epub"
         with zipfile.ZipFile(epub_file, "w") as zf:
-            zf.writestr(
-                "mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED
-            )
+            zf.writestr("mimetype", "application/epub+zip", compress_type=zipfile.ZIP_STORED)
         errors = run(epub_file)
         assert len(errors) == 0
 

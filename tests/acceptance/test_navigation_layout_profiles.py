@@ -8,9 +8,7 @@ def _path(fixtures, relative: str) -> str:
 # specmason: @scenario-EPUBCHECK-39AF832B
 def test_navigation_toc_missing_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
-        _path(
-            fixtures, "/epub3/07-navigation-document/files/nav-toc-missing-error.xhtml"
-        ),
+        _path(fixtures, "/epub3/07-navigation-document/files/nav-toc-missing-error.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -31,9 +29,7 @@ def test_layout_unknown_value_reports_rsc_005(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-B99E6E0C
-def test_media_overlay_metadata_syntax_reports_rsc_005(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_media_overlay_metadata_syntax_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         _path(
             fixtures,
@@ -92,15 +88,11 @@ def test_preview_missing_dc_type_reports_rsc_005(run_pyepubcheck, fixtures) -> N
 
 
 # specmason: @scenario-EPUBCHECK-C4F5841B
-def test_dictionary_missing_type_reports_rsc_005_and_opf_079(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_dictionary_missing_type_reports_rsc_005_and_opf_079(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _path(
-            fixtures, "/epub-dictionaries/files/epub/dictionary-dc-type-missing-error"
-        ),
+        _path(fixtures, "/epub-dictionaries/files/epub/dictionary-dc-type-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -119,9 +111,7 @@ def test_region_nav_not_xhtml_reports_opf_012(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-1C965A67
-def test_scriptable_component_missing_prefix_reports_opf_028(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_scriptable_component_missing_prefix_reports_opf_028(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--mode",
         "opf",
@@ -136,9 +126,7 @@ def test_scriptable_component_missing_prefix_reports_opf_028(
 
 
 # specmason: @scenario-EPUBCHECK-D659EDC5
-def test_distributable_object_missing_identifier_reports_rsc_005(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_distributable_object_missing_identifier_reports_rsc_005(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--mode",
         "opf",
@@ -153,9 +141,7 @@ def test_distributable_object_missing_identifier_reports_rsc_005(
 
 
 # specmason: @scenario-EPUBCHECK-61134806
-def test_accessibility_unknown_property_reports_opf_027(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_accessibility_unknown_property_reports_opf_027(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--mode",
         "opf",

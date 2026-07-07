@@ -30,9 +30,7 @@ def test_dictionary_dc_type_required(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _profile_fixture(
-            fixtures, "epub-dictionaries", "epub/dictionary-dc-type-missing-error"
-        ),
+        _profile_fixture(fixtures, "epub-dictionaries", "epub/dictionary-dc-type-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -75,9 +73,7 @@ def test_dictionary_type_monolingual_valid(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _profile_fixture(
-            fixtures, "epub-dictionaries", "epub/dictionary-type-monolingual-valid"
-        ),
+        _profile_fixture(fixtures, "epub-dictionaries", "epub/dictionary-type-monolingual-valid"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -90,9 +86,7 @@ def test_dictionary_type_unknown_value(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _profile_fixture(
-            fixtures, "epub-dictionaries", "epub/dictionary-type-unknown-value-error"
-        ),
+        _profile_fixture(fixtures, "epub-dictionaries", "epub/dictionary-type-unknown-value-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -135,9 +129,7 @@ def test_dictionary_multiple_publication(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "dict",
-        _profile_fixture(
-            fixtures, "epub-dictionaries", "epub/dictionary-multiple-valid"
-        ),
+        _profile_fixture(fixtures, "epub-dictionaries", "epub/dictionary-multiple-valid"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -194,9 +186,7 @@ def test_edupub_accessibility_features_required(run_pyepubcheck, fixtures) -> No
     result = run_pyepubcheck(
         "--profile",
         "edupub",
-        _profile_fixture(
-            fixtures, "epub-edupub", "epub/edupub-accessibility-features-missing-error"
-        ),
+        _profile_fixture(fixtures, "epub-edupub", "epub/edupub-accessibility-features-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -248,9 +238,7 @@ def test_edupub_content_document_minimal(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "edupub",
-        _profile_fixture(
-            fixtures, "epub-edupub", "edupub-content-document-xhtml/minimal.xhtml"
-        ),
+        _profile_fixture(fixtures, "epub-edupub", "edupub-content-document-xhtml/minimal.xhtml"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -358,9 +346,7 @@ def test_indexes_publication_without_index(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "idx",
-        _profile_fixture(
-            fixtures, "epub-indexes", "epub/index-whole-pub-no-index-error"
-        ),
+        _profile_fixture(fixtures, "epub-indexes", "epub/index-whole-pub-no-index-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -386,9 +372,7 @@ def test_indexes_single_file_without_index(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "idx",
-        _profile_fixture(
-            fixtures, "epub-indexes", "epub/index-single-file-no-index-error"
-        ),
+        _profile_fixture(fixtures, "epub-indexes", "epub/index-single-file-no-index-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -396,7 +380,7 @@ def test_indexes_single_file_without_index(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-BF627573
-def test_indexes_collection_valid(run_pyepubcheck, fixtures) -> None:
+def test_indexes_collection_verify(run_pyepubcheck, fixtures) -> None:
     """Verify an index collection."""
     result = run_pyepubcheck(
         "--profile",
@@ -414,9 +398,7 @@ def test_indexes_collection_without_index(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "idx",
-        _profile_fixture(
-            fixtures, "epub-indexes", "epub/index-collection-no-index-error"
-        ),
+        _profile_fixture(fixtures, "epub-indexes", "epub/index-collection-no-index-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -447,9 +429,7 @@ def test_previews_dc_type_required(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "preview",
-        _profile_fixture(
-            fixtures, "epub-previews", "epub/preview-pub-dc-type-missing-error"
-        ),
+        _profile_fixture(fixtures, "epub-previews", "epub/preview-pub-dc-type-missing-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -462,9 +442,7 @@ def test_previews_source_publication_required(run_pyepubcheck, fixtures) -> None
     result = run_pyepubcheck(
         "--profile",
         "preview",
-        _profile_fixture(
-            fixtures, "epub-previews", "epub/preview-pub-source-missing-warning"
-        ),
+        _profile_fixture(fixtures, "epub-previews", "epub/preview-pub-source-missing-warning"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -490,9 +468,7 @@ def test_previews_embedded_manifest_required(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--profile",
         "preview",
-        _profile_fixture(
-            fixtures, "epub-previews", "epub/preview-embedded-no-manifest-error"
-        ),
+        _profile_fixture(fixtures, "epub-previews", "epub/preview-embedded-no-manifest-error"),
         transport="subprocess",
     )
     assert result.returncode == 1
@@ -523,9 +499,7 @@ def test_accessibility_prefix_valid(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--mode",
         "opf",
-        _profile_fixture(
-            fixtures, "epub-accessibility", "property-prefix-a11y-valid.opf"
-        ),
+        _profile_fixture(fixtures, "epub-accessibility", "property-prefix-a11y-valid.opf"),
         transport="subprocess",
     )
     assert result.returncode == 0
@@ -572,9 +546,7 @@ def test_accessibility_exemption_property(run_pyepubcheck, fixtures) -> None:
     result = run_pyepubcheck(
         "--mode",
         "opf",
-        _profile_fixture(
-            fixtures, "epub-accessibility", "property-prefix-a11y-exemption-valid.opf"
-        ),
+        _profile_fixture(fixtures, "epub-accessibility", "property-prefix-a11y-exemption-valid.opf"),
         transport="subprocess",
     )
     assert result.returncode == 0

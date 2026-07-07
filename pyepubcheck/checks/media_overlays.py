@@ -167,10 +167,7 @@ def check_cross_overlay_references(
                 build_message(
                     "MED-011",
                     path=smil_files[0],
-                    message=(
-                        f"content document referenced by multiple media overlays: "
-                        f"'{doc_ref}'"
-                    ),
+                    message=(f"content document referenced by multiple media overlays: '{doc_ref}'"),
                 )
             )
 

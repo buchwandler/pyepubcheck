@@ -48,16 +48,12 @@ def _validate_mimetype_content(content: str) -> list[ResultMessage]:
     """Validate mimetype file content."""
     # Check for leading whitespace (explicitly forbidden)
     if content.startswith(" ") or content.startswith("\t"):
-        return [
-            build_message("PKG-007", message="mimetype file has leading whitespace")
-        ]
+        return [build_message("PKG-007", message="mimetype file has leading whitespace")]
 
     # Check for any whitespace inside the content (forbidden, except a single
     # trailing newline which is the common carriage-returned variant).
     if " " in content.strip("\r\n") or "\t" in content.strip("\r\n"):
-        return [
-            build_message("PKG-007", message="mimetype file has internal whitespace")
-        ]
+        return [build_message("PKG-007", message="mimetype file has internal whitespace")]
 
     # Strip trailing whitespace for value check
     # Trailing newlines are common in valid EPUBs and tolerated
@@ -112,9 +108,7 @@ def _validate_filename(filename: str) -> list[ResultMessage]:
         elif ord(char) >= 0xE0001 and ord(char) <= 0xE001F:
             # Language tag characters (deprecated)
             found_forbidden.append(f"U+{ord(char):04X} LANGUAGE TAG (DEPRECATED)")
-        elif (ord(char) >= 0xF0000 and ord(char) <= 0xFFFFD) or (
-            ord(char) >= 0x100000 and ord(char) <= 0x10FFFD
-        ):
+        elif (ord(char) >= 0xF0000 and ord(char) <= 0xFFFFD) or (ord(char) >= 0x100000 and ord(char) <= 0x10FFFD):
             found_forbidden.append(f"U+{ord(char):04X} (PRIVATE USE)")
         elif (
             (ord(char) >= 0x1FFFE and ord(char) <= 0x1FFFF)
@@ -231,11 +225,7 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
     # Check for container.xml
     container_path = path / "META-INF" / "container.xml"
     if not container_path.exists():
-        errors.append(
-            build_message(
-                "FATAL-001", path=str(container_path), message="container.xml not found"
-            )
-        )
+        errors.append(build_message("FATAL-001", path=str(container_path), message="container.xml not found"))
         return errors
 
     # Validate container.xml
@@ -268,9 +258,7 @@ def _validate_directory(path: Path) -> list[ResultMessage]:
 
             doc = load_xml(container_path)
             if not doc.errors:
-                rootfile = doc.find(
-                    ".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile"
-                )
+                rootfile = doc.find(".//{urn:oasis:names:tc:opendocument:xmlns:container}rootfile")
                 if rootfile is not None:
                     full_path = rootfile.get("full-path", "")
                     if full_path:
@@ -500,7 +488,7 @@ def run(path: str | Path) -> list[ResultMessage]:
     return []
 
 
-def _validate_container_xml(path: Path) -> list[ResultMessage]:
+def _validate_container_xml(path: Path) -> list[ResultMessage]:  # noqa: C901
     """Validate container.xml file."""
     errors: list[ResultMessage] = []
     container_path = path / "META-INF" / "container.xml"
@@ -573,11 +561,7 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                         )
 
             # Validate media-type (only for primary rootfile)
-            if (
-                rootfile_count == 1
-                and media_type
-                and media_type != "application/oebps-package+xml"
-            ):
+            if rootfile_count == 1 and media_type and media_type != "application/oebps-package+xml":
                 errors.append(
                     build_message(
                         "PKG-007",
@@ -601,8 +585,7 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
             # container must declare a single OPF.
             links_element = root.find(f"{{{ns}}}links")
             has_mapping = links_element is not None and any(
-                link.get("rel", "") == "mapping"
-                for link in links_element.findall(f"{{{ns}}}link")
+                link.get("rel", "") == "mapping" for link in links_element.findall(f"{{{ns}}}link")
             )
             if len(opf_rootfiles) > 1 and not has_mapping:
                 primary_version = ""
@@ -646,7 +629,10 @@ def _validate_container_xml(path: Path) -> list[ResultMessage]:
                                             build_message(
                                                 "RSC-005",
                                                 path=str(container_path),
-                                                message=f"empty rendition:media attribute on rootfile '{rootfile.get('full-path', '')}'",
+                                                message=(
+                                                    f"empty rendition:media attribute on rootfile "
+                                                    f"'{rootfile.get('full-path', '')}'",
+                                                ),
                                             )
                                         )
                                     elif not _is_valid_media_query(attr_value):

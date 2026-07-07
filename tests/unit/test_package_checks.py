@@ -41,9 +41,7 @@ class TestValidatePrefixAttribute:
     """Test prefix attribute validation."""
 
     def test_valid_prefix(self, tmp_path: Path) -> None:
-        errors = _validate_prefix_attribute(
-            tmp_path / "test.opf", "foaf: http://xmlns.com/foaf/spec/"
-        )
+        errors = _validate_prefix_attribute(tmp_path / "test.opf", "foaf: http://xmlns.com/foaf/spec/")
         assert len(errors) == 0
 
     def test_valid_multiple_prefixes(self, tmp_path: Path) -> None:
@@ -267,9 +265,7 @@ class TestRun:
 </package>"""
         )
         errors = run(opf_file)
-        assert any(
-            e.id == "RSC-005" and "rendition:layout" in e.message for e in errors
-        )
+        assert any(e.id == "RSC-005" and "rendition:layout" in e.message for e in errors)
 
     def test_non_opf_file(self, tmp_path: Path) -> None:
         xhtml_file = tmp_path / "test.xhtml"

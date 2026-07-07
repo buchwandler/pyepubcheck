@@ -85,9 +85,7 @@ def _validate_nav_structure(path: Path, root) -> list[ResultMessage]:
 
         # Check for region-based nav structure
         if "region-based" in epub_type:
-            ol_children = [
-                el for el in nav if str(el.tag).endswith("}ol") or str(el.tag) == "ol"
-            ]
+            ol_children = [el for el in nav if str(el.tag).endswith("}ol") or str(el.tag) == "ol"]
             if len(ol_children) != 1:
                 errors.append(
                     build_message(
@@ -126,7 +124,6 @@ def _validate_nav_structure(path: Path, root) -> list[ResultMessage]:
 def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
     """Validate the content model of a region-based nav ol element."""
     errors: list[ResultMessage] = []
-    xhtml_ns = "http://www.w3.org/1999/xhtml"
 
     for li in ol:
         tag = str(li.tag)
@@ -149,12 +146,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
         first_tag = str(first_child.tag)
 
         # Check first child is a or span
-        if not (
-            first_tag.endswith("}a")
-            or first_tag == "a"
-            or first_tag.endswith("}span")
-            or first_tag == "span"
-        ):
+        if not (first_tag.endswith("}a") or first_tag == "a" or first_tag.endswith("}span") or first_tag == "span"):
             errors.append(
                 build_message(
                     "RSC-005",
@@ -167,11 +159,7 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
         # Check if first child is a span
         if first_tag.endswith("}span") or first_tag == "span":
             # Span must contain exactly two a elements
-            a_children = [
-                el
-                for el in first_child
-                if str(el.tag).endswith("}a") or str(el.tag) == "a"
-            ]
+            a_children = [el for el in first_child if str(el.tag).endswith("}a") or str(el.tag) == "a"]
             if len(a_children) != 2:
                 errors.append(
                     build_message(
@@ -201,7 +189,10 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                     build_message(
                         "RSC-005",
                         path=str(path),
-                        message='The first child of a region-based nav list item can only be followed by a single "ol" element',
+                        message=(
+                            "The first child of a region-based nav list item can only be "
+                            'followed by a single "ol" element',
+                        ),
                     )
                 )
             elif remaining:
@@ -211,7 +202,10 @@ def _validate_region_nav_ol(path: Path, ol) -> list[ResultMessage]:
                         build_message(
                             "RSC-005",
                             path=str(path),
-                            message='The first child of a region-based nav list item can only be followed by a single "ol" element',
+                            message=(
+                                "The first child of a region-based nav list item can only be "
+                                'followed by a single "ol" element',
+                            ),
                         )
                     )
 
@@ -249,7 +243,7 @@ def _validate_nav_content_model(path: Path, root) -> list[ResultMessage]:
                     )
 
                 # Check for p elements inside headings
-                for p in child.iter(f"{{{xhtml_ns}}}p"):
+                for _p in child.iter(f"{{{xhtml_ns}}}p"):
                     errors.append(
                         build_message(
                             "RSC-005",
@@ -297,7 +291,6 @@ def _is_empty_or_blank(element) -> bool:
 def _validate_nav_list_items(path: Path, ol) -> list[ResultMessage]:
     """Validate navigation list items."""
     errors: list[ResultMessage] = []
-    xhtml_ns = "http://www.w3.org/1999/xhtml"
 
     for li in ol:
         tag = str(li.tag)
@@ -414,7 +407,7 @@ def run(path: str | Path, *, is_data_nav: bool = False) -> list[ResultMessage]:
 
     # Check if this is a navigation document
     is_nav = False
-    for nav in root.iter("{http://www.w3.org/1999/xhtml}nav"):
+    for _nav in root.iter("{http://www.w3.org/1999/xhtml}nav"):
         is_nav = True
         break
 

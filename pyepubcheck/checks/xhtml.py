@@ -56,11 +56,7 @@ def _check_html5_elements(path: Path, root) -> list[ResultMessage]:
     if root is None:
         return []
     for elem in root.iter():
-        local = (
-            elem.tag.split("}")[-1]
-            if isinstance(elem.tag, str) and "}" in elem.tag
-            else str(elem.tag)
-        )
+        local = elem.tag.split("}")[-1] if isinstance(elem.tag, str) and "}" in elem.tag else str(elem.tag)
         if local in HTML5_ELEMENTS:
             return [
                 build_message(
@@ -104,9 +100,7 @@ def _check_custom_namespace(path: Path, root) -> list[ResultMessage]:
         return []
     for elem in root.iter():
         for attr_name in elem.attrib:
-            if attr_name.startswith("{") and not attr_name.startswith(
-                f"{{{xhtml_ns}}}"
-            ):
+            if attr_name.startswith("{") and not attr_name.startswith(f"{{{xhtml_ns}}}"):
                 if attr_name.startswith("{http://www.w3.org/XML/1998/namespace}"):
                     continue
                 if attr_name.startswith("{http://www.w3.org/2000/svg}"):
@@ -133,18 +127,11 @@ def _check_remote_objects(path: Path, root, context) -> list[ResultMessage]:
     """Report object/embed references to undeclared remote resources."""
     if root is None or context is None:
         return []
-    xhtml_ns = "http://www.w3.org/1999/xhtml"
     declared_remote = {
-        item.href
-        for item in context.opf.manifest
-        if "remote-resources" in item.properties and item.href
+        item.href for item in context.opf.manifest if "remote-resources" in item.properties and item.href
     }
     for obj_el in root.iter():
-        local = (
-            obj_el.tag.split("}")[-1]
-            if isinstance(obj_el.tag, str) and "}" in obj_el.tag
-            else str(obj_el.tag)
-        )
+        local = obj_el.tag.split("}")[-1] if isinstance(obj_el.tag, str) and "}" in obj_el.tag else str(obj_el.tag)
         if local not in {"object", "embed"}:
             continue
         data = obj_el.get("data", "") or obj_el.get("src", "")
@@ -155,7 +142,10 @@ def _check_remote_objects(path: Path, root, context) -> list[ResultMessage]:
                 build_message(
                     "RSC-006",
                     path=str(path),
-                    message=f"Remote resource '{data}' must be declared in the manifest with the remote-resources property.",
+                    message=(
+                        f"Remote resource '{data}' must be declared in the manifest "
+                        "with the remote-resources property.",
+                    ),
                 )
             ]
     return []
@@ -244,10 +234,7 @@ def _validate_edupub_content_document(path: Path, root) -> list[ResultMessage]:
                 build_message(
                     "RSC-005",
                     path=str(path),
-                    message=(
-                        "Body element used as section must contain a "
-                        "heading element (h1-h6 or role='heading')."
-                    ),
+                    message=("Body element used as section must contain a heading element (h1-h6 or role='heading')."),
                 )
             )
     return errors
@@ -258,11 +245,7 @@ def _check_encoding(path: Path, content: str) -> list[ResultMessage]:
     errors: list[ResultMessage] = []
 
     # Check for UTF-16 BOM
-    if (
-        content.startswith("\ufeff")
-        or content.startswith("\xff\xfe")
-        or content.startswith("\xfe\xff")
-    ):
+    if content.startswith("\ufeff") or content.startswith("\xff\xfe") or content.startswith("\xfe\xff"):
         errors.append(
             build_message(
                 "HTM-058",
@@ -379,9 +362,7 @@ def _check_entity_semicolons(path: Path, content: str) -> list[ResultMessage]:
     return errors
 
 
-def run(
-    path: str | Path, context=None, profile: str = "default"
-) -> list[ResultMessage]:
+def run(path: str | Path, context=None, profile: str = "default") -> list[ResultMessage]:
     candidate = Path(path)
     errors: list[ResultMessage] = []
 
@@ -474,9 +455,7 @@ def _has_fragment(root, fragment: str) -> bool:
     return False
 
 
-def validate_resources(
-    path: Path, xml_root, manifest_hrefs: set[str]
-) -> list[ResultMessage]:
+def validate_resources(path: Path, xml_root, manifest_hrefs: set[str]) -> list[ResultMessage]:
     """Validate resource references in an XHTML document."""
     errors: list[ResultMessage] = []
 
@@ -498,7 +477,9 @@ def validate_resources(
                 build_message(
                     "RSC-006",
                     path=str(path),
-                    message=f"Remote resource '{src}' must be declared in the manifest with the remote-resources property.",
+                    message=(
+                        f"Remote resource '{src}' must be declared in the manifest with the remote-resources property.",
+                    ),
                 )
             )
         elif src and not src.startswith(("data:", "#")):
@@ -518,9 +499,7 @@ def validate_resources(
                 part = part.strip()
                 if part:
                     url = part.split()[0] if part.split() else ""
-                    if url and not url.startswith(
-                        ("http://", "https://", "data:", "#")
-                    ):
+                    if url and not url.startswith(("http://", "https://", "data:", "#")):
                         base_url = url.split("#")[0] if "#" in url else url
                         if base_url and base_url not in manifest_hrefs:
                             errors.append(
@@ -531,7 +510,6 @@ def validate_resources(
                                 )
                             )
 
-    source_dir = path.parent
     for a_el in xml_root.iter(f"{{{xhtml_ns}}}a"):
         href = a_el.get("href", "")
         if not href:

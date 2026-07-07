@@ -23,9 +23,7 @@ class TestParsePrefixAttribute:
         assert result[0].uri == "http://xmlns.com/foaf/spec/"
 
     def test_multiple_prefixes(self) -> None:
-        result = parse_prefix_attribute(
-            "foaf: http://xmlns.com/foaf/spec/ schema: http://schema.org/"
-        )
+        result = parse_prefix_attribute("foaf: http://xmlns.com/foaf/spec/ schema: http://schema.org/")
         assert len(result) == 2
         assert result[0].prefix == "foaf"
         assert result[1].prefix == "schema"

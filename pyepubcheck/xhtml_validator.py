@@ -181,10 +181,8 @@ VALID_XHTML_ELEMENTS = {
     "annotation",
     "annotation-xml",
     "none",
-    "mprescripts",
     # SVG
     "svg",
-    "a",
     "altGlyph",
     "altGlyphDef",
     "altGlyphItem",
@@ -249,15 +247,12 @@ VALID_XHTML_ELEMENTS = {
     "polyline",
     "radialGradient",
     "rect",
-    "script",
     "set",
     "stop",
-    "style",
     "switch",
     "symbol",
     "text",
     "textPath",
-    "title",
     "tref",
     "tspan",
     "use",
@@ -338,7 +333,6 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
         )
 
     # Check for required structure (html > head, body)
-    html_el = root
     if isinstance(root.tag, str):
         local_tag = root.tag.split("}")[-1] if "}" in root.tag else root.tag
         if local_tag != "html":
@@ -372,9 +366,7 @@ def validate_xhtml(path: Path | str) -> list[ResultMessage]:
     return errors
 
 
-def validate_xhtml_elements(
-    path: Path | str, root: etree._Element
-) -> list[ResultMessage]:
+def validate_xhtml_elements(path: Path | str, root: etree._Element) -> list[ResultMessage]:
     """Validate that all elements in XHTML are valid HTML5 elements."""
     file_path = Path(path)
     errors: list[ResultMessage] = []
@@ -421,9 +413,7 @@ def validate_xhtml_elements(
     return errors
 
 
-def validate_xhtml_doctype(
-    path: Path | str, root: etree._Element
-) -> list[ResultMessage]:
+def validate_xhtml_doctype(path: Path | str, root: etree._Element) -> list[ResultMessage]:
     """Validate XHTML DOCTYPE declaration.
 
     Checks:
@@ -494,11 +484,7 @@ def validate_xhtml_doctype(
                             sys_end = sys_part.find('"', 1)
                             if sys_end != -1:
                                 system_id = sys_part[1:sys_end]
-                                if (
-                                    system_id
-                                    and system_id not in w3c_dtds
-                                    and system_id not in valid_system_ids
-                                ):
+                                if system_id and system_id not in w3c_dtds and system_id not in valid_system_ids:
                                     errors.append(
                                         ResultMessage(
                                             id="RSC-005",
@@ -800,9 +786,7 @@ def validate_xhtml_alt_attributes(path: Path | str, root) -> list[ResultMessage]
     return errors
 
 
-def validate_xhtml_resource_references(
-    path: Path | str, root, manifest_items: set[str]
-) -> list[ResultMessage]:
+def validate_xhtml_resource_references(path: Path | str, root, manifest_items: set[str]) -> list[ResultMessage]:
     """Validate that referenced resources exist in manifest."""
     file_path = Path(path)
     errors: list[ResultMessage] = []
@@ -829,7 +813,6 @@ def validate_xhtml_resource_references(
 
 def validate_xhtml_style_elements(path: Path | str, root) -> list[ResultMessage]:
     """Validate style elements in XHTML."""
-    file_path = Path(path)
     errors: list[ResultMessage] = []
 
     xhtml_ns = "http://www.w3.org/1999/xhtml"

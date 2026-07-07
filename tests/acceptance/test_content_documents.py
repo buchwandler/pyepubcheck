@@ -7,9 +7,7 @@ def _path(fixtures, relative: str) -> str:
 
 # specmason: @scenario-EPUBCHECK-2EF4BE8A
 def test_minimal_xhtml_document_passes(run_pyepubcheck, fixtures) -> None:
-    result = run_pyepubcheck(
-        _path(fixtures, "/epub3/00-minimal/files/minimal.xhtml"), transport="subprocess"
-    )
+    result = run_pyepubcheck(_path(fixtures, "/epub3/00-minimal/files/minimal.xhtml"), transport="subprocess")
     assert result.returncode == 0
     assert result.no_other_errors_or_warnings()
 
@@ -404,7 +402,6 @@ def test_css_import_not_present(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-import pytest
 
 
 def test_css_import_not_declared(run_pyepubcheck, fixtures) -> None:
@@ -855,9 +852,7 @@ def test_xhtml_wai_aria_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_xhtml_content_xhtml_img_srcset_undeclared_error(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_xhtml_content_xhtml_img_srcset_undeclared_error(run_pyepubcheck, fixtures) -> None:
     """Report undeclared resources in srcset."""
     result = run_pyepubcheck(
         _path(
@@ -1010,9 +1005,7 @@ def test_xhtml_content_xhtml_svg_in_spine(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_xhtml_content_xhtml_link_to_local_file_escaped(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_xhtml_content_xhtml_link_to_local_file_escaped(run_pyepubcheck, fixtures) -> None:
     """Verify escaped hyperlinks to local files are allowed."""
     result = run_pyepubcheck(
         _path(
@@ -1141,9 +1134,7 @@ def test_media_overlay_metadata_properties_valid(run_pyepubcheck, fixtures) -> N
 
 
 # specmason: @scenario-EPUBCHECK-
-def test_media_overlay_seq_with_direct_media_children(
-    run_pyepubcheck, fixtures
-) -> None:
+def test_media_overlay_seq_with_direct_media_children(run_pyepubcheck, fixtures) -> None:
     """Report media clips used as direct children of a seq element."""
     result = run_pyepubcheck(
         _path(

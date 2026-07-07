@@ -45,11 +45,7 @@ def _index_documents(context: ProfileContext) -> list:
             candidates.append(context.opf_dir / item.href)
 
     # If there's an index collection, get the linked documents
-    if (
-        has_index_collection
-        and context.opf.xml_doc is not None
-        and context.opf.xml_doc.root is not None
-    ):
+    if has_index_collection and context.opf.xml_doc is not None and context.opf.xml_doc.root is not None:
         opf_ns = "http://www.idpf.org/2007/opf"
         for collection in context.opf.xml_doc.root.iter(f"{{{opf_ns}}}collection"):
             if collection.get("role", "") != "index":
@@ -82,10 +78,7 @@ def run(context: ProfileContext) -> list[ResultMessage]:
             build_message(
                 "RSC-005",
                 path=str(context.opf_path),
-                message=(
-                    "An index collection must include at least one "
-                    "XHTML index document."
-                ),
+                message=("An index collection must include at least one XHTML index document."),
             )
         ]
     for path in candidates:
@@ -97,9 +90,6 @@ def run(context: ProfileContext) -> list[ResultMessage]:
         build_message(
             "RSC-005",
             path=str(context.opf_path),
-            message=(
-                'At least one "index" element must be present in a document '
-                "declared as an index in the OPF"
-            ),
+            message=('At least one "index" element must be present in a document declared as an index in the OPF'),
         )
     ]

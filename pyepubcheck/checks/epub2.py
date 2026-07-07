@@ -253,9 +253,7 @@ def _validate_ncx_ids(path: Path, ncx_root) -> list[ResultMessage]:
     return errors
 
 
-def _validate_ncx_resources(
-    path: Path, ncx_root, spine_items: set[str]
-) -> list[ResultMessage]:
+def _validate_ncx_resources(path: Path, ncx_root, spine_items: set[str]) -> list[ResultMessage]:
     """Validate NCX references to spine items."""
     errors: list[ResultMessage] = []
 
@@ -343,9 +341,7 @@ def _validate_xhtml_namespace(path: Path, xhtml_root) -> list[ResultMessage]:
     return errors
 
 
-def _validate_remote_objects(
-    path: Path, xhtml_root, manifest_items: set[str]
-) -> list[ResultMessage]:
+def _validate_remote_objects(path: Path, xhtml_root, manifest_items: set[str]) -> list[ResultMessage]:
     """Validate remote object references in XHTML."""
     errors: list[ResultMessage] = []
 
@@ -434,9 +430,7 @@ def run_ncx(path: str | Path, opf_path: Path | None = None) -> list[ResultMessag
                         if identifier_el.get("id", "") == unique_id_ref:
                             opf_uid = identifier_el.text or ""
                             if opf_uid:
-                                errors.extend(
-                                    _validate_ncx_uid(candidate, ncx_root, opf_uid)
-                                )
+                                errors.extend(_validate_ncx_uid(candidate, ncx_root, opf_uid))
                             break
 
     return errors
@@ -483,9 +477,7 @@ def _validate_epub2_xhtml(path: Path) -> list[ResultMessage]:
             "time",
         ]
         for elem in root.iter():
-            local_name = (
-                elem.tag.split("}")[-1] if "}" in str(elem.tag) else str(elem.tag)
-            )
+            local_name = elem.tag.split("}")[-1] if "}" in str(elem.tag) else str(elem.tag)
             if local_name in html5_elements:
                 errors.append(
                     build_message(

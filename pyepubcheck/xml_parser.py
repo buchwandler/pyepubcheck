@@ -26,9 +26,7 @@ class XmlDocument:
         """Return namespace map from root element."""
         return dict(self.root.nsmap) if self.root.nsmap else {}
 
-    def find(
-        self, xpath: str, namespaces: dict[str, str] | None = None
-    ) -> etree._Element | None:
+    def find(self, xpath: str, namespaces: dict[str, str] | None = None) -> etree._Element | None:
         """Find a single element by XPath."""
         ns = namespaces or self.nsmap
         try:
@@ -36,9 +34,7 @@ class XmlDocument:
         except etree.XPathEvalError:
             return None
 
-    def findall(
-        self, xpath: str, namespaces: dict[str, str] | None = None
-    ) -> list[etree._Element]:
+    def findall(self, xpath: str, namespaces: dict[str, str] | None = None) -> list[etree._Element]:
         """Find all elements matching XPath."""
         ns = namespaces or self.nsmap
         try:
@@ -117,18 +113,14 @@ def load_xml(path: Path | str) -> XmlDocument:
         )
         # Return a minimal XmlDocument for error cases
         dummy = etree.Element("dummy")
-        return XmlDocument(
-            path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors
-        )
+        return XmlDocument(path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors)
 
     try:
         parser = etree.XMLParser(recover=False, encoding="utf-8")
         tree = etree.parse(str(file_path), parser)
         root = tree.getroot()
         doc_type = detect_doc_type(root)
-        return XmlDocument(
-            path=file_path, tree=tree, root=root, doc_type=doc_type, errors=errors
-        )
+        return XmlDocument(path=file_path, tree=tree, root=root, doc_type=doc_type, errors=errors)
     except etree.XMLSyntaxError as e:
         errors.append(
             ResultMessage(
@@ -140,9 +132,7 @@ def load_xml(path: Path | str) -> XmlDocument:
             )
         )
         dummy = etree.Element("dummy")
-        return XmlDocument(
-            path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors
-        )
+        return XmlDocument(path=file_path, tree=etree.ElementTree(dummy), root=dummy, errors=errors)
 
 
 def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
@@ -153,9 +143,7 @@ def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
         root = etree.fromstring(content.encode("utf-8"), parser)
         tree = etree.ElementTree(root)
         doc_type = detect_doc_type(root)
-        return XmlDocument(
-            path=Path(path), tree=tree, root=root, doc_type=doc_type, errors=errors
-        )
+        return XmlDocument(path=Path(path), tree=tree, root=root, doc_type=doc_type, errors=errors)
     except etree.XMLSyntaxError as e:
         errors.append(
             ResultMessage(
@@ -167,9 +155,7 @@ def load_xml_string(content: str, path: Path | str = "<string>") -> XmlDocument:
             )
         )
         dummy = etree.Element("dummy")
-        return XmlDocument(
-            path=Path(path), tree=etree.ElementTree(dummy), root=dummy, errors=errors
-        )
+        return XmlDocument(path=Path(path), tree=etree.ElementTree(dummy), root=dummy, errors=errors)
 
 
 def validate_xml_well_formedness(path: Path | str) -> list[ResultMessage]:

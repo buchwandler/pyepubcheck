@@ -56,9 +56,7 @@ def build_profile_context(
         for item in opf.spine
         if item.idref in manifest_by_id and manifest_by_id[item.idref].href
     )
-    collection_roles = frozenset(
-        c.get("role", "") for c in opf.collections if c.get("role")
-    )
+    collection_roles = frozenset(c.get("role", "") for c in opf.collections if c.get("role"))
     dc_types = tuple(opf.metadata.types)
     languages = opf.metadata.languages
     source_language = languages[0] if languages else None

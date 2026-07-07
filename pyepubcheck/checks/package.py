@@ -167,9 +167,7 @@ def _validate_collection_metadata(path: Path, opf) -> list[ResultMessage]:
                 if role == "distributable-object":
                     # Check for dc:identifier in collection metadata
                     has_identifier = False
-                    for dc_id in metadata_el.findall(
-                        "{http://purl.org/dc/elements/1.1/}identifier"
-                    ):
+                    for dc_id in metadata_el.findall("{http://purl.org/dc/elements/1.1/}identifier"):
                         if dc_id.text and dc_id.text.strip():
                             has_identifier = True
                             break
@@ -584,7 +582,9 @@ def _validate_fallback_chains(path: Path, opf) -> list[ResultMessage]:
                     build_message(
                         "RSC-005",
                         path=str(path),
-                        message=f"foreign resource '{item.href}' with media type '{item.media_type}' must have a fallback",
+                        message=(
+                            f"foreign resource '{item.href}' with media type '{item.media_type}' must have a fallback",
+                        ),
                     )
                 )
 
@@ -692,9 +692,7 @@ def run(path: str | Path) -> list[ResultMessage]:
 
     # Validate rendition layout
     if opf.metadata.rendition_layout:
-        errors.extend(
-            _validate_rendition_layout(candidate, opf.metadata.rendition_layout)
-        )
+        errors.extend(_validate_rendition_layout(candidate, opf.metadata.rendition_layout))
 
     # Validate accessibility properties
     errors.extend(_validate_a11y_properties(candidate, opf))

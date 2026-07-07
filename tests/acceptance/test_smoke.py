@@ -31,9 +31,7 @@ def test_validate_known_bad_epub2(fixtures) -> None:
 
 def test_validate_usage_reporting(fixtures) -> None:
     """Smoke test for OPF-003 USAGE on a container resource not in the manifest."""
-    fixture = fixtures.fixture_path(
-        "/epub2/files", "epub/opf-manifest-resource-undeclared-usage"
-    )
+    fixture = fixtures.fixture_path("/epub2/files", "epub/opf-manifest-resource-undeclared-usage")
     if not fixture.exists():
         pytest.skip("opf-manifest-resource-undeclared-usage fixture not found")
 
@@ -46,45 +44,34 @@ def test_validate_usage_reporting(fixtures) -> None:
 
 def test_validate_hyperlinked_document_spine(fixtures) -> None:
     """Smoke test for RSC-011 on a hyperlink to a missing fragment."""
-    fixture = fixtures.fixture_path(
-        "/epub2/files", "epub/ops-xhtml-hyperlink-to-missing-fragment-error"
-    )
+    fixture = fixtures.fixture_path("/epub2/files", "epub/ops-xhtml-hyperlink-to-missing-fragment-error")
     if not fixture.exists():
         pytest.skip("ops-xhtml-hyperlink-to-missing-fragment-error fixture not found")
 
     report = validate_path(fixture)
     errors = [m for m in report.messages if m.severity.value in ("ERROR", "FATAL")]
-    assert any(m.id == "RSC-011" for m in errors), (
-        "Expected an RSC-011 ERROR for a hyperlink to a missing fragment."
-    )
+    assert any(m.id == "RSC-011" for m in errors), "Expected an RSC-011 ERROR for a hyperlink to a missing fragment."
 
 
 def test_validate_html5_doctype_in_epub2(fixtures) -> None:
     """Smoke test for HTML5 DOCTYPE detection in an EPUB 2 single XHTML file."""
-    fixture = fixtures.fixture_path(
-        "/epub2/files", "ops-document-xhtml/doctype-html5-error.xhtml"
-    )
+    fixture = fixtures.fixture_path("/epub2/files", "ops-document-xhtml/doctype-html5-error.xhtml")
     if not fixture.exists():
         pytest.skip("doctype-html5-error.xhtml fixture not found")
 
     report = validate_path(fixture)
     errors = [m for m in report.messages if m.severity.value in ("ERROR", "FATAL")]
-    assert any(m.id == "RSC-005" for m in errors), (
-        "Expected an RSC-005 ERROR for an HTML5 DOCTYPE in EPUB 2."
-    )
+    assert any(m.id == "RSC-005" for m in errors), "Expected an RSC-005 ERROR for an HTML5 DOCTYPE in EPUB 2."
 
 
 def test_validate_profile_tagged_publication(fixtures) -> None:
     """Smoke test for a profile-tagged publication (dict profile)."""
-    fixture = fixtures.fixture_path(
-        "/epub-dictionaries/files", "epub/dictionary-single-valid"
-    )
+    fixture = fixtures.fixture_path("/epub-dictionaries/files", "epub/dictionary-single-valid")
     if not fixture.exists():
         pytest.skip("dictionary-single-valid fixture not found")
 
     report = validate_path(fixture)
     fatal = [m for m in report.messages if m.severity.value in ("ERROR", "FATAL")]
     assert len(fatal) == 0, (
-        f"Expected no fatal errors for a valid dictionary publication, "
-        f"got: {[str(e) for e in fatal]}"
+        f"Expected no fatal errors for a valid dictionary publication, got: {[str(e) for e in fatal]}"
     )

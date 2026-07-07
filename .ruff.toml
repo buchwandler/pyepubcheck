@@ -1,6 +1,5 @@
+line-length = 120
 
-target-version = "py310"
-fix = true
 
 [lint]
 extend-select = [
@@ -18,6 +17,7 @@ exclude = ["setup/*", "notebooks/*"]
 [lint.per-file-ignores]
 "__init__.py" = ["F401", "I001"]  # ignore unused and unsorted imports in __init__.py
 "__manifest__.py" = ["B018"]  # useless expression
+"tests/*" = ["E501"]  # test files have long inline XML strings
 
 [lint.isort]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]

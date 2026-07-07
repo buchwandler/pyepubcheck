@@ -242,9 +242,7 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
             continue
 
         # Scenario Outline line
-        if stripped.startswith("Scenario Outline:") or stripped.startswith(
-            "Scenario Template:"
-        ):
+        if stripped.startswith("Scenario Outline:") or stripped.startswith("Scenario Template:"):
             _save_current_scenario()
             current_scenario_name = stripped.split(":", 1)[1].strip()
             current_scenario_line = i
@@ -270,11 +268,7 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
             continue
 
         # Examples / Scenarios table header
-        if (
-            in_scenario
-            and is_outline
-            and (stripped.startswith("Examples:") or stripped.startswith("Scenarios:"))
-        ):
+        if in_scenario and is_outline and (stripped.startswith("Examples:") or stripped.startswith("Scenarios:")):
             # Finalize any previous table
             if current_table:
                 examples_tables.append(current_table)
@@ -307,10 +301,7 @@ def parse_feature_file(file_path: Path) -> GherkinFeature:  # noqa: C901
 
         # Steps
         if (in_scenario or in_background) and stripped and not stripped.startswith("#"):
-            if any(
-                stripped.startswith(kw)
-                for kw in ("Given", "When", "Then", "And", "But", "*")
-            ):
+            if any(stripped.startswith(kw) for kw in ("Given", "When", "Then", "And", "But", "*")):
                 if in_background:
                     background_steps.append(stripped)
                 else:
@@ -356,7 +347,7 @@ def extract_test_mappings(test_file: Path) -> list[TestMapping]:
     lines = content.splitlines()
     pending_spec_content = None
 
-    for i, line in enumerate(lines, 1):
+    for _i, line in enumerate(lines, 1):
         # Find specmason mapping comments
         spec_match = specmason_re.search(line)
         if spec_match:
@@ -384,11 +375,7 @@ def extract_test_mappings(test_file: Path) -> list[TestMapping]:
             else:
                 # Extract message IDs
                 tags = spec_content.split()
-                message_ids = [
-                    t.replace("@msg-", "")
-                    for t in tags
-                    if t.startswith("@msg-") or "@" not in t
-                ]
+                message_ids = [t.replace("@msg-", "") for t in tags if t.startswith("@msg-") or "@" not in t]
                 # Also extract any bare message IDs
                 message_ids.extend(extract_message_ids(spec_content))
                 message_ids = list(set(message_ids))
@@ -440,9 +427,7 @@ def generate_mapping_report(
         if mapping.scenario:
             covered_scenario_names.add(mapping.scenario.scenario_name)
 
-    uncovered = [
-        s for s in all_scenarios if s.scenario_name not in covered_scenario_names
-    ]
+    uncovered = [s for s in all_scenarios if s.scenario_name not in covered_scenario_names]
 
     return MappingReport(
         total_tests=len(all_mappings),

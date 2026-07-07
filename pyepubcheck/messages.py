@@ -33,9 +33,7 @@ MESSAGES: dict[str, MessageDef] = {
     "CHK-002": MessageDef(Severity.ERROR, "unknown custom message identifier"),
     "CHK-003": MessageDef(Severity.ERROR, "unknown custom message severity"),
     "CHK-004": MessageDef(Severity.ERROR, "invalid custom message placeholders"),
-    "CHK-005": MessageDef(
-        Severity.ERROR, "invalid custom message suggestion placeholders"
-    ),
+    "CHK-005": MessageDef(Severity.ERROR, "invalid custom message suggestion placeholders"),
     "CHK-008": MessageDef(Severity.ERROR, "check configuration error"),
     # CSS messages
     "CSS-001": MessageDef(Severity.ERROR, "disallowed CSS property"),
@@ -96,9 +94,7 @@ MESSAGES: dict[str, MessageDef] = {
     "OPF-053": MessageDef(Severity.ERROR, "OPF version error"),
     "OPF-054": MessageDef(Severity.ERROR, "OPF prefix error"),
     "OPF-055": MessageDef(Severity.ERROR, "OPF dc:type error"),
-    "OPF-060": MessageDef(
-        Severity.ERROR, "duplicate publication resource after normalization"
-    ),
+    "OPF-060": MessageDef(Severity.ERROR, "duplicate publication resource after normalization"),
     "OPF-063": MessageDef(Severity.ERROR, "OPF fallback error"),
     "OPF-065": MessageDef(Severity.ERROR, "OPF media overlay error"),
     "OPF-066": MessageDef(Severity.ERROR, "OPF remote resource error"),
@@ -189,9 +185,7 @@ MESSAGES: dict[str, MessageDef] = {
     "MED-008": MessageDef(Severity.ERROR, "media overlay structure error"),
     "MED-009": MessageDef(Severity.ERROR, "media overlay timing error"),
     "MED-010": MessageDef(Severity.ERROR, "media overlay clip error"),
-    "MED-011": MessageDef(
-        Severity.ERROR, "content document referenced by multiple media overlays"
-    ),
+    "MED-011": MessageDef(Severity.ERROR, "content document referenced by multiple media overlays"),
     "MED-012": MessageDef(Severity.ERROR, "media overlay src error"),
     "MED-013": MessageDef(Severity.ERROR, "media overlay type error"),
     "MED-014": MessageDef(Severity.ERROR, "media overlay id error"),
@@ -288,14 +282,10 @@ def load_custom_message_overrides(
             continue
 
         definition = MESSAGES[message_id]
-        if message_text and placeholder_count(message_text) != placeholder_count(
-            definition.text
-        ):
+        if message_text and placeholder_count(message_text) != placeholder_count(definition.text):
             errors.append(build_message("CHK-004", path=str(override_path)))
             continue
-        if suggestion and placeholder_count(suggestion) != placeholder_count(
-            definition.suggestion
-        ):
+        if suggestion and placeholder_count(suggestion) != placeholder_count(definition.suggestion):
             errors.append(build_message("CHK-005", path=str(override_path)))
             continue
 
