@@ -70,7 +70,7 @@ def _check_html5_elements(path: Path, root) -> list[ResultMessage]:
 
 def _is_epub2_context(path: Path) -> bool:
     """Heuristic: an XHTML file located under the EPUB 2 corpus directory."""
-    return "epub2/files" in str(path)
+    return "epub2/files" in path.as_posix()
 
 
 def _is_epub2_publication(context) -> bool:
