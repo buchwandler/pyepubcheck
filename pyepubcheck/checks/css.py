@@ -101,6 +101,17 @@ def _validate_css_urls(path: Path, content: str) -> list[ResultMessage]:
         ):
             continue
 
+        # Reject file:// URLs
+        if url.startswith("file:"):
+            errors.append(
+                build_message(
+                    "RSC-006",
+                    path=str(path),
+                    message=f"file URL not allowed: '{url}'",
+                )
+            )
+            continue
+
         # Skip fragment-only URLs
         if url.startswith("#"):
             continue
@@ -122,7 +133,9 @@ def _validate_css_urls(path: Path, content: str) -> list[ResultMessage]:
     return errors
 
 
-def run(path: str | Path) -> list[ResultMessage]:
+def run(
+    path: str | Path, *, manifest_hrefs: set[str] | None = None
+) -> list[ResultMessage]:
     """Run CSS content document checks."""
     candidate = Path(path)
     errors: list[ResultMessage] = []
@@ -208,7 +221,7 @@ def run(path: str | Path) -> list[ResultMessage]:
     errors.extend(_validate_css_urls(candidate, content))
 
     # Validate CSS @import
-    errors.extend(_validate_css_import(candidate, content, css_dir))
+    errors.extend(_validate_css_import(candidate, content, css_dir, manifest_hrefs))
 
     # Validate CSS @font-face
     errors.extend(_validate_css_font_face(candidate, content))
@@ -248,7 +261,7 @@ def _validate_css_encoding(path: Path, content: str) -> list[ResultMessage]:
 
 
 def _validate_css_import(
-    path: Path, content: str, css_dir: Path
+    path: Path, content: str, css_dir: Path, manifest_hrefs: set[str] | None = None
 ) -> list[ResultMessage]:
     """Validate CSS @import statements."""
     errors: list[ResultMessage] = []
@@ -271,6 +284,14 @@ def _validate_css_import(
                     "RSC-001",
                     path=str(path),
                     message=f"@import resource not found: '{url}'",
+                )
+            )
+        elif manifest_hrefs is not None and url not in manifest_hrefs:
+            errors.append(
+                build_message(
+                    "RSC-008",
+                    path=str(path),
+                    message=f"@import resource '{url}' not declared in manifest",
                 )
             )
 

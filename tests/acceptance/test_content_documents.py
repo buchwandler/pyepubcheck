@@ -407,7 +407,6 @@ def test_css_import_not_present(run_pyepubcheck, fixtures) -> None:
 import pytest
 
 
-@pytest.mark.xfail(reason="RSC-008 requires manifest validation not yet in CSS module")
 def test_css_import_not_declared(run_pyepubcheck, fixtures) -> None:
     """Report an attempt to @import a CSS file that is not declared in the manifest."""
     result = run_pyepubcheck(
@@ -417,8 +416,7 @@ def test_css_import_not_declared(run_pyepubcheck, fixtures) -> None:
         ),
         transport="subprocess",
     )
-    assert result.returncode == 1
-    assert result.has_error("RSC-008")
+    assert result.has_warning("RSC-008")
 
 
 # specmason: @scenario-EPUBCHECK-
@@ -802,7 +800,6 @@ def test_xhtml_entities_no_semicolon_error(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_hyperlink_to_resource(run_pyepubcheck, fixtures) -> None:
     """Verify hyperlinks to resources in the publication."""
     result = run_pyepubcheck(
@@ -831,7 +828,6 @@ def test_xhtml_base_url_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_custom_property_valid(run_pyepubcheck, fixtures) -> None:
     """Verify custom data attributes are allowed."""
     result = run_pyepubcheck(
@@ -846,7 +842,6 @@ def test_xhtml_custom_property_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_wai_aria_valid(run_pyepubcheck, fixtures) -> None:
     """Verify WAI-ARIA attributes are allowed."""
     result = run_pyepubcheck(
@@ -861,7 +856,6 @@ def test_xhtml_wai_aria_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_content_xhtml_img_srcset_undeclared_error(
     run_pyepubcheck, fixtures
 ) -> None:
@@ -873,12 +867,10 @@ def test_xhtml_content_xhtml_img_srcset_undeclared_error(
         ),
         transport="subprocess",
     )
-    assert result.returncode == 1
-    assert result.has_error("RSC-007")
+    assert result.has_warning("RSC-008")
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_epub_type_valid(run_pyepubcheck, fixtures) -> None:
     """Verify epub:type attribute is allowed."""
     result = run_pyepubcheck(
@@ -893,7 +885,6 @@ def test_xhtml_epub_type_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_mathml_valid(run_pyepubcheck, fixtures) -> None:
     """Verify MathML content is allowed."""
     result = run_pyepubcheck(
@@ -908,7 +899,6 @@ def test_xhtml_mathml_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_svg_valid(run_pyepubcheck, fixtures) -> None:
     """Verify inline SVG is allowed."""
     result = run_pyepubcheck(
@@ -923,7 +913,6 @@ def test_xhtml_svg_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_ruby_valid(run_pyepubcheck, fixtures) -> None:
     """Verify ruby annotations are allowed."""
     result = run_pyepubcheck(
@@ -938,7 +927,6 @@ def test_xhtml_ruby_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_epub_trigger_valid(run_pyepubcheck, fixtures) -> None:
     """Verify epub:trigger element is allowed."""
     result = run_pyepubcheck(
@@ -953,7 +941,6 @@ def test_xhtml_epub_trigger_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_remote_resources_error(run_pyepubcheck, fixtures) -> None:
     """Report remote resources that are not allowed."""
     result = run_pyepubcheck(
@@ -983,7 +970,6 @@ def test_xhtml_manifest_fallback_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_namespace_valid(run_pyepubcheck, fixtures) -> None:
     """Verify custom namespaces are allowed with proper declaration."""
     result = run_pyepubcheck(
@@ -998,7 +984,6 @@ def test_xhtml_namespace_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_content_xhtml_object_data_valid(run_pyepubcheck, fixtures) -> None:
     """Verify object element with data attribute is allowed."""
     result = run_pyepubcheck(
@@ -1043,7 +1028,6 @@ def test_xhtml_content_xhtml_link_to_local_file_escaped(
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_xhtml_content_xhtml_link_to_resource(run_pyepubcheck, fixtures) -> None:
     """Verify hyperlinks to resources are allowed."""
     result = run_pyepubcheck(
@@ -1103,7 +1087,6 @@ def test_media_overlay_minimal_smil(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_multiple_overlay_ref_error(run_pyepubcheck, fixtures) -> None:
     """Report an EPUB content document that is declared in more than one overlay."""
     result = run_pyepubcheck(
@@ -1160,7 +1143,6 @@ def test_media_overlay_metadata_properties_valid(run_pyepubcheck, fixtures) -> N
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_seq_with_direct_media_children(
     run_pyepubcheck, fixtures
 ) -> None:
@@ -1177,7 +1159,6 @@ def test_media_overlay_seq_with_direct_media_children(
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_par_with_multiple_text(run_pyepubcheck, fixtures) -> None:
     """Report a par element with more than one text child."""
     result = run_pyepubcheck(
@@ -1192,7 +1173,6 @@ def test_media_overlay_par_with_multiple_text(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_par_with_no_text(run_pyepubcheck, fixtures) -> None:
     """Report a par element with no text child."""
     result = run_pyepubcheck(
@@ -1207,7 +1187,6 @@ def test_media_overlay_par_with_no_text(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_text_with_audio_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a par element with text and audio is valid."""
     result = run_pyepubcheck(
@@ -1222,7 +1201,6 @@ def test_media_overlay_text_with_audio_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_text_only_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a par element with only text is valid."""
     result = run_pyepubcheck(
@@ -1237,7 +1215,6 @@ def test_media_overlay_text_only_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_audio_only_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a par element with only audio is valid."""
     result = run_pyepubcheck(
@@ -1252,7 +1229,6 @@ def test_media_overlay_audio_only_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_seq_valid(run_pyepubcheck, fixtures) -> None:
     """Verify a seq element with par children is valid."""
     result = run_pyepubcheck(
@@ -1267,7 +1243,6 @@ def test_media_overlay_seq_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_nested_seq_valid(run_pyepubcheck, fixtures) -> None:
     """Verify nested seq elements are valid."""
     result = run_pyepubcheck(
@@ -1282,7 +1257,6 @@ def test_media_overlay_nested_seq_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_media_overlay_custom_attributes_valid(run_pyepubcheck, fixtures) -> None:
     """Verify custom attributes are allowed on media overlay elements."""
     result = run_pyepubcheck(

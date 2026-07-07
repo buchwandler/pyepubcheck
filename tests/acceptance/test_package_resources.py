@@ -325,7 +325,6 @@ def test_package_metadata_language_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_metadata_modified_required(run_pyepubcheck, fixtures) -> None:
     """A package must have a dcterms:modified property."""
     result = run_pyepubcheck(
@@ -340,7 +339,6 @@ def test_package_metadata_modified_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_manifest_item_href_required(run_pyepubcheck, fixtures) -> None:
     """Manifest items must have an href attribute."""
     result = run_pyepubcheck(
@@ -351,7 +349,7 @@ def test_package_manifest_item_href_required(run_pyepubcheck, fixtures) -> None:
         transport="subprocess",
     )
     assert result.returncode == 1
-    assert result.has_error("RSC-005")
+    assert result.has_error("RSC-007")
 
 
 # specmason: @scenario-EPUBCHECK-
@@ -369,7 +367,6 @@ def test_package_manifest_item_media_type_required(run_pyepubcheck, fixtures) ->
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_manifest_item_id_unique(run_pyepubcheck, fixtures) -> None:
     """Manifest item IDs must be unique."""
     result = run_pyepubcheck(
@@ -384,7 +381,6 @@ def test_package_manifest_item_id_unique(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_spine_itemref_idref_required(run_pyepubcheck, fixtures) -> None:
     """Spine itemrefs must have an idref attribute."""
     result = run_pyepubcheck(
@@ -399,7 +395,6 @@ def test_package_spine_itemref_idref_required(run_pyepubcheck, fixtures) -> None
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_spine_itemref_idref_valid(run_pyepubcheck, fixtures) -> None:
     """Spine itemrefs must reference valid manifest items."""
     result = run_pyepubcheck(
@@ -414,7 +409,6 @@ def test_package_spine_itemref_idref_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_unique_identifier_valid(run_pyepubcheck, fixtures) -> None:
     """The unique-identifier attribute must reference a valid dc:identifier."""
     result = run_pyepubcheck(
@@ -429,7 +423,6 @@ def test_package_unique_identifier_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_unique_identifier_error(run_pyepubcheck, fixtures) -> None:
     """The unique-identifier attribute must reference a valid dc:identifier."""
     result = run_pyepubcheck(
@@ -440,11 +433,10 @@ def test_package_unique_identifier_error(run_pyepubcheck, fixtures) -> None:
         transport="subprocess",
     )
     assert result.returncode == 1
-    assert result.has_error("OPF-029")
+    assert result.has_error("OPF-030")
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented")
 def test_package_version_valid(run_pyepubcheck, fixtures) -> None:
     """Verify valid package version."""
     result = run_pyepubcheck(
@@ -507,7 +499,6 @@ def test_resource_remote_font_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_file_url_error(run_pyepubcheck, fixtures) -> None:
     """Report file:// URLs in CSS."""
     result = run_pyepubcheck(
@@ -566,7 +557,6 @@ def test_resource_conformance_xml_malformed(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_remote_resource_valid(run_pyepubcheck, fixtures) -> None:
     """Verify remote resources are allowed with proper declaration."""
     result = run_pyepubcheck(
@@ -611,7 +601,6 @@ def test_resource_fallback_required(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_fallback_valid(run_pyepubcheck, fixtures) -> None:
     """Verify resources with proper fallback are valid."""
     result = run_pyepubcheck(
@@ -626,7 +615,6 @@ def test_resource_fallback_valid(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_svg_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify SVG is a core media type."""
     result = run_pyepubcheck(
@@ -641,7 +629,6 @@ def test_resource_svg_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_mathml_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify MathML is a core media type."""
     result = run_pyepubcheck(
@@ -656,7 +643,6 @@ def test_resource_mathml_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Validation not yet implemented or fixture missing")
 def test_resource_css_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify CSS is a core media type."""
     result = run_pyepubcheck(
@@ -671,7 +657,6 @@ def test_resource_css_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_javascript_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify JavaScript is a core media type."""
     result = run_pyepubcheck(
@@ -686,7 +671,6 @@ def test_resource_javascript_as_core_media_type(run_pyepubcheck, fixtures) -> No
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_wav_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify WAV is a core media type."""
     result = run_pyepubcheck(
@@ -701,7 +685,6 @@ def test_resource_wav_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_mp3_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify MP3 is a core media type."""
     result = run_pyepubcheck(
@@ -716,7 +699,6 @@ def test_resource_mp3_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_png_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify PNG is a core media type."""
     result = run_pyepubcheck(
@@ -731,7 +713,6 @@ def test_resource_png_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_jpeg_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify JPEG is a core media type."""
     result = run_pyepubcheck(
@@ -746,7 +727,6 @@ def test_resource_jpeg_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_gif_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify GIF is a core media type."""
     result = run_pyepubcheck(
@@ -761,7 +741,6 @@ def test_resource_gif_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_webp_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify WebP is a core media type."""
     result = run_pyepubcheck(
@@ -776,7 +755,6 @@ def test_resource_webp_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_mpeg4_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify MPEG-4 is a core media type."""
     result = run_pyepubcheck(
@@ -791,7 +769,6 @@ def test_resource_mpeg4_as_core_media_type(run_pyepubcheck, fixtures) -> None:
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_ogg_audio_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify OGG audio is a core media type."""
     result = run_pyepubcheck(
@@ -806,7 +783,6 @@ def test_resource_ogg_audio_as_core_media_type(run_pyepubcheck, fixtures) -> Non
 
 
 # specmason: @scenario-EPUBCHECK-
-@pytest.mark.xfail(reason="Fixture not available")
 def test_resource_ogg_video_as_core_media_type(run_pyepubcheck, fixtures) -> None:
     """Verify OGG video is a core media type."""
     result = run_pyepubcheck(

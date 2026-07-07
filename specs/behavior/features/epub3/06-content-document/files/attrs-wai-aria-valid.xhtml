@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta charset="utf-8"/><title>WAI-ARIA</title></head>
+<body>
+<main role="main" aria-live="polite">
+  <h1 id="heading" aria-describedby="desc">Title</h1>
+  <p id="desc" role="doc-subtitle">Description</p>
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="test" aria-hidden="false"/>
+  <p aria-label="Important">Note</p>
+  <button aria-expanded="false" aria-controls="panel1">Toggle</button>
+  <div id="panel1" role="region" aria-labelledby="heading">Panel</div>
+</main>
+</body>
+</html>

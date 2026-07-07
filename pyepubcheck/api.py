@@ -8,7 +8,12 @@ from pyepubcheck.checks.css import run as run_css_checks
 from pyepubcheck.checks.epub2 import run as run_epub2_checks
 from pyepubcheck.checks.epub2 import run_ncx as run_ncx_checks
 from pyepubcheck.checks.layout import run as run_layout_checks
-from pyepubcheck.checks.media_overlays import run as run_media_overlay_checks
+from pyepubcheck.checks.media_overlays import (
+    check_cross_overlay_references,
+)
+from pyepubcheck.checks.media_overlays import (
+    run as run_media_overlay_checks,
+)
 from pyepubcheck.checks.navigation import run as run_navigation_checks
 from pyepubcheck.checks.ocf import run as run_ocf_checks
 from pyepubcheck.checks.package import run as run_package_checks
@@ -119,6 +124,7 @@ def validate_path(
                 run_usage_checks(opf_path, _collect_files_from_directory(resolved))
             )
 
+            smil_paths: list[Path] = []
             for item in opf.manifest:
                 item_path = opf_dir / item.href
                 if not item_path.exists():
@@ -143,9 +149,12 @@ def validate_path(
                 elif item.media_type == "image/svg+xml":
                     report.messages.extend(run_svg_checks(item_path))
                 elif item.media_type == "text/css":
-                    report.messages.extend(run_css_checks(item_path))
+                    report.messages.extend(
+                        run_css_checks(item_path, manifest_hrefs=manifest_hrefs)
+                    )
                 elif item.media_type == "application/smil+xml":
                     report.messages.extend(run_media_overlay_checks(item_path))
+                    smil_paths.append(item_path)
                 elif item.media_type == "application/x-dtbncx+xml":
                     report.messages.extend(run_ncx_checks(item_path, opf_path=opf_path))
                 # Validate external identifiers for XML content
@@ -166,6 +175,10 @@ def validate_path(
                         )
                     except Exception:
                         pass
+
+            # Cross-file media overlay reference check
+            if len(smil_paths) > 1:
+                report.messages.extend(check_cross_overlay_references(smil_paths))
     else:
         if resolved.suffix.lower() == ".ncx":
             report.messages.extend(run_ncx_checks(resolved))

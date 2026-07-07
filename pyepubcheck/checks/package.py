@@ -740,6 +740,13 @@ def _validate_spine_itemrefs(path: Path, opf) -> list[ResultMessage]:
     for itemref in spine_el.findall(f"{{{OPF_NS}}}itemref"):
         idref = itemref.get("idref", "")
         if not idref:
+            errors.append(
+                build_message(
+                    "RSC-005",
+                    path=str(path),
+                    message="spine itemref missing 'idref' attribute",
+                )
+            )
             continue
 
         # Check if idref references a manifest item
